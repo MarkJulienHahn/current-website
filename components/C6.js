@@ -26,6 +26,7 @@ const Layer06 = ({changed, configuration}) => {
     <div
       className={style.horizontal}
       style={{ background: colorArray[index], display: "flex", flexWrap: "wrap" }}
+      onClick={changed && !changedCurrent ? () => changeColor() : null}
       onContextMenu={changed && !changedCurrent ? () => changeColor() : null}
     >
 

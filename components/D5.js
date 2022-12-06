@@ -14,7 +14,7 @@ const Layer04 = ({changed, configuration}) => {
   ];
 
   const changeIndex = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length)), setChanged(true);
+    setIndex(Math.floor(Math.random() * colorArray.length));
   };
 
   const changeColor = () => {
@@ -26,6 +26,7 @@ const Layer04 = ({changed, configuration}) => {
       className={style.horizontal}
       style={{ background: colorArray[index] }}
       onContextMenu={changed && !changedCurrent ? () => changeColor() : null}
+      onClick={changed && !changedCurrent ? () => changeIndex() : null}
     >
 
     </div>

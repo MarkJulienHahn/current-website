@@ -1,0 +1,8 @@
+.squareWrapper {
+    width: 100%;
+    height: 100%;
+}
+.squareInner {
+    width: 50%;
+    height: 50%;
+}

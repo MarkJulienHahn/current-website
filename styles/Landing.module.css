@@ -1,0 +1,67 @@
+.landingInner {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  overflow:hidden;
+}
+
+.flex01 {
+  display: flex;
+}
+
+.A {
+  width: 50%;
+  height: 53.2%;
+}
+
+.B1 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+.A_row {
+  height: 50vh;
+  width: 100%;
+}
+.B_row {
+  display: flex;
+  height: 50%;
+  width: 100%;
+}
+
+.C_row {
+  display: flex;
+  height: 25%;
+  width: 100%;
+}
+.D_row {
+  display: flex;
+  height: 12.5%;
+  width: 100%;
+}
+.E_row {
+  display: flex;
+  height: 6.25%;
+  width: 100%;
+}
+.horizontal {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  pointer-events: "auto";
+}
+
+.vertical {
+  width: 50%;
+  height: 100%;
+  pointer-events: "auto";
+}
+
+.horizontal_frst {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  pointer-events: "auto";
+}

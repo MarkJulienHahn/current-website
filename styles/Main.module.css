@@ -167,9 +167,11 @@
   }
   .teamRight {
     padding-bottom: 30px;
+    padding-left: 10px;
   }
   .teamLeftHeadline {
     height: 80px;
+    padding-left: 10px;
   }
   .downloadContent {
     padding: 10px;

@@ -123,11 +123,11 @@ const Infosection = ({ english, intro, about }) => {
         >
           {!mobileText2
             ? english
-              ? "Read More..."
+              ? "Read more..."
               : "Mehr lesen.."
             : english
-            ? "Read More..."
-            : "Mehr lesen.."}
+            ? "Show less..."
+            : "Weniger lesen.."}
         </div>
       </div>
     </div>

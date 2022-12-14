@@ -1,0 +1,100 @@
+.navWrapper {
+  position: fixed;
+  top: 0;
+  height: 65px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -2.5px;
+  font-family: "Activist";
+  z-index: 100;
+}
+
+.navLeft,
+.navRight {
+  width: 50vw;
+  height: 100%;
+  padding: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.navLeft {
+  z-index: 101;
+}
+
+.navRightTop {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu {
+  text-align: right;
+  width: 150px;
+}
+
+.menuSub {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.6s ease;
+}
+
+.mobileNavWrapper {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .navWrapper {
+    display: none;
+  }
+  .mobileNavWrapper {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    padding: 5px;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 40px;
+    font-family: "Activist";
+    text-align: right;
+    z-index: 100;
+    transition: background-color 0.2s ease;
+  }
+  .mobileLogoWrapper {
+    width: 320px;
+    z-index: 101;
+  }
+  .mobileMenuButton {
+    width: 25vw;
+  }
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 35px;
+    right: 0;
+    width: 50vw;
+    height: 50vw;
+    padding-top: 10px;
+    padding-right: 5px;
+    transition: transform 0.5s ease;
+  }
+  .mobileMenuRed {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 35px;
+    right: 0;
+    background: var(--red);
+    width: 50vw;
+    height: 50vw;
+    padding-right: 5px;
+    transition: transform 0.5s ease;
+    background: var(--red)
+  }
+}

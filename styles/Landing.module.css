@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .flex01 {
@@ -12,7 +12,7 @@
 }
 
 .A {
-  width: 50%;
+  width: 100%;
   height: 53.2%;
 }
 
@@ -64,4 +64,30 @@
   height: 100%;
   display: flex;
   pointer-events: "auto";
+}
+
+.mainTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.mainTitle h1 {
+  font-size: 28vw;
+  letter-spacing: -2.8vw;
+  transform: translateX(-1.5vw);
+  color: white;
+  mix-blend-mode: difference;
+}
+
+@media screen and (max-width: 700px) {
+  .mainTitle {
+    height: calc(100vh + 30px);
+  }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import styles from "../styles/Landing.module.css";
+import styles from "../../styles/Landing.module.css";
 import L01_T from "./L01_T";
 import L01_B from "./L01_B";
 

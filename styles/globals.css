@@ -2,25 +2,97 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-size: 27px;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Rubik";
+  font-style: normal;
+  src: url(../public/fonts/Rubik-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Activist";
+  font-style: normal;
+  src: url(../public/fonts/Activist.otf) format("opentype");
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+:root {
+  --green: #005800;
+  --red: #ff3d00;
+  --pink: #ffa0ff;
+  --blue: #00beff;
+}
+
+::selection {
+  background: black;
+  color: white;
+}
+
+h1 {
+  font-size: 55px;
+  font-family: "Activist";
+  font-weight: 100;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 27.5px;
+  line-height: 30px;
+  font-family: "Activist";
+  font-weight: 20;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+li,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.anchor {
+  position: absolute;
+  transform: translateY(-65px);
+  width: 100vw;
+  height: 65px;
+}
+
+@media screen and (max-width: 700px) {
   body {
-    color: white;
-    background: black;
+    font-size: 12pt;
+  }
+  main {
+    overflow: hidden;
+  }
+  h1, h2 {
+    font-size: 25px;
+    letter-spacing: -2px;
+  }
+
+  .anchor {
+    transform: translateY(-35px);
+    height: 35px;
   }
 }

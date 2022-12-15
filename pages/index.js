@@ -17,7 +17,7 @@ import styles from "../styles/Landing.module.css";
 
 import client from "../client";
 
-const Index = ({ intro, about, team, downloads, impressum, logos }) => {
+const Index = ({ intro, about, team, downloads, impressum, logos, marquee }) => {
   const [index, setIndexA] = useState(null);
   const [english, setEnglish] = useState(false);
   const [scrollPosition, setScrollPosition] = useState("");
@@ -130,6 +130,7 @@ const Index = ({ intro, about, team, downloads, impressum, logos }) => {
           team={team}
           downloads={downloads}
           logos={logos}
+          marquee={marquee[0]}
         />
 
         <Footer english={english} impressum={impressum} />
@@ -154,6 +155,9 @@ export async function getStaticProps() {
   const logos = await client.fetch(
     `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );
+  const marquee = await client.fetch(
+    `* [_type == "marquee"]{...}`
+  );
   return {
     props: {
       intro,
@@ -162,6 +166,7 @@ export async function getStaticProps() {
       downloads,
       impressum,
       logos,
+      marquee
     },
     revalidate: 10,
   };

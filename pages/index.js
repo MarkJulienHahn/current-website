@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { useInView } from "react-intersection-observer";
 
 import A from "../components/animation/A";
 import B1 from "../components/animation/B1";
@@ -51,7 +50,7 @@ const Index = ({ intro, about, team, downloads, impressum, logos, marquee }) => 
   });
 
   useEffect(() => {
-    if (scrollPosition > ref.current.clientHeight) {
+    if (scrollPosition > 1) {
       setRefInView(true);
     } else {
       setRefInView(false);

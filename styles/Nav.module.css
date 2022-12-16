@@ -10,14 +10,15 @@
   letter-spacing: -2.5px;
   font-family: "Activist";
   z-index: 100;
+  pointer-events: none;
 }
 
 .navLeft,
 .navRight {
   width: 50vw;
   height: 100%;
-  padding: 3px;
-  transition: background-color 0.2s ease;
+  padding: 4px 8px 4px 4px;
+
 }
 
 .navLeft {
@@ -32,6 +33,7 @@
 .menu {
   text-align: right;
   width: 150px;
+  pointer-events: auto;
 }
 
 .menuSub {
@@ -39,10 +41,29 @@
   display: flex;
   justify-content: space-between;
   transition: transform 0.6s ease;
+  pointer-events: auto;
 }
 
 .mobileNavWrapper {
   display: none;
+}
+
+.navLogoWide, .navLogoSmall {
+  pointer-events: auto;
+}
+
+.navLogoSmall {
+  display: none;
+}
+
+@media screen and (max-width: 1720px) {
+  .navLogoWide {
+    display: none;
+  }
+  .navLogoSmall {
+    padding-top: 4  px;
+    display: block;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -55,47 +76,52 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 35px;
-    padding: 5px;
+    height: 78px;
+    padding: 10px;
     justify-content: space-between;
-    font-size: 14px;
-    line-height: 40px;
+    font-size: 22px;
+    line-height: 44px;
+    letter-spacing: -1px;
     font-family: "Activist";
     text-align: right;
     z-index: 100;
     transition: background-color 0.2s ease;
   }
   .mobileLogoWrapper {
-    width: 240px;
+    position: absolute;
+    left: 0;
+    width: 276px;
+    top: 0;
     z-index: 101;
   }
   .mobileMenuButton {
+    position: absolute;
+    right: 10px;
     width: 25vw;
+    transform: translateY(-15px)
   }
   .mobileMenu {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 35px;
+    top: 78px;
     right: 0;
     width: 50vw;
     height: 50vw;
-    padding-top: 10px;
-    padding-right: 5px;
-    transition: transform 0.5s ease;
+    padding: 10px;
+
+    /* transition: transform 0.5s ease; */
   }
   .mobileMenuRed {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 35px;
+    top: 78px;
     right: 0;
-    background: var(--red);
     width: 50vw;
     height: 50vw;
-    padding-top: 10px;
-    padding-right: 5px;
+    padding: 10px;
     transition: transform 0.5s ease;
-    background: var(--red)
+    background: var(--red);
   }
 }

@@ -3,8 +3,8 @@ import style from "../../styles/Landing.module.css";
 import D4 from "../animation/D4";
 
 const Layer03 = ({changed, colorArray}) => {
-  const [index, setIndex] = useState(null);
-  const [changedCurrent, setChangedCurrent] = useState(null);
+  const [indexD3, setIndexD3] = useState(null);
+  const [changedD3, setChanged] = useState(true);
 
   const changeIndex = () => {
     setIndex(Math.floor(Math.random() * colorArray.length)), setChangedCurrent(true);
@@ -15,18 +15,18 @@ const Layer03 = ({changed, colorArray}) => {
   }
 
   useEffect(() => {
-    setIndex(Math.floor(Math.random() * colorArray.length));
+    setIndexD3(Math.floor(Math.random() * colorArray.length));
   }, []);
 
   return (
     <div
       className={style.vertical}
-      style={{ background: colorArray[index], display: "flex"  }}
-      onClick={changed && !changedCurrent ? () => changeIndex() : null}
-      onMouseEnter={!changedCurrent ? () => changeColor() : null}
+      style={{ background: colorArray[indexD3], display: "flex"  }}
+      // onClick={changed && !changedCurrent ? () => changeIndex() : null}
+      // onMouseEnter={!changedCurrent ? () => changeColor() : null}
     >
-      <D4 colorArray={colorArray} changed={changedCurrent}/>
-      <D4 colorArray={colorArray} changed={changedCurrent}/>
+      <D4 colorArray={colorArray} changedD3={changedD3} indexD3={indexD3}/>
+      <D4 colorArray={colorArray} changedD3={changedD3} indexD3={indexD3}/>
     </div>
   );
 };

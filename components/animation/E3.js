@@ -5,8 +5,10 @@ const Layer03 = ({ colorArray, color }) => {
   const [index, setIndex] = useState(null);
 
   const changeColor = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length))
-  }
+    if (index +1 < colorArray.length) 
+    {setIndex(index + 1)}
+    else setIndex(0);
+  };
 
   useEffect(() => {
     setIndex(Math.floor(Math.random() * colorArray.length));
@@ -21,7 +23,6 @@ const Layer03 = ({ colorArray, color }) => {
           : { background: colorArray[index] }
       }
       onClick={() => changeColor()}
-      onMouseEnter={() => changeColor()}
     ></div>
   );
 };

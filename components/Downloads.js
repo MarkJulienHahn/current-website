@@ -40,7 +40,7 @@ const Downloads = ({ english, downloads }) => {
                   key={j}
                 >
                   <div className={styles.downloadRow}>
-                    <p style={{ textTransform: "uppercase" }}>
+                    <p className={styles.fileExtension}>
                       ({item.file.extension})
                     </p>
                     <p>{english ? item.beschreibungEN : item.beschreibungDE}</p>

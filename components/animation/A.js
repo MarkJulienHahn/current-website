@@ -12,7 +12,7 @@ const Layer01 = ({ colorArray, indexA, setIndexA }) => {
   };
 
   const changeColor = () => {
-    if (indexA < colorArray.length) setIndexA(indexA + 1);
+    if (indexA +1 < colorArray.length) setIndexA(indexA + 1);
     else setIndexA(0);
   };
 
@@ -25,7 +25,7 @@ const Layer01 = ({ colorArray, indexA, setIndexA }) => {
       className={style.A}
       style={{ background: colorArray[indexA] }}
       onClick={() => setChangedA(true)}
-      // onMouseEnter={!changedA ? () => changeColor() : null}
+      onMouseEnter={!changedA ? () => changeColor() : null}
     >
       <div
         style={{

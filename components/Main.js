@@ -12,9 +12,9 @@ const Main = ({ english, intro, about, team, downloads, logos, marquee }) => {
   return (
     <div>
       <Infosection english={english} intro={intro} about={about} />
-      <Marquee gradient={false}>
+      <Marquee gradient={false} direction={"right"}>
         <a href={marquee.link} target="_blank" rel="noreferrer">
-          <div className={styles.marquee}>
+          <div className={styles.marquee} style={{marginLeft: -1}}>
             <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
             <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
             <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>

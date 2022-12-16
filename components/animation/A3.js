@@ -7,31 +7,26 @@ const A3 = ({ indexA2, changedA2, colorArray }) => {
   const [changedA3, setChangedA3] = useState(null);
 
   const changeIndex = () => {
-    if (indexA2 +1 < colorArray.length) 
-
-    {setIndexA3(indexA2 + 1), setChangedA3(true)}
-    else setIndexA3(0);
+    if (indexA2 +1 < colorArray.length) {
+      setIndexA3(indexA2 + 1), setChangedA3(true);
+    } else setIndexA3(0), setChangedA3(true);
   };
 
   const changeColor = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length));
-  };
-
-  // useEffect(() => {
-  //   if (changedA2 && !changedA3) {
-  //     setChangedA3(true)
-  //   }
-  // })
+    if (indexA3 < colorArray.length) 
+    {setIndexA3(indexA3 + 1)}
+    else setIndexA3(0);
+  }
 
   return (
     <div
       className={style.horizontal}
-      style={{ background: colorArray[indexA3]}}
+      style={{ background: colorArray[indexA3] }}
       onClick={changedA2 && !changedA3 ? () => changeIndex() : null}
-      // onMouseEnter={changedCurrent ? () => changeColor() : null}
+      // onMouseEnter={changedA2 ? () => changeColor() : null}
     >
-      <A4 colorArray={colorArray} changedA3={changedA2} indexA3={indexA3}/>
-      <A4 colorArray={colorArray} changedA3={changedA2} indexA3={indexA3}/>
+      <A4 colorArray={colorArray} changedA3={changedA3} indexA3={indexA3} />
+      <A4 colorArray={colorArray} changedA3={changedA3} indexA3={indexA3} />
     </div>
   );
 };

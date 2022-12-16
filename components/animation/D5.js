@@ -1,28 +1,28 @@
 import { useState, useEffect } from "react";
 import style from "../../styles/Landing.module.css";
 
-const Layer04 = ({changed, colorArray}) => {
-  const [index, setIndex] = useState(null);
-  const [changedCurrent, setChanged] = useState(null);
+const Layer05 = ({ colorArray, indexD4, changedD4 }) => {
+  const [indexD5, setIndexD5] = useState(null);
+  const [changedD5, setChanged] = useState(null);
 
   const changeIndex = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length));
+    if (indexD5 + 1 < colorArray.length) {
+      setIndexD5(indexD5 + 1), setChanged(true);
+    } else setIndexD5(0), setChanged(true);
   };
 
   const changeColor = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length))
-  }
+    setIndex(Math.floor(Math.random() * colorArray.length));
+  };
 
   return (
     <div
       className={style.horizontal}
-      style={{ background: colorArray[index] }}
-      onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}
-      onClick={changed && !changedCurrent ? () => changeIndex() : null}
-    >
-
-    </div>
+      style={{ background: colorArray[indexD5] }}
+      // onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}
+      onClick={changedD4 ? () => changeIndex() : null}
+    ></div>
   );
 };
 
-export default Layer04;
+export default Layer05;

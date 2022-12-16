@@ -3,8 +3,14 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Rubik", sans-serif;
-  font-size: 27px;
+  font-size: 23px;
   font-weight: 100;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 @font-face {
@@ -45,7 +51,7 @@ a {
 }
 
 h1 {
-  font-size: 55px;
+  font-size: 48px;
   font-family: "Activist";
   font-weight: 100;
   letter-spacing: -2px;
@@ -87,8 +93,8 @@ ul {
     overflow: hidden;
   }
   h1, h2 {
-    font-size: 25px;
-    letter-spacing: -2px;
+    font-size: 22px;
+    letter-spacing: -1px;
   }
 
   .anchor {

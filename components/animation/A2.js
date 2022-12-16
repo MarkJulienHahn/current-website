@@ -10,27 +10,21 @@ const A2 = ({changedA, colorArray, indexA}) => {
     if (indexA +1 < colorArray.length) 
 
     {setIndexA2(indexA + 1), setChangedA2(true)}
-    else setIndexA2(0);
+    else setIndexA2(0), setChangedA2(true);
   };
 
-  // const changeColor = () => {
-  //   if (indexA < colorArray.length) 
-  //   {setIndexA2(indexA + 1)}
-  //   else setIndexA2(0);
-  // }
-
-  useEffect(() => {
-    if (changedA && !changedA2) {
-      setChangedA2(true)
-    }
-  })
+  const changeColor = () => {
+    if (indexA2 < colorArray.length) 
+    {setIndexA2(indexA2 + 1)}
+    else setIndexA2(0);
+  }
 
   return (
     <div
       className={style.vertical}
       style={{ background: colorArray[indexA2]}}
       onClick={!changedA2 ? () => changeIndex() : null}
-      // onMouseEnter={changedA && !changedA2 ? () => changeColor() : null}
+      // onMouseEnter={changedA2 ? () => changeColor() : null}
     >
       <A3 colorArray={colorArray} changedA2={changedA2} indexA2={indexA2}/>
       <A3 colorArray={colorArray} changedA2={changedA2} indexA2={indexA2}/>

@@ -15,13 +15,11 @@ const Footer = ({ english, impressum }) => {
       left: 0,
       behavior: "smooth",
     });
-
-  console.log(ref2.current.offsetTop - 500)
   };
 
   const showImpressum = () => {
     setTimeout(scrollToRef, 500);
-    setImpr(!impr);
+    setImpr(1);
   };
 
 

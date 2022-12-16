@@ -5,9 +5,19 @@ import Image from "next/image";
 import styles from "../styles/Nav.module.css";
 import logo from "../public/images/Current-Logo.svg";
 import logoMobile from "../public/images/Current-Logo-2023_mobile-01.svg";
+import logo3 from "../public/images/Current-Logo-2023.svg";
 
 const Nav = ({ english, setEnglish, refInView }) => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const showMenuAgain = () => {
+    clearTimeout(hideMenu);
+    setShowMenu(true)
+  }
+
+  const hideMenu = () => {
+    setTimeout(() => setShowMenu(false), 2000)
+  }
 
   return (
     <>
@@ -20,9 +30,16 @@ const Nav = ({ english, setEnglish, refInView }) => {
               : { background: "transparent" }
           }
         >
-          <a href="#main">
-            <Image src={logo} height={22.4} />
-          </a>
+          <div className={styles.navLogoWide}>
+            <a href="#main">
+              <Image src={logo} height={22.4} />
+            </a>
+          </div>
+          <div className={styles.navLogoSmall}>
+            <a href="#main">
+              <Image src={logoMobile} height={50} />
+            </a>
+          </div>
         </div>
         <div
           className={styles.navRight}
@@ -31,12 +48,16 @@ const Nav = ({ english, setEnglish, refInView }) => {
               ? { background: "var(--red)" }
               : { background: "transparent" }
           }
-          onMouseEnter={() => setShowMenu(true)}
-          onMouseLeave={() => setShowMenu(false)}
         >
           <div className={styles.navRightTop}>
-            <a onClick={() => setEnglish(!english)}>DE/EN</a>
-            <span className={styles.menu}>
+            <a className={styles.menu} onClick={() => setEnglish(!english)}>
+              DE/EN
+            </a>
+            <span
+              className={styles.menu}
+              onMouseEnter={() => setShowMenu(true)}
+              onClick={() => setShowMenu(true)}
+            >
               <a>{english ? "Menu" : "Menü"}</a>
             </span>
           </div>
@@ -47,6 +68,8 @@ const Nav = ({ english, setEnglish, refInView }) => {
                 ? { transform: "translateX(100vw)" }
                 : { transform: "translateX(0)" }
             }
+            onMouseEnter={() => showMenuAgain()}
+            onMouseLeave={() => hideMenu()}
           >
             {/* <a href="#">Programm</a> */}
             <a href="#about">{english ? "About" : "Über"}</a>
@@ -61,7 +84,6 @@ const Nav = ({ english, setEnglish, refInView }) => {
 
       <div
         className={styles.mobileNavWrapper}
-        onClick={() => setShowMenu(!showMenu)}
         style={
           refInView
             ? { background: "var(--red)" }
@@ -69,17 +91,27 @@ const Nav = ({ english, setEnglish, refInView }) => {
         }
       >
         <div className={styles.mobileLogoWrapper}>
-          <Image src={logoMobile} layout="responsive" />
+          <Image src={logo3} layout="responsive" />
         </div>
         <div className={styles.mobileMenuButton}>
-          {english ? "Menu" : "Menü"}
+          <div onClick={() => setEnglish(!english)}>EN/DE</div>
+          <div onClick={() => setShowMenu(!showMenu)}>
+            {" "}
+            {english ? "Menu" : "Menü"}
+          </div>
         </div>
         <div
           className={!refInView ? styles.mobileMenu : styles.mobileMenuRed}
           style={
             showMenu
-              ? { transform: "translateY(0vw)", transition: "background-color 0.2s ease" }
-              : { transform: "translateY(calc(-60vw - 40px))", transition: "background-color 0.2s ease" }
+              ? {
+                  transform: "translateY(0vw)",
+                  transition: "background-color 0.2s ease",
+                }
+              : {
+                  transform: "translateY(calc(-60vw - 40px))",
+                  transition: "background-color 0.2s ease",
+                }
           }
         >
           {/* <a href="#">Programm</a> */}

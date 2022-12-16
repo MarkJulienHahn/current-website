@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import style from "../../styles/Landing.module.css";
 import C4 from "../animation/C4";
 
-const Layer03 = ({changed, colorArray, color}) => {
-  const [index, setIndex] = useState(null);
-  const [changedCurrent, setChangedCurrent] = useState(null);
+const Layer03 = ({colorArray, indexC2, changedC2}) => {
+  const [indexC3, setIndexC3] = useState(null);
+  const [changedC3, setChanged] = useState(null);
 
   const changeIndex = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length)), setChangedCurrent(true);
+    if (indexC2 +1 < colorArray.length) 
+    {setIndexC3(indexC2 + 1), setChanged(true)}
+    else setIndexC3(0), setChanged(true);
   };
 
   const changeColor = () => {
@@ -17,12 +19,12 @@ const Layer03 = ({changed, colorArray, color}) => {
   return (
     <div
       className={style.vertical}
-      style={color ? { background: colorArray[color] } : { background: colorArray[index] }}
-      onClick={changed && !changedCurrent ? () => changeIndex() : null}
-      onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}
+      style={{background: colorArray[indexC3]}}
+      onClick={!changedC3 ? () => changeIndex() : null}
+      // onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}
     >
-      <C4 colorArray={colorArray} changed={changedCurrent}/>
-      <C4 colorArray={colorArray} changed={changedCurrent}/>
+      <C4 colorArray={colorArray} changedC3={changedC3} indexC3={indexC3}/>
+      <C4 colorArray={colorArray} changedC3={changedC3} indexC3={indexC3}/>
     </div>
   );
 };

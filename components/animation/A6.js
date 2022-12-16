@@ -2,40 +2,34 @@ import { useState } from "react";
 import style from "../../styles/Landing.module.css";
 import A7 from "../animation/A7";
 
-const A6 = ({ changed, configuration }) => {
-  const [index, setIndex] = useState(null);
-  const [changedCurrent, setChanged] = useState(null);
-  const colorArray = [
-    "#f099cd",
-    "#1d480f",
-    "white",
-    "#eb0000",
-    "#50b8f9",
-    "#ec4f27",
-  ];
+const A6 = ({ indexA5, changedA5, colorArray }) => {
+  const [indexA6, setIndexA6] = useState(null);
+  const [changedA6, setChangedA6] = useState(null);
 
   const changeIndex = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length)), setChanged(true);
+    if (indexA5 +1 < colorArray.length) {
+      setIndexA6(indexA5 + 1), setChangedA6(true);
+    } else setIndexA6(0), setChangedA6(true);
   };
 
   const changeColor = () => {
     setIndex(Math.floor(Math.random() * colorArray.length));
   };
+
   return (
     <div
       className={style.vertical}
       style={{
-        background: colorArray[index],
+        background: colorArray[indexA6],
         display: "flex",
         flexWrap: "wrap",
       }}
-      onClick={changed && !changedCurrent ? () => changeIndex() : null}
-      onMouseEnter={changedCurrent ? () => changeColor() : null}
+      onClick={changedA5 && !changedA6 ? () => changeIndex() : null}
+      // onMouseEnter={changedCurrent ? () => changeColor() : null}
     >
-      <A7 changed={changedCurrent} />
-      <A7 changed={changedCurrent} />
-      <A7 changed={changedCurrent} />
-      <A7 changed={changedCurrent} />
+      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />
+      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />
+      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />
     </div>
   );
 };

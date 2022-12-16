@@ -2,12 +2,14 @@ import { useState } from "react";
 import style from "../../styles/Landing.module.css";
 import B6 from "../animation/B6";
 
-const Layer05 = ({changed, colorArray}) => {
-  const [index, setIndex] = useState(null);
-  const [changedCurrent, setChanged] = useState(null);
+const Layer05 = ({colorArray, indexB4, changedB4}) => {
+  const [indexB5, setIndexB5] = useState(null);
+  const [changedB5, setChanged] = useState(null);
 
   const changeIndex = () => {
-    setIndex(Math.floor(Math.random() * colorArray.length)), setChanged(true);
+    if (indexB4 +1 < colorArray.length) 
+    {setIndexB5(indexB4 + 1), setChanged(true)}
+    else setIndexB5(0), setChanged(true);
   };
 
   const changeColor = () => {
@@ -17,12 +19,12 @@ const Layer05 = ({changed, colorArray}) => {
   return (
     <div
       className={style.horizontal}
-      style={{ background: colorArray[index] }}
-      onClick={changed && !changedCurrent ? () => changeIndex() : null}
-      onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}
+      style={{ background: colorArray[indexB5] }}
+      onClick={!changedB5 && changedB4 ? () => changeIndex() : null}
+      // onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}
     >
-      <B6 colorArray={colorArray} changed={changedCurrent} />
-      <B6 colorArray={colorArray} changed={changedCurrent} />
+      <B6 colorArray={colorArray} changedB5={changedB5} indexB5={indexB5}/>
+      <B6 colorArray={colorArray} changedB5={changedB5} indexB5={indexB5}/>
     </div>
   );
 };

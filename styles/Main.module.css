@@ -1,10 +1,10 @@
 .infoHeadline {
-  padding: 70px 0 70px 0;
+  padding: 60px 0 70px 0;
   text-align: center;
 }
 
 .infoText {
-  padding: 70px 20px;
+  padding: 50px 20px;
   column-count: 2;
   column-gap: 40px;
 }
@@ -14,7 +14,7 @@
 }
 
 .infoSubHeadline {
-  padding: 70px 20px 0 20px;
+  padding: 60px 20px 0 20px;
   width: 50vw;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .teamRight {
-  padding: 62px 0 70px 20px;
+  padding: 68px 0 70px 20px;
 }
 
 .teamRight li {
@@ -71,6 +71,10 @@
   column-gap: 40px;
 }
 
+.downloadItem {
+  break-inside: avoid-column;
+}
+
 .downloadItem p {
   margin-bottom: 40px;
 }
@@ -83,6 +87,14 @@
 .downloadRow p {
   min-width: 100px;
   pointer-events: auto;
+}
+
+.fileExtension {
+  text-transform: uppercase;
+}
+
+.downloadRow:hover .fileExtension{
+  color: var(--blue)
 }
 
 /* LOGOS */

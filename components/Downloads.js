@@ -16,11 +16,6 @@ const Downloads = ({ english, downloads }) => {
         >
           <h1>Downloads</h1>
         </div>
-        <div
-          className={styles.space}
-          style={{ background: background ? "var(--red)" : "" }}
-          onClick={() => setBackground(!background)}
-        ></div>
       </div>
 
       <div

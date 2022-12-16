@@ -16,7 +16,7 @@ const Nav = ({ english, setEnglish, refInView }) => {
   }
 
   const hideMenu = () => {
-    setTimeout(() => setShowMenu(false), 2000)
+    setTimeout(() => setShowMenu(false), 5000)
   }
 
   return (
@@ -55,8 +55,7 @@ const Nav = ({ english, setEnglish, refInView }) => {
             </a>
             <span
               className={styles.menu}
-              onMouseEnter={() => setShowMenu(true)}
-              onClick={() => setShowMenu(true)}
+              onClick={() => setShowMenu(!showMenu)}
             >
               <a>{english ? "Menu" : "Menü"}</a>
             </span>
@@ -69,9 +68,8 @@ const Nav = ({ english, setEnglish, refInView }) => {
                 : { transform: "translateX(0)" }
             }
             onMouseEnter={() => showMenuAgain()}
-            onMouseLeave={() => hideMenu()}
           >
-            {/* <a href="#">Programm</a> */}
+          <a href="#program">{english ? "Program" : "Programm"}</a>
             <a href="#about">{english ? "About" : "Über"}</a>
             <a href="#team">Team</a>
             <a href="#downloads">Downloads</a>
@@ -114,7 +112,7 @@ const Nav = ({ english, setEnglish, refInView }) => {
                 }
           }
         >
-          {/* <a href="#">Programm</a> */}
+          <a href="#program">{english ? "Program" : "Programm"}</a>
           <a href="#about">{english ? "About" : "Über"}</a>
           <a href="#team">Team</a>
           <a href="#downloads">Downloads</a>

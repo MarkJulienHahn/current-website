@@ -7,7 +7,7 @@
   padding: 80px 0 0 20px;
 }
 
-.footerSegment h2:hover {
+.footerSegment h2 a:hover, .footerLinks h2 a:hover {
   color: var(--green)
 }
 
@@ -17,6 +17,11 @@
   column-gap: 40px;
   font-size: 12pt;
   padding: 70px 20px;
+}
+
+.footerLinks {
+  position: absolute;
+  transform: translate(20px, 70px)
 }
 
 @media screen and (max-width: 700px) {

@@ -22,15 +22,10 @@ const Footer = ({ english, impressum }) => {
     setImpr(1);
   };
 
-
   return (
     <>
       <div className={styles.footerWrapper}>
-        <div
-          className={styles.footerSegment}
-          style={{ background: background ? "var(--pink)" : "" }}
-          onClick={() => setBackground(!background)}
-        >
+        <div className={styles.footerLinks}>
           <h2 onClick={() => showImpressum()}>
             <a>Impressum</a>
           </h2>
@@ -43,6 +38,11 @@ const Footer = ({ english, impressum }) => {
         </div>
         <div
           className={styles.footerSegment}
+          style={{ background: background ? "var(--pink)" : "" }}
+          onClick={() => setBackground(!background)}
+        ></div>
+        <div
+          className={styles.footerSegment}
           style={{ background: background2 ? "var(--pink)" : "" }}
           onClick={() => setBackground2(!background2)}
         >
@@ -53,7 +53,7 @@ const Footer = ({ english, impressum }) => {
             <br />
             +49 176 7606 9589
             <br />
-            info@artpublicspace.de
+            <a href="mailto:info@artpublicspace.de">info@artpublicspace.de</a>
           </h2>
         </div>
       </div>

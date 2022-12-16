@@ -12,6 +12,7 @@ const Infosection = ({ english, intro, about }) => {
 
   return (
     <div className={styles.infoWrapper}>
+      <div className={"anchor"} id="program"></div>
       <h1
         className={styles.infoHeadline}
         style={{
@@ -72,7 +73,7 @@ const Infosection = ({ english, intro, about }) => {
       </div>
 
       <div className={"anchor"} id="about"></div>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", height: "130px" }}>
         <div
           className={styles.infoSubHeadline}
           style={{ background: background2 ? "var(--pink)" : "" }}

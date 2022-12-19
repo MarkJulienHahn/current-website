@@ -90,7 +90,7 @@ const Index = ({
               setEnglish={setEnglish}
               refInView={refInView}
             />
-            <div className={styles.mainTitle} style={{height: height}}>
+            <div className={styles.mainTitle} style={{height: `calc(${height} + 30px)`}}>
               <h1>CURRENT</h1>
             </div>
             <div></div>

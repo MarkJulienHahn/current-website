@@ -74,10 +74,7 @@
 }
 
 @media screen and (max-width: 700px) {
-  .mainTitle {
-    height: calc(100vh + 30px);
-  }
-  .A {
+  /* .A {
     height: 50%;
-  }
+  } */
 }

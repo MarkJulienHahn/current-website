@@ -48,6 +48,10 @@
   display: none;
 }
 
+.navLogoWide {
+  padding-left: 4px;
+}
+
 .navLogoWide, .navLogoSmall {
   pointer-events: auto;
 }
@@ -61,7 +65,7 @@
     display: none;
   }
   .navLogoSmall {
-    padding-top: 4  px;
+    padding: 6px 4px ;
     display: block;
   }
 }
@@ -93,6 +97,7 @@
     width: 276px;
     top: 0;
     z-index: 101;
+    padding: 8px 0 0 8px;
   }
   .mobileMenuButton {
     position: absolute;

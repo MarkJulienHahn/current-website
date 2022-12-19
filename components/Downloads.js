@@ -10,7 +10,7 @@ const Downloads = ({ english, downloads }) => {
       <div className={"anchor"} id="downloads"></div>
       <div style={{ display: "flex" }}>
         <div
-          className={styles.infoSubHeadline}
+          className={styles.infoSubHeadlineDownloads}
           style={{ background: background2 ? "var(--red)" : "" }}
           onClick={() => setBackground2(!background2)}
         >

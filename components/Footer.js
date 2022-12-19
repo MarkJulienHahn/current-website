@@ -19,21 +19,38 @@ const Footer = ({ english, impressum }) => {
 
   const showImpressum = () => {
     setTimeout(scrollToRef, 500);
-    setImpr(1);
+    setImpr(true);
+  };
+
+  const hideImpressum = () => {
+    setTimeout(scrollToRef, 500);
+    setImpr(false);
   };
 
   return (
     <>
       <div className={styles.footerWrapper}>
         <div className={styles.footerLinks}>
-          <h2 onClick={() => showImpressum()}>
+          <h2 onClick={impr ? hideImpressum : showImpressum}>
             <a>Impressum</a>
           </h2>
           <h2>
-            <a>Instagram</a>
+            <a
+              href="https://www.instagram.com/current.stuttgart/?hl=de"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
           </h2>
           <h2>
-            <a>Facebook</a>
+            <a
+              href="https://www.facebook.com/currentstuttgart/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </a>
           </h2>
         </div>
         <div
@@ -58,14 +75,13 @@ const Footer = ({ english, impressum }) => {
         </div>
       </div>
       <div ref={ref2}>
-        {impr && (
-          <Impressum
-            english={english}
-            impressum={impressum[0]}
-            background={background}
-            setBackground={setBackground}
-          />
-        )}
+        <Impressum
+          impr={impr}
+          english={english}
+          impressum={impressum[0]}
+          background={background}
+          setBackground={setBackground}
+        />
       </div>
     </>
   );

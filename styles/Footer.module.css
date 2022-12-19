@@ -4,11 +4,12 @@
 .footerSegment {
   width: 50vw;
   height: 250px;
-  padding: 80px 0 0 20px;
+  padding: 70px 0 0 20px;
 }
 
-.footerSegment h2 a:hover, .footerLinks h2 a:hover {
-  color: var(--green)
+.footerSegment h2 a:hover,
+.footerLinks h2 a:hover {
+  color: var(--green);
 }
 
 .impressumWrapper {
@@ -19,9 +20,14 @@
   padding: 70px 20px;
 }
 
+.impressumOuter {
+  overflow: hidden;
+  transition: height 0.5s ease-out;
+}
+
 .footerLinks {
   position: absolute;
-  transform: translate(20px, 70px)
+  transform: translate(20px, 70px);
 }
 
 @media screen and (max-width: 700px) {
@@ -38,13 +44,12 @@
     font-size: 4vw;
     line-height: 5vw;
     letter-spacing: -0.5px;
-
   }
   .footerSegment h2 a {
     line-height: 8vw;
   }
   .impressumWrapper {
     column-count: 1;
-    padding: 30px 10px
+    padding: 30px 10px;
   }
 }

@@ -15,8 +15,6 @@ const Layer07 = ({colorArray, indexB6, changedB6}) => {
     setIndex(Math.floor(Math.random() * colorArray.length))
   }
 
-  console.log(changedB6)
-
   return (
     <div
       className={styles.horizontal}

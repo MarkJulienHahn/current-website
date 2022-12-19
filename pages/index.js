@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+import Div100vh from "react-div-100vh";
+
 import A from "../components/animation/A";
 import B1 from "../components/animation/B1";
 import C2 from "../components/animation/C2";
@@ -16,7 +18,15 @@ import styles from "../styles/Landing.module.css";
 
 import client from "../client";
 
-const Index = ({ intro, about, team, downloads, impressum, logos, marquee }) => {
+const Index = ({
+  intro,
+  about,
+  team,
+  downloads,
+  impressum,
+  logos,
+  marquee,
+}) => {
   const [index, setIndexA] = useState(null);
   const [english, setEnglish] = useState(false);
   const [scrollPosition, setScrollPosition] = useState("");
@@ -29,7 +39,7 @@ const Index = ({ intro, about, team, downloads, impressum, logos, marquee }) => 
     "var(--red)",
     "var(--green)",
     "var(--pink)",
-    "white"
+    "white",
   ];
 
   // if (typeof window !== "undefined") {
@@ -60,68 +70,71 @@ const Index = ({ intro, about, team, downloads, impressum, logos, marquee }) => 
   return (
     <>
       <Layout>
-        <div
-          style={{
-            height: "100vh",
-            width: "100vw",
-            display: "flex",
-            flexWrap: "wrap",
-            overflow: "hidden",
-          }}
-          ref={ref}
-          id="main"
-        >
-          <Nav
-            english={english}
-            setEnglish={setEnglish}
-            refInView={refInView}
-          />
-          <div className={styles.mainTitle}>
-            <h1>CURRENT</h1>
+        <Div100vh>
+          <div
+            style={{
+              height: "100%",
+              width: "100vw",
+              display: "flex",
+              flexWrap: "wrap",
+              overflow: "hidden",
+            }}
+            ref={ref}
+            id="main"
+          >
+            <Nav
+              english={english}
+              setEnglish={setEnglish}
+              refInView={refInView}
+            />
+            <div className={styles.mainTitle}>
+              <h1>CURRENT</h1>
+            </div>
+            <div></div>
+            <A colorArray={colorArray} indexA={index} setIndexA={setIndexA} />
+            {/* <A colorArray={colorArray} indexA={index} setIndexA={setIndexA}/> */}
+            <div className={styles.A_row}>
+              <div className={styles.B_row}>
+                <B1 colorArray={colorArray} delay={9000} />
+                <B1 colorArray={colorArray} delay={null} />
+              </div>
+              <div className={styles.C_row}>
+                <C2 colorArray={colorArray} changed={true} />{" "}
+                <C2 colorArray={colorArray} changed={true} />
+                <C2 colorArray={colorArray} delay={6000} changed={true} />{" "}
+                <C2 colorArray={colorArray} changed={true} />
+              </div>
+              <div className={styles.D_row}>
+                <D3 colorArray={colorArray} changed={true} />{" "}
+                <D3 colorArray={colorArray} changed={true} />
+                <D3 colorArray={colorArray} changed={true} />{" "}
+                <D3 colorArray={colorArray} changed={true} />
+                <D3 colorArray={colorArray} changed={true} />{" "}
+                <D3 colorArray={colorArray} changed={true} />
+                <D3 colorArray={colorArray} changed={true} />{" "}
+                <D3 colorArray={colorArray} changed={true} />
+              </div>
+              <div className={styles.E_row}>
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />{" "}
+                <E3 colorArray={colorArray} changed={true} />
+              </div>
+            </div>
           </div>
-          <A colorArray={colorArray} indexA={index} setIndexA={setIndexA} />
-          {/* <A colorArray={colorArray} indexA={index} setIndexA={setIndexA}/> */}
-          <div className={styles.A_row}>
-            <div className={styles.B_row}>
-              <B1 colorArray={colorArray} delay={9000} />
-              <B1 colorArray={colorArray} delay={null} />
-            </div>
-            <div className={styles.C_row}>
-              <C2 colorArray={colorArray} changed={true} />{" "}
-              <C2 colorArray={colorArray} changed={true} />
-              <C2 colorArray={colorArray} delay={6000} changed={true} />{" "}
-              <C2 colorArray={colorArray} changed={true} />
-            </div>
-            <div className={styles.D_row}>
-              <D3 colorArray={colorArray} changed={true} />{" "}
-              <D3 colorArray={colorArray} changed={true} />
-              <D3 colorArray={colorArray} changed={true} />{" "}
-              <D3 colorArray={colorArray} changed={true} />
-              <D3 colorArray={colorArray} changed={true} />{" "}
-              <D3 colorArray={colorArray} changed={true} />
-              <D3 colorArray={colorArray} changed={true} />{" "}
-              <D3 colorArray={colorArray} changed={true} />
-            </div>
-            <div className={styles.E_row}>
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />{" "}
-              <E3 colorArray={colorArray} changed={true} />
-            </div>
-          </div>
-        </div>
+        </Div100vh>
         <Main
           english={english}
           intro={intro[0]}
@@ -154,9 +167,7 @@ export async function getStaticProps() {
   const logos = await client.fetch(
     `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );
-  const marquee = await client.fetch(
-    `* [_type == "marquee"]{...}`
-  );
+  const marquee = await client.fetch(`* [_type == "marquee"]{...}`);
   return {
     props: {
       intro,
@@ -165,7 +176,7 @@ export async function getStaticProps() {
       downloads,
       impressum,
       logos,
-      marquee
+      marquee,
     },
     revalidate: 10,
   };

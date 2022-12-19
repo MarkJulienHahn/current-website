@@ -1,21 +1,26 @@
-import React from "react";
+import {useRef} from "react";
 import styles from "../styles/Footer.module.css";
 
 import { PortableText } from "@portabletext/react";
 
-const Impressum = ({ english, impressum, background, setBackground }) => {
+const Impressum = ({ impr, english, impressum, background, setBackground }) => {
+
+  const ref = useRef(null)
 
   return (
-    <div
-      className={styles.impressumWrapper}
-      style={{ background: background ? "var(--pink)" : "" }}
-      onClick={() => setBackground(!background)}
-    >
+    <div className={styles.impressumOuter} style={impr ? {height: ref.current.clientHeight} : {height: "0px"}}>
+      <div
+        className={styles.impressumWrapper}
+        style={{ background: background ? "var(--pink)" : "" }}
+        onClick={() => setBackground(!background)}
+        ref={ref}
+      >
         {english ? (
           <PortableText value={impressum.impressumEN} />
         ) : (
           <PortableText value={impressum.impressumDE} />
         )}
+      </div>
     </div>
   );
 };

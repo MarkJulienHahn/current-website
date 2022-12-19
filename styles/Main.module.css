@@ -169,9 +169,9 @@
   .mobileAccordionOpen {
     height: auto;
   }
-  .infoSubHeadline {
+  .infoSubHeadline, .infoSubHeadlineDownloads {
     width: 100vw;
-    padding: 40px 10px;
+    padding: 55px 10px;
   }
   .space {
     display: none;

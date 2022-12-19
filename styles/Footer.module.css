@@ -52,4 +52,7 @@
     column-count: 1;
     padding: 30px 10px;
   }
+  .footerLinks {
+    transform: translate(20px, 50px);
+  }
 }

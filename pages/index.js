@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import Div100vh from "react-div-100vh";
+import { use100vh } from 'react-div-100vh'
 
 import A from "../components/animation/A";
 import B1 from "../components/animation/B1";
@@ -31,6 +32,8 @@ const Index = ({
   const [english, setEnglish] = useState(false);
   const [scrollPosition, setScrollPosition] = useState("");
   const [refInView, setRefInView] = useState(false);
+
+  const height = use100vh()
 
   const ref = useRef(null);
 
@@ -87,7 +90,7 @@ const Index = ({
               setEnglish={setEnglish}
               refInView={refInView}
             />
-            <div className={styles.mainTitle}>
+            <div className={styles.mainTitle} style={{height: height}}>
               <h1>CURRENT</h1>
             </div>
             <div></div>

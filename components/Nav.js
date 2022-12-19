@@ -107,7 +107,7 @@ const Nav = ({ english, setEnglish, refInView }) => {
                   transition: "background-color 0.2s ease",
                 }
               : {
-                  transform: "translateY(calc(-60vw - 40px))",
+                  transform: "translateY(-1000px)",
                   transition: "background-color 0.2s ease",
                 }
           }

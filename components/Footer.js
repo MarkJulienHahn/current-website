@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import styles from "../styles/Footer.module.css";
 import Impressum from "./Impressum";
 
+import { PortableText } from "@portabletext/react";
+
 const Footer = ({ english, impressum }) => {
   const [background, setBackground] = useState(true);
   const [background2, setBackground2] = useState(true);
@@ -64,13 +66,8 @@ const Footer = ({ english, impressum }) => {
           onClick={() => setBackground2(!background2)}
         >
           <h2>
-            Art Public Space — Culture Matters gUG
-            <br />
-            Reitzensteinstr. 31, 70190 Stuttgart
-            <br />
-            +49 176 7606 9589
-            <br />
-            <a href="mailto:info@artpublicspace.de">info@artpublicspace.de</a>
+          <PortableText value={impressum[0].contact} />
+            <a href={`mailto:${impressum[0].contact}`}>{impressum[0].email}</a>
           </h2>
         </div>
       </div>

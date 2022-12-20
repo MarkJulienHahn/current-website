@@ -94,7 +94,6 @@ const Nav = ({ english, setEnglish, refInView }) => {
         <div className={styles.mobileMenuButton}>
           <div onClick={() => setEnglish(!english)}>EN/DE</div>
           <div onClick={() => setShowMenu(!showMenu)}>
-            {" "}
             {english ? "Menu" : "Menü"}
           </div>
         </div>
@@ -111,6 +110,7 @@ const Nav = ({ english, setEnglish, refInView }) => {
                   transition: "background-color 0.2s ease",
                 }
           }
+          onClick={() => setShowMenu(false)}
         >
           <a href="#program">{english ? "Program" : "Programm"}</a>
           <a href="#about">{english ? "About" : "Über"}</a>

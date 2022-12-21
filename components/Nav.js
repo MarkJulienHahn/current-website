@@ -72,7 +72,7 @@ const Nav = ({ english, setEnglish, refInView }) => {
           <a href="#program">{english ? "Program" : "Programm"}</a>
             <a href="#about">{english ? "About" : "Über"}</a>
             <a href="#team">Team</a>
-            <a href="#downloads">Downloads</a>
+            {/* <a href="#downloads">Downloads</a> */}
             <a href="http://2021.current-stuttgart.de/de" target="_blank" rel="noreferrer">Current 21</a>
           </div>
         </div>
@@ -115,7 +115,7 @@ const Nav = ({ english, setEnglish, refInView }) => {
           <a href="#program">{english ? "Program" : "Programm"}</a>
           <a href="#about">{english ? "About" : "Über"}</a>
           <a href="#team">Team</a>
-          <a href="#downloads">Downloads</a>
+          {/* <a href="#downloads">Downloads</a> */}
           <a href="http://2021.current-stuttgart.de/de" target="_blank" rel="noreferrer">Current 21</a>
         </div>
       </div>

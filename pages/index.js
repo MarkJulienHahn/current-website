@@ -156,7 +156,7 @@ const Index = ({
 
 export default Index;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const intro = await client.fetch(`
   * [_type == "intro"]{titleGerman, textGerman, titleEnglish, textEnglish}`);
   const about = await client.fetch(`
@@ -181,6 +181,5 @@ export async function getStaticProps() {
       logos,
       marquee,
     },
-    revalidate: 10,
   };
 }

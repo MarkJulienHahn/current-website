@@ -94,6 +94,7 @@ ul {
 .wrapper {
   z-index: 10;
   position: relative;
+  background: white;
 }
 
 @media screen and (max-width: 1200px) {

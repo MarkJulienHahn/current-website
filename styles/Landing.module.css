@@ -58,19 +58,26 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 50px);
+  height: calc(100%);
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   pointer-events: none;
 }
 
 .mainTitle h1 {
   font-size: 28vw;
+  line-height: 0;
   letter-spacing: -2.8vw;
   transform: translateX(-1.5vw);
   color: white;
   mix-blend-mode: difference;
+  position: fixed;
+  top: 0;
+  height: 40vw;
+  padding-top: 45vh;
+  /* background:blue; */
+  /* transform: translate(-1.5vw, 46vh); */
 }
 
 @media screen and (max-width: 700px) {

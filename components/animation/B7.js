@@ -6,8 +6,8 @@ const Layer07 = ({colorArray, indexB6, changedB6}) => {
   const [changedB7, setChanged] = useState(null);
 
   const changeIndex = () => {
-    if (indexB7 +2 < colorArray.length) 
-    {setIndexB7(indexB7 +2)}
+    if (indexB7 +1 < colorArray.length) 
+    {setIndexB7(indexB7 +1)}
     else setIndexB7(0);
   };
   

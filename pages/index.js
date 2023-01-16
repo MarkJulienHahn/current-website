@@ -81,6 +81,8 @@ const Index = ({
               display: "flex",
               flexWrap: "wrap",
               overflow: "hidden",
+              cursor: "pointer",
+              background: "white"
             }}
             ref={ref}
             id="main"
@@ -89,55 +91,57 @@ const Index = ({
               english={english}
               setEnglish={setEnglish}
               refInView={refInView}
+              colorArray={colorArray}
             />
             <div className={styles.mainTitle} style={{height: `calc(${height} + 30px)`}}>
               <h1>CURRENT</h1>
             </div>
             <div></div>
-            <A colorArray={colorArray} indexA={index} setIndexA={setIndexA} />
+            <A colorArray={colorArray} indexA={index} setIndexA={setIndexA} delay={6000}/>
             {/* <A colorArray={colorArray} indexA={index} setIndexA={setIndexA}/> */}
             <div className={styles.A_row}>
               <div className={styles.B_row}>
-                <B1 colorArray={colorArray} delay={9000} />
-                <B1 colorArray={colorArray} delay={null} />
+                <B1 colorArray={colorArray} delay={6000} margin={20}/>
+                <B1 colorArray={colorArray} delay={18000} margin={0}/>
               </div>
               <div className={styles.C_row}>
-                <C2 colorArray={colorArray} changed={true} />{" "}
-                <C2 colorArray={colorArray} changed={true} />
-                <C2 colorArray={colorArray} delay={6000} changed={true} />{" "}
-                <C2 colorArray={colorArray} changed={true} />
+                <C2 colorArray={colorArray} delay={8000} margin={20} changed={true} />{" "}
+                <C2 colorArray={colorArray} delay={12000} cmargin={0} hanged={true} />
+                <C2 colorArray={colorArray} delay={4000} margin={10} changed={true} />{" "}
+                <C2 colorArray={colorArray} delay={18000} margin={30} changed={true} />
               </div>
               <div className={styles.D_row}>
-                <D3 colorArray={colorArray} changed={true} />{" "}
-                <D3 colorArray={colorArray} changed={true} />
-                <D3 colorArray={colorArray} changed={true} />{" "}
-                <D3 colorArray={colorArray} changed={true} />
-                <D3 colorArray={colorArray} changed={true} />{" "}
-                <D3 colorArray={colorArray} changed={true} />
-                <D3 colorArray={colorArray} changed={true} />{" "}
-                <D3 colorArray={colorArray} changed={true} />
+                <D3 colorArray={colorArray} delay={6000} margin={20} changed={true} />{" "}
+                <D3 colorArray={colorArray} delay={12000} margin={10} changed={true} />
+                <D3 colorArray={colorArray} delay={2000} margin={0} changed={true} />{" "}
+                <D3 colorArray={colorArray} delay={8000} margin={10} changed={true} />
+                <D3 colorArray={colorArray} delay={18000} margin={20} changed={true} />{" "}
+                <D3 colorArray={colorArray} delay={16000} margin={30} changed={true} />
+                <D3 colorArray={colorArray} delay={12000} margin={25} changed={true} />{" "}
+                <D3 colorArray={colorArray} delay={32000} margin={0} changed={true} />
               </div>
               <div className={styles.E_row}>
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />{" "}
-                <E3 colorArray={colorArray} changed={true} />
+                <E3 colorArray={colorArray} delay={24000} margin={90} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={12000} margin={50} changed={true} />
+                <E3 colorArray={colorArray} delay={16000} margin={10} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={18000} cmargin={50} hanged={true} />{" "}
+                <E3 colorArray={colorArray} delay={6000} margin={90} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={22000} margin={20} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={14000} margin={10} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={24000} margin={50} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={2000} margin={30} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={14000} margin={20} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={18000} margin={10} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={2000} margin={0} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={12000} margin={20} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={16000} margin={90} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={22000} margin={120} changed={true} />{" "}
+                <E3 colorArray={colorArray} delay={8000} margin={80} changed={true} />
               </div>
             </div>
           </div>
         </Div100vh>
+        <div className="wrapper">
         <Main
           english={english}
           intro={intro[0]}
@@ -149,6 +153,7 @@ const Index = ({
         />
 
         <Footer english={english} impressum={impressum} />
+        </div>
       </Layout>
     </>
   );

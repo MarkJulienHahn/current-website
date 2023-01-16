@@ -12,11 +12,7 @@ const Footer = ({ english, impressum }) => {
   const ref2 = useRef(null);
 
   const scrollToRef = () => {
-    window.scrollTo({
-      top: ref2.current.offsetTop - 500,
-      left: 0,
-      behavior: "smooth",
-    });
+    ref2.current.scrollIntoView({ block: "start" });
   };
 
   const showImpressum = () => {
@@ -32,6 +28,7 @@ const Footer = ({ english, impressum }) => {
   return (
     <>
       <div className={styles.footerWrapper}>
+        <div className={"anchor"} ref={ref2}></div>
         <div className={styles.footerLinks}>
           <h2 onClick={impr ? hideImpressum : showImpressum}>
             <a>Impressum</a>
@@ -57,21 +54,47 @@ const Footer = ({ english, impressum }) => {
         </div>
         <div
           className={styles.footerSegment}
-          style={{ background: background ? "var(--pink)" : "" }}
-          onClick={() => setBackground(!background)}
-        ></div>
+          style={{ background: background ? "var(--green)" : "" }}
+          onMouseEnter={() => setBackground(false)}
+          onMouseLeave={() => setBackground(true)}
+        >
+          <div className={styles.footerLinksMobile}>
+            <h2 onClick={impr ? hideImpressum : showImpressum}>
+              <a>Impressum</a>
+            </h2>
+            <h2>
+              <a
+                href="https://www.instagram.com/current.stuttgart/?hl=de"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram
+              </a>
+            </h2>
+            <h2>
+              <a
+                href="https://www.facebook.com/currentstuttgart/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Facebook
+              </a>
+            </h2>
+          </div>
+        </div>
         <div
           className={styles.footerSegment}
           style={{ background: background2 ? "var(--pink)" : "" }}
-          onClick={() => setBackground2(!background2)}
+          onMouseEnter={() => setBackground2(false)}
+          onMouseLeave={() => setBackground2(true)}
         >
           <h2>
-          <PortableText value={impressum[0].contact} />
+            <PortableText value={impressum[0].contact} />
             <a href={`mailto:${impressum[0].contact}`}>{impressum[0].email}</a>
           </h2>
         </div>
       </div>
-      <div ref={ref2}>
+      <div>
         <Impressum
           impr={impr}
           english={english}

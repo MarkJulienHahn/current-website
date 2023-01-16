@@ -3,10 +3,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Rubik", sans-serif;
-  font-size: 23px;
+  font-size: 22.5px;
   font-weight: 100;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -43,6 +44,9 @@ a {
   --red: #ff3d00;
   --pink: #ffa0ff;
   --blue: #00beff;
+  --space: 65px;
+  --spaceSmall: 12px;
+  --spaceTiny: 5px;
 }
 
 ::selection {
@@ -52,6 +56,7 @@ a {
 
 h1 {
   font-size: 48px;
+  line-height: 45px;
   font-family: "Activist";
   font-weight: 100;
   letter-spacing: -2px;
@@ -59,7 +64,7 @@ h1 {
 }
 
 h2 {
-  font-size: 27.5px;
+  font-size: 28px;
   line-height: 30px;
   font-family: "Activist";
   font-weight: 20;
@@ -81,11 +86,22 @@ ul {
 .anchor {
   position: absolute;
   transform: translateY(-65px);
-  width: 100vw;
+  width: 100%;
   height: 65px;
+  pointer-events: none;
+}
+
+.wrapper {
+  z-index: 10;
+  position: relative;
 }
 
 @media screen and (max-width: 1200px) {
+  :root {
+    --space: 42px;
+    --spaceSmall: 12px;
+    --spaceTiny: 5px;
+  }
   body {
     font-size: 12pt;
   }
@@ -93,12 +109,13 @@ ul {
     overflow: hidden;
   }
   h1, h2 {
-    font-size: 22px;
+    font-size: 29px;
     letter-spacing: -1px;
+    line-height: 36px;
   }
 
   .anchor {
-    transform: translateY(-35px);
-    height: 35px;
+    transform: translateY(-78px);
+    height: 78px;
   }
 }

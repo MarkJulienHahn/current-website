@@ -11,7 +11,7 @@ const Impressum = ({ impr, english, impressum, background, setBackground }) => {
     <div className={styles.impressumOuter} style={impr ? {height: ref.current.clientHeight} : {height: "0px"}}>
       <div
         className={styles.impressumWrapper}
-        style={{ background: background ? "var(--pink)" : "" }}
+        style={{ background: background ? "var(--green)" : "" }}
         onClick={() => setBackground(!background)}
         ref={ref}
       >

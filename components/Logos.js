@@ -11,11 +11,13 @@ const Logos = ({ english, logos }) => {
       style={{
         background: background ? "var(--blue)" : "",
       }}
-      onClick={() => setBackground(!background)}
+      onMouseEnter={() => setBackground(false)}
+      onMouseLeave={() => setBackground(true)}
     >
       <div className={styles.logoHeader}>
         <h2> {english ? "Supported by" : "Gefördert von"}</h2>
       </div>
+      
       <div className={styles.logoInner}>
         {logos.map((logo, i) => (
           <div>

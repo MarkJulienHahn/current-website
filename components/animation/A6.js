@@ -7,7 +7,7 @@ const A6 = ({ indexA5, changedA5, colorArray }) => {
   const [changedA6, setChangedA6] = useState(null);
 
   const changeIndex = () => {
-    if (indexA5 +1 < colorArray.length) {
+    if (indexA5 + 1 < colorArray.length) {
       setIndexA6(indexA5 + 1), setChangedA6(true);
     } else setIndexA6(0), setChangedA6(true);
   };
@@ -27,9 +27,10 @@ const A6 = ({ indexA5, changedA5, colorArray }) => {
       onClick={changedA5 && !changedA6 ? () => changeIndex() : null}
       // onMouseEnter={changedCurrent ? () => changeColor() : null}
     >
-      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />
-      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />
-      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} />
+      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} margin={10}/>
+      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} margin={50}/>
+      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} margin={30}/>
+      <A7 colorArray={colorArray} changedA6={changedA6} indexA6={indexA6} margin={20}/>
     </div>
   );
 };

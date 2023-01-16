@@ -1,12 +1,20 @@
 .infoHeadline {
-  padding: 60px 0 0px 0;
   text-align: center;
 }
 
+.infoTextWrapper,
+.infoTextHeadlineWrapper {
+  padding: var(--space) 0;
+}
+
+.infoTextHeadline {
+  padding: 0 0 var(--space) var(--spaceSmall);
+}
+
 .infoText {
-  padding: 50px 20px;
+  padding: 0 var(--spaceSmall);
   column-count: 2;
-  column-gap: 40px;
+  column-gap: calc(2 * var(--spaceSmall));
 }
 
 .infoText p {
@@ -16,13 +24,11 @@
 .infoSubHeadline {
   padding: 70px 20px 0 20px;
   height: 130px;
-  width: 50vw;
 }
 
 .infoSubHeadlineDownloads {
-  padding: 70px 20px 0 20px;
-  height: 130px;
-  width: 100vw;
+  padding: var(--space) var(--spaceSmall);
+  width: 100%;
 }
 
 .space {
@@ -33,61 +39,59 @@
 /* MARQUEE */
 
 .marquee {
-  height: 130px;
+  padding-top: var(--space);
+  padding-bottom: var(--spaceSmall);
   background: var(--green);
   display: flex;
   align-items: flex-end;
 }
 
 .marquee:hover {
- background: var(--red)
+  background: white;
 }
 
 /* TEAM */
 
 .teamWrapper {
-  display: flex;
+  padding: var(--space) var(--spaceSmall);
 }
 
-.teamLeft,
-.teamRight {
-  width: 50vw;
+.teamHeadline {
+  padding-bottom: var(--space);
 }
 
-.teamLeftHeadline {
-  height: 130px;
-  display: flex;
-  align-items: flex-end;
-  padding-left: 16px;
+.teamWrapper ul {
+  column-count: 2;
+  column-gap: calc(2 * var(--spaceSmall));
 }
 
-.teamRight {
-  padding: 68px 0 70px 20px;
+.teamWrapper ul li {
+  break-inside: avoid-column;
+  padding-bottom: var(--spaceSmall);
 }
 
-.teamRight li {
-  padding-bottom: 5px;
-}
-
-.teamSpace {
-  height: calc(100% - 130px);
-  width: 50vw;
+.teamWrapper ul li {
+  padding-bottom: var(--spaceTiny);
 }
 
 /* DOWNLOADS */
 
 .downloadContent {
-  padding: 70px 20px;
+  padding: 0 var(--spaceSmall) var(--space);
   column-count: 2;
-  column-gap: 40px;
+  column-gap: calc(2 * var(--spaceSmall));
 }
 
 .downloadItem {
   break-inside: avoid-column;
 }
 
-.downloadItem p {
-  margin-bottom: 40px;
+.downloadItem .downloadRow {
+  margin-top: calc(2 * var(--spaceSmall));
+}
+
+.downloadItem .downloadRow:first-child {
+  margin-top: 0;
 }
 
 .downloadRow {
@@ -104,22 +108,16 @@
   text-transform: uppercase;
 }
 
-.downloadRow:hover .fileExtension{
-  color: var(--blue)
-}
-
 /* LOGOS */
 
 .logosWrapper {
   display: flex;
-
-  min-height: 200px;
+  padding: var(--space) var(--spaceSmall);
 }
 
 .logoHeader {
   width: 33vw;
   height: 100%;
-  padding: 60px 0 0 20px;
 }
 
 .logoInner {
@@ -130,8 +128,7 @@
 }
 
 .logoInner div {
-  width: 370px;
-  padding: 60px;
+  width: clamp(100px, 20vw, 300px);
 }
 
 .mobileInfoText,
@@ -141,7 +138,7 @@
 
 @media screen and (max-width: 700px) {
   .infoHeadline {
-    padding: 50px 10px 15px 10px;
+    padding: 0 10px;
   }
   .mobileInfoText {
     display: block;
@@ -150,6 +147,7 @@
     font-size: 16px;
   }
 
+  .infoTextWrapper,
   .infoText {
     display: none;
   }
@@ -158,9 +156,8 @@
     text-indent: 12vw;
   }
   .mehrLesen {
-    padding: 20px 0 40px 40px;
-    height: 70px;
-    width: 100vw;
+    padding: 20px 0 var(--space) 0;
+    width: 100%;
   }
   .mobileAccordionClosed {
     height: 307px;
@@ -169,18 +166,29 @@
   .mobileAccordionOpen {
     height: auto;
   }
-  .infoSubHeadline, .infoSubHeadlineDownloads {
-    width: 100vw;
+  .infoSubHeadline,
+  .infoSubHeadlineDownloads {
+    width: 100%;
     padding: 55px 10px;
+  }
+  .infoTextHeadlineWrapper {
+    padding-bottom: 0;
+  }
+  .mobileInfoText {
+    padding-top: var(--space)
   }
   .space {
     display: none;
   }
   .marquee {
     height: 80px;
+    padding-bottom: 2px;
   }
   .teamWrapper {
     display: block;
+  }
+  .teamHeadline {
+    padding-bottom: 31px;
   }
 
   .teamLeft,
@@ -195,25 +203,36 @@
     height: 80px;
     padding-left: 10px;
   }
+  .teamWrapper ul {
+    column-count: 1;
+  }
+  
+  .teamWrapper ul li {
+    padding-bottom: var(--spaceSmall);
+  }
+  .teamWrapper ul li:last-child {
+    padding-bottom: 0;
+  }
   .downloadContent {
     padding: 10px;
     column-count: 1;
   }
-  .downloadRow p{
-    min-width: 50px; 
+  .downloadRow p {
+    min-width: 50px;
   }
   .downloadItem p {
     margin-bottom: 25px;
   }
   .logoHeader {
-    padding: 50px 10px;
+    padding-bottom: var(--space);
     width: 100%;
   }
   .logosWrapper {
     display: block;
     min-height: unset;
+    padding-bottom: 0;
   }
-  .logoInner div{
+  .logoInner div {
     padding: 0 0 60px;
     width: 51%;
   }

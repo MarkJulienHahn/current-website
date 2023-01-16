@@ -1,24 +1,24 @@
 .navWrapper {
   position: fixed;
   top: 0;
-  height: 65px;
+  height: var(--space);
   width: 100vw;
   display: flex;
   justify-content: space-between;
-  font-size: 30px;
-  line-height: 30px;
-  letter-spacing: -2.5px;
   font-family: "Activist";
   z-index: 100;
   pointer-events: none;
+}
+
+.navWrapper h2 {
+  line-height: 28px;
 }
 
 .navLeft,
 .navRight {
   width: 50vw;
   height: 100%;
-  padding: 4px 8px 4px 4px;
-
+  padding: var(--spaceTiny) var(--spaceSmall);
 }
 
 .navLeft {
@@ -49,10 +49,11 @@
 }
 
 .navLogoWide {
-  padding-left: 4px;
+  padding-top: 4px;
 }
 
-.navLogoWide, .navLogoSmall {
+.navLogoWide,
+.navLogoSmall {
   pointer-events: auto;
 }
 
@@ -65,7 +66,7 @@
     display: none;
   }
   .navLogoSmall {
-    padding: 6px 4px ;
+    padding: 6px 4px;
     display: block;
   }
 }
@@ -103,7 +104,7 @@
     position: absolute;
     right: 10px;
     width: 25vw;
-    transform: translateY(-15px)
+    transform: translateY(-15px);
   }
   .mobileMenu {
     display: flex;
@@ -113,7 +114,7 @@
     right: 0;
     width: 50vw;
     padding: 10px;
-
+    line-height: 0;
     /* transition: transform 0.5s ease; */
   }
   .mobileMenuRed {
@@ -126,5 +127,17 @@
     padding: 10px;
     transition: transform 0.5s ease;
     background: var(--red);
+    line-height: 0;
+  }
+  .mobileMenuRed a,
+  .mobileMenu a {
+    padding: 42px 0 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .mobileMenuRed a:first-child,
+  .mobileMenu a:first-child {
+    padding-top: 23px;
   }
 }

@@ -3,21 +3,23 @@
 }
 .footerSegment {
   width: 50vw;
-  height: 250px;
-  padding: 70px 0 0 20px;
+  padding: var(--space) var(--spaceSmall);
 }
 
-.footerSegment h2 a:hover,
+.footerLinksMobile {
+  display: none;
+}
+/* .footerSegment h2 a:hover,
 .footerLinks h2 a:hover {
   color: var(--green);
-}
+} */
 
 .impressumWrapper {
-  width: 100vw;
+  width: 100%;
   column-count: 2;
-  column-gap: 40px;
+  column-gap: calc(2 * var(--spaceSmall));
   font-size: 12pt;
-  padding: 70px 20px;
+  padding: var(--space) var(--spaceSmall);
 }
 
 .impressumOuter {
@@ -27,32 +29,34 @@
 
 .footerLinks {
   position: absolute;
-  transform: translate(20px, 70px);
+  transform: translate(var(--spaceSmall), var(--space));
 }
 
 @media screen and (max-width: 700px) {
+  .footerWrapper {
+    flex-flow: column-reverse;
+  }
   .footerSegment {
-    padding: 50px 10px;
-    height: 60vw;
+    width: 100%;
+    padding: var(--space) var(--spaceSmall);
   }
-
-  .footerSegment:nth-child(2) {
-    padding-top: calc(50px + 1vw);
-  }
-
-  .footerSegment h2 {
-    font-size: 4vw;
-    line-height: 5vw;
+  .footerSegment h2,
+  .footerWrapper h2 {
+    font-size: 4.8vw;
+    line-height: 6vw;
     letter-spacing: -0.5px;
-  }
-  .footerSegment h2 a {
-    line-height: 8vw;
   }
   .impressumWrapper {
     column-count: 1;
-    padding: 30px 10px;
+    padding: 0 var(--spaceSmall) var(--space);
   }
   .footerLinks {
-    transform: translate(10px,50px);
+    display: none;
+  }
+  .footerLinksMobile {
+    width: 100%;
+    display: flex;
+
+    justify-content: space-between;
   }
 }

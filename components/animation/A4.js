@@ -2,9 +2,15 @@ import { useState, useEffect } from "react";
 import style from "../../styles/Landing.module.css";
 import A5 from "../animation/A5";
 
-const A4 = ({ indexA3, changedA3, colorArray }) => {
+const A4 = ({ indexA3, changedA3, colorArray, margin }) => {
   const [indexA4, setIndexA4] = useState(null);
   const [changedA4, setChangedA4] = useState(null);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
 
   const changeIndex = () => {
     if (indexA3 +1 < colorArray.length) {
@@ -12,20 +18,22 @@ const A4 = ({ indexA3, changedA3, colorArray }) => {
     } else setIndexA4(0), setChangedA4(true);
   };
 
-  // const changeColor = () => {
-  //   setIndex(Math.floor(Math.random() * colorArray.length));
-  // };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-  // useEffect(() => {
-  //   if (changedA3 && !changedA4) {
-  //     setChangedA4(true);
-  //   }
-  // });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div
       className={style.vertical}
-      style={{ background: colorArray[indexA4] }}
+      style={
+        scrollPosition < 100 + margin
+          ? { background: colorArray[indexA4] }
+          : { opacity: 0 }
+      }
       onClick={changedA3 && !changedA4 ? () => changeIndex() : null}
       // onMouseEnter={changedCurrent ? () => changeColor() : null}
     >

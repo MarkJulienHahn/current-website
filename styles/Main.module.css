@@ -47,7 +47,7 @@
 }
 
 .marquee:hover {
-  background: white;
+  background: var(--red);
 }
 
 /* TEAM */

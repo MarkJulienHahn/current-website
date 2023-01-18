@@ -1,23 +1,26 @@
 import { useState, useEffect } from "react";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import style from "../../styles/Landing.module.css";
-import { useInView } from "react-intersection-observer";
 import A2 from "../animation/A2";
 
-const Layer01 = ({ colorArray, indexA, setIndexA, delay }) => {
+const Layer01 = ({ colorArray, indexA, setIndexA, delay, autoChange, setAutoChange }) => {
   const [index, setIndex] = useState(null);
   const [changedA, setChangedA] = useState(false);
+  const { height } = useWindowDimensions();
 
-  const { ref: ref, inView: refIsVisible } = useInView({
-    threshold: 0.6,
-  });
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
 
   const changeIndex = () => {
     setIndex(Math.floor(Math.random() * colorArray.length)), setChangedA(true);
   };
 
   const changeColor = () => {
-    if (indexA +1 < colorArray.length) setIndexA(indexA + 1);
-    else setIndexA(0);
+    if (indexA +1 < colorArray.length) setIndexA(indexA + 1), setAutoChange(false);
+    else setIndexA(0), setAutoChange(false);
   };
 
   useEffect(() => {
@@ -25,24 +28,34 @@ const Layer01 = ({ colorArray, indexA, setIndexA, delay }) => {
   }, []);
 
   useEffect(() => {
-    if (delay) {
+    if (delay && autoChange ) {
       const interval = setInterval(() => {
-        setIndex(Math.floor(Math.random() * colorArray.length));
+        setIndexA(Math.floor(Math.random() * colorArray.length));
       }, delay);
       return () => clearInterval(interval);
     }
+  });
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-
-
+  console.log(indexA, index, height, scrollPosition)
 
   return (
     <div
       className={style.A}
-      style={ refIsVisible ? { background: colorArray[indexA] } : { background: "white"}}
+      style={
+        scrollPosition < height
+          ? { background: colorArray[indexA] }
+          : { background: "white" }
+      }
       onClick={() => setChangedA(true)}
-      ref={ref}
-      // onMouseEnter={!changedA ? () => changeColor() : null}
+      onMouseEnter={!changedA ? () => changeColor() : null}
     >
       <div
         style={{
@@ -51,8 +64,8 @@ const Layer01 = ({ colorArray, indexA, setIndexA, delay }) => {
           display: "flex",
         }}
       >
-        <A2 colorArray={colorArray} changedA={changedA} margin={50} indexA={indexA} />
-        <A2 colorArray={colorArray} changedA={changedA} margin={70} indexA={indexA} />
+        <A2 colorArray={colorArray} changedA={changedA} margin={0} indexA={indexA} />
+        <A2 colorArray={colorArray} changedA={changedA} margin={100} indexA={indexA} />
       </div>
     </div>
   );

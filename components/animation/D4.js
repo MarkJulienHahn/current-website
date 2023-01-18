@@ -7,10 +7,11 @@ const Layer04 = ({colorArray, indexD3, changedD3}) => {
   const [changedD4, setChanged] = useState(null);
 
   const changeIndex = () => {
-    if (indexD3 +1 < colorArray.length) 
+    if (indexD4 +1 < colorArray.length) 
     {setIndexD4(indexD3 + 1), setChanged(true)}
     else setIndexD4(0), setChanged(true);
   };
+  
 
 
   return (

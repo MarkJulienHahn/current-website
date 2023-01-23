@@ -36,9 +36,9 @@ const B2 = ({colorArray, indexB1, margin}) => {
     <div
       className={style.vertical}
       style={
-        scrollPosition < 450 + margin
-          ? { background: colorArray[indexB2] }
-          : { opacity: 0 }
+        // scrollPosition < 450 + margin
+           { background: colorArray[indexB2] }
+          // : { opacity: 0 }
       }
       onClick={!changedB2 ? () => changeIndex() : null}
       // onMouseEnter={index != null ? () => changeColor() : null}

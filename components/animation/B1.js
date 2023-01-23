@@ -45,9 +45,9 @@ const Layer01 = ({ colorArray, delay, margin, autoChange, setAutoChange }) => {
     <div
       className={style.B1}
       style={
-        scrollPosition < height + margin
+        scrollPosition < (height / 3) + margin
           ? { background: colorArray[indexB1] }
-          : { background: "white" }
+          : { opacity: 0 }
       }
       onClick={!changedB1 ? () => setChangedB1(true) : null}
       onMouseEnter={!changedB1 ? () => changeColor() : null}

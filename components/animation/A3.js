@@ -36,7 +36,11 @@ const A3 = ({ indexA2, changedA2, colorArray, margin }) => {
   return (
     <div
       className={style.horizontal}
-      style={{ background: colorArray[indexA3] }}
+      style={
+        scrollPosition < 10
+          ? { background: colorArray[indexA3] }
+          : { background: "none" }
+      }
       onClick={changedA2 && !changedA3 ? () => changeIndex() : null}
       // onMouseEnter={changedA2 ? () => changeColor() : null}
     >

@@ -116,7 +116,7 @@ const Index = ({
                 <B1
                   colorArray={colorArray}
                   delay={1800}
-                  margin={0}
+                  margin={10}
                   autoChange={autoChange}
                   setAutoChange={setAutoChange}
                 />
@@ -133,7 +133,7 @@ const Index = ({
                 <C2
                   colorArray={colorArray}
                   delay={12000}
-                  margin={0}
+                  margin={10}
                   hanged={true}
                   autoChange={autoChange}
                   setAutoChange={setAutoChange}
@@ -149,7 +149,7 @@ const Index = ({
                 <C2
                   colorArray={colorArray}
                   delay={18000}
-                  margin={-50}
+                  margin={10}
                   changed={true}
                   autoChange={autoChange}
                   setAutoChange={setAutoChange}
@@ -159,7 +159,7 @@ const Index = ({
                 <D3
                   colorArray={colorArray}
                   delay={6000}
-                  margin={-50}
+                  margin={5}
                   changed={true}
                   autoChange={autoChange}
                   setAutoChange={setAutoChange}
@@ -167,7 +167,7 @@ const Index = ({
                 <D3
                   colorArray={colorArray}
                   delay={12000}
-                  margin={0}
+                  margin={1}
                   changed={true}
                   autoChange={autoChange}
                   setAutoChange={setAutoChange}
@@ -199,7 +199,7 @@ const Index = ({
                 <D3
                   colorArray={colorArray}
                   delay={16000}
-                  margin={-50}
+                  margin={50}
                   changed={true}
                   autoChange={autoChange}
                   setAutoChange={setAutoChange}
@@ -215,7 +215,7 @@ const Index = ({
                 <D3
                   colorArray={colorArray}
                   delay={32000}
-                  margin={0}
+                  margin={1}
                   changed={true}
                   autoChange={autoChange}
                   setAutoChange={setAutoChange}

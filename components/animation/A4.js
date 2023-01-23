@@ -35,7 +35,7 @@ const A4 = ({ indexA3, changedA3, colorArray, margin }) => {
     <div
       className={style.vertical}
       style={
-        scrollPosition < 100 + margin
+        scrollPosition < 10
           ? { background: colorArray[indexA4] }
           : { opacity: 0 }
       }

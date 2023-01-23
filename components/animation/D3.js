@@ -53,9 +53,9 @@ const Layer03 = ({ changed, colorArray, delay, margin, autoChange, setAutoChange
       className={style.vertical}
       
       style={
-        scrollPosition < height * 1.6 + margin
-          ? { background: colorArray[indexD3] }
-          : { background: "white" }
+        scrollPosition < ((height * 1.6) + margin)
+          ? { opacity: 1, background: colorArray[indexD3], display: "flex" }
+          : { opacity: 0, display: "flex" }
       }
       onClick={() => setChangedD3(true)}
       onMouseEnter={!changedD3 ? () => changeColor() : null}

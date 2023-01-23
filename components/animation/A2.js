@@ -31,13 +31,13 @@ const A2 = ({ changedA, colorArray, indexA, margin }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  });
 
   return (
     <div
       className={style.vertical}
       style={
-        scrollPosition < height
+        scrollPosition < 10
           ? { background: colorArray[indexA2] }
           : { opacity: 0 }
       }

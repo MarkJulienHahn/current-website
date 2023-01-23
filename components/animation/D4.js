@@ -11,14 +11,12 @@ const Layer04 = ({colorArray, indexD3, changedD3}) => {
     {setIndexD4(indexD3 + 1), setChanged(true)}
     else setIndexD4(0), setChanged(true);
   };
-  
-
 
   return (
     <div
       className={style.vertical}
       style={{ background: colorArray[indexD4]}}
-      onClick={changedD3 && !changedD4 ? () => changeIndex() : null}
+      onClick={!changedD4 ? () => changeIndex() : null}
       // onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}
     >
       <D5 colorArray={colorArray} changedD4={changedD4} indexD4={indexD4}/>

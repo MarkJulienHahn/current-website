@@ -45,7 +45,7 @@ const Layer01 = ({ colorArray, delay, margin, autoChange, setAutoChange }) => {
     <div
       className={style.B1}
       style={
-        scrollPosition < (height / 3) + margin
+        scrollPosition < (height / 6) + margin
           ? { background: colorArray[indexB1] }
           : { opacity: 0 }
       }

@@ -53,7 +53,7 @@ const C2 = ({changed, delay, colorArray, margin, autoChange, setAutoChange}) => 
     <div
       className={style.horizontal_frst}
       style={
-        scrollPosition < (height * 1.3) + margin
+        scrollPosition < (height / 2) + margin
           ? { background: colorArray[indexC2] }
           : { opacity: 0 }
       }

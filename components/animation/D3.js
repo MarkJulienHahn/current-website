@@ -53,7 +53,7 @@ const Layer03 = ({ changed, colorArray, delay, margin, autoChange, setAutoChange
       className={style.vertical}
       
       style={
-        scrollPosition < ((height * 1.6) + margin)
+        scrollPosition < ((height * 0.75) + margin)
           ? { opacity: 1, background: colorArray[indexD3], display: "flex" }
           : { opacity: 0, display: "flex" }
       }

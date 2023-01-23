@@ -43,7 +43,7 @@ const Layer03 = ({ colorArray, delay, margin, autoChange, setAutoChange }) => {
     <div
       className={style.vertical}
       style={
-        scrollPosition < height * 2.2 + margin
+        scrollPosition < height * 1.2 + margin
           ? { background: colorArray[index] }
           : { background: "white" }
       }

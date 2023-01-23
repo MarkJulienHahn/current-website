@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Div100vh from "react-div-100vh";
 import { use100vh } from "react-div-100vh";
 import { useInView } from "react-intersection-observer";
+import useWindowDimensions from "../hooks/useWindowDimensions"
 
 import A from "../components/animation/A";
 import B1 from "../components/animation/B1";
@@ -34,11 +35,16 @@ const Index = ({
   const [scrollPosition, setScrollPosition] = useState("");
   const [autoChange, setAutoChange] = useState(true);
 
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
   const height = use100vh();
 
   const { ref, inView } = useInView({
     /* Optional options */
-    threshold: 0.35,
+    threshold: 0.1,
   });
 
   const colorArray = [
@@ -65,6 +71,8 @@ const Index = ({
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
+
+  console.log(scrollPosition, height)
 
   return (
     <>

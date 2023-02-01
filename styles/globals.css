@@ -108,11 +108,14 @@ ul {
   }
   main {
     overflow: hidden;
+
+    
   }
   h1, h2 {
     font-size: 29px;
     letter-spacing: -1px;
     line-height: 36px;
+
   }
 
   .anchor {

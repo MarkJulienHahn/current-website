@@ -255,6 +255,7 @@
   .newsletterMarquee input:focus,
   .newsletterMarquee button {
     font-size: 16px;
+    border-radius: 0;
   }
   .newsletterMarquee input:focus {
     width: 50%
@@ -263,6 +264,9 @@
     position: absolute;
     right: var(--spaceTiny);
     padding-top: 12px;
+    color: black;
+    font-weight: 100;
+    margin: 0;
   }
   .teamWrapper {
     display: block;

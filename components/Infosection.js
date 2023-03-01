@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Main.module.css";
 
 import { PortableText } from "@portabletext/react";
+import NewsletterMarquee from "./NewsletterMarquee";
 
 const Infosection = ({ english, intro, about }) => {
   const [background, setBackground] = useState(true);
@@ -29,6 +30,8 @@ const Infosection = ({ english, intro, about }) => {
           )}
         </h1>
       </div>
+
+      <NewsletterMarquee english={english} />
 
       <div
         className={styles.infoTextWrapper}

@@ -98,6 +98,12 @@ ul {
   margin-top: 130vh;
 }
 
+input {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
 @media screen and (max-width: 1200px) {
   :root {
     --space: 42px;

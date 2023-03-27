@@ -81,6 +81,9 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
               <a href="#team">
                 <h2>Team</h2>
               </a>
+              <a href="http://2021.current-stuttgart.de/de">
+                <h2>Current 2021</h2>
+              </a>
               {/* <a href="#downloads">Downloads</a> */}
               {/* <Link href="/currently">
                 <h2>Currently</h2>
@@ -183,7 +186,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
                 ? {
                     transform: "translateY(0vw)",
                     transition: "background-color 0.2s ease",
-                    background: "var(--red)"
+                    background: "var(--red)",
                   }
                 : {
                     transform: "translateY(-1000px)",
@@ -195,6 +198,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
             <a href="#program">{english ? "Program" : "Programm"}</a>
             <a href="#about">{english ? "About" : "Über"}</a>
             <a href="#team">Team</a>
+            <a href="http://2021.current-stuttgart.de/de">Current 2021</a>
             {/* <a href="#downloads">Downloads</a> */}
             {/* <Link href="/currently">Currently</Link> */}
           </div>

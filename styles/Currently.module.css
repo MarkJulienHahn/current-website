@@ -1,5 +1,5 @@
 .postsOuter {
-  padding-top: 100px;
+  margin-top: 65px;
 }
 
 .postWrapper {
@@ -20,6 +20,10 @@
   display: flex;
   justify-content: space-between;
   padding: var(--spaceSmall);
+}
+
+.postTitle {
+  width: 45vw;
 }
 
 .postAccordeon {
@@ -114,7 +118,7 @@
 .plusAnimation {
   position: absolute;
   right: 16px;
-  transition: all 1s ease;
+  transition: all 0.3s ease;
 }
 
 .plusAnimationStatic{

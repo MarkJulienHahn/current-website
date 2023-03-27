@@ -1,3 +1,4 @@
+import {useState} from "react"
 import client from "../client";
 
 import Nav from "../components/Nav";
@@ -6,7 +7,8 @@ import Footer from "../components/Footer";
 
 import styles from "../styles/Currently.module.css"
 
-const currently = ({ currently }) => {
+const currently = ({ currently, english, setEnglish }) => {
+  const [newsSubtraction, setNewsSubtraction] = useState(0)
   const colorArray = [
     "var(--blue)",
     "var(--red)",
@@ -15,15 +17,17 @@ const currently = ({ currently }) => {
     "white",
   ];
 
-  console.log(currently);
-
   return (
     <>
-      <Nav colorArray={colorArray} />
+        <Nav
+          english={english}
+          setEnglish={setEnglish}
+          colorArray={colorArray}
+        />
 
       <div className={styles.postsOuter}>
         {currently.map((post, i) => (
-          <Blogpost post={post} i={i} key={i}/>
+          <Blogpost post={post} i={i} key={i} english={english} newsSubtraction={newsSubtraction} setNewsSubtraction={setNewsSubtraction}/>
         ))}
       </div>
 
@@ -35,7 +39,7 @@ const currently = ({ currently }) => {
 export default currently;
 
 export async function getServerSideProps() {
-  const currently = await client.fetch(`* [_type == "currently"] {..., "textbeitrag": textbeitrag[]{..., "images": images[]{..., "image": image.asset->{...}}}, "bildbeitrag": bildbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}, "newsbeitrag": newsbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}}`);
+  const currently = await client.fetch(`* [_type == "currently"] {..., "textbeitrag": textbeitrag[]{..., "images": images[]{..., "image": image.asset->{...}}}, "bildbeitrag": bildbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}, "newsbeitrag": newsbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}} | order(header.date)`);
   return {
     props: {
       currently,

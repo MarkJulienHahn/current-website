@@ -24,9 +24,10 @@ const Index = ({
   impressum,
   logos,
   marquee,
+  english, setEnglish
 }) => {
   const [index, setIndexA] = useState(null);
-  const [english, setEnglish] = useState(false);
+
   const [scrollPosition, setScrollPosition] = useState("");
   const [autoChange, setAutoChange] = useState(true);
 

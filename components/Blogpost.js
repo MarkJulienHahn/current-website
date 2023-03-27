@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+// import useWindowDimensions from "../Hooks/useWindowDimensions"
 
 import styles from "../styles/Currently.module.css";
 import Image from "next/image";
@@ -12,18 +13,19 @@ import { EffectFade } from "swiper";
 
 import TextPostImageSlide from "./TextPostImageSlide";
 
-const Blogpost = ({ post, i }) => {
+const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => {
   const [active, setActive] = useState(false);
+
 
   const ref = useRef();
   const ref2 = useRef();
   const quote = useRef();
+  const headerRef = useRef();
 
   const hidden = { height: "0" };
   const visible = { height: ref.current?.clientHeight };
 
-  const scroll = () =>
-    setTimeout(() => ref2.current.scrollIntoView({ block: "start" }), 200);
+  const scroll = () => setTimeout(() => ref2.current.scrollIntoView(), 200);
 
   const open = () => {
     setActive(!active), scroll();
@@ -36,29 +38,54 @@ const Blogpost = ({ post, i }) => {
       year: "numeric",
     });
 
-    const dateFormattedEN = (date) =>
-    new Date(date).toLocaleString("de-de", {
+  const dateFormattedEN = (date) =>
+    new Date(date).toLocaleString("en-gb", {
       day: "numeric",
       month: "short",
       year: "numeric",
     });
 
+  const indexNumber = (num) => {
+    if (num < 11) {
+      return `#0${num + 1 - newsSubtraction}`;
+    }
+    return `#${num + 1 - newsSubtraction}`;
+  };
+
+  useEffect(() => {
+    post.newsbeitrag && setNewsSubtraction(newsSubtraction+1)
+  }, [])
+
   return (
     <>
+      <div ref={ref2} className="anchor"></div>
       <div
         className={styles.postWrapper}
         style={i % 2 == 0 ? { background: "white" } : { background: "#F2F2F2" }}
         onClick={open}
-        ref={ref2}
       >
-        <div className={styles.postLeft}>
-          <h2>{post.nwsbeitrag ? "NEWS" : <>#{i + 1}</>}</h2>
-          <h2>{dateFormattedDE(post.header.date)}</h2>
+        <div className={styles.postLeft} ref={headerRef}>
+          <h2>{post.nwsbeitrag ? "◌" : <>{indexNumber(i)}</>}</h2>
+          <h2>
+            {english
+              ? dateFormattedEN(post.header.date)
+              : dateFormattedDE(post.header.date)}
+          </h2>
         </div>
         <div className={styles.postRight}>
           <span>
-            <h2>{post.header.titel.titleDE}</h2>
-            <p>{!post.nwsbeitrag && post.header.subtitle.subtitleDE}</p>
+            <h2 className={styles.postTitle}>
+              {english ? post.header.titel.titleEN : post.header.titel.titleDE}
+            </h2>
+            {!post.nwsbeitrag ? (
+              <p>
+                {english
+                  ? post.header.subtitle?.subtitleEN
+                  : post.header.subtitle?.subtitleDE}
+              </p>
+            ) : (
+              ""
+            )}
           </span>
           <h2
             className={styles.plusAnimation}
@@ -101,14 +128,22 @@ const Blogpost = ({ post, i }) => {
                       alt={image.captions.captionEN}
                     />
                     <p className={styles.bildunterschrift}>
-                      {image.captions?.captionDE}
+                      {english
+                        ? image.captions?.captionEN
+                        : image.captions?.captionDE}
                     </p>
                   </span>
                 ))}
               </span>
 
               <span className={styles.bildbeitragRight}>
-                <PortableText value={post.bildbeitrag.text.textDE} />
+                <PortableText
+                  value={
+                    english
+                      ? post.bildbeitrag.text.textEN
+                      : post.bildbeitrag.text.textDE
+                  }
+                />
               </span>
             </>
           )}
@@ -143,9 +178,13 @@ const Blogpost = ({ post, i }) => {
                       </Swiper>
                     </span>
                     <span className={styles.textbeitragRight}>
-                      <PortableText value={beitrag.textDE} />
+                      <PortableText
+                        value={english ? beitrag.textEN : beitrag.textDE}
+                      />
                       <div ref={quote} className={styles.quote}>
-                        <PortableText value={beitrag.quoteDE} />
+                        <PortableText
+                          value={english ? beitrag.quoteEN : beitrag.quoteDE}
+                        />
                       </div>
                     </span>
                   </span>
@@ -176,14 +215,22 @@ const Blogpost = ({ post, i }) => {
                       alt={image.captions.captionEN}
                     />
                     <p className={styles.bildunterschrift}>
-                      {image.captions?.captionDE}
+                      {english
+                        ? image.captions?.captionEN
+                        : image.captions?.captionDE}
                     </p>
                   </span>
                 ))}
               </span>
 
               <span className={styles.newsbeitragRight}>
-                <PortableText value={post.newsbeitrag.text.textDE} />
+                <PortableText
+                  value={
+                    english
+                      ? post.newsbeitrag.text.textEN
+                      : post.newsbeitrag.text.textDE
+                  }
+                />
               </span>
             </>
           )}

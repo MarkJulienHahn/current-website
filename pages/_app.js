@@ -1,9 +1,10 @@
-import {useState} from "react"
-import '../styles/globals.css'
+import { useState, useEffect } from "react";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
+  const [english, setEnglish] = useState(false);
 
-  return <Component {...pageProps} />
+  return <Component {...pageProps} english={english} setEnglish={setEnglish} />;
 }
 
-export default MyApp
+export default MyApp;

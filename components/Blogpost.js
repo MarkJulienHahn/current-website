@@ -46,7 +46,7 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
     });
 
   const indexNumber = (num) => {
-    if (num < 11) {
+    if (num < 11) { 
       return `#0${num + 1 - newsSubtraction}`;
     }
     return `#${num + 1 - newsSubtraction}`;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import useWindowDimensions from "../../Hooks/useWindowDimensions"
+import useWindowDimensions from "../../hooks/useWindowDimensions"
 import style from "../../styles/Landing.module.css";
 
 const Layer03 = ({ colorArray, delay, margin, autoChange, setAutoChange }) => {

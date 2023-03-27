@@ -47,7 +47,59 @@
 }
 
 .marquee:hover {
-  background: white;
+  background: var(--red);
+}
+
+.marquee h1,
+.newsletterMarquee h1 {
+  padding-left: 15px;
+}
+
+.newsletterMarquee {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  padding-bottom: var(--spaceSmall);
+  background: var(--green);
+  cursor: default;
+}
+
+.newsletterMarquee:hover {
+  background: var(--pink);
+}
+
+.newsletterMarquee input,
+.newsletterMarquee input::placeholder,
+.newsletterMarquee input:focus {
+  border: 0;
+  border-bottom: 2px solid black;
+  outline: 0;
+  background: none;
+  margin: var(--spaceSmall);
+  font-family: "Rubik", sans-serif;
+  font-size: 22.5px;
+  color: black;
+  opacity: 1;
+  width: 400px;
+}
+
+.newsletterMarquee button {
+  border: 0;
+  outline: 0;
+  font-family: "Rubik", sans-serif;
+  font-size: 22.5px;
+  background: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.newsletterMarquee button:hover {
+  border-bottom: 2px solid black;
+}
+
+.formStatus {
+  margin: var(--spaceSmall);
 }
 
 /* TEAM */
@@ -175,7 +227,7 @@
     padding-bottom: 0;
   }
   .mobileInfoText {
-    padding-top: var(--space)
+    padding-top: var(--space);
   }
   .space {
     display: none;
@@ -183,6 +235,38 @@
   .marquee {
     height: 80px;
     padding-bottom: 2px;
+  }
+
+  .newsletterMarquee {
+    height: 80px;
+  }
+
+  .newsletterMarquee form {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .newsletterMarquee input {
+    width: 50%;
+  }
+  .newsletterMarquee input,
+  .newsletterMarquee input::placeholder,
+  .newsletterMarquee input:focus,
+  .newsletterMarquee button {
+    font-size: 16px;
+    border-radius: 0;
+  }
+  .newsletterMarquee input:focus {
+    width: 50%
+  }
+  .newsletterMarquee button {
+    position: absolute;
+    right: 0;
+    padding-top: 12px;
+    color: black;
+    font-weight: 100;
+    margin: 0;
   }
   .teamWrapper {
     display: block;
@@ -206,7 +290,7 @@
   .teamWrapper ul {
     column-count: 1;
   }
-  
+
   .teamWrapper ul li {
     padding-bottom: var(--spaceSmall);
   }

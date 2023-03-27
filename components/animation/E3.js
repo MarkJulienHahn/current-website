@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import useWindowDimensions from "../../Hooks/useWindowDimensions"
 import style from "../../styles/Landing.module.css";
 
-const Layer03 = ({ colorArray, delay, margin }) => {
+const Layer03 = ({ colorArray, delay, margin, autoChange, setAutoChange }) => {
   const [index, setIndex] = useState(null);
+  const { height } = useWindowDimensions();
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
@@ -21,13 +23,13 @@ const Layer03 = ({ colorArray, delay, margin }) => {
   }, []);
 
   useEffect(() => {
-    if (delay) {
+    if (delay && autoChange) {
       const interval = setInterval(() => {
         setIndex(Math.floor(Math.random() * colorArray.length));
       }, delay);
       return () => clearInterval(interval);
     }
-  }, []);
+  });
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -41,11 +43,12 @@ const Layer03 = ({ colorArray, delay, margin }) => {
     <div
       className={style.vertical}
       style={
-        scrollPosition < 550 + margin
+        scrollPosition < height * 1.2 + margin
           ? { background: colorArray[index] }
           : { background: "white" }
       }
       onClick={() => changeColor()}
+      onMouseEnter={() => changeColor()}
     ></div>
   );
 };

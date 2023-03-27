@@ -1,22 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 
 import Div100vh from "react-div-100vh";
-import { use100vh } from 'react-div-100vh'
+import { use100vh } from "react-div-100vh";
+import { useInView } from "react-intersection-observer";
 
 import A from "../components/animation/A";
 import B1 from "../components/animation/B1";
 import C2 from "../components/animation/C2";
 import D3 from "../components/animation/D3";
 import E3 from "../components/animation/E3";
-
 import Nav from "../components/Nav";
 import Layout from "../components/Layout";
 import Main from "../components/Main";
-
 import Footer from "../components/Footer";
-
 import styles from "../styles/Landing.module.css";
-
 import client from "../client";
 
 const Index = ({
@@ -27,15 +24,24 @@ const Index = ({
   impressum,
   logos,
   marquee,
+  english, setEnglish
 }) => {
   const [index, setIndexA] = useState(null);
-  const [english, setEnglish] = useState(false);
+
   const [scrollPosition, setScrollPosition] = useState("");
-  const [refInView, setRefInView] = useState(false);
+  const [autoChange, setAutoChange] = useState(true);
 
-  const height = use100vh()
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
 
-  const ref = useRef(null);
+  const height = use100vh();
+
+  const { ref, inView } = useInView({
+    /* Optional options */
+    threshold: 0.1,
+  });
 
   const colorArray = [
     "var(--blue)",
@@ -62,17 +68,17 @@ const Index = ({
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  useEffect(() => {
-    if (scrollPosition > 1) {
-      setRefInView(true);
-    } else {
-      setRefInView(false);
-    }
-  });
+  console.log(scrollPosition, height)
 
   return (
     <>
       <Layout>
+        <Nav
+          english={english}
+          setEnglish={setEnglish}
+          refInView={inView}
+          colorArray={colorArray}
+        />
         <Div100vh>
           <div
             style={{
@@ -82,77 +88,289 @@ const Index = ({
               flexWrap: "wrap",
               overflow: "hidden",
               cursor: "pointer",
-              background: "white"
+              background: "white",
+              position: "fixed",
             }}
-            ref={ref}
             id="main"
           >
-            <Nav
-              english={english}
-              setEnglish={setEnglish}
-              refInView={refInView}
-              colorArray={colorArray}
-            />
-            <div className={styles.mainTitle} style={{height: `calc(${height} + 30px)`}}>
+            <div
+              className={styles.mainTitle}
+              style={{ height: `calc(${height} + 30px)` }}
+            >
               <h1>CURRENT</h1>
             </div>
-            <div></div>
-            <A colorArray={colorArray} indexA={index} setIndexA={setIndexA} delay={6000}/>
-            {/* <A colorArray={colorArray} indexA={index} setIndexA={setIndexA}/> */}
+
+            <A
+              colorArray={colorArray}
+              indexA={index}
+              setIndexA={setIndexA}
+              delay={6000}
+              autoChange={autoChange}
+              setAutoChange={setAutoChange}
+            />
             <div className={styles.A_row}>
               <div className={styles.B_row}>
-                <B1 colorArray={colorArray} delay={6000} margin={20}/>
-                <B1 colorArray={colorArray} delay={18000} margin={0}/>
+                <B1
+                  colorArray={colorArray}
+                  delay={6000}
+                  margin={100}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
+                <B1
+                  colorArray={colorArray}
+                  delay={1800}
+                  margin={10}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
               </div>
               <div className={styles.C_row}>
-                <C2 colorArray={colorArray} delay={8000} margin={20} changed={true} />{" "}
-                <C2 colorArray={colorArray} delay={12000} cmargin={0} hanged={true} />
-                <C2 colorArray={colorArray} delay={4000} margin={10} changed={true} />{" "}
-                <C2 colorArray={colorArray} delay={18000} margin={30} changed={true} />
+                <C2
+                  colorArray={colorArray}
+                  delay={8000}
+                  margin={100}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <C2
+                  colorArray={colorArray}
+                  delay={12000}
+                  margin={10}
+                  hanged={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
+                <C2
+                  colorArray={colorArray}
+                  delay={4000}
+                  margin={50}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <C2
+                  colorArray={colorArray}
+                  delay={18000}
+                  margin={10}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
               </div>
               <div className={styles.D_row}>
-                <D3 colorArray={colorArray} delay={6000} margin={20} changed={true} />{" "}
-                <D3 colorArray={colorArray} delay={12000} margin={10} changed={true} />
-                <D3 colorArray={colorArray} delay={2000} margin={0} changed={true} />{" "}
-                <D3 colorArray={colorArray} delay={8000} margin={10} changed={true} />
-                <D3 colorArray={colorArray} delay={18000} margin={20} changed={true} />{" "}
-                <D3 colorArray={colorArray} delay={16000} margin={30} changed={true} />
-                <D3 colorArray={colorArray} delay={12000} margin={25} changed={true} />{" "}
-                <D3 colorArray={colorArray} delay={32000} margin={0} changed={true} />
+                <D3
+                  colorArray={colorArray}
+                  delay={6000}
+                  margin={5}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <D3
+                  colorArray={colorArray}
+                  delay={12000}
+                  margin={1}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
+                <D3
+                  colorArray={colorArray}
+                  delay={2000}
+                  margin={50}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <D3
+                  colorArray={colorArray}
+                  delay={8000}
+                  margin={100}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
+                <D3
+                  colorArray={colorArray}
+                  delay={18000}
+                  margin={50}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <D3
+                  colorArray={colorArray}
+                  delay={16000}
+                  margin={50}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
+                <D3
+                  colorArray={colorArray}
+                  delay={12000}
+                  margin={25}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <D3
+                  colorArray={colorArray}
+                  delay={32000}
+                  margin={1}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
               </div>
               <div className={styles.E_row}>
-                <E3 colorArray={colorArray} delay={24000} margin={90} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={12000} margin={50} changed={true} />
-                <E3 colorArray={colorArray} delay={16000} margin={10} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={18000} cmargin={50} hanged={true} />{" "}
-                <E3 colorArray={colorArray} delay={6000} margin={90} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={22000} margin={20} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={14000} margin={10} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={24000} margin={50} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={2000} margin={30} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={14000} margin={20} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={18000} margin={10} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={2000} margin={0} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={12000} margin={20} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={16000} margin={90} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={22000} margin={120} changed={true} />{" "}
-                <E3 colorArray={colorArray} delay={8000} margin={80} changed={true} />
+                <E3
+                  colorArray={colorArray}
+                  delay={24000}
+                  margin={90}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={12000}
+                  margin={50}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
+                <E3
+                  colorArray={colorArray}
+                  delay={16000}
+                  margin={10}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={18000}
+                  margin={50}
+                  hanged={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={6000}
+                  margin={90}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={22000}
+                  margin={20}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={14000}
+                  margin={-100}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={24000}
+                  margin={50}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={2000}
+                  margin={30}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={14000}
+                  margin={20}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={18000}
+                  margin={10}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={2000}
+                  margin={0}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={12000}
+                  margin={20}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={16000}
+                  margin={90}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={22000}
+                  margin={120}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />{" "}
+                <E3
+                  colorArray={colorArray}
+                  delay={8000}
+                  margin={80}
+                  changed={true}
+                  autoChange={autoChange}
+                  setAutoChange={setAutoChange}
+                />
               </div>
             </div>
           </div>
         </Div100vh>
-        <div className="wrapper">
-        <Main
-          english={english}
-          intro={intro[0]}
-          about={about[0]}
-          team={team}
-          downloads={downloads}
-          logos={logos}
-          marquee={marquee[0]}
-        />
 
-        <Footer english={english} impressum={impressum} />
+        <div className="wrapper" ref={ref}>
+          <Main
+            english={english}
+            intro={intro[0]}
+            about={about[0]}
+            team={team}
+            downloads={downloads}
+            logos={logos}
+            marquee={marquee[0]}
+          />
+
+          <Footer english={english} impressum={impressum} />
         </div>
       </Layout>
     </>

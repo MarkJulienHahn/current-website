@@ -30,9 +30,9 @@ const Layer03 = ({colorArray, indexB2, changedB2, margin}) => {
     <div
       className={style.horizontal}
       style={
-        scrollPosition < 450 + margin
-          ? { background: colorArray[indexB3] }
-          : { opacity: 0 }
+        // scrollPosition < 450 + margin
+          { background: colorArray[indexB3] }
+          // : { opacity: 0 }
       }
       onClick={!changedB3 && changedB2 ? () => changeIndex() : null}
       // onMouseEnter={changed && !changedCurrent ? () => changeColor() : null}

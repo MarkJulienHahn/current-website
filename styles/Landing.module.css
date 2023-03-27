@@ -1,12 +1,14 @@
 .A {
   width: 100%;
   height: 53.2%;
+
 }
 
 .B1 {
   display: flex;
   width: 50%;
   height: 100%;
+
 }
 .A_row {
   height: 50%;
@@ -16,12 +18,14 @@
   display: flex;
   height: 50%;
   width: 100%;
+  
 }
 
 .C_row {
   display: flex;
   height: 25%;
   width: 100%;
+
 }
 .D_row {
   display: flex;
@@ -51,6 +55,7 @@
   height: 100%;
   display: flex;
   pointer-events: "auto";
+
 }
 
 .mainTitle {
@@ -61,7 +66,6 @@
   height: calc(100%);
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   pointer-events: none;
 }
 
@@ -72,11 +76,9 @@
   transform: translateX(-1.5vw);
   color: white;
   mix-blend-mode: difference;
-  position: fixed;
   top: 0;
-  height: 40vw;
+  height: 45vw;
   padding-top: 45vh;
-  /* background:blue; */
   /* transform: translate(-1.5vw, 46vh); */
 }
 

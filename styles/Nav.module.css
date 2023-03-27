@@ -6,8 +6,7 @@
   display: flex;
   justify-content: space-between;
   font-family: "Activist";
-  z-index: 100;
-  pointer-events: none;
+  z-index: 10000;
 }
 
 .navWrapper h2 {
@@ -22,7 +21,7 @@
 }
 
 .navLeft {
-  z-index: 101;
+  /* z-index: 101; */
 }
 
 .navRightTop {
@@ -66,7 +65,7 @@
     display: none;
   }
   .navLogoSmall {
-    padding: 6px 4px;
+    padding: 4px 0;
     display: block;
   }
 }
@@ -90,7 +89,7 @@
     font-family: "Activist";
     text-align: right;
     z-index: 100;
-    transition: background-color 0.2s ease;
+    /* transition: background-color 0.2s ease; */
   }
   .mobileLogoWrapper {
     position: absolute;

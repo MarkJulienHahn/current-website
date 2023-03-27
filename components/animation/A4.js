@@ -18,6 +18,11 @@ const A4 = ({ indexA3, changedA3, colorArray, margin }) => {
     } else setIndexA4(0), setChangedA4(true);
   };
 
+  const changeColor = () => {
+    if (indexA4 +1 < colorArray.length) setIndexA4(indexA4 + 1);
+    else setIndexA4(0);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
@@ -30,12 +35,12 @@ const A4 = ({ indexA3, changedA3, colorArray, margin }) => {
     <div
       className={style.vertical}
       style={
-        scrollPosition < 100 + margin
+        scrollPosition < 10
           ? { background: colorArray[indexA4] }
           : { opacity: 0 }
       }
       onClick={changedA3 && !changedA4 ? () => changeIndex() : null}
-      // onMouseEnter={changedCurrent ? () => changeColor() : null}
+      // onMouseEnter={changedA4? () => changeColor() : null}
     >
       <A5 colorArray={colorArray} changedA4={changedA4} indexA4={indexA4} />
       <A5 colorArray={colorArray} changedA4={changedA4} indexA4={indexA4} />

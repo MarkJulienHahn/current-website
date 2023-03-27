@@ -7,7 +7,7 @@
   min-height: 100px;
   display: flex;
   justify-content: space-between;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .postWrapper:hover {
@@ -121,8 +121,73 @@
   transition: all 0.3s ease;
 }
 
-.plusAnimationStatic{
+.plusAnimationStatic {
   position: absolute;
   right: 16px;
-  transform: rotate(90deg) translateY(-1px)
+  transform: rotate(90deg) translateY(-1px);
+}
+
+@media screen and (max-width: 1200px) {
+  .postsOuter {
+    margin-top: 78px;
+  }
+  .postAccordeon {
+    overflow-y: scroll;
+    max-height: 70vh;
+  }
+  .postWrapper,
+  .postLeft,
+  .postInner {
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  .postInner {
+    max-height: unset;
+    overflow-y: scroll;
+  }
+  .postTitle {
+    width: 95vw;
+  }
+  .plusAnimationWrapper {
+    transform: translateY(-97px);
+  }
+  .newsIcon {
+    font-size: 15pt;
+    transform: translateY(-3px);
+  }
+  .newsbeitragLeft,
+  .newsbeitragRight,
+  .newsImagePortrait {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .bildunterschrift {
+    padding-bottom: 15px;
+    font-size: 13px;
+  }
+  .bildbeitragLeft, .imagePortrait, .bildbeitragRight {
+    width: 100%;
+    max-height: unset;
+  }
+  .textbeitragWrapper {
+    flex-direction: column;
+  }
+  .textbeitragLeft, .textbeitragRight {
+    margin-bottom: 0 !important;
+    width: 100%;
+    max-height: unset
+  }
+  .sliderImagePortrait {
+    width: 50%;
+  }
+  .quote {
+    transform: none;
+    width: 100%;
+    padding: 50px 0;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: -0.4px
+  }
 }

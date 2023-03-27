@@ -87,9 +87,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
               </Link> */}
             </div>
           ) : (
-            <div
-              className={styles.menuSub}
-            >
+            <div className={styles.menuSub}>
               <Link href="./#program">
                 <h2>{english ? "Program" : "Programm"}</h2>
               </Link>
@@ -116,49 +114,92 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
 
       {/* MOBILE */}
 
-      <div
-        className={styles.mobileNavWrapper}
-        style={
-          refInView
-            ? { background: "var(--red)" }
-            : { background: "transparent" }
-        }
-      >
-        <div className={styles.mobileLogoWrapper}>
-          <Image
-            alt="Current Festival's Logo"
-            src={logo3}
-            layout="responsive"
-          />
-        </div>
-        <div className={styles.mobileMenuButton}>
-          <div onClick={() => setEnglish(!english)}>EN/DE</div>
-          <div onClick={() => setShowMenu(!showMenu)}>
-            {english ? "Menu" : "Menü"}
+      {router.route == "/" ? (
+        <div
+          className={styles.mobileNavWrapper}
+          style={
+            refInView
+              ? { background: "var(--red)" }
+              : { background: "transparent" }
+          }
+        >
+          <div className={styles.mobileLogoWrapper}>
+            <Image
+              alt="Current Festival's Logo"
+              src={logo3}
+              layout="responsive"
+            />
+          </div>
+          <div className={styles.mobileMenuButton}>
+            <div onClick={() => setEnglish(!english)}>EN/DE</div>
+            <div onClick={() => setShowMenu(!showMenu)}>
+              {english ? "Menu" : "Menü"}
+            </div>
+          </div>
+          <div
+            className={!refInView ? styles.mobileMenu : styles.mobileMenuRed}
+            style={
+              showMenu
+                ? {
+                    transform: "translateY(0vw)",
+                    transition: "background-color 0.2s ease",
+                  }
+                : {
+                    transform: "translateY(-1000px)",
+                    transition: "background-color 0.2s ease",
+                  }
+            }
+            onClick={() => setShowMenu(false)}
+          >
+            <a href="#program">{english ? "Program" : "Programm"}</a>
+            <a href="#about">{english ? "About" : "Über"}</a>
+            <a href="#team">Team</a>
+            {/* <a href="#downloads">Downloads</a> */}
+            {/* <Link href="/currently">Currently</Link> */}
           </div>
         </div>
+      ) : (
         <div
-          className={!refInView ? styles.mobileMenu : styles.mobileMenuRed}
-          style={
-            showMenu
-              ? {
-                  transform: "translateY(0vw)",
-                  transition: "background-color 0.2s ease",
-                }
-              : {
-                  transform: "translateY(-1000px)",
-                  transition: "background-color 0.2s ease",
-                }
-          }
-          onClick={() => setShowMenu(false)}
+          className={styles.mobileNavWrapper}
+          style={{ background: "var(--red)" }}
         >
-          <a href="#program">{english ? "Program" : "Programm"}</a>
-          <a href="#about">{english ? "About" : "Über"}</a>
-          <a href="#team">Team</a>
-          {/* <a href="#downloads">Downloads</a> */}
-          {/* <Link href="/currently">Currently</Link> */}
+          <div className={styles.mobileLogoWrapper}>
+            <Image
+              alt="Current Festival's Logo"
+              src={logo3}
+              layout="responsive"
+            />
+          </div>
+          <div className={styles.mobileMenuButton}>
+            <div onClick={() => setEnglish(!english)}>EN/DE</div>
+            <div onClick={() => setShowMenu(!showMenu)}>
+              {english ? "Menu" : "Menü"}
+            </div>
+          </div>
+          <div
+            className={!refInView ? styles.mobileMenu : styles.mobileMenuRed}
+            style={
+              showMenu
+                ? {
+                    transform: "translateY(0vw)",
+                    transition: "background-color 0.2s ease",
+                    background: "var(--red)"
+                  }
+                : {
+                    transform: "translateY(-1000px)",
+                    transition: "background-color 0.2s ease",
+                  }
+            }
+            onClick={() => setShowMenu(false)}
+          >
+            <a href="#program">{english ? "Program" : "Programm"}</a>
+            <a href="#about">{english ? "About" : "Über"}</a>
+            <a href="#team">Team</a>
+            {/* <a href="#downloads">Downloads</a> */}
+            {/* <Link href="/currently">Currently</Link> */}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

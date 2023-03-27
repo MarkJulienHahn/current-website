@@ -13,9 +13,14 @@ import { EffectFade } from "swiper";
 
 import TextPostImageSlide from "./TextPostImageSlide";
 
-const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => {
+const Blogpost = ({
+  post,
+  i,
+  english,
+  newsSubtraction,
+  setNewsSubtraction,
+}) => {
   const [active, setActive] = useState(false);
-
 
   const ref = useRef();
   const ref2 = useRef();
@@ -46,15 +51,15 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
     });
 
   const indexNumber = (num) => {
-    if (num < 11) { 
+    if (num < 11) {
       return `#0${num + 1 - newsSubtraction}`;
     }
     return `#${num + 1 - newsSubtraction}`;
   };
 
   useEffect(() => {
-    post.newsbeitrag && setNewsSubtraction(newsSubtraction+1)
-  }, [])
+    post.newsbeitrag && setNewsSubtraction(newsSubtraction + 1);
+  }, []);
 
   return (
     <>
@@ -65,7 +70,7 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
         onClick={open}
       >
         <div className={styles.postLeft} ref={headerRef}>
-          <h2>{post.nwsbeitrag ? "◌" : <>{indexNumber(i)}</>}</h2>
+          {post.nwsbeitrag ? <h2 className={styles.newsIcon}>◌</h2> : <h2>{indexNumber(i)}</h2>}
           <h2>
             {english
               ? dateFormattedEN(post.header.date)
@@ -87,20 +92,23 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
               ""
             )}
           </span>
-          <h2
-            className={styles.plusAnimation}
-            style={
-              active
-                ? { transform: "rotate(90deg) translateY(-1px)" }
-                : {
-                    transform:
-                      "rotate(180deg) translateX(-1px) translateY(-1px)",
-                  }
-            }
-          >
-            I
-          </h2>
-          <h2 className={styles.plusAnimationStatic}>I</h2>
+          <div className={styles.plusAnimationWrapper}>
+            <h2
+              className={styles.plusAnimation}
+              style={
+                active
+                  ? { transform: "rotate(90deg) translateY(-1px)" }
+                  : {
+                      transform:
+                        "rotate(180deg) translateX(-1px) translateY(-1px)",
+                    }
+              }
+            >
+              I
+            </h2>
+
+            <h2 className={styles.plusAnimationStatic}>I</h2>
+          </div>
         </div>
       </div>
 

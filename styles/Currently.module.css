@@ -1,0 +1,124 @@
+.postsOuter {
+  padding-top: 100px;
+}
+
+.postWrapper {
+  width: 100vw;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer
+}
+
+.postWrapper:hover {
+  background: var(--pink) !important;
+}
+
+.postLeft,
+.postRight {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spaceSmall);
+}
+
+.postAccordeon {
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.postInner {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.bildbeitragLeft {
+  width: 75%;
+  max-height: 80vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.bildbeitragRight {
+  width: 25%;
+  padding: var(--spaceSmall);
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+.bildunterschrift {
+  font-size: 12pt;
+  padding-left: var(--spaceSmall);
+  padding-bottom: var(--spaceMedium);
+}
+
+.imagePortrait {
+  width: 41.666%;
+}
+
+.sliderImagePortrait {
+  width: 50%;
+}
+
+.newsImagePortrait {
+  width: 50%;
+}
+
+.textbeitragWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.textbeitragRight {
+  width: 100%;
+  padding: var(--spaceSmall) var(--spaceSmall) var(--spaceSmall);
+  width: 50%;
+}
+
+.textbeitragLeft {
+  position: sticky;
+  top: 0;
+  max-height: 80vh;
+  width: 50%;
+}
+
+.quote {
+  padding: 90px;
+  text-align: center;
+  font-size: 22pt;
+  width: 90vw;
+  transform: translateX(-45vw);
+}
+
+.newsbeitragLeft {
+  width: 50%;
+  max-height: 80vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.newsbeitragRight {
+  width: 50%;
+  padding: var(--spaceSmall);
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+.plusAnimation {
+  position: absolute;
+  right: 16px;
+  transition: all 1s ease;
+}
+
+.plusAnimationStatic{
+  position: absolute;
+  right: 16px;
+  transform: rotate(90deg) translateY(-1px)
+}

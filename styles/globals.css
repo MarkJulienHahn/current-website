@@ -8,6 +8,7 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 ::-webkit-scrollbar {
@@ -45,6 +46,7 @@ a {
   --pink: #ffa0ff;
   --blue: #00beff;
   --space: 65px;
+  --spaceMedium: 48px;
   --spaceSmall: 12px;
   --spaceTiny: 5px;
 }

@@ -262,7 +262,7 @@
   }
   .newsletterMarquee button {
     position: absolute;
-    right: var(--spaceTiny);
+    right: 0;
     padding-top: 12px;
     color: black;
     font-weight: 100;

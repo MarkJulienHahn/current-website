@@ -37,12 +37,12 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
         >
           <div className={styles.navLogoWide}>
             <a href="#main">
-              <Image src={logo} height={22.4} />
+              <Image alt="Current Festival's Logo" src={logo} height={22.4} />
             </a>
           </div>
           <div className={styles.navLogoSmall}>
             <a href="#main">
-              <Image src={logoMobile} height={50} />
+              <Image alt="Current Festival's Logo" src={logoMobile} height={50} />
             </a>
           </div>
         </div>
@@ -108,7 +108,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
         }
       >
         <div className={styles.mobileLogoWrapper}>
-          <Image src={logo3} layout="responsive" />
+          <Image alt="Current Festival's Logo" src={logo3} layout="responsive" />
         </div>
         <div className={styles.mobileMenuButton}>
           <div onClick={() => setEnglish(!english)}>EN/DE</div>

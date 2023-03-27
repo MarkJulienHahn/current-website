@@ -3,22 +3,17 @@ import { useState, useEffect, useRef } from "react";
 import Div100vh from "react-div-100vh";
 import { use100vh } from "react-div-100vh";
 import { useInView } from "react-intersection-observer";
-import useWindowDimensions from "../hooks/useWindowDimensions"
 
 import A from "../components/animation/A";
 import B1 from "../components/animation/B1";
 import C2 from "../components/animation/C2";
 import D3 from "../components/animation/D3";
 import E3 from "../components/animation/E3";
-
 import Nav from "../components/Nav";
 import Layout from "../components/Layout";
 import Main from "../components/Main";
-
 import Footer from "../components/Footer";
-
 import styles from "../styles/Landing.module.css";
-
 import client from "../client";
 
 const Index = ({

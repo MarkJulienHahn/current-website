@@ -152,7 +152,7 @@
     width: 95vw;
   }
   .plusAnimationWrapper {
-    transform: translateY(-25px);
+    transform: translate(5px, -25px);
   }
   .newsIcon {
     font-size: 15pt;

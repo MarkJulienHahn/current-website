@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import styles from "../styles/Footer.module.css";
 import Impressum from "./Impressum";
 
+import Link from "next/link"
+
 import { PortableText } from "@portabletext/react";
 
 const Footer = ({ english, impressum }) => {
@@ -30,27 +32,27 @@ const Footer = ({ english, impressum }) => {
       <div className={styles.footerWrapper}>
         <div className={"anchor"} ref={ref2}></div>
         <div className={styles.footerLinks}>
-          <h2 onClick={impr ? hideImpressum : showImpressum}>
-            <a>Impressum</a>
-          </h2>
-          <h2>
-            <a
-              href="https://www.instagram.com/current.stuttgart/?hl=de"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Instagram
-            </a>
-          </h2>
-          <h2>
-            <a
-              href="https://www.facebook.com/currentstuttgart/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Facebook
-            </a>
-          </h2>
+        <h2 onClick={impr ? hideImpressum : showImpressum}>
+              <a>Impressum</a>
+            </h2>
+            <h2>
+              <a
+                href="https://www.instagram.com/current.stuttgart/?hl=de"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram
+              </a> /               <a
+                href="https://www.facebook.com/currentstuttgart/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Facebook
+              </a>
+            </h2>
+            <h2>
+              <Link href="./#presse">Presse</Link>
+            </h2>
         </div>
         <div
           className={styles.footerSegment}

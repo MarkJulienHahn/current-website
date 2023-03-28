@@ -19,8 +19,10 @@ const Blogpost = ({
   english,
   newsSubtraction,
   setNewsSubtraction,
+  length,
+  openIndex,
+  setOpenIndex,
 }) => {
-  const [active, setActive] = useState(false);
 
   const ref = useRef();
   const ref2 = useRef();
@@ -33,7 +35,7 @@ const Blogpost = ({
   const scroll = () => setTimeout(() => ref2.current.scrollIntoView(), 200);
 
   const open = () => {
-    setActive(!active), scroll();
+    setOpenIndex(i), scroll();
   };
 
   const dateFormattedDE = (date) =>
@@ -52,14 +54,16 @@ const Blogpost = ({
 
   const indexNumber = (num) => {
     if (num < 11) {
-      return `#0${num + 1 - newsSubtraction}`;
+      return `#0${length - (num + 1)}`;
     }
-    return `#${num + 1 - newsSubtraction}`;
+    return `#${length - (num + 1)}`;
   };
 
   useEffect(() => {
     post.newsbeitrag && setNewsSubtraction(newsSubtraction + 1);
   }, []);
+
+  console.log(post);
 
   return (
     <>
@@ -67,11 +71,15 @@ const Blogpost = ({
       <div
         className={styles.postWrapper}
         style={i % 2 == 0 ? { background: "white" } : { background: "#F2F2F2" }}
-        onClick={open}
+        onClick={openIndex == i ? () => setOpenIndex(null) : open}
       >
         <div className={styles.postLeft} ref={headerRef}>
-          {post.nwsbeitrag ? <h2 className={styles.newsIcon}>◌</h2> : <h2>{indexNumber(i)}</h2>}
-          <h2>
+          {post.nwsbeitrag ? (
+            <h2 className={styles.newsIcon}>◌</h2>
+          ) : (
+            <h2>{indexNumber(i)}</h2>
+          )}
+          <h2 className={styles.date}>
             {english
               ? dateFormattedEN(post.header.date)
               : dateFormattedDE(post.header.date)}
@@ -83,20 +91,20 @@ const Blogpost = ({
               {english ? post.header.titel.titleEN : post.header.titel.titleDE}
             </h2>
             {!post.nwsbeitrag ? (
-              <p>
+              <h3>
                 {english
                   ? post.header.subtitle?.subtitleEN
                   : post.header.subtitle?.subtitleDE}
-              </p>
+              </h3>
             ) : (
-              ""
+              <span style={{height: "10px", width: "100%", display: "block"}}>{" "}</span>
             )}
           </span>
           <div className={styles.plusAnimationWrapper}>
             <h2
               className={styles.plusAnimation}
               style={
-                active
+                openIndex == i
                   ? { transform: "rotate(90deg) translateY(-1px)" }
                   : {
                       transform:
@@ -112,7 +120,10 @@ const Blogpost = ({
         </div>
       </div>
 
-      <div style={!active ? hidden : visible} className={styles.postAccordeon}>
+      <div
+        style={openIndex != i ? hidden : visible}
+        className={styles.postAccordeon}
+      >
         <div ref={ref} className={styles.postInner}>
           {/* BILDBEITRAG */}
 
@@ -196,6 +207,7 @@ const Blogpost = ({
                       </div>
                     </span>
                   </span>
+                  
                 </>
               ))}
             </>

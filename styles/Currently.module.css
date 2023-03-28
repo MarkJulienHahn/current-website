@@ -4,7 +4,7 @@
 
 .postWrapper {
   width: 100vw;
-  min-height: 100px;
+  min-height: 65px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -19,11 +19,12 @@
   width: 50%;
   display: flex;
   justify-content: space-between;
-  padding: var(--spaceSmall);
+  padding: 7px var(--spaceSmall);
 }
 
 .postTitle {
   width: 45vw;
+  padding-bottom: 4px;
 }
 
 .postAccordeon {
@@ -151,7 +152,7 @@
     width: 95vw;
   }
   .plusAnimationWrapper {
-    transform: translateY(-97px);
+    transform: translateY(-40px);
   }
   .newsIcon {
     font-size: 15pt;
@@ -191,5 +192,17 @@
     font-size: 22px;
     line-height: 26px;
     letter-spacing: -0.4px
+  }
+
+  .date {
+    position: absolute;
+    padding-left: 90px
+  }
+
+  .postLeft {
+    padding-bottom: 0;
+  }
+  .postRight {
+    padding-top: 0
   }
 }

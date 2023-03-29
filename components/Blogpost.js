@@ -218,7 +218,7 @@ const Blogpost = ({
           {post.nwsbeitrag && (
             <>
               <span className={styles.newsbeitragLeft}>
-                {post.newsbeitrag.images.map((image, i) => (
+                {post.newsbeitrag.images?.map((image, i) => (
                   <span
                     key={i}
                     className={

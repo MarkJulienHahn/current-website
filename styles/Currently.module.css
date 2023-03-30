@@ -66,10 +66,6 @@
   width: 41.666%;
 }
 
-.sliderImagePortrait {
-  width: 50%;
-}
-
 .newsImagePortrait {
   width: 50%;
 }
@@ -112,7 +108,7 @@
 
 .newsbeitragRight {
   width: 50%;
-  padding: var(--spaceSmall);
+  padding: var(--spaceSmall) var(--spaceSmall) var(--spaceMedium) var(--spaceSmall);
   max-height: 80vh;
   overflow: scroll;
 }

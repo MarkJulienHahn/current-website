@@ -12,6 +12,7 @@ import "swiper/css/effect-fade";
 import { EffectFade } from "swiper";
 
 import TextPostImageSlide from "./TextPostImageSlide";
+import Textbeitrag from "./Textbeitrag";
 
 const Blogpost = ({
   post,
@@ -23,11 +24,11 @@ const Blogpost = ({
   openIndex,
   setOpenIndex,
 }) => {
-
   const ref = useRef();
   const ref2 = useRef();
   const quote = useRef();
   const headerRef = useRef();
+
 
   const hidden = { height: "0" };
   const visible = { height: ref.current?.clientHeight };
@@ -97,7 +98,9 @@ const Blogpost = ({
                   : post.header.subtitle?.subtitleDE}
               </h3>
             ) : (
-              <span style={{height: "10px", width: "100%", display: "block"}}>{" "}</span>
+              <span style={{ height: "10px", width: "100%", display: "block" }}>
+                {" "}
+              </span>
             )}
           </span>
           <div className={styles.plusAnimationWrapper}>
@@ -125,6 +128,7 @@ const Blogpost = ({
         className={styles.postAccordeon}
       >
         <div ref={ref} className={styles.postInner}>
+
           {/* BILDBEITRAG */}
 
           {post.bldbeitrag && (
@@ -172,43 +176,7 @@ const Blogpost = ({
           {post.txtbeitrag && (
             <>
               {post.textbeitrag.map((beitrag, i) => (
-                <>
-                  <span className={styles.textbeitragWrapper}>
-                    <span
-                      className={styles.textbeitragLeft}
-                      style={{ marginBottom: quote.current?.clientHeight }}
-                    >
-                      <Swiper
-                        spaceBetween={50}
-                        slidesPerView={1}
-                        effect={"fade"}
-                        modules={[EffectFade]}
-                        fadeEffect={{ crossFade: true }}
-                        loop
-                      >
-                        {beitrag.images.map((image, i) => (
-                          <SwiperSlide key={i}>
-                            <TextPostImageSlide
-                              image={image}
-                              length={beitrag.images.length}
-                            />
-                          </SwiperSlide>
-                        ))}
-                      </Swiper>
-                    </span>
-                    <span className={styles.textbeitragRight}>
-                      <PortableText
-                        value={english ? beitrag.textEN : beitrag.textDE}
-                      />
-                      <div ref={quote} className={styles.quote}>
-                        <PortableText
-                          value={english ? beitrag.quoteEN : beitrag.quoteDE}
-                        />
-                      </div>
-                    </span>
-                  </span>
-                  
-                </>
+                <Textbeitrag beitrag={beitrag} i={i} quote={quote} english={english}/>
               ))}
             </>
           )}

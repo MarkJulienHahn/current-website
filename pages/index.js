@@ -20,6 +20,7 @@ const Index = ({
   intro,
   about,
   team,
+  presse,
   downloads,
   impressum,
   logos,
@@ -365,6 +366,7 @@ const Index = ({
             intro={intro[0]}
             about={about[0]}
             team={team}
+            presse={presse}
             downloads={downloads}
             logos={logos}
             marquee={marquee[0]}
@@ -386,6 +388,7 @@ export async function getServerSideProps() {
   * [_type == "about"]{...}`);
   const team = await client.fetch(`
   * [_type == "team"]|order(orderRank){teamEntry}`);
+  const presse = await client.fetch(`* [_type == "presse"]{...}`);
   const downloads = await client.fetch(`
   * [_type == "downloads"]|order(orderRank){category, "download": download[]{beschreibungDE, beschreibungEN, "file": file.asset->{"extension": extension, "url": url}}}`);
   const impressum = await client.fetch(`
@@ -399,6 +402,7 @@ export async function getServerSideProps() {
       intro,
       about,
       team,
+      presse,
       downloads,
       impressum,
       logos,

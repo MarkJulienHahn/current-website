@@ -2,19 +2,20 @@ import { useState } from "react";
 import styles from "../styles/Main.module.css";
 
 const Downloads = ({ english, downloads }) => {
-  const [background, setBackground] = useState(false);
-  const [background2, setBackground2] = useState(true);
+  const [background, setBackground] = useState(true);
 
   return (
-    <div>
+    <div
+      onMouseEnter={() => setBackground(false)}
+      onMouseLeave={() => setBackground(true)}
+    >
       {downloads.length != 0 ? (
         <>
           <div className={"anchor"} id="downloads"></div>
           <div style={{ display: "flex" }}>
             <div
               className={styles.infoSubHeadlineDownloads}
-              style={{ background: background2 ? "var(--red)" : "" }}
-              onClick={() => setBackground2(!background2)}
+              style={{ background: background ? "var(--pink)" : "" }}
             >
               <h1>Downloads</h1>
             </div>
@@ -22,8 +23,7 @@ const Downloads = ({ english, downloads }) => {
 
           <div
             className={styles.downloadContent}
-            style={{ background: background2 ? "var(--red)" : "" }}
-            onClick={() => setBackground2(!background2)}
+            style={{ background: background ? "var(--pink)" : "" }}
           >
             {downloads.map((entry, i) => (
               <div key={i} className={styles.downloadItem}>

@@ -7,8 +7,9 @@ import Downloads from "../components/Downloads";
 import Logos from "../components/Logos";
 
 import styles from "../styles/Main.module.css";
+import Presse from "./Presse";
 
-const Main = ({ english, intro, about, team, downloads, logos, marquee }) => {
+const Main = ({ english, intro, about, team, downloads, logos, marquee, presse }) => {
   return (
     <div>
       <Infosection english={english} intro={intro} about={about} />
@@ -31,6 +32,7 @@ const Main = ({ english, intro, about, team, downloads, logos, marquee }) => {
         </Marquee>
       </a>
       <Team english={english} team={team} />
+      <Presse english={english} presse={presse}/>
       <Downloads english={english} downloads={downloads} />
       <Logos english={english} logos={logos} />
     </div>

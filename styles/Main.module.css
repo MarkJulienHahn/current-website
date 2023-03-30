@@ -126,6 +126,21 @@
   padding-bottom: var(--spaceTiny);
 }
 
+/* PRESSE */
+
+.presseSubheadline {
+  padding-top: var(--spaceSmall);
+}
+
+.presseContent {
+  padding: 0 var(--spaceSmall) var(--space);
+}
+
+.presseText {
+  column-count: 2;
+  column-gap: calc(2 * var(--spaceSmall));
+}
+
 /* DOWNLOADS */
 
 .downloadContent {
@@ -221,7 +236,7 @@
   .infoSubHeadline,
   .infoSubHeadlineDownloads {
     width: 100%;
-    padding: 55px 10px;
+    padding: 40px 10px;
   }
   .infoTextHeadlineWrapper {
     padding-bottom: 0;
@@ -258,7 +273,7 @@
     border-radius: 0;
   }
   .newsletterMarquee input:focus {
-    width: 50%
+    width: 50%;
   }
   .newsletterMarquee button {
     position: absolute;
@@ -319,5 +334,11 @@
   .logoInner div {
     padding: 0 0 60px;
     width: 51%;
+  }
+  .presseText {
+    column-count: 1;
+  }
+  .presseSubheadline {
+    font-size: 15px;
   }
 }

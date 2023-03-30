@@ -14,8 +14,6 @@ import TextPostImageSlide from "./TextPostImageSlide";
 const Textbeitrag = ({ beitrag, i, quote, english }) => {
   const textImage = useRef();
 
-  console.log(beitrag);
-
 
   return (
     <>

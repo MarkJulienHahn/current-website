@@ -31,7 +31,7 @@ const Textbeitrag = ({ beitrag, i, quote, english }) => {
             fadeEffect={{ crossFade: true }}
             loop
           >
-            {beitrag.images.map((image, i) => (
+            {beitrag.images?.map((image, i) => (
               <SwiperSlide key={i}>
                 <TextPostImageSlide
                   image={image}

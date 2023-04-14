@@ -64,8 +64,6 @@ const Blogpost = ({
     post.newsbeitrag && setNewsSubtraction(newsSubtraction + 1);
   }, []);
 
-  console.log(post);
-
   return (
     <>
       <div ref={ref2} className="anchor"></div>

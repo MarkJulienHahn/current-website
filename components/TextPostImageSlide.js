@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 import styles from "../styles/Currently.module.css";
 import { useSwiper } from "swiper/react";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 import Image from "next/image";
 
 const TextPostImageSlide = ({ image, length }) => {
@@ -12,7 +13,9 @@ const TextPostImageSlide = ({ image, length }) => {
   const imageStyle = { display: "flex" };
   const swiperStyle = { display: "flex", cursor: "pointer" };
 
-  console.log(image.image.metadata.dimensions.aspectRatio);
+  const { width } = useWindowDimensions();
+
+  console.log(width);
 
   return (
     <span
@@ -26,14 +29,14 @@ const TextPostImageSlide = ({ image, length }) => {
           styles.sliderImagePortrait
         }
         style={
-          image.image.metadata.dimensions.aspectRatio < 1
+          image.image.metadata.dimensions.aspectRatio < 1 && width > 1200
             ? {
                 height: `${imageRef.current?.clientWidth}px`,
                 width: `${
                   imageRef.current?.clientWidth *
-                  image.image.metadata.dimensions.aspectRatio - 150
+                    image.image.metadata.dimensions.aspectRatio -
+                  150
                 }px`,
-                // background: "red"
               }
             : { height: "auto" }
         }

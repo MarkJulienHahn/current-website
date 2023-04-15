@@ -81,9 +81,9 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
               <a href="#team">
                 <h2>Team</h2>
               </a>
-              <a href="http://2021.current-stuttgart.de/de">
-                <h2>Current 2021</h2>
-              </a>
+              <Link href="/currently">
+                <h2>Currently</h2>
+              </Link>
               {/* <a href="#downloads">Downloads</a> */}
               {/* <Link href="/currently">
                 <h2>Currently</h2>

@@ -158,7 +158,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
             <a href="#about">{english ? "About" : "Über"}</a>
             <a href="#team">Team</a>
             {/* <a href="#downloads">Downloads</a> */}
-            {/* <Link href="/currently">Currently</Link> */}
+            <Link href="/currently">Currently</Link>
           </div>
         </div>
       ) : (

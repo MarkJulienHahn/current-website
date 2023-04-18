@@ -213,8 +213,8 @@ const Blogpost = ({
                 <PortableText
                   value={
                     english
-                      ? post.newsbeitrag.text.textEN
-                      : post.newsbeitrag.text.textDE
+                      ? post.newsbeitrag.text?.textEN
+                      : post.newsbeitrag.text?.textDE
                   }
                 />
               </span>

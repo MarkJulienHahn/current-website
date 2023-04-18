@@ -198,7 +198,7 @@ const Blogpost = ({
                       layout="responsive"
                       width={image.image.metadata.dimensions.width}
                       height={image.image.metadata.dimensions.height}
-                      alt={image.captions.captionEN}
+                      alt={image.captions?.captionEN}
                     />
                     <p className={styles.bildunterschrift}>
                       {english

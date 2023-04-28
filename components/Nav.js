@@ -195,10 +195,15 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
             }
             onClick={() => setShowMenu(false)}
           >
-            <a href="#program">{english ? "Program" : "Programm"}</a>
-            <a href="#about">{english ? "About" : "Über"}</a>
-            <a href="#team">Team</a>
-            <a href="http://2021.current-stuttgart.de/de">Current 2021</a>
+            <Link href="./#program">
+              <h2>{english ? "Program" : "Programm"}</h2>
+            </Link>
+            <Link href="./#about">
+              <h2>{english ? "About" : "Über"}</h2>
+            </Link>
+            <Link href="./#team">
+              <h2>Team</h2>
+            </Link>
             {/* <a href="#downloads">Downloads</a> */}
             {/* <Link href="/currently">Currently</Link> */}
           </div>

@@ -102,6 +102,15 @@ ul {
   pointer-events: none;
 }
 
+.anchorNewsletter {
+  position: absolute;
+  transform: translateY(-65px);
+  width: 100%;
+  height: 130px;
+  pointer-events: none;
+}
+
+
 .wrapper {
   position: relative;
   background: white;

@@ -30,7 +30,7 @@ const Infosection = ({ english, intro, about }) => {
           )}
         </h1>
       </div>
-      <div className={"anchor"} id="newsletter"></div>
+      <div className={"anchorNewsletter"} id="newsletter"></div>
       <NewsletterMarquee english={english} />
 
       <div

@@ -5,8 +5,8 @@ body {
   font-family: "Rubik", sans-serif;
   font-size: 22.5px;
   font-weight: 100;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   overflow-x: hidden;
   overscroll-behavior: none;
 }
@@ -104,13 +104,11 @@ ul {
 
 .anchorNewsletter {
   position: absolute;
-  transform: translateY(-130px);
+  transform: translateY(-65px);
   width: 100%;
-  height: 200px;
-  /* background: blue; */
+  height: 65px;
   pointer-events: none;
 }
-
 
 .wrapper {
   position: relative;
@@ -136,7 +134,8 @@ input {
   main {
     overflow: hidden;
   }
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 22px;
     letter-spacing: -1px;
     line-height: 24px;
@@ -145,5 +144,13 @@ input {
   .anchor {
     transform: translateY(-78px);
     height: 78px;
+  }
+
+  .anchorNewsletter {
+    position: absolute;
+    transform: translateY(-200px);
+    width: 100%;
+    height: 200px;
+    pointer-events: none;
   }
 }

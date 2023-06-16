@@ -2,13 +2,24 @@
   text-align: center;
 }
 
+.infoTextHeadlineSection {
+  display: flex;
+  font-family: "Activist";
+  padding-left: 12px;
+  padding-bottom: calc(2 * var(--spaceSmall));
+}
+
+.infoTextHeadlineSection p {
+  width: calc(2 * var(--space));
+}
+
 .infoTextWrapper,
 .infoTextHeadlineWrapper {
-  padding: var(--space) 0;
+  padding: var(--spaceLarge) 0;
 }
 
 .infoTextHeadline {
-  padding: 0 0 var(--space) var(--spaceSmall);
+  padding: 0 0 calc(2*var(--spaceSmall)) var(--spaceSmall);
 }
 
 .infoText {
@@ -18,7 +29,7 @@
 }
 
 .infoText p {
-  text-indent: 12vw;
+  padding-bottom: 30px;
 }
 
 .infoSubHeadline {
@@ -57,12 +68,24 @@
 
 .newsletterMarquee {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
   height: 120px;
   padding-bottom: var(--spaceSmall);
-  background: var(--green);
+  background: var(--blue);
   cursor: default;
+}
+
+.newsletterMarqueeHalf {
+  padding-top: 10px;
+  width: 50vw;
+  display: flex;
+}
+
+.newsletterMarqueeHalf h2 {
+  padding-left: calc(2 * var(--space) + 12px);
 }
 
 .newsletterMarquee:hover {
@@ -105,7 +128,8 @@
 /* TEAM */
 
 .teamWrapper {
-  padding: var(--space) var(--spaceSmall);
+  padding: var(--spaceLarge) var(--spaceSmall);
+  background: var(--blue)
 }
 
 .teamHeadline {
@@ -127,6 +151,10 @@
 }
 
 /* PRESSE */
+
+.pressPageWrapper {
+  padding-top: var(--space);
+}
 
 .presseSubheadline {
   padding-top: var(--spaceSmall);
@@ -179,7 +207,7 @@
 
 .logosWrapper {
   display: flex;
-  padding: var(--space) var(--spaceSmall);
+  padding: var(--spaceLarge) var(--spaceSmall);
 }
 
 .logoHeader {
@@ -201,6 +229,26 @@
 .mobileInfoText,
 .mobileInfoTextCropped {
   display: none;
+}
+
+/* BETEILIGTE */
+
+.beteiligteWrapper {
+  width: 100vw;
+  padding: var(--spaceLarge) var(--space);
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: default;
+}
+
+.beteiligteDiffHover:hover {
+  color: var(--green);
+}
+
+.beteiligteNormalHover:hover {
+  color: var(--blue);
 }
 
 @media screen and (max-width: 700px) {
@@ -285,6 +333,7 @@
   }
   .teamWrapper {
     display: block;
+
   }
   .teamHeadline {
     padding-bottom: 31px;

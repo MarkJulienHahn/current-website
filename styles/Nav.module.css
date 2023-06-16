@@ -9,6 +9,11 @@
   z-index: 10000;
 }
 
+.navWrapper::selection {
+  background: transparent;
+  color: black;
+}
+
 .navWrapper h2 {
   line-height: 28px;
 }
@@ -17,16 +22,23 @@
 .navRight {
   width: 50vw;
   height: 100%;
-  padding: var(--spaceTiny) var(--spaceSmall);
+  /* padding: var(--spaceTiny) var(--spaceSmall); */
 }
 
 .navLeft {
-  /* z-index: 101; */
+  padding-left: 12px;
 }
 
 .navRightTop {
   display: flex;
   justify-content: flex-end;
+}
+
+.outline {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: transparent;
+  /* letter-spacing: 0.5px; */
 }
 
 .menu {
@@ -38,10 +50,30 @@
 .menuSub {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   transition: transform 0.6s ease;
   pointer-events: auto;
-  padding-top: 2px;
+}
+
+.menuSegment {
+  width: 25%;
+  cursor: pointer;
+  padding: 5px var(--spaceSmall) 0px;
+  height: 100%
+}
+
+.bottomRow {
+  position: absolute;
+  transform: translateX(-12px);
+  width: 50vw;
+  display: flex;
+  height: 32px;
+  z-index: 1000
+}
+
+.bottomRow a {
+  width: 25%;
+  background: var(--red);
+  padding-left: 12px;
 }
 
 .mobileNavWrapper {
@@ -59,6 +91,16 @@
 
 .navLogoSmall {
   display: none;
+}
+
+.language {
+  position: absolute;
+  width: 12.5%;
+  right: 0;
+  top: 32px;
+  padding-left: 12px;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 @media screen and (max-width: 1720px) {

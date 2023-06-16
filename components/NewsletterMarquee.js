@@ -10,19 +10,27 @@ import styles from "../styles/Main.module.css";
 const NewsletterMarquee = ({ english }) => {
   return (
     <div className={styles.newsletterMarquee}>
-      <MailchimpSubscribe
-        url={url}
-        render={({ subscribe, status, message }) => (
-          <CustomForm
-            status={status}
-            message={message}
-            onValidated={(formData) => subscribe(formData)}
-            english={english}
-          />
-        )}
-      />
-
-      <Marquee gradient={false} direction={"right"}>
+      <div className={styles.newsletterMarqueeHalf}>
+        <h2>
+          {english
+            ? "Stay up tu Date with our Newsletter"
+            : "Mit dem Newsletter auf dem Laufenden bleiben"}
+        </h2>
+      </div>
+      <div className={styles.newsletterMarqueeHalf}>
+        <MailchimpSubscribe
+          url={url}
+          render={({ subscribe, status, message }) => (
+            <CustomForm
+              status={status}
+              message={message}
+              onValidated={(formData) => subscribe(formData)}
+              english={english}
+            />
+          )}
+        />
+      </div>
+      {/* <Marquee gradient={false} direction={"right"}>
         <div style={{ display: "flex", overflow: "hidden" }}>
           <h1>
             {english
@@ -65,7 +73,7 @@ const NewsletterMarquee = ({ english }) => {
               : " Haltet Euch auf dem Laufenden → newsletter "}
           </h1>
         </div>
-      </Marquee>
+      </Marquee> */}
     </div>
   );
 };

@@ -1,0 +1,97 @@
+.outer {
+  display: flex;
+}
+.wrapper {
+  padding-top: var(--space);
+  width: 50vw;
+  margin-left: 50vw;
+}
+
+.header {
+  padding-top: 4px;
+  position: fixed;
+  width: 50vw;
+  background: white;
+  z-index: 100;
+  font-family: "Activist";
+    height: var(--space);
+}
+
+.headerFilter {
+  display: flex;
+  /* height: var(--space); */
+}
+
+.header h2 {
+  cursor: pointer;
+}
+
+.headerLinks {
+  padding-left: 12px;
+  padding-bottom: 12px;
+}
+
+.headerSegment {
+  padding-left: 12px;
+  width: 25%;
+}
+
+.body {
+  padding-top: var(--space);
+}
+
+.infoOuter {
+  padding-top: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.infoOuter:hover,
+.header:hover {
+  background: var(--pink);
+}
+
+.infoTextpart {
+  padding-left: 12px;
+}
+
+.infoTextpart p {
+  padding-bottom: 30px;
+}
+
+.headline {
+  padding-bottom: 30px;
+}
+
+.infoRowBottom {
+  width: 100%;
+  display: flex;
+  padding-bottom: 30px;
+  padding-top: 4px;
+  font-family: "Activist";
+  letter-spacing: -1px;
+  line-height: 18pt;
+}
+
+.infoSegment {
+  width: 25%;
+}
+
+.infoRow:hover {
+  background: var(--pink);
+}
+
+.bgGrey {
+  background: var(--grey);
+}
+
+.accordeon {
+  transition: height 0.2s ease;
+}
+
+.filterHeader {
+  font-family: "Activist";
+  background: var(--red);
+  padding-left: 12px;
+  cursor: default;
+}

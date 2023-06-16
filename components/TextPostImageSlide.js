@@ -15,6 +15,7 @@ const TextPostImageSlide = ({ image, length }) => {
 
   const { width } = useWindowDimensions();
 
+
   return (
     <span
       style={length > 1 ? swiperStyle : imageStyle}

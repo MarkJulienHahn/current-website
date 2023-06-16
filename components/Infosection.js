@@ -3,8 +3,18 @@ import styles from "../styles/Main.module.css";
 
 import { PortableText } from "@portabletext/react";
 import NewsletterMarquee from "./NewsletterMarquee";
+import ProgramPreview from "./ProgramPreview";
+import BeteiligteList from "./BeteiligteList";
+import CurrentlyPreview from "./CurrentlyPreview";
 
-const Infosection = ({ english, intro, about }) => {
+const Infosection = ({
+  english,
+  editorial,
+  about,
+  programm,
+  beteiligte,
+  currently,
+}) => {
   const [background, setBackground] = useState(true);
   const [background2, setBackground2] = useState(true);
   const [background3, setBackground3] = useState(true);
@@ -12,21 +22,23 @@ const Infosection = ({ english, intro, about }) => {
   const [mobileText1, setMobileText1] = useState(false);
   const [mobileText2, setMobileText2] = useState(false);
 
+  console.log(editorial.textTitleDeutsch)
+
   return (
     <div className={styles.infoWrapper}>
       <div className={"anchor"} id="program"></div>
 
       <div
         className={styles.infoTextHeadlineWrapper}
-        style={{ background: background ? "var(--red)" : "" }}
-        onMouseEnter={() => setBackground(false)}
-        onMouseLeave={() => setBackground(true)}
+        // style={{ background: background ? "var(--red)" : "" }}
+        // onMouseEnter={() => setBackground(false)}
+        // onMouseLeave={() => setBackground(true)}
       >
         <h1 className={styles.infoHeadline}>
           {english ? (
-            <PortableText value={intro.titleEnglish} />
+            <PortableText value={editorial.titleEnglish} />
           ) : (
-            <PortableText value={intro.titleGerman} />
+            <PortableText value={editorial.titleGerman} />
           )}
         </h1>
       </div>
@@ -35,18 +47,27 @@ const Infosection = ({ english, intro, about }) => {
 
       <div
         className={styles.infoTextWrapper}
-        style={{ background: background2 ? "var(--blue)" : "" }}
-        onMouseEnter={() => setBackground2(false)}
-        onMouseLeave={() => setBackground2(true)}
+        // style={{ background: background2 ? "var(--blue)" : "" }}
+        // onMouseEnter={() => setBackground2(false)}
+        // onMouseLeave={() => setBackground2(true)}
       >
+        <span className={styles.infoTextHeadlineSection}>
+          <p>Editorial</p>
+          <h1>{english ? editorial.textTitleEnglish : editorial.textTitleGerman}</h1>
+        </span>
+
         <div className={styles.infoText}>
           {english ? (
-            <PortableText value={intro.textEnglish} />
+            <PortableText value={editorial.textEnglish} />
           ) : (
-            <PortableText value={intro.textGerman} />
+            <PortableText value={editorial.textGerman} />
           )}
         </div>
       </div>
+
+      <ProgramPreview programm={programm} english={english} />
+      <BeteiligteList beteiligte={beteiligte} />
+      <CurrentlyPreview currently={currently} english={english} />
 
       <div
         className={styles.mobileInfoText}
@@ -61,9 +82,9 @@ const Infosection = ({ english, intro, about }) => {
           onClick={() => setBackground(!background)}
         >
           {english ? (
-            <PortableText value={intro.textEnglish} />
+            <PortableText value={editorial.textEnglish} />
           ) : (
-            <PortableText value={intro.textGerman} />
+            <PortableText value={editorial.textGerman} />
           )}
         </div>
         <div
@@ -84,13 +105,13 @@ const Infosection = ({ english, intro, about }) => {
 
       <div
         className={styles.infoTextWrapper}
-        style={{ background: background3 ? "var(--pink)" : "" }}
-        onMouseEnter={() => setBackground3(false)}
-        onMouseLeave={() => setBackground3(true)}
+        // style={{ background: background3 ? "var(--pink)" : "" }}
+        // onMouseEnter={() => setBackground3(false)}
+        // onMouseLeave={() => setBackground3(true)}
       >
-        <h1 className={styles.infoTextHeadline}>
+        <h2 className={styles.infoTextHeadline}>
           {english ? "About the Festival" : "Über das Festival"}
-        </h1>
+        </h2>
         <div className={styles.infoText}>
           <div>
             {english ? (

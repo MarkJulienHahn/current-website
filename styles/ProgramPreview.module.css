@@ -1,0 +1,50 @@
+.programPreviewWrapper {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+}
+
+.programPreviewInner {
+  height: 100%;
+  width: 50vw;
+}
+
+.infoBox {
+  width: 50%;
+  background: var(--red);
+  display: flex;
+  padding: 12px;
+  font-family: "Activist";
+  line-height: 18pt;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.infoInner {
+  width: 50%;
+}
+
+.infoSmall {
+  font-family: "Rubik";
+  font-size: 12pt;
+  line-height: 13pt;
+}
+
+.programPreviewLink {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: var(--green);
+  height: calc(2 * var(--space));
+  padding: 12px;
+}
+
+.imageWrapper img{
+  filter: grayscale(1)
+}
+
+.imageWrapper:hover img {
+  filter: none
+}

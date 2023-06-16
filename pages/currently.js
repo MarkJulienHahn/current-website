@@ -1,45 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import client from "../client";
 
-import Nav from "../components/Nav";
+import { useRouter } from "next/router";
 import Blogpost from "../components/Blogpost";
 import Footer from "../components/Footer";
 
 import styles from "../styles/Currently.module.css";
 
-const currently = ({ currently, english, setEnglish, impressum }) => {
-  const [newsSubtraction, setNewsSubtraction] = useState(0);
+const currently = ({ currently, english }) => {
   const [openIndex, setOpenIndex] = useState(0);
 
-  const colorArray = [
-    "var(--blue)",
-    "var(--red)",
-    "var(--green)",
-    "var(--pink)",
-    "white",
-  ];
+  const router = useRouter();
+  const active = router.query;
+
+  useEffect(() => {
+    active.active && setOpenIndex(active.active);
+  }, []);
+
+  const posts = currently.filter((post) => post.txtbeitrag || post.bldbeitrag)
+  const news = currently.filter((post) => post.nwsbeitrag)
 
   return (
     <>
-      <Nav english={english} setEnglish={setEnglish} colorArray={colorArray} />
-
       <div className={styles.postsOuter}>
         {currently.map((post, i) => (
           <Blogpost
             post={post}
+            posts={posts}
+            news={news}
             i={i}
             key={i}
             english={english}
-            newsSubtraction={newsSubtraction}
-            setNewsSubtraction={setNewsSubtraction}
             length={currently.length}
             openIndex={openIndex}
             setOpenIndex={setOpenIndex}
           />
         ))}
       </div>
-
-      {/* <Footer english={english} impressum={impressum} /> */}
     </>
   );
 };

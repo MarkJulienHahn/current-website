@@ -9,7 +9,7 @@ import B1 from "../components/animation/B1";
 import C2 from "../components/animation/C2";
 import D3 from "../components/animation/D3";
 import E3 from "../components/animation/E3";
-import Nav from "../components/Nav";
+
 import Layout from "../components/Layout";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
@@ -17,69 +17,52 @@ import styles from "../styles/Landing.module.css";
 import client from "../client";
 
 const Index = ({
-  intro,
+  editorial,
   about,
   team,
   presse,
   downloads,
+  currently,
   impressum,
+  programm,
+  beteiligte,
   logos,
   marquee,
-  english, setEnglish
+  english,
+  colorArray,
+  setShowNav
 }) => {
   const [index, setIndexA] = useState(null);
 
-  const [scrollPosition, setScrollPosition] = useState("");
+  // const [scrollPosition, setScrollPosition] = useState("");
   const [autoChange, setAutoChange] = useState(true);
-
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-  };
 
   const height = use100vh();
 
   const { ref, inView } = useInView({
-    /* Optional options */
     threshold: 0.1,
   });
-
-  const colorArray = [
-    "var(--blue)",
-    "var(--red)",
-    "var(--green)",
-    "var(--pink)",
-    "white",
-  ];
-
-  // if (typeof window !== "undefined") {
-  //   window.addEventListener("contextmenu", (e) => e.preventDefault());
-  // }
 
   useEffect(() => {
     setIndexA(Math.floor(Math.random() * colorArray.length));
   }, []);
 
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrollPosition(window.scrollY);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // });
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
-
-  console.log(scrollPosition, height)
+    inView ? setShowNav(true) : setShowNav(false)
+  }, [inView])
 
   return (
     <>
       <Layout>
-        <Nav
-          english={english}
-          setEnglish={setEnglish}
-          refInView={inView}
-          colorArray={colorArray}
-        />
         <Div100vh>
           <div
             style={{
@@ -363,13 +346,16 @@ const Index = ({
         <div className="wrapper" ref={ref}>
           <Main
             english={english}
-            intro={intro[0]}
+            editorial={editorial[0]}
             about={about[0]}
             team={team}
             presse={presse}
             downloads={downloads}
             logos={logos}
             marquee={marquee[0]}
+            programm={programm}
+            beteiligte={beteiligte}
+            currently={currently}
           />
 
           <Footer english={english} impressum={impressum} />
@@ -382,24 +368,41 @@ const Index = ({
 export default Index;
 
 export async function getServerSideProps() {
-  const intro = await client.fetch(`
-  * [_type == "intro"]{titleGerman, textGerman, titleEnglish, textEnglish}`);
+  const editorial = await client.fetch(`
+  * [_type == "editorial"]{...}`);
+
   const about = await client.fetch(`
   * [_type == "about"]{...}`);
+
   const team = await client.fetch(`
   * [_type == "team"]|order(orderRank){teamEntry}`);
   const presse = await client.fetch(`* [_type == "presse"]{...}`);
+
   const downloads = await client.fetch(`
   * [_type == "downloads"]|order(orderRank){category, "download": download[]{beschreibungDE, beschreibungEN, "file": file.asset->{"extension": extension, "url": url}}}`);
+
   const impressum = await client.fetch(`
   * [_type == "impressum"]{...}`);
+
   const logos = await client.fetch(
     `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );
+
   const marquee = await client.fetch(`* [_type == "marquee"]{...}`);
+
+  const programm = await client.fetch(`
+  *[_type == "programm"]| order(programm.date asc){..., "standort": standort->{...}, "personen": personen->{...}, "format": format->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
+
+  const beteiligte = await client.fetch(`
+  *[_type == "beteiligte"]{..., "bild": bild{..., "asset": asset->{...}}}`);
+
+  const currently = await client.fetch(
+    `* [_type == "currently"] {..., "textbeitrag": textbeitrag[]{..., "images": images[]{..., "image": image.asset->{...}}}, "bildbeitrag": bildbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}, "newsbeitrag": newsbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}} | order(header.date desc)`
+  );
+
   return {
     props: {
-      intro,
+      editorial,
       about,
       team,
       presse,
@@ -407,6 +410,9 @@ export async function getServerSideProps() {
       impressum,
       logos,
       marquee,
+      programm,
+      beteiligte,
+      currently
     },
   };
 }

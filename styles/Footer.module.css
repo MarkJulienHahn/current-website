@@ -3,7 +3,7 @@
 }
 .footerSegment {
   width: 50vw;
-  padding: var(--space) var(--spaceSmall);
+  padding: var(--spaceLarge) var(--spaceSmall);
 }
 
 .footerLinksMobile {
@@ -29,7 +29,7 @@
 
 .footerLinks {
   position: absolute;
-  transform: translate(var(--spaceSmall), var(--space));
+  transform: translate(var(--spaceSmall), var(--spaceLarge));
 }
 
 @media screen and (max-width: 700px) {

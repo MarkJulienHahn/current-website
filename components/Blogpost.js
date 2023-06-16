@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 // import useWindowDimensions from "../hooks/useWindowDimensions"
 
 import styles from "../styles/Currently.module.css";
@@ -6,20 +6,14 @@ import Image from "next/image";
 
 import { PortableText } from "@portabletext/react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import { EffectFade } from "swiper";
-
-import TextPostImageSlide from "./TextPostImageSlide";
 import Textbeitrag from "./Textbeitrag";
 
 const Blogpost = ({
   post,
+  posts,
+  news,
   i,
   english,
-  newsSubtraction,
-  setNewsSubtraction,
   length,
   openIndex,
   setOpenIndex,
@@ -28,7 +22,6 @@ const Blogpost = ({
   const ref2 = useRef();
   const quote = useRef();
   const headerRef = useRef();
-
 
   const hidden = { height: "0" };
   const visible = { height: ref.current?.clientHeight };
@@ -54,15 +47,13 @@ const Blogpost = ({
     });
 
   const indexNumber = (num) => {
-    if (num < 11) {
-      return `#0${length - (num + 1)}`;
+    if (num > 1) {
+      return `#0${length - (num)}`;
     }
-    return `#${length - (num + 1)}`;
+    return `#${length - (num)}`;
   };
 
-  useEffect(() => {
-    post.newsbeitrag && setNewsSubtraction(newsSubtraction + 1);
-  }, []);
+  const index = posts.findIndex((single) => single == post) + news.length
 
   return (
     <>
@@ -76,7 +67,8 @@ const Blogpost = ({
           {post.nwsbeitrag ? (
             <h2 className={styles.newsIcon}>◌</h2>
           ) : (
-            <h2>{indexNumber(i)}</h2>
+            <h2>{indexNumber(index)}</h2>
+            // <h2>{indexNumber(length+(i-newsSubtraction))}</h2>
           )}
           <h2 className={styles.date}>
             {english
@@ -126,7 +118,6 @@ const Blogpost = ({
         className={styles.postAccordeon}
       >
         <div ref={ref} className={styles.postInner}>
-
           {/* BILDBEITRAG */}
 
           {post.bldbeitrag && (
@@ -174,7 +165,12 @@ const Blogpost = ({
           {post.txtbeitrag && (
             <>
               {post.textbeitrag.map((beitrag, i) => (
-                <Textbeitrag beitrag={beitrag} i={i} quote={quote} english={english}/>
+                <Textbeitrag
+                  beitrag={beitrag}
+                  i={i}
+                  quote={quote}
+                  english={english}
+                />
               ))}
             </>
           )}

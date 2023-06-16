@@ -45,10 +45,14 @@ a {
   --red: #ff3d00;
   --pink: #ffa0ff;
   --blue: #00beff;
+  --grey: #f2f2f2;
   --space: 65px;
+  --spaceLarge: 130px;
   --spaceMedium: 48px;
   --spaceSmall: 12px;
   --spaceTiny: 5px;
+  --swiper-navigation-color: var(--red);
+  --swiper-navigation-sides-offset: 12px;
 }
 
 ::selection {
@@ -122,6 +126,12 @@ input {
   padding: 0;
 }
 
+.mapboxgl-ctrl {
+  display: none !important
+}
+
+
+
 @media screen and (max-width: 1200px) {
   :root {
     --space: 42px;
@@ -154,3 +164,4 @@ input {
     pointer-events: none;
   }
 }
+

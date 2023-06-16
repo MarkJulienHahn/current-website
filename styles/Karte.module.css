@@ -1,0 +1,33 @@
+.karteWrapper {
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+}
+
+.markerSingle {
+  width: 20px;
+  height: 20px;
+  background: var(--blue);
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-out;
+}
+
+.markerCluster {
+  width: 40px;
+  height: 40px;
+  background: var(--red);
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-out;
+}
+
+.markerSingle:hover, .markerCluster:hover {
+    transform: scale(150%)
+}

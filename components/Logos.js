@@ -9,17 +9,17 @@ const Logos = ({ english, logos }) => {
     <div
       className={styles.logosWrapper}
       style={{
-        background: background ? "var(--blue)" : "",
+        background: "var(--red)"
       }}
-      onMouseEnter={() => setBackground(false)}
-      onMouseLeave={() => setBackground(true)}
+      // onMouseEnter={() => setBackground(false)}
+      // onMouseLeave={() => setBackground(true)}
     >
       <div className={styles.logoHeader}>
         <h2> {english ? "Supported by" : "Gefördert von"}</h2>
       </div>
       
       <div className={styles.logoInner}>
-        {logos.map((logo, i) => (
+        {logos?.map((logo, i) => (
           <div>
             <Image
               src={logo.logo.url}

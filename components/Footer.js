@@ -56,9 +56,9 @@ const Footer = ({ english, impressum }) => {
         </div>
         <div
           className={styles.footerSegment}
-          style={{ background: background ? "var(--green)" : "" }}
-          onMouseEnter={() => setBackground(false)}
-          onMouseLeave={() => setBackground(true)}
+          style={{ background:"var(--green)"}}
+          // onMouseEnter={() => setBackground(false)}
+          // onMouseLeave={() => setBackground(true)}
         >
           <div className={styles.footerLinksMobile}>
             <h2 onClick={impr ? hideImpressum : showImpressum}>
@@ -86,13 +86,11 @@ const Footer = ({ english, impressum }) => {
         </div>
         <div
           className={styles.footerSegment}
-          style={{ background: background2 ? "var(--pink)" : "" }}
-          onMouseEnter={() => setBackground2(false)}
-          onMouseLeave={() => setBackground2(true)}
+          style={{ background:"var(--pink)"}}
         >
           <h2>
             <PortableText value={impressum[0].contact} />
-            <a href={`mailto:${impressum[0].contact}`}>{impressum[0].email}</a>
+            <a href={`mailto:${impressum[0].email}`}>{impressum[0].email}</a>
           </h2>
         </div>
       </div>

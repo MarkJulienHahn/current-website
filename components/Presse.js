@@ -1,36 +1,26 @@
-import { useState } from "react";
 import { PortableText } from "@portabletext/react";
 import styles from "../styles/Main.module.css";
 
-const Presse = ({ english, presse }) => {
-  const [background, setBackground] = useState(true);
+import Downloads from "./Downloads";
+import Logos from "./Logos";
+import Footer from "./Footer";
 
-  console.log(presse[0]);
-
+const Presse = ({ english, presse, logos, impressum }) => {
   return (
-    <div
-      onMouseEnter={() => setBackground(false)}
-      onMouseLeave={() => setBackground(true)}
-    >
+    <div className={styles.pressPageWrapper}>
       {presse.length != 100 ? (
         <>
           <div className={"anchor"} id="presse"></div>
           <div style={{ display: "flex" }}>
-            <div
-              className={styles.infoSubHeadlineDownloads}
-              style={{ background: background ? "var(--red)" : "" }}
-            >
-              <h1>Presse</h1>
+            <div className={styles.infoSubHeadlineDownloads}>
+              <h1>{english ? "Press" : "Presse"}</h1>
               <h2 className={styles.presseSubheadline}>
                 {english ? presse[0].headlineEnglish : presse[0].headlineGerman}
               </h2>
             </div>
           </div>
 
-          <div
-            className={styles.presseContent}
-            style={{ background: background ? "var(--red)" : "" }}
-          >
+          <div className={styles.presseContent}>
             <div className={styles.presseText}>
               {english ? (
                 <PortableText value={presse[0].textEnglish} />
@@ -43,6 +33,9 @@ const Presse = ({ english, presse }) => {
       ) : (
         ""
       )}
+      <Downloads english={english} downloads={presse[1].downloads} />
+      <Logos english={english} logos={logos} />
+      <Footer english={english} impressum={impressum} />
     </div>
   );
 };

@@ -9,9 +9,10 @@ import logo from "../public/images/Current-Logo.svg";
 import logoMobile from "../public/images/Current-Logo-2023_mobile-01.svg";
 import logo3 from "../public/images/Current-Logo-2023.svg";
 
-const Nav = ({ english, setEnglish, refInView, colorArray }) => {
+const Nav = ({ english, setEnglish, colorArray, showNav }) => {
   const [index, setIndex] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
+  const [bottomRow, setBottomRow] = useState(null);
 
   const router = useRouter();
 
@@ -34,30 +35,38 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
         <div
           className={styles.navLeft}
           style={
-            refInView || router.route != "/"
+            showNav|| router.route != "/"
               ? { background: colorArray[index] }
               : { background: "transparent" }
           }
         >
           <div className={styles.navLogoWide}>
             <Link href="./">
-              <Image alt="Current Festival's Logo" src={logo} height={22.4} />
+              <h2>
+                <span className={styles.outline}>
+                  Current — Kunst und Urbaner Raum
+                </span>{" "}
+                14.–24.09.2023 / Stuttgart
+              </h2>
             </Link>
           </div>
           <div className={styles.navLogoSmall}>
-            <a href="#main">
-              <Image
-                alt="Current Festival's Logo"
-                src={logoMobile}
-                height={50}
-              />
-            </a>
+            <Link href="./">
+              <h2>
+                <span className={styles.outline}>
+                  Current — Kunst und Urbaner Raum
+                  <br />
+                </span>
+                14.–24.09.2023 / Stuttgart
+              </h2>
+            </Link>
           </div>
         </div>
+
         <div
           className={styles.navRight}
           style={
-            refInView || router.route != "/"
+            showNav || router.route != "/"
               ? {
                   background:
                     index + 1 < colorArray.length
@@ -67,50 +76,90 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
               : { background: "transparent" }
           }
         >
-          {router.route == "/" ? (
+          <div className={styles.menuSub} onMouseEnter={() => showMenuAgain()}>
             <div
-              className={styles.menuSub}
-              onMouseEnter={() => showMenuAgain()}
+              className={styles.menuSegment}
+              style={
+                bottomRow == "Programm"
+                  ? { background: "var(--red)" }
+                  : { background: "inherit" }
+              }
+              onClick={() => setBottomRow("Programm")}
             >
-              <a href="./#program">
-                <h2>{english ? "Program" : "Programm"}</h2>
-              </a>
-              <a href="#about">
-                <h2>{english ? "About" : "Über"}</h2>
-              </a>
-              <a href="#team">
-                <h2>Team</h2>
-              </a>
-              <Link href="/currently">
-                <h2>Currently</h2>
-              </Link>
-              {/* <a href="#downloads">Downloads</a> */}
-              {/* <Link href="/currently">
-                <h2>Currently</h2>
-              </Link> */}
-            </div>
-          ) : (
-            <div className={styles.menuSub}>
-              <Link href="./#program">
-                <h2>{english ? "Program" : "Programm"}</h2>
-              </Link>
-              <Link href="./#about">
-                <h2>{english ? "About" : "Über"}</h2>
-              </Link>
-              <Link href="./#team">
-                <h2>Team</h2>
-              </Link>
-              {/* <a href="#downloads">Downloads</a> */}
-              <Link href="/currently">
-                <h2>Currently</h2>
-              </Link>
-            </div>
-          )}
+              <h2>{english ? "Program" : "Programm"}</h2>
+              {bottomRow == "Programm" && (
+                <div className={styles.bottomRow}>
+                  <Link href="./kalender">
+                    <h2>{english ? "Calendar" : "Kalender"}</h2>
+                  </Link>
 
-          <div className={styles.navRightTop}>
-            <a className={styles.menu} onClick={() => setEnglish(!english)}>
-              <h2>DE/EN</h2>
-            </a>
+                  <Link href="./beteiligte">
+                    <h2>{english ? "Participants" : "Beteiligte"}</h2>{" "}
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div
+              className={styles.menuSegment}
+              style={
+                bottomRow == "Info"
+                  ? { background: "var(--red)" }
+                  : { background: "inherit" }
+              }
+              onClick={() => setBottomRow("Info")}
+            >
+              <Link href="./info">
+                <h2>Info</h2>{" "}
+              </Link>
+              {bottomRow == "Info" && (
+                <div className={styles.bottomRow}>
+                  <a>
+                    <h2>{english ? "About" : "Über"}</h2>
+                  </a>
+                  <a>
+                    <h2>{english ? "Festival Team" : "Festivalteam"}</h2>
+                  </a>
+                  <a>
+                    <h2>Current 21</h2>
+                  </a>
+                </div>
+              )}
+            </div>
+
+            <div
+              className={styles.menuSegment}
+              style={
+                bottomRow == "Currently"
+                  ? { background: "var(--red)" }
+                  : { background: "inherit" }
+              }
+              onClick={() => setBottomRow("Currently")}
+            >
+              <Link href="/currently">
+                <h2>Currently</h2>
+              </Link>
+            </div>
+
+            <div
+              className={styles.menuSegment}
+              style={
+                bottomRow == "Presse"
+                  ? { background: "var(--red)" }
+                  : { background: "inherit" }
+              }
+              onClick={() => setBottomRow("Presse")}
+            >
+              <Link href="/presse">
+                <h2>{english ? "Press" : "Presse"}</h2>
+              </Link>
+            </div>
+            <h2
+              className={styles.language}
+              onClick={() => setEnglish(!english)}
+            >
+              DE/EN
+            </h2>
           </div>
         </div>
       </div>
@@ -121,7 +170,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
         <div
           className={styles.mobileNavWrapper}
           style={
-            refInView
+            showNav
               ? { background: "var(--red)" }
               : { background: "transparent" }
           }
@@ -140,7 +189,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
             </div>
           </div>
           <div
-            className={!refInView ? styles.mobileMenu : styles.mobileMenuRed}
+            className={!showNav ? styles.mobileMenu : styles.mobileMenuRed}
             style={
               showMenu
                 ? {
@@ -180,7 +229,7 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
             </div>
           </div>
           <div
-            className={!refInView ? styles.mobileMenu : styles.mobileMenuRed}
+            className={!showNav ? styles.mobileMenu : styles.mobileMenuRed}
             style={
               showMenu
                 ? {

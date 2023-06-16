@@ -8,7 +8,7 @@ import { PortableText } from "@portabletext/react";
 
 const Footer = ({ english, impressum }) => {
   const [background, setBackground] = useState(true);
-  const [background2, setBackground2] = useState(true);
+  // const [background2, setBackground2] = useState(true);
   const [impr, setImpr] = useState(false);
 
   const ref2 = useRef(null);

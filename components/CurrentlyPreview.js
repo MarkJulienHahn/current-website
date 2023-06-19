@@ -95,14 +95,14 @@ const CurrentlyPreview = ({ currently, english }) => {
       >
         <div className={styles.previewHalfLeft}>
           <div className={styles.previewImage}>
-            {firstPost.txtbeitrag && (
+            {firstPost.txtbeitrag && firstPost.textbeitrag[0]?.images && (
               <Image
-                src={firstPost.textbeitrag[0].images[0]?.image.url}
+                src={firstPost.textbeitrag[0]?.images[0]?.image.url}
                 fill
                 style={{ objectFit: "cover" }}
               />
             )}
-            {firstPost.bldbeitrag && (
+            {firstPost.bldbeitrag && firstPost.bldbeitrag[0]?.images && (
               <Image
                 src={firstPost.bildbeitrag[0].images[0]?.image.url}
                 fill

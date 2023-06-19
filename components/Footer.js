@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import styles from "../styles/Footer.module.css";
 import Impressum from "./Impressum";
 
-import Link from "next/link"
+import Link from "next/link";
 
 import { PortableText } from "@portabletext/react";
 
@@ -32,31 +32,33 @@ const Footer = ({ english, impressum }) => {
       <div className={styles.footerWrapper}>
         <div className={"anchor"} ref={ref2}></div>
         <div className={styles.footerLinks}>
-        <h2 onClick={impr ? hideImpressum : showImpressum}>
-              <a>Impressum</a>
-            </h2>
-            <h2>
-              <a
-                href="https://www.instagram.com/current.stuttgart/?hl=de"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Instagram
-              </a> /               <a
-                href="https://www.facebook.com/currentstuttgart/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Facebook
-              </a>
-            </h2>
-            <h2>
-              <Link href="./#presse">Presse</Link>
-            </h2>
+          <h2 onClick={impr ? hideImpressum : showImpressum}>
+            <a>Impressum</a>
+          </h2>
+          <h2>
+            <a
+              href="https://www.instagram.com/current.stuttgart/?hl=de"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+            /
+            <a
+              href="https://www.facebook.com/currentstuttgart/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </a>
+          </h2>
+          <h2>
+            <Link href="./#presse">Presse</Link>
+          </h2>
         </div>
         <div
           className={styles.footerSegment}
-          style={{ background:"var(--green)"}}
+          style={{ background: "var(--green)" }}
           // onMouseEnter={() => setBackground(false)}
           // onMouseLeave={() => setBackground(true)}
         >
@@ -86,7 +88,7 @@ const Footer = ({ english, impressum }) => {
         </div>
         <div
           className={styles.footerSegment}
-          style={{ background:"var(--pink)"}}
+          style={{ background: "var(--pink)" }}
         >
           <h2>
             <PortableText value={impressum[0].contact} />

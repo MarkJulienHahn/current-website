@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import useWindowDimensions from "../../Hooks/useWindowDimensions";
+// import useWindowDimensions from "../../Hooks/useWindowDimensions";
 import style from "../../styles/Landing.module.css";
 import A3 from "../animation/A3";
 
 const A2 = ({ changedA, colorArray, indexA, margin }) => {
   const [indexA2, setIndexA2] = useState(null);
   const [changedA2, setChangedA2] = useState(null);
-  const { height } = useWindowDimensions();
+  // const { height } = useWindowDimensions();
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {

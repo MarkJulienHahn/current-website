@@ -15,7 +15,6 @@ const Layer01 = ({
   const [changedA, setChangedA] = useState(false);
   const { height } = useWindowDimensions();
 
-  c
 
   const [scrollPosition, setScrollPosition] = useState(0);
 

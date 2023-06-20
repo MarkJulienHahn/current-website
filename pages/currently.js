@@ -17,8 +17,6 @@ const currently = ({ currently, english, setEnglish }) => {
     "white",
   ];
 
-  const reversed = currently.reverse()
-
   return (
     <>
         <Nav
@@ -28,7 +26,7 @@ const currently = ({ currently, english, setEnglish }) => {
         />
 
       <div className={styles.postsOuter}>
-        {reversed.map((post, i) => (
+        {currently.map((post, i) => (
           <Blogpost post={post} i={i} key={i} english={english} newsSubtraction={newsSubtraction} setNewsSubtraction={setNewsSubtraction} length={currently.length}/>
         ))}
       </div>

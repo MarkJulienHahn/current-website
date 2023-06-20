@@ -17,7 +17,19 @@ const currently = ({ currently, english, setEnglish }) => {
     "white",
   ];
 
-  const reversed = currently.reverse()
+  function compareFn(a, b) {
+    if (a.header.date > b.header.date) {
+      return -1;
+    }
+    if (a.header.date < b.header.date) {
+      return 1;
+    }
+    // a must be equal to b
+    return 0;
+  }
+
+  const sorted = currently.sort(compareFn)
+
 
   return (
     <>
@@ -28,7 +40,7 @@ const currently = ({ currently, english, setEnglish }) => {
         />
 
       <div className={styles.postsOuter}>
-        {reversed.map((post, i) => (
+        {sorted.map((post, i) => (
           <Blogpost post={post} i={i} key={i} english={english} newsSubtraction={newsSubtraction} setNewsSubtraction={setNewsSubtraction} length={currently.length}/>
         ))}
       </div>

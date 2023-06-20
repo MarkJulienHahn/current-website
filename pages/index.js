@@ -68,8 +68,6 @@ const Index = ({
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  console.log(scrollPosition, height)
-
   return (
     <>
       <Layout>

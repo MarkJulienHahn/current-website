@@ -82,9 +82,9 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
                 <h2>Team</h2>
               </a>
               {/* <a href="#downloads">Downloads</a> */}
-              {/* <Link href="/currently">
+              <Link href="/currently">
                 <h2>Currently</h2>
-              </Link> */}
+              </Link>
             </div>
           ) : (
             <div

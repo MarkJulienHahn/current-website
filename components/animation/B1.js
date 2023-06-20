@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import useWindowDimensions from "../../Hooks/useWindowDimensions"
+import useWindowDimensions from "../../Hooks/useWindowDimensions"
 import style from "../../styles/Landing.module.css";
 import B2 from "../animation/B2";
 

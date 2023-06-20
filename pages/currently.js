@@ -29,7 +29,7 @@ const currently = ({ currently, english, setEnglish }) => {
 
       <div className={styles.postsOuter}>
         {currentlyReversed.map((post, i) => (
-          <Blogpost post={post} i={i} key={i} english={english} newsSubtraction={newsSubtraction} setNewsSubtraction={setNewsSubtraction}/>
+          <Blogpost post={post} i={i} key={i} english={english} newsSubtraction={newsSubtraction} setNewsSubtraction={setNewsSubtraction} length={currentlyReversed.length}/>
         ))}
       </div>
 

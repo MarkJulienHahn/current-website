@@ -13,7 +13,7 @@ import { EffectFade } from "swiper";
 
 import TextPostImageSlide from "./TextPostImageSlide";
 
-const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => {
+const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction, length }) => {
   const [active, setActive] = useState(false);
 
 
@@ -65,7 +65,7 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
         onClick={open}
       >
         <div className={styles.postLeft} ref={headerRef}>
-          <h2>{post.nwsbeitrag ? "◌" : <>{indexNumber(i)}</>}</h2>
+          <h2>{post.nwsbeitrag ? "◌" : <>{indexNumber(length - i)}</>}</h2>
           <h2>
             {english
               ? dateFormattedEN(post.header.date)

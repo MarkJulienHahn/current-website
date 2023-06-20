@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import useWindowDimensions from "../../Hooks/useWindowDimensions";
+import useWindowDimensions from "../../Hooks/useWindowDimensions";
 import style from "../../styles/Landing.module.css";
 import A2 from "../animation/A2";
 
@@ -13,7 +13,9 @@ const Layer01 = ({
 }) => {
   const [index, setIndex] = useState(null);
   const [changedA, setChangedA] = useState(false);
-  // const { height } = useWindowDimensions();
+  const { height } = useWindowDimensions();
+
+  c
 
   const [scrollPosition, setScrollPosition] = useState(0);
 

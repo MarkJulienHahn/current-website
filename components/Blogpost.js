@@ -13,7 +13,7 @@ import { EffectFade } from "swiper";
 
 import TextPostImageSlide from "./TextPostImageSlide";
 
-const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => {
+const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction, length }) => {
   const [active, setActive] = useState(false);
 
 
@@ -65,7 +65,7 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
         onClick={open}
       >
         <div className={styles.postLeft} ref={headerRef}>
-          <h2>{post.nwsbeitrag ? "◌" : <>{indexNumber(i)}</>}</h2>
+          <h2>{post.nwsbeitrag ? "◌" : <>{indexNumber(length - i)}</>}</h2>
           <h2>
             {english
               ? dateFormattedEN(post.header.date)
@@ -167,7 +167,7 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
                         fadeEffect={{ crossFade: true }}
                         loop
                       >
-                        {beitrag.images.map((image, i) => (
+                        {beitrag.images && beitrag.images.map((image, i) => (
                           <SwiperSlide key={i}>
                             <TextPostImageSlide
                               image={image}
@@ -212,7 +212,7 @@ const Blogpost = ({ post, i, english, newsSubtraction, setNewsSubtraction }) => 
                       layout="responsive"
                       width={image.image.metadata.dimensions.width}
                       height={image.image.metadata.dimensions.height}
-                      alt={image.captions.captionEN}
+                      alt={image.captions?.captionEN}
                     />
                     <p className={styles.bildunterschrift}>
                       {english

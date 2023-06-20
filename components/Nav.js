@@ -82,14 +82,12 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
                 <h2>Team</h2>
               </a>
               {/* <a href="#downloads">Downloads</a> */}
-              {/* <Link href="/currently">
+              <Link href="/currently">
                 <h2>Currently</h2>
-              </Link> */}
+              </Link>
             </div>
           ) : (
-            <div
-              className={styles.menuSub}
-            >
+            <div className={styles.menuSub}>
               <Link href="./#program">
                 <h2>{english ? "Program" : "Programm"}</h2>
               </Link>
@@ -145,7 +143,6 @@ const Nav = ({ english, setEnglish, refInView, colorArray }) => {
                   transform: "translateY(0vw)",
                   transition: "background-color 0.2s ease",
                 }
-                
               : {
                   transform: "translateY(-1000px)",
                   transition: "background-color 0.2s ease",

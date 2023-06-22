@@ -24,6 +24,7 @@ const KalenderRow = ({
   subIndex,
   setFlyToState,
   query,
+  scrollTo
 }) => {
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState(false);
@@ -36,7 +37,7 @@ const KalenderRow = ({
     const day = new Date(input).getDay();
     const date = new Date(input).getDate();
     const month = new Date(input).getUTCMonth() + 1;
-setDateConverted(
+    setDateConverted(
       month < 10
         ? `${dayNames[day]} / ${date}.0${month}.`
         : `${dayNames[day]} / ${date}.${month}.`
@@ -88,8 +89,6 @@ setDateConverted(
     active && scroll();
   }, [active]);
 
-  console.log(english);
-
   return (
     <>
       <div
@@ -115,10 +114,18 @@ setDateConverted(
               {entry.time.start && entry.time.start}
               {entry.time.ende && `–${entry.time.ende}`}
             </div>
-            <div className={styles.infoSegment}>{entry.personen.name}</div>
+            <div className={styles.infoSegment}>
+              {entry.beteiligte.map((beteiligter, i) => beteiligter.name)}
+            </div>
             <div className={styles.infoSegment}>{entry.standort.name}</div>
             <div className={styles.infoSegment}>
-              {english ? entry.format.formateEN : entry.format.formate}
+              {english
+                ? entry.formate.map((format, i) => (
+                    <div key={i}>{format.formateEN}</div>
+                  ))
+                : entry.formate.map((format, i) => (
+                    <div key={i}>{format.formate}</div>
+                  ))}
             </div>
           </div>
         </div>

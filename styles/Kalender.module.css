@@ -14,7 +14,7 @@
   background: white;
   z-index: 100;
   font-family: "Activist";
-    height: var(--space);
+  height: var(--space);
 }
 
 .headerFilter {
@@ -28,7 +28,22 @@
 
 .headerLinks {
   padding-left: 12px;
-  padding-bottom: 12px;
+  font-family: "Activist";
+  background: var(--pink);
+  overflow: hidden;
+  transition: height 0.2s ease
+}
+
+.headerLinks a:hover {
+  text-decoration: underline
+}
+
+.headerLinksWrapper {
+  padding-bottom: 30px
+}
+
+.filterDate {
+  padding-right: 30px;
 }
 
 .headerSegment {

@@ -17,12 +17,14 @@ const KalenderSubcategory = ({
   setFocus,
   setFlyToState,
   query,
+  scrollTo,
+  activeIndex,
+  setActiveIndex,
 }) => {
   const [filterArray, setFilterArray] = useState(
     data.filter((entry) => entry.date == filterValue)
   );
   const [dateConverted, setDateConverted] = useState("");
-  const [activeIndex, setActiveIndex] = useState(null);
 
   const convertDate = async (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
@@ -42,11 +44,11 @@ const KalenderSubcategory = ({
     sortType == "datum"
       ? element.date == filterValue
       : sortType == "personen"
-      ? element.personen.name == filterValue
+      ? element.beteiligte[0].name == filterValue
       : sortType == "standort"
       ? element.standort.name == filterValue
       : sortType == "formate"
-      ? element.format.formate == filterValue
+      ? element.formate[0].formate == filterValue
       : element.date == filterValue;
 
   useEffect(() => {
@@ -54,7 +56,7 @@ const KalenderSubcategory = ({
       ? setFilterArray(data.filter((entry) => entry.date == filterValue))
       : sortType == "personen"
       ? setFilterArray(
-          data.filter((entry) => entry.personen.name == filterValue)
+          data.filter((entry) => entry.beteiligte[0].name == filterValue)
         )
       : sortType == "standort"
       ? setFilterArray(
@@ -62,23 +64,30 @@ const KalenderSubcategory = ({
         )
       : sortType == "formate"
       ? setFilterArray(
-          data.filter((entry) => entry.format.formate == filterValue)
+          data.filter((entry) => entry.formate[0].formate == filterValue)
         )
       : "";
   }, [sortType]);
 
-  const alarm = () => setFilter({ sortType: "datum", filter: days });
+  const scroll = kasöldfkjaölsdkfjaölskdjfölaskdjfölaskjdfbfck.bjsvyd
+
+  const alarm = () => {
+    setFilter({ sortType: "datum", filter: days });
+  };
 
   useEffect(() => {
     convertDate(filterValue);
     setActiveIndex(null);
-    setTimeout(alarm, 10);
   }, []);
 
   useEffect(() => {
     focus == filterArray[0]?.standort.slug.current &&
       ref.current?.scrollIntoView();
   }, [focus]);
+
+  useEffect(() => {
+    scrollTo == filterValue && ref.current?.scrollIntoView();
+  }, [scrollTo]);
 
   return (
     filterArray.some(contains) && (
@@ -112,6 +121,7 @@ const KalenderSubcategory = ({
             setFlyToState={setFlyToState}
             query={query}
             entry={entry}
+            scrollTo={scrollTo}
           />
         ))}
       </>

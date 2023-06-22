@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "../styles/Kalender.module.css";
 
 import KalenderSubcategory from "./KalenderSubcategory";
+import FilterInner from "./FilterInner";
 
 const Kalender = ({
   english,
@@ -17,37 +18,84 @@ const Kalender = ({
   data,
   days,
   setFlyToState,
-  query
+  query,
 }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
   const [activeSubIndex, setActiveSubIndex] = useState(null);
+  const [filterActive, setFilterActive] = useState(false);
+  const [scrollTo, setScrollTo] = useState(null);
+
+  const ref = useRef();
+  const bodyRef = useRef();
+
+  const open = { height: ref.current?.clientHeight };
+  const closed = { height: "0px" };
+
+  const scrollUp = () => bodyRef.current?.scrollIntoView({
+    top: 0,
+    behavior: "smooth",
+  });
+
+  console.log(ref.current?.clientHeight);
 
   useEffect(() => {
-    query && standortFilter
-  }, [])
+    query && standortFilter;
+  }, []);
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <div className={styles.headerFilter}>
+      <div
+        className={styles.header}
+        style={
+          filterActive ? { background: "var(--pink)" } : { background: "white" }
+        }
+        onClick={() => setActiveIndex(null)}
+        ref={bodyRef}
+      >
+        <div
+          className={styles.headerFilter}
+          onClick={() => {
+            setFilterActive(true), scrollUp();
+          }}
+        >
           <h2 className={styles.headerSegment} onClick={datumFilter}>
             {english ? "Date" : "Datum"}
           </h2>
           <h2 className={styles.headerSegment} onClick={personenFilter}>
-          {english ? "People" : "Personen"}
+            {english ? "People" : "Personen"}
           </h2>
           <h2 className={styles.headerSegment} onClick={standortFilter}>
-          {english ? "Location" : "Standort"}
+            {english ? "Location" : "Standort"}
           </h2>
           <h2 className={styles.headerSegment} onClick={formateFilter}>
             Format
           </h2>
         </div>
-        {/* <div className={styles.headerLinks}>
-          {days.map(day => `${dayNames[new Date(day).getDay()]}`)}
-        </div> */}
       </div>
 
       <div className={styles.body}>
+        <div
+          className={styles.headerLinks}
+          style={filterActive ? open : closed}
+        >
+          <div
+            className={styles.headerLinksWrapper}
+            ref={ref}
+            onClick={() => setFilterActive(false)}
+          >
+            {filter.filter.map((filterValue, i) => (
+              <FilterInner
+                key={i}
+                i={i}
+                data={data}
+                filterValue={filterValue}
+                filter={filter}
+                setScrollTo={setScrollTo}
+                setActiveIndex={setActiveIndex}
+              />
+            ))}
+          </div>{" "}
+        </div>
         {filter.filter.map(
           (filterValue, i) =>
             filterValue && (
@@ -67,6 +115,9 @@ const Kalender = ({
                 setFlyToState={setFlyToState}
                 programm={programm}
                 query={query}
+                scrollTo={scrollTo}
+                activeIndex={activeIndex}
+                setActiveIndex={setActiveIndex}
               />
             )
         )}

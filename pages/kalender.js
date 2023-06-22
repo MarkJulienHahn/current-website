@@ -121,7 +121,7 @@ export async function getServerSideProps() {
   const formate = await client.fetch(`
   * [_type == "formate"]{...}`);
   const programm = await client.fetch(`
-  *[_type == "programm"]{..., "standort": standort->{...}, "personen": personen->{...}, "format": format->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
+  *[_type == "programm"]{..., "standort": standort->{...}, "beteiligte": beteiligte[]->{...}, "formate": formate[]->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
 
   return {
     props: {

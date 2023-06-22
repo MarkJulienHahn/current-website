@@ -88,7 +88,7 @@ setDateConverted(
     active && scroll();
   }, [active]);
 
-  console.log(english);
+  console.log(entry);
 
   return (
     <>
@@ -115,8 +115,8 @@ setDateConverted(
               {entry.time.start && entry.time.start}
               {entry.time.ende && `–${entry.time.ende}`}
             </div>
-            <div className={styles.infoSegment}>{entry.personen.name}</div>
-            <div className={styles.infoSegment}>{entry.standort.name}</div>
+            {/* <div className={styles.infoSegment}>{entry.personen.name}</div>
+            <div className={styles.infoSegment}>{entry.standort.name}</div> */}
             <div className={styles.infoSegment}>
               {english ? entry.format.formateEN : entry.format.formate}
             </div>

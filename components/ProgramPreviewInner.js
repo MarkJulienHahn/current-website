@@ -39,7 +39,7 @@ const ProgramPreviewInner = ({ event, english }) => {
           <br />
           {event.standort.name}
           <br />
-          {english ? event.format.formateEN : event.format.formate}
+          {/* {english ? event.format.formateEN : event.format.formate} */}
         </div>
         <div className={styles.infoInner}>
           <h1>{english ? dateConvertedEN : dateConverted}</h1>
@@ -48,7 +48,7 @@ const ProgramPreviewInner = ({ event, english }) => {
             {event.subheadline &&
               (english ? event.subheadlineEN : event.subheadline)}
           </h2>
-          <p className={styles.infoSmall}>{event.personen.name}</p>
+          {/* <p className={styles.infoSmall}>{event.personen.name}</p> */}
         </div>
       </div>
 

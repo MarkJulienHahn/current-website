@@ -39,7 +39,7 @@ const ProgramPreviewInner = ({ event, english }) => {
           <br />
           {event.standort.name}
           <br />
-          {english ? event.format.formateEN : event.format.formate}
+          {english ? event.formate.map((format, i) => format.formateEN) : event.formate.map((format, i) => format.formate)}
         </div>
         <div className={styles.infoInner}>
           <h1>{english ? dateConvertedEN : dateConverted}</h1>
@@ -48,14 +48,14 @@ const ProgramPreviewInner = ({ event, english }) => {
             {event.subheadline &&
               (english ? event.subheadlineEN : event.subheadline)}
           </h2>
-          <p className={styles.infoSmall}>{event.personen.name}</p>
+          <p className={styles.infoSmall}>{event.beteiligte.map((person, i) => person.name)}</p>
         </div>
       </div>
 
       <div className={styles.imageWrapper}>
         {event.bilder && (
           <Image
-            src={event.bilder[1].asset.url}
+            src={event.bilder[0]?.asset.url}
             fill
             style={{ objectFit: "cover" }}
           />

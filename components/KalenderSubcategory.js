@@ -69,8 +69,6 @@ const KalenderSubcategory = ({
       : "";
   }, [sortType]);
 
-  const scroll = kasöldfkjaölsdkfjaölskdjfölaskdjfölaskjdfbfck.bjsvyd
-
   const alarm = () => {
     setFilter({ sortType: "datum", filter: days });
   };

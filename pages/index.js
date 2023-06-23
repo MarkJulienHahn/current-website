@@ -391,7 +391,7 @@ export async function getServerSideProps() {
   const marquee = await client.fetch(`* [_type == "marquee"]{...}`);
 
   const programm = await client.fetch(`
-  *[_type == "programm"]| order(programm.date asc){..., "standort": standort->{...}, "personen": personen->{...}, "format": format->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
+  *[_type == "programm"]{..., "standort": standort->{...}, "beteiligte": beteiligte[]->{...}, "formate": formate[]->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
 
   const beteiligte = await client.fetch(`
   *[_type == "beteiligte"]{..., "bild": bild{..., "asset": asset->{...}}}`);

@@ -31,31 +31,25 @@ const Kalender = ({
   const open = { height: ref.current?.clientHeight };
   const closed = { height: "0px" };
 
-  const scrollUp = () => bodyRef.current?.scrollIntoView({
-    top: 0,
-    behavior: "smooth",
-  });
-
-  console.log(ref.current?.clientHeight);
+  const scroll = () => bodyRef.current.scrollIntoView();
 
   useEffect(() => {
     query && standortFilter;
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={bodyRef}>
       <div
         className={styles.header}
         style={
           filterActive ? { background: "var(--pink)" } : { background: "white" }
         }
         onClick={() => setActiveIndex(null)}
-        ref={bodyRef}
       >
         <div
           className={styles.headerFilter}
           onClick={() => {
-            setFilterActive(true), scrollUp();
+            setFilterActive(true), scroll();
           }}
         >
           <h2 className={styles.headerSegment} onClick={datumFilter}>
@@ -92,9 +86,11 @@ const Kalender = ({
                 filter={filter}
                 setScrollTo={setScrollTo}
                 setActiveIndex={setActiveIndex}
+                setFlyToState={setFlyToState}
+                sortType={filter.sortType}
               />
             ))}
-          </div>{" "}
+          </div>
         </div>
         {filter.filter.map(
           (filterValue, i) =>

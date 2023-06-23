@@ -33,7 +33,7 @@ const kalender = ({ english, programm, standorte, beteiligte, formate }) => {
   const [data, setData] = useState([]);
   const [focus, setFocus] = useState(null);
   const [flyToState, setFlyToState] = useState([9.218195301506112, 48.80442744658279]);
-  const [filter, setFilter] = useState({ sortType: "", filter: days });
+  const [filter, setFilter] = useState({ sortType: "datum", filter: days });
 
   const router = useRouter()
 
@@ -77,8 +77,6 @@ const kalender = ({ english, programm, standorte, beteiligte, formate }) => {
     sortArray(filter.sortType);
   }, [filter]);
 
-  // console.log(router.query.active)
-
   return (
     <div className={styles.outer}>
       <Karte
@@ -106,6 +104,7 @@ const kalender = ({ english, programm, standorte, beteiligte, formate }) => {
         days={days}
         query={router.query.active}
         english={english}
+        flyToState={flyToState}
       />
     </div>
   );

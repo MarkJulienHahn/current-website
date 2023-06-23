@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Kalender.module.css";
 
-const FilterInner = ({ i, data, filterValue, filter, setScrollTo }) => {
+const FilterInner = ({
+  i,
+  data,
+  filterValue,
+  filter,
+  setScrollTo,
+  setFlyToState,
+  sortType,
+}) => {
   const [filterArray, setFilterArray] = useState();
 
   const convertDate = (input) => {
@@ -14,6 +22,15 @@ const FilterInner = ({ i, data, filterValue, filter, setScrollTo }) => {
       : `${dayNames[day]} / ${date}.${month}`;
   };
 
+  const koordinaten = data.filter(
+    (element) => element.standort.name == filterValue
+  )[0]?.standort.koordinaten;
+
+  const clickAction = () =>
+    sortType == "standort"
+      ? (setScrollTo(filterValue), setFlyToState([koordinaten]))
+      : setScrollTo(filterValue);
+
   useEffect(() => {
     data.map(
       (entry) => entry.date == filterValue && setFilterArray(filterValue)
@@ -22,20 +39,16 @@ const FilterInner = ({ i, data, filterValue, filter, setScrollTo }) => {
 
   return filter.sortType == "datum" ? (
     filterArray && (
-      <a
-        className={styles.filterDate}
-        key={i}
-        onClick={() => setScrollTo(filterValue)}
-      >
+      <a className={styles.filterDate} key={i} onClick={clickAction}>
         {convertDate(filterArray)}
       </a>
     )
   ) : i + 1 < filter.filter.length ? (
-    <a key={i} onClick={() => setScrollTo(filterValue)}>
+    <a key={i} onClick={clickAction}>
       {filterValue},{" "}
     </a>
   ) : (
-    <a key={i} onClick={() => setScrollTo(filterValue)}>
+    <a key={i} onClick={clickAction}>
       {filterValue}
     </a>
   );

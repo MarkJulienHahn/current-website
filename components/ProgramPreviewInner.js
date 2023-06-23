@@ -10,7 +10,7 @@ const ProgramPreviewInner = ({ event, english }) => {
 
   const convertDate = async (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
-    const dayNamesEN = ["SUN", "MON", "TUE", "WEN", "THU", "FRI", "SAT"];
+    const dayNamesEN = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const day = new Date(input).getDay();
     const date = new Date(input).getDate();
     const month = new Date(input).getUTCMonth() + 1;
@@ -30,6 +30,8 @@ const ProgramPreviewInner = ({ event, english }) => {
     convertDate(event.date);
   }, []);
 
+  console.log(event);
+
   return (
     <div className={styles.programPreviewInner}>
       <div className={styles.infoBox}>
@@ -39,7 +41,9 @@ const ProgramPreviewInner = ({ event, english }) => {
           <br />
           {event.standort.name}
           <br />
-          {english ? event.formate.map((format, i) => format.formateEN) : event.formate.map((format, i) => format.formate)}
+          {english
+            ? event.formate.map((format, i) => <div>{format.formateEN}</div>)
+            : event.formate.map((format, i) => <div>{format.formate}</div>)}
         </div>
         <div className={styles.infoInner}>
           <h1>{english ? dateConvertedEN : dateConverted}</h1>
@@ -48,7 +52,9 @@ const ProgramPreviewInner = ({ event, english }) => {
             {event.subheadline &&
               (english ? event.subheadlineEN : event.subheadline)}
           </h2>
-          <p className={styles.infoSmall}>{event.beteiligte.map((person, i) => person.name)}</p>
+          <p className={styles.infoSmall}>
+            {event.beteiligte.map((person, i) => person.name)}
+          </p>
         </div>
       </div>
 

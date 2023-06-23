@@ -22,8 +22,6 @@ const Infosection = ({
   const [mobileText1, setMobileText1] = useState(false);
   const [mobileText2, setMobileText2] = useState(false);
 
-  console.log(editorial.textTitleDeutsch)
-
   return (
     <div className={styles.infoWrapper}>
       <div className={"anchor"} id="program"></div>

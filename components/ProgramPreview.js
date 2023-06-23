@@ -39,7 +39,7 @@ const ProgramPreview = ({ programm, english }) => {
               loop
             >
               {progSorted.map((event, i) =>
-                event.date >= today && event.bilder ? (
+                event.date >= today && event.bilder.length ? (
                   <SwiperSlide>
                     <Link
                       key={i}

@@ -3,12 +3,8 @@ import styles from "../styles/Beteiligte.module.css";
 
 import Entry from "./Entry";
 
-const Beteiligte = ({ english, beteiligte, active }) => {
+const Beteiligte = ({ english, beteiligte, programm }) => {
   const [index, setIndex] = useState(null);
-
-  useEffect(() => {
-    active && setIndex(active.active);
-  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -60,7 +56,7 @@ const Beteiligte = ({ english, beteiligte, active }) => {
         </div>
       ) : (
         <div className={styles.content}>
-          <Entry english={english} beteiligter={beteiligte[index]} />
+          <Entry english={english} beteiligter={beteiligte[index]} programm={programm}/>
         </div>
       )}
     </div>

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "../styles/Kalender.module.css";
 
+import { useRouter } from "next/router";
+
 import KalenderImageSlide from "./KalenderImageSlide";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -24,7 +26,6 @@ const KalenderRow = ({
   subIndex,
   setFlyToState,
   query,
-  scrollTo
 }) => {
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState(false);
@@ -49,6 +50,8 @@ const KalenderRow = ({
     );
   };
 
+  const router = useRouter();
+
   const ref = useRef();
   const refOuter = useRef();
 
@@ -68,6 +71,7 @@ const KalenderRow = ({
     activeIndex == index && activeSubIndex == subIndex && setActive(true);
     activeSubIndex != subIndex && setActive(null);
     activeIndex != index && setActive(null);
+    activeIndex == null && setActive(null);
   }, [activeIndex, activeSubIndex]);
 
   const open = {
@@ -88,6 +92,14 @@ const KalenderRow = ({
   useEffect(() => {
     active && scroll();
   }, [active]);
+
+  // useEffect(() => {
+  //   active &&
+  //     router.push({
+  //       pathname: "/kalender",
+  //       query: { active: entry.headline },
+  //     });
+  // }, [active]);
 
   return (
     <>

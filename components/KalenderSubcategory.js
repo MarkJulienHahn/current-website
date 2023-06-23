@@ -7,12 +7,10 @@ const KalenderSubcategory = ({
   sortType,
   filterValue,
   data,
-  setFilter,
   activeSubIndex,
   setActiveSubIndex,
   subIndex,
   english,
-  days,
   focus,
   setFocus,
   setFlyToState,
@@ -25,6 +23,7 @@ const KalenderSubcategory = ({
     data.filter((entry) => entry.date == filterValue)
   );
   const [dateConverted, setDateConverted] = useState("");
+  const [rerender, setRerender] = useState(false)
 
   const convertDate = async (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
@@ -67,13 +66,13 @@ const KalenderSubcategory = ({
           data.filter((entry) => entry.formate[0].formate == filterValue)
         )
       : "";
-  }, [sortType]);
+      () => setActiveIndex(null)
+  }, [sortType])
 
-  const alarm = () => {
-    setFilter({ sortType: "datum", filter: days });
-  };
+  const scroll = () => setTimeout(() => ref.current?.scrollIntoView(), 200);
 
   useEffect(() => {
+    setTimeout(() => setRerender(true), 500),
     convertDate(filterValue);
     setActiveIndex(null);
   }, []);
@@ -84,8 +83,12 @@ const KalenderSubcategory = ({
   }, [focus]);
 
   useEffect(() => {
-    scrollTo == filterValue && ref.current?.scrollIntoView();
+    scrollTo == filterValue && scroll();
   }, [scrollTo]);
+
+  useEffect(() => {
+    setFilterArray(data.filter((entry) => entry.date == filterValue))
+  }, [rerender]);
 
   return (
     filterArray.some(contains) && (

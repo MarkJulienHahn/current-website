@@ -98,4 +98,5 @@
 .bildunterschrift {
   font-size: 12pt;
   padding-left: 12px;
+  padding-bottom: var(--space)
 }

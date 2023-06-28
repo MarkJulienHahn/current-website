@@ -20,9 +20,9 @@ function MyApp({ Component, pageProps }) {
       <Nav
         english={english}
         setEnglish={setEnglish}
-        // refInView={inView}
         colorArray={colorArray}
         showNav={showNav}
+        setShowNav={setShowNav}
       />
       <Component
         {...pageProps}

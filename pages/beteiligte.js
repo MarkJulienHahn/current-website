@@ -1,15 +1,29 @@
 import client from "../client";
 import { useRouter } from "next/router";
 
+import useWindowDimensions from "../hooks/useWindowDimensions";
+
 import Beteiligte from "../components/Beteiligte";
+import BeteiligteMobil from "../components/BeteiligteMobil";
 
 const beteiligte = ({ english, beteiligte, programm }) => {
   const router = useRouter();
   const active = router.query;
 
-  return (
+  const { width } = useWindowDimensions();
+
+  return width > 700 ? (
     <div>
       <Beteiligte
+        programm={programm}
+        beteiligte={beteiligte}
+        english={english}
+        active={active}
+      />
+    </div>
+  ) : (
+    <div>
+      <BeteiligteMobil
         programm={programm}
         beteiligte={beteiligte}
         english={english}

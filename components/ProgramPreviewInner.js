@@ -30,8 +30,6 @@ const ProgramPreviewInner = ({ event, english }) => {
     convertDate(event.date);
   }, []);
 
-  console.log(event);
-
   return (
     <div className={styles.programPreviewInner}>
       <div className={styles.infoBox}>
@@ -48,7 +46,7 @@ const ProgramPreviewInner = ({ event, english }) => {
         <div className={styles.infoInner}>
           <h1>{english ? dateConvertedEN : dateConverted}</h1>
           <h2>
-            {english ? event.headlineEN : event.headline}{" "}
+            {english ? event.headlineEN : event.headline}
             {event.subheadline &&
               (english ? event.subheadlineEN : event.subheadline)}
           </h2>

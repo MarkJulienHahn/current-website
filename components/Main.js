@@ -32,28 +32,7 @@ const Main = ({
         currently={currently}
       />
 
-      {/* <a href={marquee.link} target="_blank" rel="noreferrer">
-        <Marquee
-          gradient={false}
-          direction={"right"}
-          className={styles.marquee}
-        >
-          <div style={{ display: "flex" }}>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-            <h1>{english ? marquee.textEnglish : marquee.textGerman}</h1>
-          </div>
-        </Marquee>
-      </a> */}
-
       <Team english={english} team={team} downloads={downloads}/>
-      {/* <Presse english={english} presse={presse}/> */}
-      {/* <Downloads english={english} downloads={downloads} /> */}
       <Logos english={english} logos={logos} />
     </div>
   );

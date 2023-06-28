@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from "../styles/Kalender.module.css";
 
 import { useRouter } from "next/router";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 import KalenderImageSlide from "./KalenderImageSlide";
 
@@ -31,6 +32,8 @@ const KalenderRow = ({
   const [height, setHeight] = useState(false);
   const [dateConverted, setDateConverted] = useState("");
   const [dateConvertedEN, setDateConvertedEN] = useState("");
+
+  const { width } = useWindowDimensions();
 
   const convertDate = async (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
@@ -93,32 +96,46 @@ const KalenderRow = ({
     active && scroll();
   }, [active]);
 
-  // useEffect(() => {
-  //   active &&
-  //     router.push({
-  //       pathname: "/kalender",
-  //       query: { active: entry.headline },
-  //     });
-  // }, [active]);
-
   return (
     <>
       <div
         ref={refOuter}
         style={{
           position: "absolute",
-          transform: "translateY(-130px)",
+          transform: width > 700 ? "translateY(-130px)" : "translateY(-60px)",
         }}
       ></div>
       <div className={`${styles.infoOuter} ${index % 2 == 0 && styles.bgGrey}`}>
+        <div
+          className={styles.plusAnimationWrapper}
+          onClick={active ? closeFunction : openFunction}
+        >
+          <h2
+            className={styles.plusAnimation}
+            style={
+              active
+                ? { transform: "rotate(90deg) translateY(-1px)" }
+                : {
+                    transform:
+                      "rotate(180deg) translateX(-1px) translateY(-1px)",
+                  }
+            }
+          >
+            I
+          </h2>
+
+          <h2 className={styles.plusAnimationStatic}>I</h2>
+        </div>
+
         <div
           className={styles.infoTextpart}
           onClick={active ? closeFunction : openFunction}
         >
           <div className={styles.headline}>
-            <h2>{english ? entry.headlineEN : entry.headline}</h2>{" "}
+            <h2>{english ? entry.headlineEN : entry.headline}</h2>
             <h2>{entry.subheadline}</h2>
           </div>
+
           <div className={styles.infoRowBottom}>
             <div className={styles.infoSegment}>
               {english ? dateConvertedEN : dateConverted}

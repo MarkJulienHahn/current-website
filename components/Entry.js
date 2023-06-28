@@ -22,17 +22,12 @@ const days = [
   "2023-09-24",
 ];
 
-const Entry = ({ english, beteiligter, programm }) => {
+const Entry = ({ scroll, english, beteiligter, programm }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeSubIndex, setActiveSubIndex] = useState(null);
-
-  const ref = useRef();
-
-  const { width } = useWindowDimensions();
-
   const [data, setData] = useState([]);
 
-  const scroll = () => ref.current.scrollIntoView();
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     const sortArray = (type) => {
@@ -64,19 +59,8 @@ const Entry = ({ english, beteiligter, programm }) => {
 
   return (
     <>
-      <div
-        className={styles.headline}
-        ref={ref}
-        style={
-          beteiligter?.different
-            ? { background: "var(--green)" }
-            : { background: "var(--blue)" }
-        }
-      >
-        <h1>{beteiligter.name}</h1>
-      </div>
       <div className={styles.websiteWrapper}>
-        {beteiligter.webseiten &&
+        {beteiligter?.webseiten &&
           beteiligter.webseiten.map((website, i) => (
             <a
               href={`http://${website}`}
@@ -101,19 +85,9 @@ const Entry = ({ english, beteiligter, programm }) => {
         <div className={styles.imageWrapper}>
           <Image
             responsive
-            width={
-              beteiligter.bild.asset.metadata.dimensions.aspectRatio > 1
-                ? width / 2
-                : width / 4
-            }
-            height={
-              beteiligter.bild.asset.metadata.dimensions.aspectRatio > 1
-                ? width /
-                  2 /
-                  beteiligter.bild.asset.metadata.dimensions.aspectRatio
-                : width /
-                  4 /
-                  beteiligter.bild.asset.metadata.dimensions.aspectRatio
+            width={width}
+            height={width /
+              beteiligter.bild.asset.metadata.dimensions.aspectRatio
             }
             src={beteiligter.bild.asset.url}
             style={{ objectFit: "contain", objectPosition: "left top" }}

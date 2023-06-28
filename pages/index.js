@@ -30,35 +30,11 @@ const Index = ({
   marquee,
   english,
   colorArray,
-  setShowNav
 }) => {
   const [index, setIndexA] = useState(null);
-
-  // const [scrollPosition, setScrollPosition] = useState("");
   const [autoChange, setAutoChange] = useState(true);
 
   const height = use100vh();
-
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-  });
-
-  useEffect(() => {
-    setIndexA(Math.floor(Math.random() * colorArray.length));
-  }, []);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScrollPosition(window.scrollY);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // });
-
-  useEffect(() => {
-    inView ? setShowNav(true) : setShowNav(false)
-  }, [inView])
 
   return (
     <>
@@ -343,7 +319,7 @@ const Index = ({
           </div>
         </Div100vh>
 
-        <div className="wrapper" ref={ref}>
+        <div className="wrapper">
           <Main
             english={english}
             editorial={editorial[0]}

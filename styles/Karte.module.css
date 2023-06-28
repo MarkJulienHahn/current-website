@@ -31,3 +31,9 @@
 .markerSingle:hover, .markerCluster:hover {
     transform: scale(150%)
 }
+
+@media screen and (max-width: 700px) {
+.karteWrapper {
+  width: 100vw;
+}
+}

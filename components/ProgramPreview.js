@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import useWindowDimensions from "../hooks/useWindowDimensions";
+
 import { Navigation } from "swiper";
 
 import styles from "../styles/ProgramPreview.module.css";
@@ -14,6 +16,8 @@ const dateObject = new Date();
 let today = dateObject.toISOString();
 
 const ProgramPreview = ({ programm, english }) => {
+  const { width } = useWindowDimensions();
+
   function compareFn(a, b) {
     if (a.date < b.date) {
       return -1;
@@ -35,7 +39,7 @@ const ProgramPreview = ({ programm, english }) => {
               navigation={true}
               modules={[Navigation]}
               spaceBetween={0}
-              slidesPerView={2}
+              slidesPerView={width > 700 ? 2 : 1}
               loop
             >
               {progSorted.map((event, i) =>

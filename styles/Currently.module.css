@@ -181,6 +181,10 @@
   background: var(--blue);
 }
 
+.previewLink {
+  width: 50vw
+}
+
 .previewImage {
   position: relative;
   height: 100%;
@@ -208,7 +212,7 @@
 
 @media screen and (max-width: 1200px) {
   .postsOuter {
-    margin-top: 78px;
+    margin-top: 30px;
   }
   .postAccordeon {
     overflow-y: scroll;
@@ -284,4 +288,25 @@
   .postRight {
     padding-top: 0;
   }
+
 }
+
+@media screen and (max-width: 700px) {
+  .previewWrapper {
+    flex-direction: column;
+  }
+  .previewLink, .previewQuarterTop, .previewQuarter {
+    width: 100vw
+  }
+  .previewImage {
+    width: 30vw;
+  }
+  .previewQuarter {
+    background: var(--red)
+  }
+  .previewText {
+    width: 70vw
+  }
+  .previewTextTop p{
+    line-height: 12pt
+}}

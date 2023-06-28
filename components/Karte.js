@@ -7,7 +7,7 @@ import styles from "../styles/Karte.module.css";
 
 const TOKEN = process.env.NEXT_PUBLIC_MAPBOX_GL_TOKEN;
 
-const Karte = ({ standorte, programm, standortFilter, setFocus, flyToState }) => {
+const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
   const mapRef = useRef();
 
   const standorteArray = programm.map((ort) => ort.standort.name);

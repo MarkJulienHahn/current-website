@@ -91,7 +91,7 @@ const CurrentlyPreview = ({ currently, english }) => {
     <div className={styles.previewWrapper}>
       <Link
         href={{ pathname: "/currently", query: { active: firstIndex } }}
-        style={{ width: "50vw" }}
+        className={styles.previewLink}
       >
         <div className={styles.previewHalfLeft}>
           <div className={styles.previewImage}>
@@ -193,7 +193,6 @@ const CurrentlyPreview = ({ currently, english }) => {
               </div>
               <div className={styles.previewTextBottom}>
                 <h2>
-                  {" "}
                   {english
                     ? firstPost.header.titel.titleEN
                     : firstPost.header.titel.titleDE}

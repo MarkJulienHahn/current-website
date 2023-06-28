@@ -1,19 +1,10 @@
-import { useState } from "react";
-
 import styles from "../styles/Main.module.css";
 
 const Team = ({ english, team, downloads }) => {
-  const [background, setBackground] = useState(true);
-
   return (
     <>
       <div className={"anchor"} id="team"></div>
-      <div
-        className={styles.teamWrapper}
-        // style={background ? { background: "var(--blue)" } : { background: "" }}
-        // onMouseEnter={() => setBackground(false)}
-        // onMouseLeave={() => setBackground(true)}
-      >
+      <div className={styles.teamWrapper}>
         <h2 className={styles.teamHeadline}>Jobs</h2>
 
         <div className={styles.downloadContent}>
@@ -42,19 +33,6 @@ const Team = ({ english, team, downloads }) => {
             </div>
           ))}
         </div>
-
-        {/* <ul>
-          {team.map((entry, i) => (
-            <li>
-              <h1>{entry.teamEntry.name}</h1>
-              <p>
-                {english
-                  ? entry.teamEntry.positionEnglish
-                  : entry.teamEntry.positionGerman}
-              </p>
-            </li>
-          ))}
-        </ul> */}
       </div>
     </>
   );

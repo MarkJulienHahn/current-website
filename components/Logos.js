@@ -1,18 +1,17 @@
-import { useState } from "react";
 import styles from "../styles/Main.module.css";
 import Image from "next/image";
 
+import useWindowDimensions from "../hooks/useWindowDimensions";
+
 const Logos = ({ english, logos }) => {
-  const [background, setBackground] = useState(true);
+  const { width } = useWindowDimensions();
 
   return (
     <div
       className={styles.logosWrapper}
       style={{
-        background: "var(--red)"
+        background: width > 700 ? "var(--red)" : "var(--pink)"
       }}
-      // onMouseEnter={() => setBackground(false)}
-      // onMouseLeave={() => setBackground(true)}
     >
       <div className={styles.logoHeader}>
         <h2> {english ? "Supported by" : "Gefördert von"}</h2>

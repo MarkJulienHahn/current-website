@@ -47,7 +47,7 @@ const Blogpost = ({
     });
 
   const indexNumber = (num) => {
-    if (num > 1) {
+    if (num > 8) {
       return `#0${length - (num)}`;
     }
     return `#${length - (num)}`;
@@ -68,7 +68,6 @@ const Blogpost = ({
             <h2 className={styles.newsIcon}>◌</h2>
           ) : (
             <h2>{indexNumber(index)}</h2>
-            // <h2>{indexNumber(length+(i-newsSubtraction))}</h2>
           )}
           <h2 className={styles.date}>
             {english

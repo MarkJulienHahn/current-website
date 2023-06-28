@@ -48,3 +48,20 @@
 .imageWrapper:hover img {
   filter: none
 }
+
+@media screen and (max-width: 700px) {
+  .infoBox {
+    width: 100%;
+    line-height: unset;
+  }
+  .infoInner:first-child {
+    width: 40%
+  }
+  .infoInner:nth-child(2) {
+    width: 60%
+  }
+  .programPreviewLink {
+    display: none
+  }
+
+}

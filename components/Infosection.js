@@ -51,7 +51,9 @@ const Infosection = ({
       >
         <span className={styles.infoTextHeadlineSection}>
           <p>Editorial</p>
-          <h1>{english ? editorial.textTitleEnglish : editorial.textTitleGerman}</h1>
+          <h1>
+            {english ? editorial.textTitleEnglish : editorial.textTitleGerman}
+          </h1>
         </span>
 
         <div className={styles.infoText}>
@@ -63,14 +65,7 @@ const Infosection = ({
         </div>
       </div>
 
-      <ProgramPreview programm={programm} english={english} />
-      <BeteiligteList beteiligte={beteiligte} />
-      <CurrentlyPreview currently={currently} english={english} />
-
-      <div
-        className={styles.mobileInfoText}
-        style={{ background: background ? "var(--red)" : "" }}
-      >
+      <div className={styles.mobileInfoText}>
         <div
           className={
             !mobileText1
@@ -79,6 +74,12 @@ const Infosection = ({
           }
           onClick={() => setBackground(!background)}
         >
+          <span className={styles.infoTextHeadlineSection}>
+            <p>Editorial</p>
+            <h1>
+              {english ? editorial.textTitleEnglish : editorial.textTitleGerman}
+            </h1>
+          </span>
           {english ? (
             <PortableText value={editorial.textEnglish} />
           ) : (
@@ -98,6 +99,10 @@ const Infosection = ({
             : "Weniger lesen.."}
         </div>
       </div>
+
+      <ProgramPreview programm={programm} english={english} />
+      <BeteiligteList beteiligte={beteiligte} />
+      <CurrentlyPreview currently={currently} english={english} />
 
       <div className={"anchor"} id="about"></div>
 
@@ -121,10 +126,7 @@ const Infosection = ({
         </div>
       </div>
 
-      <div
-        className={styles.mobileInfoText}
-        style={{ background: background2 ? "var(--pink)" : "" }}
-      >
+      <div className={styles.mobileInfoText}>
         <div
           className={
             !mobileText2
@@ -133,6 +135,9 @@ const Infosection = ({
           }
           onClick={() => setBackground2(!background2)}
         >
+          <p className={styles.mobileInfoHeading}>
+            {english ? "About the Festival" : "Über das Festival"}
+          </p>
           {english ? (
             <PortableText value={about.textEnglish} />
           ) : (

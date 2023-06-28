@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import KalenderRow from "./KalenderRow";
 import styles from "../styles/Kalender.module.css";
 
+import useWindowDimensions from "../hooks/useWindowDimensions";
+
 const KalenderSubcategory = ({
   sortType,
   filterValue,
@@ -24,6 +26,8 @@ const KalenderSubcategory = ({
   );
   const [dateConverted, setDateConverted] = useState("");
   const [rerender, setRerender] = useState(false)
+
+  const { width } = useWindowDimensions();
 
   const convertDate = async (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
@@ -79,7 +83,7 @@ const KalenderSubcategory = ({
 
   useEffect(() => {
     focus == filterArray[0]?.standort.slug.current &&
-      ref.current?.scrollIntoView();
+     scroll()
   }, [focus]);
 
   useEffect(() => {
@@ -97,7 +101,7 @@ const KalenderSubcategory = ({
           ref={ref}
           style={{
             position: "absolute",
-            transform: "translateY(-130px)",
+            transform: width > 700 ? "translateY(-130px)" : "translateY(-60px)",
           }}
         ></div>
 

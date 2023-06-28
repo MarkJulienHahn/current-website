@@ -49,9 +49,6 @@ const KalenderSubcategory = ({
     setFilterArray(data.filter((entry) => entry.date == filterValue));
   }, [rerender]);
 
-  console.log(filterArray)
-
-
   return (
     filteredForDate && filteredForPerson && (
     <>

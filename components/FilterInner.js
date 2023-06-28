@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Kalender.module.css";
 
+import useWindowDimensions from "../hooks/useWindowDimensions";
+
 const FilterInner = ({
   i,
   data,
@@ -11,6 +13,8 @@ const FilterInner = ({
   sortType,
 }) => {
   const [filterArray, setFilterArray] = useState();
+
+  const { width } = useWindowDimensions();
 
   const convertDate = (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
@@ -27,7 +31,7 @@ const FilterInner = ({
   )[0]?.standort.koordinaten;
 
   const clickAction = () =>
-    sortType == "standort"
+    sortType == "standort" && width > 700
       ? (setScrollTo(filterValue), setFlyToState([koordinaten]))
       : setScrollTo(filterValue);
 

@@ -17,6 +17,19 @@
   height: var(--space);
 }
 
+.headerMobile {
+  height: 30px;
+  background: var(--pink);
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
 .headerFilter {
   display: flex;
   /* height: var(--space); */
@@ -31,11 +44,11 @@
   font-family: "Activist";
   background: var(--pink);
   overflow: hidden;
-  transition: height 0.2s ease
+  transition: height 0.2s ease;
 }
 
 .headerLinks a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .headerLinksWrapper {
@@ -110,4 +123,123 @@
   background: var(--red);
   padding-left: 12px;
   cursor: default;
+}
+
+.plusAnimation {
+  position: absolute;
+  right: 16px;
+  transition: all 0.3s ease;
+}
+
+.plusAnimationStatic {
+  position: absolute;
+  right: 16px;
+  transform: rotate(90deg) translateY(-1px);
+}
+
+.kalenderMobile {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper {
+    width: 100vw;
+    margin-left: 0;
+  }
+  .body {
+    padding-top: 18px;
+  }
+  .headline {
+    padding-bottom: 0;
+    width: 90%;
+  }
+  .filterHeader {
+    padding-left: 10px;
+  }
+  .infoTextpart {
+    padding-left: 8px;
+  }
+  .infoRowBottom {
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
+  .infoSegment {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .infoOuter:hover,
+  .header:hover {
+  }
+  .infoRowBottom {
+    line-height: 11pt;
+    letter-spacing: 0;
+  }
+
+  .plusAnimationWrapper {
+    transform: translateY(-1px);
+  }
+
+  .plusAnimation {
+    position: absolute;
+    right: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .plusAnimationStatic {
+    position: absolute;
+    right: 16px;
+    transform: rotate(90deg) translateY(-1px);
+  }
+  .kalenderDesktop {
+    display: none;
+  }
+  .kalenderMobile {
+    display: block;
+  }
+  .headerLinksWrapper {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 65px;
+    background: var(--pink);
+    z-index: 10;
+  }
+  .headerLinksWrapper {
+    padding-top: 20px;
+    transition: top 0.5s ease;
+  }
+
+  .headerSegment {
+    padding-left: 8px;
+  }
+
+  .filterInnerMobile {
+    margin: 15px 10px;
+    font-size: 12pt;
+    line-height: 14pt;
+    overflow: hidden;
+    transition: height 0.2s ease;
+  }
+
+  .filterInnerMobileDate {
+    margin: 15px 10px;
+    width: 100%;
+    padding-right: 20px;
+    font-size: 12pt;
+    line-height: 14pt;
+    overflow: hidden;
+    transition: height 0.2s ease;
+  }
+
+  .filterInnerMobileDate div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .filterDate {
+    padding: 0;
+  }
 }

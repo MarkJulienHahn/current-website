@@ -87,7 +87,6 @@ const Kalender = ({
                 setScrollTo={setScrollTo}
                 setActiveIndex={setActiveIndex}
                 setFlyToState={setFlyToState}
-                sortType={filter.sortType}
               />
             ))}
           </div>

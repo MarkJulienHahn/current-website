@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import styles from "../styles/Footer.module.css";
 import Impressum from "./Impressum";
 
+import useWindowDimensions from "../hooks/useWindowDimensions";
+
 import Link from "next/link";
 
 import { PortableText } from "@portabletext/react";
@@ -12,6 +14,8 @@ const Footer = ({ english, impressum }) => {
   const [impr, setImpr] = useState(false);
 
   const ref2 = useRef(null);
+
+  const { width } = useWindowDimensions();
 
   const scrollToRef = () => {
     ref2.current.scrollIntoView({ block: "start" });
@@ -58,7 +62,7 @@ const Footer = ({ english, impressum }) => {
         </div>
         <div
           className={styles.footerSegment}
-          style={{ background: "var(--green)" }}
+          style={{ background: width > 700 ? "var(--green)" : "var(--red)" }}
           // onMouseEnter={() => setBackground(false)}
           // onMouseLeave={() => setBackground(true)}
         >
@@ -88,7 +92,7 @@ const Footer = ({ english, impressum }) => {
         </div>
         <div
           className={styles.footerSegment}
-          style={{ background: "var(--pink)" }}
+          style={{ background: width > 700 ? "var(--pink)" : "var(--green)" }}
         >
           <h2>
             <PortableText value={impressum[0].contact} />

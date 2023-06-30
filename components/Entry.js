@@ -50,12 +50,14 @@ const Entry = ({ scroll, english, beteiligter, programm }) => {
       setData(sorted);
     };
     sortArray("datum");
-    scroll();
+    width < 700 ? scroll() : () => {};
   }, []);
 
   useEffect(() => {
-    scroll();
+    width < 700 ? scroll() : () => {};
   }, [beteiligter]);
+
+  console.log(width);
 
   return (
     <>
@@ -82,20 +84,25 @@ const Entry = ({ scroll, english, beteiligter, programm }) => {
       </div>
 
       {beteiligter.bild && (
-        <div className={styles.imageWrapper}>
-          <Image
-            responsive
-            width={width}
-            height={width /
-              beteiligter.bild.asset.metadata.dimensions.aspectRatio
-            }
-            src={beteiligter.bild.asset.url}
-            style={{ objectFit: "contain", objectPosition: "left top" }}
-          />
+        <>
+          <div
+            className={styles.imageWrapper}
+            style={{
+              height: `calc(${
+                50 / beteiligter.bild.asset.metadata.dimensions.aspectRatio
+              }vw + 10px)`,
+            }}
+          >
+            <Image
+              fill
+              src={beteiligter.bild.asset.url}
+              style={{ objectFit: "contain", objectPosition: "left top" }}
+            />
+          </div>
           <div className={styles.bildunterschrift}>
             {beteiligter.bild.bildunterschrift}
           </div>
-        </div>
+        </>
       )}
       <BeteiligteProgramm
         beteiligter={beteiligter}

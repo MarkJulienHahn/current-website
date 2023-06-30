@@ -24,9 +24,6 @@ const Beteiligte = ({ english, beteiligte, programm }) => {
                   : { background: "var(--blue)" }
                 : { background: "" }
             }
-            // style={
-            //   i % 2 == 0 ? { background: "white" } : { background: "#F2F2F2" }
-            // }
             onClick={() => setIndex(i)}
           >
             <h2>{beteiligter.name}</h2>

@@ -2,7 +2,7 @@ import { PortableText } from "@portabletext/react";
 import styles from "../styles/Main.module.css";
 
 import Downloads from "./Downloads";
-import Logos from "./Logos";
+import LogosPresse from "./LogosPresse";
 import Footer from "./Footer";
 
 const Presse = ({ english, presse, logos, impressum }) => {
@@ -34,7 +34,7 @@ const Presse = ({ english, presse, logos, impressum }) => {
         ""
       )}
       <Downloads english={english} downloads={presse[1].downloads} />
-      <Logos english={english} logos={logos} />
+      <LogosPresse english={english} logos={logos} />
       <Footer english={english} impressum={impressum} />
     </div>
   );

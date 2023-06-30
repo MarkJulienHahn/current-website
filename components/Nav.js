@@ -208,10 +208,13 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             <h2>
               <span className={styles.outline}>
                 Current
-                <br /> Kunst und Urbaner Raum
                 <br />
+                <span style={{ display: menuExtended ? "" : "none" }}>
+                  Kunst und Urbaner Raum
+                  <br />
+                </span>
+                14.–24.09.2023 / Stuttgart
               </span>
-              14.–24.09.2023 / Stuttgart
             </h2>
           </Link>
         </div>

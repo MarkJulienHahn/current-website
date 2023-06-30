@@ -101,7 +101,7 @@ const KalenderSubcategory = ({
           ref={ref}
           style={{
             position: "absolute",
-            transform: width > 700 ? "translateY(-130px)" : "translateY(-60px)",
+            transform: width > 700 ? "translateY(-130px)" : "translateY(-59px)",
           }}
         ></div>
 

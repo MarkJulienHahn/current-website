@@ -25,15 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/beteiligte": [
+    "/presse": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/beteiligte.js"
-    ],
-    "/currently": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/currently.js"
+      "static/chunks/pages/presse.js"
     ]
   },
   "ampFirstPages": []

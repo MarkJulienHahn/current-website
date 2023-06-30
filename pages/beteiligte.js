@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import client from "../client";
 import { useRouter } from "next/router";
 
@@ -7,12 +8,17 @@ import Beteiligte from "../components/Beteiligte";
 import BeteiligteMobil from "../components/BeteiligteMobil";
 
 const beteiligte = ({ english, beteiligte, programm }) => {
+  const [mobile, setMobile] = useState(false);
   const router = useRouter();
   const active = router.query;
 
   const { width } = useWindowDimensions();
 
-  return width > 700 ? (
+  useEffect(() => {
+    width < 700 && setMobile(true);
+  }, [width]);
+
+  return !mobile ? (
     <div>
       <Beteiligte
         programm={programm}

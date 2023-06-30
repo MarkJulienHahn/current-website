@@ -187,6 +187,7 @@
 
 .previewImage {
   position: relative;
+  background: var(--pink);
   height: 100%;
   width: 50%;
 }

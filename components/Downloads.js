@@ -14,7 +14,7 @@ const Downloads = ({ english, downloads }) => {
           </div>
 
           <div
-            className={styles.downloadContent}
+            className={styles.downloadContentPresse}
 
           >
             {downloads.map((entry, i) => (

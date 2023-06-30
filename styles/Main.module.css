@@ -177,6 +177,12 @@
   column-gap: calc(2 * var(--spaceSmall));
 }
 
+.downloadContentPresse {
+  padding: 0 var(--spaceSmall) var(--space);
+  column-count: 2;
+  column-gap: calc(2 * var(--spaceSmall));
+}
+
 .downloadItem {
   break-inside: avoid-column;
 }
@@ -391,6 +397,10 @@
   }
   .downloadContent {
     padding: 0px;
+    column-count: 1;
+  }
+  .downloadContentPresse {
+    padding: 0px 10px;
     column-count: 1;
   }
   .downloadRow p {

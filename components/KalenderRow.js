@@ -102,7 +102,7 @@ const KalenderRow = ({
         ref={refOuter}
         style={{
           position: "absolute",
-          transform: width > 700 ? "translateY(-130px)" : "translateY(-60px)",
+          transform: width > 700 ? "translateY(-130px)" : "translateY(-59px)",
         }}
       ></div>
       <div className={`${styles.infoOuter} ${index % 2 == 0 && styles.bgGrey}`}>

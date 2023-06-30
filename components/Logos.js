@@ -10,13 +10,16 @@ const Logos = ({ english, logos }) => {
     <div
       className={styles.logosWrapper}
       style={{
-        background: width > 700 ? "var(--red)" : "var(--pink)"
+        background:
+          width > 700
+            ? "var(--red)"
+            : "var(--pink)"
       }}
     >
       <div className={styles.logoHeader}>
         <h2> {english ? "Supported by" : "Gefördert von"}</h2>
       </div>
-      
+
       <div className={styles.logoInner}>
         {logos?.map((logo, i) => (
           <div>

@@ -16,7 +16,6 @@ const BeteiligteMobileEntry = ({
   const ref = useRef();
   const scroll = () => ref.current.scrollIntoView();
 
-
   return (
     <>
       <div style={{ transform: "translateY(-30px)" }} ref={ref}></div>

@@ -5,6 +5,8 @@
 
 .names {
   width: 50vw;
+  max-height: calc(100vh - 65px);
+  overflow: scroll;
 }
 
 .nameRow {
@@ -127,6 +129,8 @@
   .names {
     z-index: 1;
     background: white;
+    overflow: unset;
+    max-height: unset;
   }
 
   .nameRow {

@@ -32,7 +32,7 @@ const TextPostImageSlide = ({ image, length }) => {
                 height: `${imageRef.current?.clientWidth}px`,
                 width: `${
                   imageRef.current?.clientWidth *
-                    image.image.metadata.dimensions.aspectRatio -
+                    image.image?.metadata.dimensions.aspectRatio -
                   150
                 }px`,
               }

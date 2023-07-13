@@ -104,6 +104,7 @@
 
 .infoSegment {
   width: 25%;
+  padding-right: 30px;
 }
 
 .infoRow:hover {

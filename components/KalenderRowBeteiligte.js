@@ -31,22 +31,33 @@ const KalenderRow = ({
   const [dateConverted, setDateConverted] = useState("");
   const [dateConvertedEN, setDateConvertedEN] = useState("");
 
-  const convertDate = async (input) => {
+  const convertDateDE = (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
     const dayNamesEN = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const day = new Date(input).getDay();
     const date = new Date(input).getDate();
     const month = new Date(input).getUTCMonth() + 1;
-    setDateConverted(
+
+    const convertedDate =
       month < 10
         ? `${dayNames[day]} / ${date}.0${month}.`
-        : `${dayNames[day]} / ${date}.${month}.`
-    );
-    setDateConvertedEN(
+        : `${dayNames[day]} / ${date}.${month}.`;
+
+    return convertedDate;
+  };
+
+  const convertDateEN = (input) => {
+    const dayNamesEN = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    const day = new Date(input).getDay();
+    const date = new Date(input).getDate();
+    const month = new Date(input).getUTCMonth() + 1;
+
+    const convertedDate =
       month < 10
         ? `${dayNamesEN[day]} / ${date}.0${month}.`
-        : `${dayNamesEN[day]} / ${date}.${month}.`
-    );
+        : `${dayNamesEN[day]} / ${date}.${month}.`;
+
+    return convertedDate;
   };
 
   const ref = useRef();
@@ -80,7 +91,6 @@ const KalenderRow = ({
   useEffect(() => setHeight(ref.current?.clientHeight));
 
   useEffect(() => {
-    convertDate(date);
     query == title && setActive(true);
   }, []);
 
@@ -89,7 +99,7 @@ const KalenderRow = ({
   }, [active]);
 
   return (
-    entry.beteiligte.some(bet => bet.name  == beteiligter.name) && (
+    entry.beteiligte.some((bet) => bet.name == beteiligter.name) && (
       <>
         <div
           style={{
@@ -111,10 +121,18 @@ const KalenderRow = ({
             </div>
             <div className={styles.infoRowBottom}>
               <div className={styles.infoSegment}>
-                {english ? dateConvertedEN : dateConverted}
-                <br />
-                {entry.time.start && entry.time.start}
-                {entry.time.ende && `–${entry.time.ende}`}
+                {entry.dates.map((time) => (
+                  <>
+                    <div>
+                      {english
+                        ? convertDateEN(time.date)
+                        : convertDateDE(time.date)}
+                    </div>
+                    {time.time.start && time.time.start}
+                    {time.time.ende && ` — ${time.time.ende}`}
+                    <br /> <br />
+                  </>
+                ))}
               </div>
               <div className={styles.infoSegment}>
                 {entry.beteiligte.map((beteiligter, i) => beteiligter.name)}

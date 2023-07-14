@@ -4,7 +4,6 @@ import KalenderRowBeteiligte from "./KalenderRowBeteiligte";
 import styles from "../styles/Kalender.module.css";
 
 const KalenderSubcategory = ({
-
   filterValue,
   data,
   activeSubIndex,
@@ -17,7 +16,9 @@ const KalenderSubcategory = ({
   setActiveIndex,
 }) => {
   const [filterArray, setFilterArray] = useState(
-    data.filter((entry) => entry.date == filterValue)
+    data.filter((dataEntry) =>
+      dataEntry.dates.some((singleDate) => singleDate.date == filterValue)
+    )
   );
   const [dateConverted, setDateConverted] = useState("");
   const [rerender, setRerender] = useState(false);
@@ -34,11 +35,13 @@ const KalenderSubcategory = ({
     );
   };
 
-  const containsDate = (element) => element.date == filterValue ;
-  const containsPerson = (element) => element.beteiligte.some(bet => bet.name  == beteiligter.name);
+  const containsDate = (element) =>
+    element.dates.some((singleDate) => singleDate.date == filterValue);
+  const containsPerson = (element) =>
+    element.beteiligte.some((bet) => bet.name == beteiligter.name);
 
-  const filteredForDate = filterArray.some(containsDate)
-  const filteredForPerson = filterArray.some(containsPerson)
+  const filteredForDate = filterArray.some(containsDate);
+  const filteredForPerson = filterArray.some(containsPerson);
 
   useEffect(() => {
     setTimeout(() => setRerender(true), 500), convertDate(filterValue);
@@ -46,41 +49,44 @@ const KalenderSubcategory = ({
   }, []);
 
   useEffect(() => {
-    setFilterArray(data.filter((entry) => entry.date == filterValue));
+    setFilterArray(
+      data.filter((dataEntry) =>
+        dataEntry.dates.some((singleDate) => singleDate.date == filterValue)
+      )
+    );
   }, [rerender]);
 
   return (
-    filteredForDate && filteredForPerson && (
-    <>
-      <div
-        style={{
-          position: "absolute",
-          transform: "translateY(-130px)",
-        }}
-      ></div>
+    filteredForDate &&
+    filteredForPerson && (
+      <>
+        <div
+          style={{
+            position: "absolute",
+            transform: "translateY(-130px)",
+          }}
+        ></div>
 
-      <div className={styles.filterHeader}>
-        {dateConverted}
-      </div>
+        <div className={styles.filterHeader}>{dateConverted}</div>
 
-      {filterArray.map((entry, i) => (
-        <KalenderRowBeteiligte
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          activeSubIndex={activeSubIndex}
-          setActiveSubIndex={setActiveSubIndex}
-          english={english}
-          subIndex={subIndex}
-          key={i}
-          index={i}
-          title={entry.headline}
-          date={entry.date}
-          standort={entry.standort}
-          entry={entry}
-          beteiligter={beteiligter}
-        />
-      ))}
-    </>
+        {filterArray.map((entry, i) => (
+          <KalenderRowBeteiligte
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            activeSubIndex={activeSubIndex}
+            setActiveSubIndex={setActiveSubIndex}
+            english={english}
+            subIndex={subIndex}
+            key={i}
+            index={i}
+            title={entry.headline}
+            date={entry.date}
+            standort={entry.standort}
+            entry={entry}
+            beteiligter={beteiligter}
+          />
+        ))}
+      </>
     )
   );
 };

@@ -30,8 +30,6 @@ const KalenderRow = ({
 }) => {
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState(false);
-  const [dateConverted, setDateConverted] = useState("");
-  const [dateConvertedEN, setDateConvertedEN] = useState("");
 
   const { width } = useWindowDimensions();
 
@@ -152,8 +150,8 @@ const KalenderRow = ({
               {entry.dates.map((time) => (
                 <>
                   <div>{english ? convertDateEN(time.date) : convertDateDE(time.date)}</div>
-                  {time.time.start && time.time.start}
-                  {time.time.ende && ` — ${time.time.ende}`}
+                  {time.time?.start && time.time?.start}
+                  {time.time?.ende && ` — ${time.time?.ende}`}
                   <br /> <br />
                 </>
               ))}

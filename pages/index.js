@@ -24,7 +24,8 @@ const Index = ({
   impressum,
   logos,
   marquee,
-  english, setEnglish
+  english,
+  setEnglish,
 }) => {
   const [index, setIndexA] = useState(null);
 
@@ -392,6 +393,9 @@ export async function getServerSideProps() {
     `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );
   const marquee = await client.fetch(`* [_type == "marquee"]{...}`);
+  const presse = await client.fetch(
+    `* [_type == "presse"]{..., "downloads": downloads[]{..., "download":download[]{..., "file": file.asset->{...}}}}`
+  );
   return {
     props: {
       intro,
@@ -401,6 +405,7 @@ export async function getServerSideProps() {
       impressum,
       logos,
       marquee,
+      presse,
     },
   };
 }

@@ -57,8 +57,6 @@ const Entry = ({ scroll, english, beteiligter, programm }) => {
     width < 700 ? scroll() : () => {};
   }, [beteiligter]);
 
-  console.log(width);
-
   return (
     <>
       <div className={styles.websiteWrapper}>

@@ -22,10 +22,13 @@ const KalenderSubcategory = ({
   setActiveIndex,
 }) => {
   const [filterArray, setFilterArray] = useState(
-    data.filter((entry) => entry.date == filterValue)
+    // data.filter((entry) => entry.date == filterValue)
+    data.filter((dataEntry) =>
+      dataEntry.dates.some((singleDate) => singleDate.date == filterValue)
+    )
   );
   const [dateConverted, setDateConverted] = useState("");
-  const [rerender, setRerender] = useState(false)
+  const [rerender, setRerender] = useState(false);
 
   const { width } = useWindowDimensions();
 
@@ -45,7 +48,7 @@ const KalenderSubcategory = ({
 
   const contains = (element) =>
     sortType == "datum"
-      ? element.date == filterValue
+      ? element.dates.some((singleDate) => singleDate.date == filterValue)
       : sortType == "personen"
       ? element.beteiligte[0].name == filterValue
       : sortType == "standort"
@@ -56,7 +59,11 @@ const KalenderSubcategory = ({
 
   useEffect(() => {
     sortType == "datum"
-      ? setFilterArray(data.filter((entry) => entry.date == filterValue))
+      ? setFilterArray(
+          data.filter((dataEntry) =>
+            dataEntry.dates.some((singleDate) => singleDate.date == filterValue)
+          )
+        )
       : sortType == "personen"
       ? setFilterArray(
           data.filter((entry) => entry.beteiligte[0].name == filterValue)
@@ -70,28 +77,30 @@ const KalenderSubcategory = ({
           data.filter((entry) => entry.formate[0].formate == filterValue)
         )
       : "";
-      () => setActiveIndex(null)
-  }, [sortType])
+    () => setActiveIndex(null);
+  }, [sortType]);
 
   const scroll = () => setTimeout(() => ref.current?.scrollIntoView(), 200);
 
   useEffect(() => {
-    setTimeout(() => setRerender(true), 500),
-    convertDate(filterValue);
+    setTimeout(() => setRerender(true), 500), convertDate(filterValue);
     setActiveIndex(null);
   }, []);
 
-  useEffect(() => {
-    focus == filterArray[0]?.standort.slug.current &&
-     scroll()
-  }, [focus]);
+  // useEffect(() => {
+  //   focus == filterArray[0]?.standort.slug.current && scroll();
+  // }, [focus]);
 
   useEffect(() => {
     scrollTo == filterValue && scroll();
   }, [scrollTo]);
 
   useEffect(() => {
-    setFilterArray(data.filter((entry) => entry.date == filterValue))
+    setFilterArray(
+      data.filter((dataEntry) =>
+        dataEntry.dates.some((singleDate) => singleDate.date == filterValue)
+      )
+    );
   }, [rerender]);
 
   return (

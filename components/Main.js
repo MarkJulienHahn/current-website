@@ -3,12 +3,13 @@ import React from "react";
 import Infosection from "../components/Infosection";
 import Marquee from "react-fast-marquee";
 import Team from "../components/Team";
+import Presse from "../components/Presse"
 import Downloads from "../components/Downloads";
 import Logos from "../components/Logos";
 
 import styles from "../styles/Main.module.css";
 
-const Main = ({ english, intro, about, team, downloads, logos, marquee }) => {
+const Main = ({ english, intro, about, team, downloads, logos, marquee, presse }) => {
   return (
     <div>
       <Infosection english={english} intro={intro} about={about} />
@@ -31,6 +32,7 @@ const Main = ({ english, intro, about, team, downloads, logos, marquee }) => {
         </Marquee>
       </a>
       <Team english={english} team={team} />
+      <Presse presse={presse} />
       <Downloads english={english} downloads={downloads} />
       <Logos english={english} logos={logos} />
     </div>

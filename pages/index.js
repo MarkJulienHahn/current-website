@@ -12,6 +12,7 @@ import E3 from "../components/animation/E3";
 import Nav from "../components/Nav";
 import Layout from "../components/Layout";
 import Main from "../components/Main";
+import Presse from "../components/Presse";
 import Footer from "../components/Footer";
 import styles from "../styles/Landing.module.css";
 import client from "../client";
@@ -26,6 +27,7 @@ const Index = ({
   marquee,
   english,
   setEnglish,
+  presse
 }) => {
   const [index, setIndexA] = useState(null);
 
@@ -367,6 +369,7 @@ const Index = ({
             downloads={downloads}
             logos={logos}
             marquee={marquee[0]}
+            presse={presse}
           />
 
           <Footer english={english} impressum={impressum} />

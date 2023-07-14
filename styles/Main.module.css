@@ -160,6 +160,25 @@
   text-transform: uppercase;
 }
 
+/* PRESSE */
+
+.pressPageWrapper {
+  padding-top: var(--spaceSmall);
+}
+
+.presseSubheadline {
+  padding-top: var(--spaceSmall);
+}
+
+.presseContent {
+  padding: 0 var(--spaceSmall) var(--space);
+}
+
+.presseText {
+  column-count: 2;
+  column-gap: calc(2 * var(--spaceSmall));
+}
+
 /* LOGOS */
 
 .logosWrapper {

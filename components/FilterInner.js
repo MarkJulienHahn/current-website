@@ -37,7 +37,9 @@ const FilterInner = ({
 
   useEffect(() => {
     data.map(
-      (entry) => entry.date == filterValue && setFilterArray(filterValue)
+      (entry) =>
+        entry.dates.some((singleDate) => singleDate.date == filterValue) &&
+        setFilterArray(filterValue)
     );
   }, [filter]);
 

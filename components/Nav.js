@@ -91,7 +91,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
 
         <div
           className={styles.navRight}
-          style={{ background: colorArray[index + 1] }}
+          style={{ background: index < 4 ? colorArray[index + 1] : colorArray[0]}}
           // style={
           //   showNav || router.route != "/"
           //     ? {

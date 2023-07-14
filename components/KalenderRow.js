@@ -157,11 +157,9 @@ const KalenderRow = ({
                   <br /> <br />
                 </>
               ))}
-              {/* {entry.time.start && entry.time.start}
-              {entry.time.ende && `–${entry.time.ende}`} */}
             </div>
             <div className={styles.infoSegment}>
-              {entry.beteiligte.map((beteiligter, i) => beteiligter.name)}
+              {entry.beteiligte.map((beteiligter, i) => <div>{beteiligter.name}</div>)}
             </div>
             <div className={styles.infoSegment}>{entry.standort.name}</div>
             <div className={styles.infoSegment}>

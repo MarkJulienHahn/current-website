@@ -66,7 +66,11 @@ const KalenderSubcategory = ({
         )
       : sortType == "personen"
       ? setFilterArray(
-          data.filter((entry) => entry.beteiligte[0].name == filterValue)
+          data.filter((dataEntry) =>
+            dataEntry.beteiligte.some(
+              (beteiligter) => beteiligter.name == filterValue
+            )
+          )
         )
       : sortType == "standort"
       ? setFilterArray(
@@ -74,7 +78,9 @@ const KalenderSubcategory = ({
         )
       : sortType == "formate"
       ? setFilterArray(
-          data.filter((entry) => entry.formate[0].formate == filterValue)
+          data.filter((dataEntry) =>
+            dataEntry.formate.some((format) => format.formate == filterValue)
+          )
         )
       : "";
     () => setActiveIndex(null);
@@ -87,9 +93,9 @@ const KalenderSubcategory = ({
     setActiveIndex(null);
   }, []);
 
-  // useEffect(() => {
-  //   focus == filterArray[0]?.standort.slug.current && scroll();
-  // }, [focus]);
+  useEffect(() => {
+    focus == filterArray[0]?.standort.slug.current && scroll();
+  }, [focus]);
 
   useEffect(() => {
     scrollTo == filterValue && scroll();

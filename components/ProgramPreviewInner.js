@@ -27,21 +27,22 @@ const ProgramPreviewInner = ({ event, english }) => {
   };
 
   useEffect(() => {
-    convertDate(event.date);
+    convertDate(event.dates[0].date);
   }, []);
+
 
   return (
     <div className={styles.programPreviewInner}>
       <div className={styles.infoBox}>
         <div className={styles.infoInner}>
-          {event.time.start}
-          {event.time.ende && `–${event.time.ende}`}
+          {event.dates[0].time.start}
+          {event.dates[0].time.ende && `–${event.dates[0].time.ende}`}
           <br />
           {event.standort.name}
           <br />
           {english
-            ? event.formate.map((format, i) => <div>{format.formateEN}</div>)
-            : event.formate.map((format, i) => <div>{format.formate}</div>)}
+            ? event.formate.map((format) => <div>{format.formateEN}</div>)
+            : event.formate.map((format) => <div>{format.formate}</div>)}
         </div>
         <div className={styles.infoInner}>
           <h1>{english ? dateConvertedEN : dateConverted}</h1>
@@ -51,7 +52,9 @@ const ProgramPreviewInner = ({ event, english }) => {
               (english ? event.subheadlineEN : event.subheadline)}
           </h2>
           <p className={styles.infoSmall}>
-            {event.beteiligte.map((person, i) => person.name)}
+            {event.beteiligte.map((person, i) => (
+              <>{person.name}<br/></>
+            ))}
           </p>
         </div>
       </div>

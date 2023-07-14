@@ -32,7 +32,7 @@ const ProgramPreview = ({ programm, english }) => {
 
   return (
     <>
-      {programm.find((element) => element.date >= today) && (
+      {programm.find((element) => element.dates[0].date >= today) && (
         <>
           <div className={styles.programPreviewWrapper}>
             <Swiper
@@ -43,7 +43,7 @@ const ProgramPreview = ({ programm, english }) => {
               loop
             >
               {progSorted.map((event, i) =>
-                event.date >= today && event.bilder.length ? (
+                event.dates[0].date >= today && event.bilder?.length ? (
                   <SwiperSlide>
                     <Link
                       key={i}

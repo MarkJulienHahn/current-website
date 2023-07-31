@@ -35,8 +35,8 @@ const ProgramPreviewInner = ({ event, english }) => {
     <div className={styles.programPreviewInner}>
       <div className={styles.infoBox}>
         <div className={styles.infoInner}>
-          {event.dates[0].time.start}
-          {event.dates[0].time.ende && `–${event.dates[0].time.ende}`}
+          {event.dates[0].time?.start}
+          {event.dates[0].time?.ende && `–${event.dates[0].time?.ende}`}
           <br />
           {event.standort.name}
           <br />

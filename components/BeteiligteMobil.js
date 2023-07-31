@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "../styles/Beteiligte.module.css";
 
-
 import BeteiligteMobileEntry from "./BeteiligteMobileEntry";
 
 const BeteiligteMobil = ({ english, beteiligte, programm }) => {
@@ -10,7 +9,7 @@ const BeteiligteMobil = ({ english, beteiligte, programm }) => {
 
   const textRef = useRef();
 
-  useEffect(() => { 
+  useEffect(() => {
     setPadding(textRef.current?.clientHeight);
   });
 
@@ -34,13 +33,20 @@ const BeteiligteMobil = ({ english, beteiligte, programm }) => {
         )}
       </div>
 
-
-
       {/* LINKE SEITE */}
 
       <div className={styles.names} style={{ marginTop: `${padding + 20}px` }}>
         {beteiligte.map((beteiligter, i) => (
-          <BeteiligteMobileEntry      key={i} programm={programm} beteiligte={beteiligte} english={english} beteiligter={beteiligter} i={i} index={index} setIndex={setIndex}/>
+          <BeteiligteMobileEntry
+            key={i}
+            programm={programm}
+            beteiligte={beteiligte}
+            english={english}
+            beteiligter={beteiligter}
+            i={i}
+            index={index}
+            setIndex={setIndex}
+          />
         ))}
       </div>
 

@@ -9,8 +9,9 @@ const BeteiligteList = ({ beteiligte }) => {
           <Link
             href={{
               pathname: "/beteiligte",
-              query: { active: i },
+              query: { active: artist.slug.current },
             }}
+            as={`beteiligte/${artist.slug.current}`}
           >
             <h1>
               <span
@@ -30,8 +31,9 @@ const BeteiligteList = ({ beteiligte }) => {
           <Link
             href={{
               pathname: "/beteiligte",
-              query: { active: i },
+              query: { active: artist.slug.current },
             }}
+            as={`beteiligte/${artist.slug.current}`}
           >
             <h1
               key={i}

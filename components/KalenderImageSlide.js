@@ -41,10 +41,9 @@ const TextPostImageSlide = ({ image, length }) => {
       >
         <Image
           src={image.asset.url}
-          layout="responsive"
-          width={image.asset.metadata.dimensions.width}
-          height={image.asset.metadata.dimensions.height}
           alt={image?.alt}
+          fill
+          style={{ objectFit: "cover", paddingBottom: "20px" }}
         />
         <p className={styles.bildunterschrift}>{image.captions?.captionDE}</p>
       </span>

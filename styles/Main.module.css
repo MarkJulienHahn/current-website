@@ -9,8 +9,10 @@
   padding-bottom: calc(2 * var(--spaceSmall));
 }
 
-.infoTextHeadlineSection p {
-  width: calc(2 * var(--space));
+.infoTextHeadlineSection h2 {
+  width: 80px;
+  line-height: 40px;
+  font-size: 12.5pt
 }
 
 .infoTextWrapper,
@@ -128,7 +130,7 @@
 /* TEAM */
 
 .teamWrapper {
-  padding: var(--spaceLarge) var(--spaceSmall);
+  padding: var(--space) var(--spaceSmall);
   background: var(--blue);
 }
 
@@ -172,7 +174,7 @@
 /* DOWNLOADS */
 
 .downloadContent {
-  padding: 0 var(--spaceSmall) var(--space);
+  /* padding: 0 var(--spaceSmall) var(--space); */
   column-count: 2;
   column-gap: calc(2 * var(--spaceSmall));
 }
@@ -213,7 +215,7 @@
 
 .logosWrapper {
   display: flex;
-  padding: var(--spaceLarge) var(--spaceSmall);
+  padding: var(--space) var(--spaceSmall);
 }
 
 .logoHeader {
@@ -296,8 +298,14 @@
     padding-bottom: 0;
   }
 
-  .infoTextHeadlineSection {
+  .infoTextHeadlineSection h2{
     padding: 0;
+    line-height: 23px;
+    padding-bottom: 15px;
+  }
+
+  .infoTextHeadlineSection {
+    padding-left: 0
   }
 
   .mobileInfoText {
@@ -330,6 +338,7 @@
   }
   .newsletterMarquee input {
     width: 50%;
+    border-bottom: 1.5px solid black;
   }
   .newsletterMarquee input,
   .newsletterMarquee input::placeholder,
@@ -425,7 +434,7 @@
   }
 
   .logoInner div {
-    /* padding: 0 0 60px; */
+    padding: 20px 5px;
     width: 40%;
   }
 

@@ -5,7 +5,7 @@
 
 .names {
   width: 50vw;
-  max-height: calc(100vh - 65px);
+  /* max-height: calc(100vh - 65px); */
   overflow: scroll;
 }
 
@@ -38,6 +38,8 @@
 .content,
 .header {
   width: 50vw;
+  position: fixed;
+  right: 0;
 }
 
 .header p {
@@ -94,21 +96,22 @@
 .imageWrapper {
   width: 50vw;
   position: relative;
-  min-height: 50vh;
+  /* min-height: 50vh; */
 }
 
 .bildunterschrift {
   font-size: 12pt;
   padding-left: 12px;
-  padding-bottom: var(--space)
+  padding-bottom: var(--space);
 }
 
 @media screen and (max-width: 700px) {
   .wrapper {
-    flex-direction: column
+    flex-direction: column;
   }
   .content,
-  .header, .names {
+  .header,
+  .names {
     width: 100vw;
   }
 
@@ -126,6 +129,10 @@
     margin: 0;
   }
 
+  .headline {
+    padding: 10px 10px;
+  }
+
   .names {
     z-index: 1;
     background: white;
@@ -136,20 +143,25 @@
   .nameRow {
     min-height: var(--space);
     height: unset;
-    padding: 8px 40px 6px 12px
+    padding: 8px 40px 6px 12px;
   }
 
   .nameRow h2 {
     font-size: 12pt;
     line-height: 13pt;
-    letter-spacing: 0.2px
+    letter-spacing: 0.2px;
   }
-  .website, .bildunterschrift {
+  .website,
+  .bildunterschrift {
     font-size: 8pt;
-    letter-spacing: 0.5px
+    letter-spacing: 0.5px;
   }
-.imageWrapper {
-  width: 100vw;
-  min-height: unset
-}
+  .imageWrapper {
+    width: 100vw;
+    min-height: unset;
+  }
+  .beteiligterAnchor {
+    position: absolute;
+    transform: translateY(-29px);
+  }
 }

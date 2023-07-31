@@ -19,16 +19,18 @@ const ProgramPreview = ({ programm, english }) => {
   const { width } = useWindowDimensions();
 
   function compareFn(a, b) {
-    if (a.date < b.date) {
+    if (a.dates[0] < b.dates[0]) {
       return -1;
     }
-    if (a.date > b.date) {
+    if (a.dates[0] > b.dates[0]) {
       return 1;
     }
     return 0;
   }
 
   const progSorted = programm.sort(compareFn);
+
+  console.log(progSorted)
 
   return (
     <>
@@ -43,7 +45,7 @@ const ProgramPreview = ({ programm, english }) => {
               loop
             >
               {progSorted.map((event, i) =>
-                event.dates[0].date >= today && event.bilder?.length ? (
+                event.dates[0].date >= today  ? (
                   <SwiperSlide>
                     <Link
                       key={i}
@@ -56,7 +58,7 @@ const ProgramPreview = ({ programm, english }) => {
                     </Link>
                   </SwiperSlide>
                 ) : (
-                  ""
+                  " "
                 )
               )}
             </Swiper>

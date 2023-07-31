@@ -43,7 +43,7 @@ export default beteiligte;
 
 export async function getServerSideProps() {
   const beteiligte = await client.fetch(`
-  *[_type == "beteiligte"]{..., "bild": bild{..., "asset": asset->{...}}}`);
+  *[_type == "beteiligte"]| order(lower(name) asc) {..., "bild": bild{..., "asset": asset->{...}}}`);
   const programm = await client.fetch(`
   *[_type == "programm"]{..., "standort": standort->{...}, "beteiligte": beteiligte[]->{...}, "formate": formate[]->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
 

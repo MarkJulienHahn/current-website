@@ -10,11 +10,11 @@ const TOKEN = process.env.NEXT_PUBLIC_MAPBOX_GL_TOKEN;
 const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
   const mapRef = useRef();
 
-  const standorteArray = programm.map((ort) => ort.standort.name);
+  const standorteArray = programm.map((ort) => ort.standort?.name);
   const standorteSingleArray = [...new Set(standorteArray)];
 
   const standorteMasterArray = standorteSingleArray.map((ort) =>
-    programm.filter((orte) => orte.standort.name == ort)
+    programm.filter((orte) => orte.standort?.name == ort)
   );
 
   const markerFunction = async (long, lat, ref) =>
@@ -34,6 +34,8 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
         zoom: 16,
       });
   }, [flyToState]);
+
+
 
   return (
     <div className={styles.karteWrapper}>
@@ -68,8 +70,8 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
                 event[0].standort.slug.current
               )
             }
-            latitude={event[0].standort.koordinaten.latitude}
-            longitude={event[0].standort.koordinaten.longitude}
+            latitude={event[0].standort?.koordinaten.latitude}
+            longitude={event[0].standort?.koordinaten.longitude}
           >
             <div
               className={

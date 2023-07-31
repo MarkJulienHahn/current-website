@@ -50,7 +50,7 @@ const Infosection = ({
         // onMouseLeave={() => setBackground2(true)}
       >
         <span className={styles.infoTextHeadlineSection}>
-          <p>Editorial</p>
+          <h2>Editorial</h2>
           <h1>
             {english ? editorial.textTitleEnglish : editorial.textTitleGerman}
           </h1>
@@ -75,7 +75,7 @@ const Infosection = ({
           onClick={() => setBackground(!background)}
         >
           <span className={styles.infoTextHeadlineSection}>
-            <p>Editorial</p>
+            <h2>Editorial</h2>
             <h1>
               {english ? editorial.textTitleEnglish : editorial.textTitleGerman}
             </h1>

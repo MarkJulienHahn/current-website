@@ -71,8 +71,8 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               <h2>
                 <span className={styles.outline}>
                   Current — Kunst und Urbaner Raum
-                </span>{" "}
-                14.–24.09.2023 / Stuttgart
+                  <br /> 14.–24.09.2023 / Stuttgart
+                </span>
               </h2>
             </Link>
           </div>
@@ -91,7 +91,9 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
 
         <div
           className={styles.navRight}
-          style={{ background: index < 4 ? colorArray[index + 1] : colorArray[0]}}
+          style={{
+            background: index < 4 ? colorArray[index + 1] : colorArray[0],
+          }}
           // style={
           //   showNav || router.route != "/"
           //     ? {
@@ -110,15 +112,25 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             <div
               className={styles.menuSegment}
               style={
-                bottomRow == "Programm"
+                router.route == "/kalender" || router.route == "/beteiligte"
                   ? { background: "var(--red)" }
                   : { background: "inherit" }
               }
               onClick={() => setBottomRow("Programm")}
             >
-              <h2>{english ? "Program" : "Programm"}</h2>
+              {" "}
+              <Link href="./kalender">
+                <h2>{english ? "Program" : "Programm"}</h2>{" "}
+              </Link>
               {bottomRow == "Programm" && (
-                <div className={styles.bottomRow}>
+                <div
+                  className={styles.bottomRow}
+                  style={
+                    router.route == "/kalender" || router.route == "/beteiligte"
+                      ? { background: "var(--red)" }
+                      : { background: "inherit" }
+                  }
+                >
                   <Link href="./kalender">
                     <h2>{english ? "Calendar" : "Kalender"}</h2>
                   </Link>
@@ -133,7 +145,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             <div
               className={styles.menuSegment}
               style={
-                bottomRow == "Info"
+                router.route == "/info"
                   ? { background: "var(--red)" }
                   : { background: "inherit" }
               }
@@ -143,7 +155,14 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                 <h2>Info</h2>{" "}
               </Link>
               {bottomRow == "Info" && (
-                <div className={styles.bottomRow}>
+                <div
+                  className={styles.bottomRow}
+                  style={
+                    router.route == "/info"
+                      ? { background: "var(--red)" }
+                      : { background: "inherit" }
+                  }
+                >
                   <a>
                     <h2>{english ? "About" : "Über"}</h2>
                   </a>
@@ -160,7 +179,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             <div
               className={styles.menuSegment}
               style={
-                bottomRow == "Currently"
+                router.route == "/currently"
                   ? { background: "var(--red)" }
                   : { background: "inherit" }
               }
@@ -174,7 +193,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             <div
               className={styles.menuSegment}
               style={
-                bottomRow == "Presse"
+                router.route == "/presse"
                   ? { background: "var(--red)" }
                   : { background: "inherit" }
               }
@@ -211,9 +230,8 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                 <br />
                 <span style={{ display: menuExtended ? "" : "none" }}>
                   Kunst und Urbaner Raum
-                  <br />
+                  <br /> 14.–24.09.2023 / Stuttgart
                 </span>
-                14.–24.09.2023 / Stuttgart
               </span>
             </h2>
           </Link>

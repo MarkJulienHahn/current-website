@@ -47,7 +47,7 @@ const Blogpost = ({
     });
 
   const indexNumber = (num) => {
-    if (num > 8) {
+    if (length - (num) < 10) {
       return `#0${length - (num)}`;
     }
     return `#${length - (num)}`;

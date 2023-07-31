@@ -50,7 +50,7 @@ const KalenderSubcategory = ({
     sortType == "datum"
       ? element.dates.some((singleDate) => singleDate.date == filterValue)
       : sortType == "personen"
-      ? element.beteiligte[0].name == filterValue
+      ? element.beteiligte[0]?.name == filterValue
       : sortType == "standort"
       ? element.standort.name == filterValue
       : sortType == "formate"
@@ -67,7 +67,7 @@ const KalenderSubcategory = ({
       : sortType == "personen"
       ? setFilterArray(
           data.filter((dataEntry) =>
-            dataEntry.beteiligte.some(
+            dataEntry.beteiligte?.some(
               (beteiligter) => beteiligter.name == filterValue
             )
           )

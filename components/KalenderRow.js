@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "../styles/Kalender.module.css";
 
+import Link from "next/link";
+
 import { useRouter } from "next/router";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
@@ -67,7 +69,8 @@ const KalenderRow = ({
   const ref = useRef();
   const refOuter = useRef();
 
-  const scroll = () => setTimeout(() => refOuter.current.scrollIntoView(), 210);
+  const scroll = () =>
+    setTimeout(() => refOuter.current?.scrollIntoView(), 210);
 
   const openFunction = () => {
     setActiveIndex(index),
@@ -103,7 +106,6 @@ const KalenderRow = ({
   useEffect(() => {
     active && scroll();
   }, [active]);
-
 
   return (
     <>
@@ -147,17 +149,38 @@ const KalenderRow = ({
 
           <div className={styles.infoRowBottom}>
             <div className={styles.infoSegment}>
-              {entry.dates.map((time) => (
-                <>
-                  <div>{english ? convertDateEN(time.date) : convertDateDE(time.date)}</div>
-                  {time.time?.start && time.time?.start}
-                  {time.time?.ende && ` — ${time.time?.ende}`}
-                  <br /> <br />
-                </>
-              ))}
+              <div>
+                {english
+                  ? convertDateEN(entry.dates[0].date)
+                  : convertDateDE(entry.dates[0].date)}
+                {entry.dates.length > 1 && " —"}
+              </div>
+              <div>
+                {english
+                  ? entry.dates.length > 1 &&
+                    convertDateEN(entry.dates[entry.dates.length - 1]?.date)
+                  : entry.dates.length > 1 &&
+                    convertDateDE(entry.dates[entry.dates.length - 1]?.date)}
+              </div>
+              {entry.dates[0].time && (
+                <div>
+                  <br />
+                  {entry.dates[0].time?.start} — {entry.dates[0].time?.ende}
+                </div>
+              )}
             </div>
             <div className={styles.infoSegment}>
-              {entry.beteiligte.map((beteiligter, i) => <div>{beteiligter.name}</div>)}
+              {entry.beteiligte?.map((beteiligter, i) => (
+                <Link
+                  href={{
+                    pathname: "/beteiligte",
+                    query: { active: beteiligter.slug.current },
+                  }}
+                  as={`beteiligte/${beteiligter.slug.current}`}
+                >
+                  <div className={styles.beteiligterLink}>{beteiligter.name}</div>
+                </Link>
+              ))}
             </div>
             <div className={styles.infoSegment}>{entry.standort.name}</div>
             <div className={styles.infoSegment}>

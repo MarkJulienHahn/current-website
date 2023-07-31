@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "../styles/Kalender.module.css";
-
-import { useRouter } from "next/router";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 import KalenderImageSlide from "./KalenderImageSlide";
 
@@ -28,8 +27,8 @@ const KalenderRow = ({
 }) => {
   const [active, setActive] = useState(false);
   const [height, setHeight] = useState(false);
-  const [dateConverted, setDateConverted] = useState("");
-  const [dateConvertedEN, setDateConvertedEN] = useState("");
+
+  const { width } = useWindowDimensions();
 
   const convertDateDE = (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
@@ -104,11 +103,11 @@ const KalenderRow = ({
         <div
           style={{
             position: "absolute",
-            transform: "translateY(-130px)",
+            transform: width > 700 ? "translateY(-130px)" : "translateY(-29px)",
           }}
+          ref={refOuter}
         ></div>
         <div
-          ref={refOuter}
           className={`${styles.infoOuter} ${index % 2 == 0 && styles.bgGrey}`}
         >
           <div
@@ -121,21 +120,30 @@ const KalenderRow = ({
             </div>
             <div className={styles.infoRowBottom}>
               <div className={styles.infoSegment}>
-                {entry.dates.map((time) => (
-                  <>
-                    <div>
-                      {english
-                        ? convertDateEN(time.date)
-                        : convertDateDE(time.date)}
-                    </div>
-                    {time.time.start && time.time.start}
-                    {time.time.ende && ` — ${time.time.ende}`}
-                    <br /> <br />
-                  </>
-                ))}
+                <div>
+                  {english
+                    ? convertDateEN(entry.dates[0].date)
+                    : convertDateDE(entry.dates[0].date)}
+                  {entry.dates.length > 1 && " —"}
+                </div>
+                <div>
+                  {english
+                    ? entry.dates.length > 1 &&
+                      convertDateEN(entry.dates[entry.dates.length - 1]?.date)
+                    : entry.dates.length > 1 &&
+                      convertDateDE(entry.dates[entry.dates.length - 1]?.date)}
+                </div>
+                {entry.dates[0].time && (
+                  <div>
+                    <br />
+                    {entry.dates[0].time?.start} — {entry.dates[0].time?.ende}
+                  </div>
+                )}
               </div>
               <div className={styles.infoSegment}>
-                {entry.beteiligte.map((beteiligter, i) => beteiligter.name)}
+                {entry.beteiligte.map((beteiligter, i) => (
+                  <div>{beteiligter.name}</div>
+                ))}
               </div>
               <div className={styles.infoSegment}>{entry.standort.name}</div>
               <div className={styles.infoSegment}>

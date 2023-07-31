@@ -22,12 +22,16 @@ const days = [
   "2023-09-24",
 ];
 
-const Entry = ({ scroll, english, beteiligter, programm }) => {
+const Entry = ({ english, beteiligter, programm }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeSubIndex, setActiveSubIndex] = useState(null);
   const [data, setData] = useState([]);
 
   const { width } = useWindowDimensions();
+
+  const ref = useRef();
+
+  const scroll = () => setTimeout(() => ref.current.scrollIntoView(), 200);
 
   useEffect(() => {
     const sortArray = (type) => {
@@ -59,6 +63,15 @@ const Entry = ({ scroll, english, beteiligter, programm }) => {
 
   return (
     <>
+      <span className={styles.beteiligterAnchor} ref={ref}></span>
+      <h1
+        style={{
+          background: beteiligter?.different ? "var(--green)" : "var(--blue)",
+        }}
+        className={styles.headline}
+      >
+        {beteiligter.name}
+      </h1>
       <div className={styles.websiteWrapper}>
         {beteiligter?.webseiten &&
           beteiligter.webseiten.map((website, i) => (
@@ -76,20 +89,31 @@ const Entry = ({ scroll, english, beteiligter, programm }) => {
       <div className={styles.textWrapper}>
         <PortableText
           value={
-            english ? beteiligter.beschreibungEN : beteiligter.beschreibung
+            english ? beteiligter?.beschreibungEN : beteiligter?.beschreibung
           }
         />
       </div>
 
-      {beteiligter.bild && (
+      {beteiligter?.bild && (
         <>
           <div
             className={styles.imageWrapper}
-            style={{
-              height: `calc(${
-                50 / beteiligter.bild.asset.metadata.dimensions.aspectRatio
-              }vw + 10px)`,
-            }}
+            style={
+              width < 700
+                ? {
+                    height: `calc(${
+                      100 /
+                      beteiligter.bild.asset.metadata.dimensions.aspectRatio
+                    }vw + 10px)`,
+                  }
+
+                : {
+                    height: `calc(${
+                      50 /
+                      beteiligter.bild.asset.metadata.dimensions.aspectRatio
+                    }vw + 10px)`,
+                  }
+            }
           >
             <Image
               fill

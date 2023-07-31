@@ -1,10 +1,24 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Beteiligte.module.css";
 
+import { useRouter } from "next/router";
+
 import Entry from "./Entry";
+import BeteiligteRow from "./BeteiligteRow";
 
 const Beteiligte = ({ english, beteiligte, programm }) => {
   const [index, setIndex] = useState(null);
+
+  const router = useRouter();
+  const active = router.query;
+
+  const current = beteiligte.findIndex(
+    (beteiligter) => beteiligter.slug.current == active.active
+  );
+
+  useEffect(() => {
+    active.active && setIndex(current);
+  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -12,22 +26,14 @@ const Beteiligte = ({ english, beteiligte, programm }) => {
 
       <div className={styles.names}>
         {beteiligte.map((beteiligter, i) => (
-          <div
-            key={i}
-            className={`${styles.nameRow} ${i % 2 == 0 && styles.nameRowGrey} ${
-              beteiligter.different && styles.nameRowGreen
-            }`}
-            style={
-              index == i
-                ? beteiligter.different
-                  ? { background: "var(--green)" }
-                  : { background: "var(--blue)" }
-                : { background: "" }
-            }
-            onClick={() => setIndex(i)}
-          >
-            <h2>{beteiligter.name}</h2>
-          </div>
+          <>
+            <BeteiligteRow
+              beteiligter={beteiligter}
+              i={i}
+              index={index}
+              setIndex={setIndex}
+            />
+          </>
         ))}
       </div>
 
@@ -53,7 +59,11 @@ const Beteiligte = ({ english, beteiligte, programm }) => {
         </div>
       ) : (
         <div className={styles.content}>
-          <Entry english={english} beteiligter={beteiligte[index]} programm={programm}/>
+          <Entry
+            english={english}
+            beteiligter={beteiligte[index]}
+            programm={programm}
+          />
         </div>
       )}
     </div>

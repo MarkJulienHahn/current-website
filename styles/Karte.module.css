@@ -7,6 +7,7 @@
 .markerSingle {
   width: 20px;
   height: 20px;
+
   background: var(--blue);
   border-radius: 100px;
   cursor: pointer;
@@ -20,6 +21,8 @@
   width: 40px;
   height: 40px;
   background: var(--red);
+  font-family: "Activist";
+  font-size: 15pt;
   border-radius: 100px;
   cursor: pointer;
   display: flex;
@@ -28,12 +31,13 @@
   transition: transform 0.2s ease-out;
 }
 
-.markerSingle:hover, .markerCluster:hover {
-    transform: scale(150%)
+.markerSingle:hover,
+.markerCluster:hover {
+  transform: scale(150%);
 }
 
 @media screen and (max-width: 700px) {
-.karteWrapper {
-  width: 100vw;
-}
+  .karteWrapper {
+    width: 100vw;
+  }
 }

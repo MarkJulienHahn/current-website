@@ -70,7 +70,7 @@
 }
 
 .infoOuter {
-  padding-top: 4px;
+  padding-top: 9px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -140,6 +140,14 @@
 
 .kalenderMobile {
   display: none;
+}
+
+.beteiligterLink {
+  cursor: pointer;
+}
+
+.beteiligterLink:hover {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 700px) {

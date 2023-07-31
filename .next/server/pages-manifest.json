@@ -1,6 +1,11 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/info": "pages/info.js",
+  "/kalender": "pages/kalender.js",
+  "/presse": "pages/presse.js",
+  "/currently": "pages/currently.js",
+  "/beteiligte": "pages/beteiligte.js",
   "/": "pages/index.js"
 }

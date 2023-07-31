@@ -1,30 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function useWindowDimensions() {
-
-  const hasWindow = typeof window !== 'undefined';
-
+// FALLBACK FOR SSR IN NEXT.JS
   function getWindowDimensions() {
-    const width = hasWindow ? window.innerWidth : null;
-    const height = hasWindow ? window.innerHeight : null;
-    return {
-      width,
-      height,
-    };
+    if (typeof window !== "undefined") {
+      const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
+      return {
+        windowWidth,
+        windowHeight,
+      };
+    } else {
+      const windowWidth = null;
+      const windowHeight = null;
+      return {
+        windowWidth,
+        windowHeight,
+      }
+    }
   }
 
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
 
   useEffect(() => {
-    if (hasWindow) {
-      function handleResize() {
-        setWindowDimensions(getWindowDimensions());
-      }
-
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
     }
-  }, [hasWindow]);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return windowDimensions;
 }

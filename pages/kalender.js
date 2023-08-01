@@ -35,7 +35,7 @@ const kalender = ({ english, programm, standorte, beteiligte, formate }) => {
   const standorteArray = standorte.map((ort, i) => ort.name);
   const formateArray = formate.map((format, i) => format.formate);
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(programm);
   const [focus, setFocus] = useState(null);
   const [flyToState, setFlyToState] = useState([
     9.218195301506112, 48.80442744658279,
@@ -427,11 +427,11 @@ export default kalender;
 
 export async function getServerSideProps() {
   const standorte = await client.fetch(`
-  * [_type == "standorte"]{...}`);
+  * [_type == "standorte"]| order(lower(name) asc) {...}`);
   const beteiligte = await client.fetch(`
-  *[_type == "beteiligte"]{..., "bild": bild{..., "asset": asset->{...}}}`);
+  *[_type == "beteiligte"]| order(lower(name) asc) {..., "bild": bild{..., "asset": asset->{...}}}`);
   const formate = await client.fetch(`
-  * [_type == "formate"]{...}`);
+  * [_type == "formate"]| order(lower(formate) asc) {...}`);
   const programm = await client.fetch(`
   *[_type == "programm"]{..., "standort": standort->{...}, "beteiligte": beteiligte[]->{...}, "formate": formate[]->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
 

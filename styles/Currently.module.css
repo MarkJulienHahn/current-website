@@ -89,7 +89,7 @@
 .textbeitragLeft {
   position: sticky;
   top: 0;
-  max-height: 80vh;
+  max-height: 100vh;
   width: 50%;
 }
 

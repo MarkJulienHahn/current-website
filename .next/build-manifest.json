@@ -49,11 +49,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/kalender.js"
-    ],
-    "/presse": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/presse.js"
     ]
   },
   "ampFirstPages": []

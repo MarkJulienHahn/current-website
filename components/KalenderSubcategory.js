@@ -22,13 +22,11 @@ const KalenderSubcategory = ({
   setActiveIndex,
 }) => {
   const [filterArray, setFilterArray] = useState(
-    // data.filter((entry) => entry.date == filterValue)
     data.filter((dataEntry) =>
       dataEntry.dates.some((singleDate) => singleDate.date == filterValue)
     )
   );
   const [dateConverted, setDateConverted] = useState("");
-  const [rerender, setRerender] = useState(false);
 
   const { width } = useWindowDimensions();
 
@@ -50,11 +48,13 @@ const KalenderSubcategory = ({
     sortType == "datum"
       ? element.dates.some((singleDate) => singleDate.date == filterValue)
       : sortType == "personen"
-      ? element.beteiligte[0]?.name == filterValue
+      ? element.beteiligte.some(
+          (beteiligter) => beteiligter.name == filterValue
+        )
       : sortType == "standort"
       ? element.standort.name == filterValue
       : sortType == "formate"
-      ? element.formate[0].formate == filterValue
+      ? element.formate.some((format) => format.formate == filterValue)
       : element.date == filterValue;
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const KalenderSubcategory = ({
       : sortType == "personen"
       ? setFilterArray(
           data.filter((dataEntry) =>
-            dataEntry.beteiligte?.some(
+            dataEntry.beteiligte.some(
               (beteiligter) => beteiligter.name == filterValue
             )
           )
@@ -89,25 +89,19 @@ const KalenderSubcategory = ({
   const scroll = () => setTimeout(() => ref.current?.scrollIntoView(), 200);
 
   useEffect(() => {
-    setTimeout(() => setRerender(true), 500), convertDate(filterValue);
+    convertDate(filterValue);
     setActiveIndex(null);
   }, []);
 
   useEffect(() => {
-    focus == filterArray[0]?.standort.slug.current && scroll();
+    focus == filterArray[0]?.standort.slug.current && focus != null && scroll();
   }, [focus]);
 
   useEffect(() => {
-    scrollTo == filterValue && scroll();
-  }, [scrollTo]);
+    scrollTo == filterValue  && scroll();
+  }, [scrollTo]); 
 
-  useEffect(() => {
-    setFilterArray(
-      data.filter((dataEntry) =>
-        dataEntry.dates.some((singleDate) => singleDate.date == filterValue)
-      )
-    );
-  }, [rerender]);
+  console.log(focus)
 
   return (
     filterArray.some(contains) && (

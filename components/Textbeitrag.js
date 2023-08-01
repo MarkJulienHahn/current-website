@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import styles from "../styles/Currently.module.css";
 
@@ -12,15 +12,24 @@ import { EffectFade } from "swiper";
 import TextPostImageSlide from "./TextPostImageSlide";
 
 const Textbeitrag = ({ beitrag, i, quote, english }) => {
+  const [height, setHeight] = useState();
   const textImage = useRef();
 
+  useEffect(() => {
+    setHeight(textImage.current?.clientHeight), [];
+  });
 
   return (
     <>
       <span className={styles.textbeitragWrapper}>
         <span
           className={styles.textbeitragLeft}
-          style={{ marginBottom: beitrag.quoteDE || beitrag.quoteEN ? quote.current?.clientHeight : ""}}
+          style={{
+            marginBottom:
+              beitrag.quoteDE || beitrag.quoteEN
+                ? quote.current?.clientHeight
+                : "",
+          }}
           ref={textImage}
         >
           <Swiper
@@ -42,7 +51,7 @@ const Textbeitrag = ({ beitrag, i, quote, english }) => {
           </Swiper>
         </span>
         <span className={styles.textbeitragRight}>
-          <div style={{ minHeight: textImage.current?.clientHeight }}>
+          <div style={beitrag.images ? { minHeight: height } : { minHeight: 0 }}>
             <PortableText value={english ? beitrag.textEN : beitrag.textDE} />
           </div>
           {beitrag.quoteDE || beitrag.quoteEN ? (

@@ -127,8 +127,8 @@ const CurrentlyPreview = ({ currently, english }) => {
               </h2>
               <p>
                 {english
-                  ? firstPost.header.subtitle.subtitleEN
-                  : firstPost.header.subtitle.subtitleDE}
+                  ? firstPost.header.subtitle?.subtitleEN
+                  : firstPost.header.subtitle?.subtitleDE}
               </p>
             </div>
           </div>

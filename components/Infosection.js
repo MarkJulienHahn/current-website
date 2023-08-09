@@ -28,9 +28,6 @@ const Infosection = ({
 
       <div
         className={styles.infoTextHeadlineWrapper}
-        // style={{ background: background ? "var(--red)" : "" }}
-        // onMouseEnter={() => setBackground(false)}
-        // onMouseLeave={() => setBackground(true)}
       >
         <h1 className={styles.infoHeadline}>
           {english ? (
@@ -45,9 +42,6 @@ const Infosection = ({
 
       <div
         className={styles.infoTextWrapper}
-        // style={{ background: background2 ? "var(--blue)" : "" }}
-        // onMouseEnter={() => setBackground2(false)}
-        // onMouseLeave={() => setBackground2(true)}
       >
         <span className={styles.infoTextHeadlineSection}>
           <h2>Editorial</h2>
@@ -108,9 +102,6 @@ const Infosection = ({
 
       <div
         className={styles.infoTextWrapper}
-        // style={{ background: background3 ? "var(--pink)" : "" }}
-        // onMouseEnter={() => setBackground3(false)}
-        // onMouseLeave={() => setBackground3(true)}
       >
         <h2 className={styles.infoTextHeadline}>
           {english ? "About the Festival" : "Über das Festival"}

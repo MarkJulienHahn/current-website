@@ -101,8 +101,6 @@ const KalenderSubcategory = ({
     scrollTo == filterValue  && scroll();
   }, [scrollTo]); 
 
-  console.log(focus)
-
   return (
     filterArray.some(contains) && (
       <>

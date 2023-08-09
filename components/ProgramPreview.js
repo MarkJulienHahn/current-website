@@ -30,8 +30,6 @@ const ProgramPreview = ({ programm, english }) => {
 
   const progSorted = programm.sort(compareFn);
 
-  console.log(progSorted)
-
   return (
     <>
       {programm.find((element) => element.dates[0].date >= today) && (
@@ -45,7 +43,7 @@ const ProgramPreview = ({ programm, english }) => {
               loop
             >
               {progSorted.map((event, i) =>
-                event.dates[0].date >= today  ? (
+                event.dates[0].date >= today && event.startpage ? (
                   <SwiperSlide>
                     <Link
                       key={i}

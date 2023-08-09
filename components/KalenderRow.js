@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from "../styles/Kalender.module.css";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 import useWindowDimensions from "../hooks/useWindowDimensions";
@@ -37,7 +38,6 @@ const KalenderRow = ({
 
   const convertDateDE = (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
-    const dayNamesEN = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const day = new Date(input).getDay();
     const date = new Date(input).getDate();
     const month = new Date(input).getUTCMonth() + 1;
@@ -106,6 +106,8 @@ const KalenderRow = ({
   useEffect(() => {
     active && scroll();
   }, [active]);
+
+  console.log(entry);
 
   return (
     <>
@@ -178,7 +180,9 @@ const KalenderRow = ({
                   }}
                   as={`beteiligte/${beteiligter.slug.current}`}
                 >
-                  <div className={styles.beteiligterLink}>{beteiligter.name}</div>
+                  <div className={styles.beteiligterLink}>
+                    {beteiligter.name}
+                  </div>
                 </Link>
               ))}
             </div>
@@ -223,6 +227,20 @@ const KalenderRow = ({
                   value={english ? entry.beschreibung : entry.beschreibungEN}
                 />
               </div>
+
+              <div className={styles.infoLogoWrapper}>
+                {entry.logos?.length &&
+                  entry.logos.map((logo, i) => (
+                    <Image
+                      src={logo.asset.url}
+                      alt={logo?.alt}
+                      width={200}
+                      height={100}
+                      style={{ objectFit: "contain", paddingBottom: "20px" }}
+                    />
+                  ))}
+              </div>
+
             </div>
           </div>
         </div>

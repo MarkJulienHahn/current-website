@@ -20,8 +20,6 @@ export async function getServerSideProps() {
   const presse = await client.fetch(
     `* [_type == "presse"]{..., "downloads": downloads[]{..., "download":download[]{..., "file": file.asset->{...}}}}`
   );
-  // const downloads = await client.fetch(`
-  // * [_type == "downloads"]|order(orderRank){category, "download": download[]{beschreibungDE, beschreibungEN, "file": file.asset->{"extension": extension, "url": url}}}`);
   const logos = await client.fetch(
     `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );

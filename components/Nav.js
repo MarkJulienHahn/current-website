@@ -60,17 +60,14 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
         <div
           className={styles.navLeft}
           style={{ background: colorArray[index] }}
-          // style={
-          //   showNav || router.route != "/"
-          //     ? { background: colorArray[index] }
-          //     : { background: "transparent" }
-          // }
         >
           <div className={styles.navLogoWide}>
             <Link href="./">
               <h2>
                 <span className={styles.outline}>
                   Current — Kunst und Urbaner Raum
+                </span>
+                <span>
                   <br /> 14.–24.09.2023 / Stuttgart
                 </span>
               </h2>
@@ -94,49 +91,25 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
           style={{
             background: index < 4 ? colorArray[index + 1] : colorArray[0],
           }}
-          // style={
-          //   showNav || router.route != "/"
-          //     ? {
-          //         background:
-          //           index + 1 < colorArray.length
-          //             ? colorArray[index + 1]
-          //             : colorArray[0],
-          //       }
-          //     : { background: "transparent" }
-          // }
         >
           <div
             className={styles.menuSub}
-            //  onMouseEnter={() => showNavAgain()}
           >
             <div
               className={styles.menuSegment}
-              style={
-                router.route == "/kalender" || router.route == "/beteiligte"
-                  ? { background: "var(--red)" }
-                  : { background: "inherit" }
-              }
               onClick={() => setBottomRow("Programm")}
             >
-              {" "}
               <Link href="./kalender">
-                <h2>{english ? "Program" : "Programm"}</h2>{" "}
+                <h2>{english ? "Program" : "Programm"}</h2>
               </Link>
               {bottomRow == "Programm" && (
-                <div
-                  className={styles.bottomRow}
-                  style={
-                    router.route == "/kalender" || router.route == "/beteiligte"
-                      ? { background: "var(--red)" }
-                      : { background: "inherit" }
-                  }
-                >
+                <div className={styles.bottomRow}>
                   <Link href="./kalender">
                     <h2>{english ? "Calendar" : "Kalender"}</h2>
                   </Link>
 
                   <Link href="./beteiligte">
-                    <h2>{english ? "Participants" : "Beteiligte"}</h2>{" "}
+                    <h2>{english ? "Participants" : "Beteiligte"}</h2>
                   </Link>
                 </div>
               )}
@@ -144,45 +117,28 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
 
             <div
               className={styles.menuSegment}
-              style={
-                router.route == "/info"
-                  ? { background: "var(--red)" }
-                  : { background: "inherit" }
-              }
               onClick={() => setBottomRow("Info")}
             >
               <Link href="./info">
-                <h2>Info</h2>{" "}
+                <h2>Info</h2>
               </Link>
               {bottomRow == "Info" && (
-                <div
-                  className={styles.bottomRow}
-                  style={
-                    router.route == "/info"
-                      ? { background: "var(--red)" }
-                      : { background: "inherit" }
-                  }
-                >
-                  <a>
+                <div className={styles.bottomRow}>
+                  <Link href="./info">
                     <h2>{english ? "About" : "Über"}</h2>
-                  </a>
-                  <a>
+                  </Link>
+                  <Link href="./info/#team">
                     <h2>{english ? "Festival Team" : "Festivalteam"}</h2>
-                  </a>
-                  <a>
+                  </Link>
+                  <Link href="info/#current21">
                     <h2>Current 21</h2>
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
 
             <div
               className={styles.menuSegment}
-              style={
-                router.route == "/currently"
-                  ? { background: "var(--red)" }
-                  : { background: "inherit" }
-              }
               onClick={() => setBottomRow("Currently")}
             >
               <Link href="/currently">
@@ -192,11 +148,6 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
 
             <div
               className={styles.menuSegment}
-              style={
-                router.route == "/presse"
-                  ? { background: "var(--red)" }
-                  : { background: "inherit" }
-              }
               onClick={() => setBottomRow("Presse")}
             >
               <Link href="/presse">
@@ -275,7 +226,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               {english ? "Participants" : "Beteiligte"}
             </Link>
             <a>Info</a>
-            <Link className={styles.eingerueckt} href="./about">
+            <Link className={styles.eingerueckt} href="./info">
               {english ? "About" : "Über"}
             </Link>
             <Link className={styles.eingerueckt} href="./team">

@@ -8,7 +8,9 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   overflow-x: hidden;
+  overflow-y: scroll;
   overscroll-behavior: none;
+  scroll-behavior: smooth !important;
 }
 
 ::-webkit-scrollbar {

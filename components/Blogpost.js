@@ -1,5 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
-// import useWindowDimensions from "../hooks/useWindowDimensions"
+import { useRef } from "react";
 
 import styles from "../styles/Currently.module.css";
 import Image from "next/image";

@@ -1,3 +1,7 @@
+.infoPageWrapper {
+  scroll-behavior: smooth;
+}
+
 .infoHeadline {
   text-align: center;
 }
@@ -12,7 +16,7 @@
 .infoTextHeadlineSection h2 {
   width: 80px;
   line-height: 40px;
-  font-size: 12.5pt
+  font-size: 12.5pt;
 }
 
 .infoTextWrapper,
@@ -259,6 +263,33 @@
   color: var(--blue);
 }
 
+/* INFOPAGE */
+
+.infoTeamWrapper {
+  padding: var(--spaceLarge) 0;
+  background: #f2f2f2;
+  width: 100vw;
+}
+
+.teamList {
+  column-count: 2;
+  column-gap: calc(2 * var(--spaceSmall));
+  padding: 0 var(--spaceSmall) 0;
+}
+
+.teamEntry {
+  padding-top: calc(2 * var(--spaceSmall));
+  break-inside: avoid-column;
+}
+
+.marqueeInner {
+  display: flex;
+}
+
+.marqueeInner h1 {
+  padding-left: 10px;
+}
+
 @media screen and (max-width: 700px) {
   .infoHeadline {
     padding: 0 10px 40px;
@@ -298,14 +329,14 @@
     padding-bottom: 0;
   }
 
-  .infoTextHeadlineSection h2{
+  .infoTextHeadlineSection h2 {
     padding: 0;
     line-height: 23px;
     padding-bottom: 15px;
   }
 
   .infoTextHeadlineSection {
-    padding-left: 0
+    padding-left: 0;
   }
 
   .mobileInfoText {
@@ -448,5 +479,12 @@
   .beteiligteWrapper {
     padding-left: 12px;
     padding-right: 12px;
+  }
+  .infopageLogosWrapper {
+    display: none;
+  }
+
+  .teamList {
+    column-count: 1;
   }
 }

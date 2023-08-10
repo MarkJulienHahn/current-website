@@ -26,12 +26,12 @@ const BeteiligteRow = ({ beteiligter, i, index, setIndex }) => {
       <div
         key={i}
         className={`${styles.nameRow} ${i % 2 == 0 && styles.nameRowGrey} ${
-          beteiligter.different && styles.nameRowGreen
+          beteiligter.different && styles.nameRowDifferent
         }`}
         style={
           index == i
             ? beteiligter.different
-              ? { background: "var(--green)" }
+              ? { background: "var(--pink)" }
               : { background: "var(--blue)" }
             : { background: "" }
         }

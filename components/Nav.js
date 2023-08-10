@@ -92,9 +92,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             background: index < 4 ? colorArray[index + 1] : colorArray[0],
           }}
         >
-          <div
-            className={styles.menuSub}
-          >
+          <div className={styles.menuSub}>
             <div
               className={styles.menuSegment}
               onClick={() => setBottomRow("Programm")}
@@ -128,7 +126,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                     <h2>{english ? "About" : "Über"}</h2>
                   </Link>
                   <Link href="./info/#team">
-                    <h2>{english ? "Festival Team" : "Festivalteam"}</h2>
+                    <h2>{english ? "Team" : "Team"}</h2>
                   </Link>
                   <Link href="info/#current21">
                     <h2>Current 21</h2>
@@ -158,7 +156,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               className={styles.language}
               onClick={() => setEnglish(!english)}
             >
-              DE/EN
+              {english ? "DE" : "EN"}
             </h2>
           </div>
         </div>

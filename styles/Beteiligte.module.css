@@ -26,8 +26,8 @@
   background: var(--blue);
 }
 
-.nameRowGreen:hover {
-  background: var(--green) !important;
+.nameRowDifferent:hover {
+  background: var(--pink) !important;
 }
 
 .content {

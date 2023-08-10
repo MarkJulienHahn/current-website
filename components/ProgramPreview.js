@@ -31,49 +31,51 @@ const ProgramPreview = ({ programm, english }) => {
   const progSorted = programm.sort(compareFn);
 
   return (
-    <>
-      {programm.find((element) => element.dates[0].date >= today) && (
-        <>
-          <div className={styles.programPreviewWrapper}>
-            <Swiper
-              navigation={true}
-              modules={[Navigation]}
-              spaceBetween={0}
-              slidesPerView={width > 700 ? 2 : 1}
-              loop
-            >
-              {progSorted.map((event, i) =>
-                event.dates[0].date >= today && event.startpage ? (
-                  <SwiperSlide>
-                    <Link
-                      key={i}
-                      href={{
-                        pathname: "/kalender",
-                        query: { active: event.headline },
-                      }}
-                    >
-                      <ProgramPreviewInner event={event} english={english} />
-                    </Link>
-                  </SwiperSlide>
-                ) : (
-                  " "
-                )
-              )}
-            </Swiper>
-          </div>
-
-          <Link href="/kalender">
-            <div className={styles.programPreviewLink}>
-              <h1>
-                {english
-                  ? "SHOW THE COMPLETE PROGRAM"
-                  : "ZUM GESAMTEN PROGRAMM"}
-              </h1>
+    programm.length > 1 && (
+      <>
+        {programm.find((element) => element.dates[0].date >= today) && (
+          <>
+            <div className={styles.programPreviewWrapper}>
+              <Swiper
+                navigation={true}
+                modules={[Navigation]}
+                spaceBetween={0}
+                slidesPerView={width > 700 ? 2 : 1}
+                loop
+              >
+                {progSorted.map((event, i) =>
+                  event.dates[0].date >= today && event.startpage ? (
+                    <SwiperSlide>
+                      <Link
+                        key={i}
+                        href={{
+                          pathname: "/kalender",
+                          query: { active: event.headline },
+                        }}
+                      >
+                        <ProgramPreviewInner event={event} english={english} />
+                      </Link>
+                    </SwiperSlide>
+                  ) : (
+                    " "
+                  )
+                )}
+              </Swiper>
             </div>
-          </Link>
-        </>
-      )}
-    </>
+
+            <Link href="/kalender">
+              <div className={styles.programPreviewLink}>
+                <h1>
+                  {english
+                    ? "SHOW THE COMPLETE PROGRAM"
+                    : "ZUM GESAMTEN PROGRAMM"}
+                </h1>
+              </div>
+            </Link>
+          </>
+        )}
+      </>
+    )
   );
 };
 

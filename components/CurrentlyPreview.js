@@ -112,7 +112,7 @@ const CurrentlyPreview = ({ currently, english }) => {
           </div>
           <div className={styles.previewText}>
             <div className={styles.previewTextTop}>
-              <h1>#0{posts.length - firstIndex}</h1>
+              <h1>#{posts.length - firstIndex}</h1>
               <p>
                 Currently
                 <br />
@@ -184,7 +184,7 @@ const CurrentlyPreview = ({ currently, english }) => {
             </div>
             <div className={styles.previewText}>
               <div className={styles.previewTextTop}>
-                <h1>#0{posts.length - secondIndex}</h1>
+                <h1>#{posts.length - secondIndex}</h1>
                 <p>
                   Currently
                   <br />

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import ReactMapGL, { Marker } from "react-map-gl";
@@ -8,6 +8,7 @@ import styles from "../styles/Karte.module.css";
 const TOKEN = process.env.NEXT_PUBLIC_MAPBOX_GL_TOKEN;
 
 const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
+  const [lableIndex, setLableIndex] = useState(null);
   const mapRef = useRef();
 
   const standorteArray = programm.map((ort) => ort.standort?.name);
@@ -34,8 +35,6 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
         zoom: 16,
       });
   }, [flyToState]);
-
-
 
   return (
     <div className={styles.karteWrapper}>
@@ -77,9 +76,16 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
               className={
                 event.length == 1 ? styles.markerSingle : styles.markerCluster
               }
+              onMouseEnter={() => setLableIndex(i)}
+              onMouseLeave={() => setLableIndex(null)}
             >
               {event.length == 1 ? "" : event.length}
             </div>
+            {lableIndex == i && (
+              <div className={styles.fahne}>
+                <p>{event[0].standort.name}</p>
+              </div>
+            )}
           </Marker>
         ))}
       </ReactMapGL>

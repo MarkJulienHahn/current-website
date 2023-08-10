@@ -66,7 +66,7 @@ const Entry = ({ english, beteiligter, programm }) => {
       <span className={styles.beteiligterAnchor} ref={ref}></span>
       <h1
         style={{
-          background: beteiligter?.different ? "var(--green)" : "var(--blue)",
+          background: beteiligter?.different ? "var(--pink)" : "var(--blue)",
         }}
         className={styles.headline}
       >

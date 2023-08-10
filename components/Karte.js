@@ -83,7 +83,7 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
             </div>
             {lableIndex == i && (
               <div className={styles.fahne}>
-                <p>{event[0].standort.name}</p>
+                <p>{event[0].standort.name} </p>
               </div>
             )}
           </Marker>

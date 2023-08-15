@@ -23,7 +23,7 @@ const BeteiligteMobileEntry = ({
           style={
             index == i
               ? beteiligter.different
-                ? { background: "var(--green)" }
+                ? { background: "var(--pink)" }
                 : { background: "var(--blue)" }
               : { background: "" }
           }

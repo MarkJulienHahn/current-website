@@ -57,7 +57,7 @@ const Footer = ({ english, impressum }) => {
             </a>
           </h2>
           <h2>
-            <Link href="./#presse">Presse</Link>
+            <Link href="./presse">Presse</Link>
           </h2>
         </div>
         <div

@@ -245,9 +245,13 @@
 
 /* BETEILIGTE */
 
+.beteiligteOuter {
+  padding: var(--space) var(--spaceSmall);
+}
+
 .beteiligteWrapper {
   width: 100vw;
-  padding: var(--spaceLarge) var(--space);
+  padding: var(--spaceMedium) var(--space);
   text-align: center;
   display: flex;
   flex-wrap: wrap;

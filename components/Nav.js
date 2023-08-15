@@ -227,7 +227,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             <Link className={styles.eingerueckt} href="./info">
               {english ? "About" : "Über"}
             </Link>
-            <Link className={styles.eingerueckt} href="./team">
+            <Link className={styles.eingerueckt} href="./info/#team">
               Team
             </Link>
             <Link href="/currently">Currently</Link>

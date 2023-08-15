@@ -1,7 +1,7 @@
 import styles from "../styles/Main.module.css";
 
-const Team = ({ english, team, downloads }) => {
-  return (
+const Team = ({ english, downloads }) => {
+  return downloads.length ? (
     <>
       <div className={"anchor"} id="team"></div>
       <div className={styles.teamWrapper}>
@@ -35,6 +35,8 @@ const Team = ({ english, team, downloads }) => {
         </div>
       </div>
     </>
+  ) : (
+    ""
   );
 };
 

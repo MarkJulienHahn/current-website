@@ -26,9 +26,7 @@ const Infosection = ({
     <div className={styles.infoWrapper}>
       <div className={"anchor"} id="program"></div>
 
-      <div
-        className={styles.infoTextHeadlineWrapper}
-      >
+      <div className={styles.infoTextHeadlineWrapper}>
         <h1 className={styles.infoHeadline}>
           {english ? (
             <PortableText value={editorial.titleEnglish} />
@@ -40,9 +38,7 @@ const Infosection = ({
       <div className={"anchorNewsletter"} id="newsletter"></div>
       <NewsletterMarquee english={english} />
 
-      <div
-        className={styles.infoTextWrapper}
-      >
+      <div className={styles.infoTextWrapper}>
         <span className={styles.infoTextHeadlineSection}>
           <h2>Editorial</h2>
           <h1>
@@ -95,14 +91,12 @@ const Infosection = ({
       </div>
 
       <ProgramPreview programm={programm} english={english} />
-      <BeteiligteList beteiligte={beteiligte} />
+      <BeteiligteList beteiligte={beteiligte} english={english} />
       <CurrentlyPreview currently={currently} english={english} />
 
       <div className={"anchor"} id="about"></div>
 
-      <div
-        className={styles.infoTextWrapper}
-      >
+      <div className={styles.infoTextWrapper}>
         <h2 className={styles.infoTextHeadline}>
           {english ? "About the Festival" : "Über das Festival"}
         </h2>

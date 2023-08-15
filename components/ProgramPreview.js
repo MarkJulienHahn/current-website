@@ -31,7 +31,7 @@ const ProgramPreview = ({ programm, english }) => {
   const progSorted = programm.sort(compareFn);
 
   return (
-    programm.length > 1 && (
+    programm.length > 0 && (
       <>
         {programm.find((element) => element.dates[0].date >= today) && (
           <>
@@ -40,7 +40,7 @@ const ProgramPreview = ({ programm, english }) => {
                 navigation={true}
                 modules={[Navigation]}
                 spaceBetween={0}
-                slidesPerView={width > 700 ? 2 : 1}
+                slidesPerView={width < 700 || programm.length == 1 ? 1 : 2}
                 loop
               >
                 {progSorted.map((event, i) =>

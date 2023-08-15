@@ -110,6 +110,7 @@ const CurrentlyPreview = ({ currently, english }) => {
               />
             )}
           </div>
+
           <div className={styles.previewText}>
             <div className={styles.previewTextTop}>
               <h1>#{posts.length - firstIndex}</h1>
@@ -132,8 +133,10 @@ const CurrentlyPreview = ({ currently, english }) => {
               </p>
             </div>
           </div>
+
         </div>
       </Link>
+
       <div className={styles.previewHalf}>
         <Link href={{ pathname: "/currently", query: { active: newsIndex } }}>
           <div className={styles.previewQuarterTop}>
@@ -194,8 +197,8 @@ const CurrentlyPreview = ({ currently, english }) => {
               <div className={styles.previewTextBottom}>
                 <h2>
                   {english
-                    ? firstPost.header.titel.titleEN
-                    : firstPost.header.titel.titleDE}
+                    ? secondPost.header.titel.titleEN
+                    : secondPost.header.titel.titleDE}
                 </h2>
               </div>
             </div>

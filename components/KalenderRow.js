@@ -107,8 +107,6 @@ const KalenderRow = ({
     active && scroll();
   }, [active]);
 
-  console.log(entry);
-
   return (
     <>
       <div
@@ -173,17 +171,19 @@ const KalenderRow = ({
             </div>
             <div className={styles.infoSegment}>
               {entry.beteiligte?.map((beteiligter, i) => (
-                <Link
-                  href={{
-                    pathname: "/beteiligte",
-                    query: { active: beteiligter.slug.current },
-                  }}
-                  as={`beteiligte/${beteiligter.slug.current}`}
-                >
-                  <div className={styles.beteiligterLink}>
-                    {beteiligter.name}
-                  </div>
-                </Link>
+                // <Link
+                //   href={{
+                //     pathname: "/beteiligte",
+                //     query: { active: beteiligter.slug.current },
+                //   }}
+                //   as={`beteiligte/${beteiligter.slug.current}`}
+                // >
+                //   <div className={styles.beteiligterLink}>
+                //     {beteiligter.name}
+                //   </div>
+                // </Link>
+
+                <div>{beteiligter.name}</div>
               ))}
             </div>
             <div className={styles.infoSegment}>{entry.standort.name}</div>
@@ -224,7 +224,7 @@ const KalenderRow = ({
 
               <div className={styles.infoTextpart}>
                 <PortableText
-                  value={english ? entry.beschreibung : entry.beschreibungEN}
+                  value={english ? entry.beschreibungEN : entry.beschreibung}
                 />
               </div>
 
@@ -240,7 +240,6 @@ const KalenderRow = ({
                     />
                   ))}
               </div>
-
             </div>
           </div>
         </div>

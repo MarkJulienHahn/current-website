@@ -53,7 +53,7 @@ const ProgramPreview = ({ programm, english }) => {
                           query: { active: event.headline },
                         }}
                       >
-                        <ProgramPreviewInner event={event} english={english} />
+                        <ProgramPreviewInner event={event} english={english} programLength={programm.length}/>
                       </Link>
                     </SwiperSlide>
                   ) : (

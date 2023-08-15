@@ -4,7 +4,7 @@ import styles from "../styles/ProgramPreview.module.css";
 
 import Image from "next/image";
 
-const ProgramPreviewInner = ({ event, english }) => {
+const ProgramPreviewInner = ({ event, english, programLength }) => {
   const [dateConverted, setDateConverted] = useState("");
   const [dateConvertedEN, setDateConvertedEN] = useState("");
 
@@ -32,8 +32,8 @@ const ProgramPreviewInner = ({ event, english }) => {
 
 
   return (
-    <div className={styles.programPreviewInner}>
-      <div className={styles.infoBox}>
+    <div className={styles.programPreviewInner} style={{width: programLength > 1 ? "50vw" : "100vw"}}> 
+      <div className={styles.infoBox} style={{width: programLength > 1 ? "66.666%" : "50%"}}>
         <div className={styles.infoInner}>
           {event.dates[0].time?.start}
           {event.dates[0].time?.ende && `–${event.dates[0].time?.ende}`}
@@ -64,7 +64,7 @@ const ProgramPreviewInner = ({ event, english }) => {
           <Image
             src={event.bilder[0]?.asset.url}
             fill
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", objectPosition: "center" }}
           />
         )}
       </div>

@@ -231,7 +231,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               Team
             </Link>
             <Link href="/currently">Currently</Link>
-            <Link href="/press">{english ? "Press" : "Presse"}</Link>
+            <Link href="/presse">{english ? "Press" : "Presse"}</Link>
           </div>
         )}
       </div>

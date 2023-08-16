@@ -33,7 +33,7 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
 
   return (
     <div className={styles.programPreviewInner} style={{width: programLength > 1 ? "50vw" : "100vw"}}> 
-      <div className={styles.infoBox} style={{width: programLength > 1 ? "66.666%" : "50%"}}>
+      <div className={styles.infoBox} style={{width: programLength > 1 ? "66.666%" : "100%"}}>
         <div className={styles.infoInner}>
           {event.dates[0].time?.start}
           {event.dates[0].time?.ende && `–${event.dates[0].time?.ende}`}

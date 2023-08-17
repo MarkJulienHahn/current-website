@@ -370,7 +370,8 @@ export async function getServerSideProps() {
   *[_type == "programm"]{..., "standort": standort->{...}, "beteiligte": beteiligte[]->{...}, "formate": formate[]->{...},"bilder": bilder[]{..., "asset": asset->{...}}}`);
 
   const beteiligte = await client.fetch(`
-  *[_type == "beteiligte"]{..., "bild": bild{..., "asset": asset->{...}}}`);
+  *[_type == "beteiligte"]| order(lower(name) asc)
+  {..., "bild": bild{..., "asset": asset->{...}}}`);
 
   const currently = await client.fetch(
     `* [_type == "currently"] {..., "textbeitrag": textbeitrag[]{..., "images": images[]{..., "image": image.asset->{...}}}, "bildbeitrag": bildbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}, "newsbeitrag": newsbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}} | order(header.date desc)`

@@ -37,6 +37,8 @@ const Kalender = ({
     query && standortFilter;
   }, []);
 
+  console.log(data);
+
   return (
     <div className={styles.wrapper} ref={bodyRef}>
       <div
@@ -55,15 +57,20 @@ const Kalender = ({
           <h2 className={styles.headerSegment} onClick={datumFilter}>
             {english ? "Date" : "Datum"}
           </h2>
-          <h2 className={styles.headerSegment} onClick={personenFilter}>
-            {english ? "People" : "Personen"}
-          </h2>
-          <h2 className={styles.headerSegment} onClick={standortFilter}>
-            {english ? "Location" : "Standort"}
-          </h2>
-          <h2 className={styles.headerSegment} onClick={formateFilter}>
-            Format
-          </h2>
+
+          {data.length < 5 && (
+            <>
+              <h2 className={styles.headerSegment} onClick={personenFilter}>
+                {english ? "People" : "Personen"}
+              </h2>
+              <h2 className={styles.headerSegment} onClick={standortFilter}>
+                {english ? "Location" : "Standort"}
+              </h2>
+              <h2 className={styles.headerSegment} onClick={formateFilter}>
+                Format
+              </h2>
+            </>
+          )}
         </div>
       </div>
 

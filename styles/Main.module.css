@@ -91,7 +91,14 @@
 }
 
 .newsletterMarqueeHalf h2 {
-  padding-left: calc(2 * var(--space) + 12px);
+  padding-left: var(--spaceSmall);
+}
+
+.newsletterMarqueeHalf form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: var(--spaceSmall)
 }
 
 .newsletterMarquee:hover {
@@ -110,7 +117,7 @@
   font-size: 22.5px;
   color: black;
   opacity: 1;
-  width: 400px;
+  width: 50vw;
 }
 
 .newsletterMarquee button {
@@ -373,7 +380,6 @@
   }
   .newsletterMarquee input {
     width: 50%;
-    border-bottom: 1.5px solid black;
   }
   .newsletterMarquee input,
   .newsletterMarquee input::placeholder,
@@ -396,15 +402,12 @@
 
   .newsletterMarqueeHalf h2 {
     font-size: 12pt;
+    padding-left: 12px;
   }
 
   .newsletterMarqueeHalf {
     width: 100vw;
     padding: 0;
-  }
-
-  .newsletterMarqueeHalf h2 {
-    padding-left: 12px;
   }
 
   .teamWrapper {

@@ -159,7 +159,7 @@
 .previewHalfLeft:hover,
 .previewQuarter:hover,
 .previewQuarterTop:hover {
-  background: white;
+  background: rgb(241, 241, 241);
 }
 
 .previewHalfLeft:hover img,
@@ -182,7 +182,7 @@
 }
 
 .previewLink {
-  width: 50vw
+  width: 50vw;
 }
 
 .previewImage {
@@ -289,25 +289,43 @@
   .postRight {
     padding-top: 0;
   }
-
 }
 
 @media screen and (max-width: 700px) {
   .previewWrapper {
     flex-direction: column;
   }
-  .previewLink, .previewQuarterTop, .previewQuarter {
-    width: 100vw
+  .previewLink,
+  .previewQuarterTop,
+  .previewQuarter {
+    width: 100vw;
   }
   .previewImage {
     width: 30vw;
   }
-  .previewQuarter {
-    background: var(--red)
+  .previewQuarter,
+  .previewHalfLeft {
+    background: var(--red) !important;
   }
   .previewText {
-    width: 70vw
+    width: 70vw;
   }
-  .previewTextTop p{
-    line-height: 12pt
-}}
+  .previewTextTop p {
+    line-height: 12pt;
+  }
+
+  .previewHalfLeft img,
+  .previewQuarter img,
+  .previewQuarterTop img {
+    filter: none;
+  }
+
+  .previewHalfLeft:hover,
+  .previewQuarter:hover,
+  .previewQuarterTop:hover {
+    background: inherit;
+  }
+  .previewQuarterTop:hover {
+    background: var(--blue);
+  }
+}

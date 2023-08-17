@@ -58,7 +58,7 @@ const Kalender = ({
             {english ? "Date" : "Datum"}
           </h2>
 
-          {data.length < 5 && (
+          {data.length > 5 && (
             <>
               <h2 className={styles.headerSegment} onClick={personenFilter}>
                 {english ? "People" : "Personen"}

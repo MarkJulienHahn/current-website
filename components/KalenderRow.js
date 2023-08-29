@@ -190,10 +190,10 @@ const KalenderRow = ({
             <div className={styles.infoSegment} lang="de">
               {english
                 ? entry.formate.map((format, i) => (
-                    <div key={i}>{format.formateEN}</div>
+                    <div key={i}lang="de">{format.formateEN}</div>
                   ))
                 : entry.formate.map((format, i) => (
-                    <div key={i}>{format.formate}</div>
+                    <div key={i}lang="de">{format.formate}</div>
                   ))}
             </div>
           </div>

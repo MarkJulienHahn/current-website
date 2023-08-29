@@ -67,8 +67,8 @@ const ProgramPreview = ({ programm, english }) => {
               <div className={styles.programPreviewLink}>
                 <h1>
                   {english
-                    ? "SHOW THE COMPLETE PROGRAM"
-                    : "ZUM GESAMTEN PROGRAMM"}
+                    ? "GO TO THE PROGRAM OVERVIEW"
+                    : "ZUR GESAMTEN PROGRAMMÜBERSICHT"}
                 </h1>
               </div>
             </Link>

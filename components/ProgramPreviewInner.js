@@ -30,9 +30,8 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
     convertDate(event.dates[0].date);
   }, []);
 
-
   return (
-    <div className={styles.programPreviewInner} style={{width: programLength > 1 ? "50vw" : "100vw"}}> 
+    <div className={styles.programPreviewInner} style={{width: programLength > 1 ? "50vw" : "100vw", background: "var(--pink)"}}> 
       <div className={styles.infoBox} style={{width: programLength > 1 ? "66.666%" : "100%"}}>
         <div className={styles.infoInner}>
           {event.dates[0].time?.start}
@@ -48,6 +47,7 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
           <h1>{english ? dateConvertedEN : dateConverted}</h1>
           <h2>
             {english ? event.headlineEN : event.headline}
+            <br/>
             {event.subheadline &&
               (english ? event.subheadlineEN : event.subheadline)}
           </h2>
@@ -59,12 +59,14 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
         </div>
       </div>
 
-      <div className={styles.imageWrapper}>
+      <div className={styles.imageWrapper} >
         {event.bilder && (
           <Image
             src={event.bilder[0]?.asset.url}
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
+            placeholder="blur"
+            blurDataURL={event.bilder[0]?.asset.metadata.lqip}
           />
         )}
       </div>

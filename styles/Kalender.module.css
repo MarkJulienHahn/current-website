@@ -100,6 +100,10 @@
   padding-bottom: 30px;
 }
 
+.headline h2 {
+  padding-right: 40px;
+}
+
 .infoRowBottom {
   width: 100%;
   display: flex;
@@ -113,6 +117,11 @@
 .infoSegment {
   width: 25%;
   padding-right: 30px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 
 .infoRow:hover {

@@ -119,7 +119,7 @@ const KalenderRow = ({
               <h2>{entry.subheadline}</h2>
             </div>
             <div className={styles.infoRowBottom}>
-              <div className={styles.infoSegment}>
+              <div className={styles.infoSegment} lang="de">
                 <div>
                   {english
                     ? convertDateEN(entry.dates[0].date)
@@ -140,13 +140,13 @@ const KalenderRow = ({
                   </div>
                 )}
               </div>
-              <div className={styles.infoSegment}>
+              <div className={styles.infoSegment} lang="de">
                 {entry.beteiligte.map((beteiligter, i) => (
                   <div>{beteiligter.name}</div>
                 ))}
               </div>
-              <div className={styles.infoSegment}>{entry.standort.name}</div>
-              <div className={styles.infoSegment}>
+              <div className={styles.infoSegment} lang="de">{entry.standort.name}</div>
+              <div className={styles.infoSegment} lang="de">
                 {english
                   ? entry.formate.map((format, i) => (
                       <div key={i}>{format.formateEN}</div>

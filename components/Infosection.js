@@ -90,8 +90,17 @@ const Infosection = ({
         </div>
       </div>
 
+      <h2 className={styles.infoTextHeadline}>
+        {english ? "Program Preview" : "Programmvorschau"}
+      </h2>
+
       <ProgramPreview programm={programm} english={english} />
       <BeteiligteList beteiligte={beteiligte} english={english} />
+
+      <h2 className={styles.infoTextHeadline}>
+        {english ? "Currently-Vorschau" : "Currently Preview"}
+      </h2>
+
       <CurrentlyPreview currently={currently} english={english} />
 
       <div className={"anchor"} id="about"></div>

@@ -43,8 +43,8 @@
 
 .fahne {
   position: absolute;
-  top: -6px;
-  left: 30px;
+  top: -8px;
+  left: 60px;
   font-family: "Activist";
   background: var(--blue);
   padding: 5px 6px;

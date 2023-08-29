@@ -31,8 +31,17 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
   }, []);
 
   return (
-    <div className={styles.programPreviewInner} style={{width: programLength > 1 ? "50vw" : "100vw", background: "var(--pink)"}}> 
-      <div className={styles.infoBox} style={{width: programLength > 1 ? "66.666%" : "100%"}}>
+    <div
+      className={styles.programPreviewInner}
+      style={{
+        width: programLength > 1 ? "50vw" : "100vw",
+        background: "var(--pink)",
+      }}
+    >
+      <div
+        className={styles.infoBox}
+        style={{ width: programLength > 1 ? "66.666%" : "100%" }}
+      >
         <div className={styles.infoInner}>
           {event.dates[0].time?.start}
           {event.dates[0].time?.ende && `–${event.dates[0].time?.ende}`}
@@ -43,23 +52,26 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
             ? event.formate.map((format) => <div>{format.formateEN}</div>)
             : event.formate.map((format) => <div>{format.formate}</div>)}
         </div>
-        <div className={styles.infoInner}>
+        <div className={styles.infoInner} lang="de">
           <h1>{english ? dateConvertedEN : dateConverted}</h1>
           <h2>
             {english ? event.headlineEN : event.headline}
-            <br/>
+            <br />
             {event.subheadline &&
               (english ? event.subheadlineEN : event.subheadline)}
           </h2>
           <p className={styles.infoSmall}>
             {event.beteiligte.map((person, i) => (
-              <>{person.name}<br/></>
+              <>
+                {person.name}
+                <br />
+              </>
             ))}
           </p>
         </div>
       </div>
 
-      <div className={styles.imageWrapper} >
+      <div className={styles.imageWrapper}>
         {event.bilder && (
           <Image
             src={event.bilder[0]?.asset.url}

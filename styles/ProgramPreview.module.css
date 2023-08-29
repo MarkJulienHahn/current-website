@@ -23,6 +23,8 @@
 
 .infoInner {
   width: 50%;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .infoSmall {

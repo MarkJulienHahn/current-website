@@ -171,29 +171,23 @@ const KalenderRow = ({
             </div>
             <div className={styles.infoSegment} lang="de">
               {entry.beteiligte?.map((beteiligter, i) => (
-                // <Link
-                //   href={{
-                //     pathname: "/beteiligte",
-                //     query: { active: beteiligter.slug.current },
-                //   }}
-                //   as={`beteiligte/${beteiligter.slug.current}`}
-                // >
-                //   <div className={styles.beteiligterLink}>
-                //     {beteiligter.name}
-                //   </div>
-                // </Link>
-
                 <div>{beteiligter.name}</div>
               ))}
             </div>
-            <div className={styles.infoSegment} lang="de">{entry.standort.name}</div>
+            <div className={styles.infoSegment} lang="de">
+              {entry.standort.name}
+            </div>
             <div className={styles.infoSegment} lang="de">
               {english
                 ? entry.formate.map((format, i) => (
-                    <div key={i}lang="de">{format.formateEN}</div>
+                    <div key={i} lang="de">
+                      {format.formateEN}
+                    </div>
                   ))
                 : entry.formate.map((format, i) => (
-                    <div key={i}lang="de">{format.formate}</div>
+                    <div key={i} lang="de">
+                      {format.formate}
+                    </div>
                   ))}
             </div>
           </div>

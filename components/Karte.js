@@ -22,7 +22,7 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
     mapRef.current.flyTo(
       {
         center: [long, lat],
-        zoom: 16,
+        zoom: 19,
       },
       standortFilter(),
       setTimeout(setFocus(ref), 200)
@@ -32,7 +32,7 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
     mapRef.current &&
       mapRef.current.flyTo({
         center: [flyToState[0].longitude, flyToState[0].latitude],
-        zoom: 16,
+        zoom: 19,
       });
   }, [flyToState]);
 
@@ -57,7 +57,7 @@ const Karte = ({ programm, standortFilter, setFocus, flyToState }) => {
           [9.194227354988222, 48.78549216876878],
           [9.243195449730148, 48.81764326669102],
         ]}
-        maxZoom={16}
+        maxZoom={19}
       >
         {standorteMasterArray.map((event, i) => (
           <Marker

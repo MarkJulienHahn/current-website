@@ -98,11 +98,19 @@ const KalenderSubcategory = ({
   }, [focus]);
 
   useEffect(() => {
-    scrollTo == filterValue  && scroll();
-  }, [scrollTo]); 
+    scrollTo == filterValue && scroll();
+  }, [scrollTo]);
+
+  const filterArraySorted = filterArray.sort(function (a, b) {
+    return a.dates[0].date < b.dates[0].date
+      ? -1
+      : a.dates[0].date > b.dates[0].date
+      ? 1
+      : 0;
+  });
 
   return (
-    filterArray.some(contains) && (
+    filterArraySorted.some(contains) && (
       <>
         <div
           ref={ref}

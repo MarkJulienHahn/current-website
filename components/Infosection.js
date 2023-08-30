@@ -98,7 +98,7 @@ const Infosection = ({
       <BeteiligteList beteiligte={beteiligte} english={english} />
 
       <h2 className={styles.infoTextHeadline}>
-        {english ? "Currently-Vorschau" : "Currently Preview"}
+        {english ? "Currently Preview" : "Currently-Vorschau  "}
       </h2>
 
       <CurrentlyPreview currently={currently} english={english} />

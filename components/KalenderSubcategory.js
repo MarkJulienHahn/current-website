@@ -102,12 +102,20 @@ const KalenderSubcategory = ({
   }, [scrollTo]);
 
   const filterArraySorted = filterArray.sort(function (a, b) {
-    return a.dates[0].date < b.dates[0].date
-      ? -1
-      : a.dates[0].date > b.dates[0].date
-      ? 1
-      : 0;
+    if (a.dates[0].date < b.dates[0].date) return -1;
+    if (a.dates[0].date > b.dates[0].date) return 1;
+
+    if (a.dates[0].time?.start < b.dates[0].time?.start) return -1;
+    if (a.dates[0].time?.start > b.dates[0].time?.start) return 1;
+    else return 0;
+
+    // return a.dates[0].date < b.dates[0].date ? -1
+    //   : a.dates[0].date > b.dates[0].date
+    //   ? 1
+    //   : 0;
   });
+
+  console.log(filterArraySorted);
 
   return (
     filterArraySorted.some(contains) && (

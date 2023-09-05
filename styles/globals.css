@@ -142,6 +142,15 @@ input {
   left: 0 !important;
 }
 
+
+@media screen and (max-width: 1500px) {
+  body {
+    font-size: 14pt;
+    line-height: 16pt;
+  }
+}
+
+
 @media screen and (max-width: 1200px) {
   :root {
     --space: 42px;

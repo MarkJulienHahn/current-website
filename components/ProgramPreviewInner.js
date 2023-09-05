@@ -49,8 +49,8 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
           {event.standort.name}
           <br />
           {english
-            ? event.formate.map((format) => <div>{format.formateEN}</div>)
-            : event.formate.map((format) => <div>{format.formate}</div>)}
+            ? event.formate.map((format) => <div className={styles.infoSmall}>{format.formateEN}</div>)
+            : event.formate.map((format) => <div className={styles.infoSmall}>{format.formate}</div>)}
         </div>
         <div className={styles.infoInner} lang="de">
           <h1>{english ? dateConvertedEN : dateConverted}</h1>

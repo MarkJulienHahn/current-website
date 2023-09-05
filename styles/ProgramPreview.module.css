@@ -27,6 +27,10 @@
   hyphens: auto;
 }
 
+.infoInner h1 {
+  line-height: 42px
+}
+
 .infoSmall {
   font-family: "Rubik";
   font-size: 12pt;

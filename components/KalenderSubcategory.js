@@ -102,6 +102,9 @@ const KalenderSubcategory = ({
   }, [scrollTo]);
 
   const filterArraySorted = filterArray.sort(function (a, b) {
+    if (a.dates.length < b.dates.length) return -1;
+    if (a.dates.length > b.dates.length) return 1;
+
     if (a.dates[0].date < b.dates[0].date) return -1;
     if (a.dates[0].date > b.dates[0].date) return 1;
 
@@ -114,8 +117,6 @@ const KalenderSubcategory = ({
     //   ? 1
     //   : 0;
   });
-
-  console.log(filterArraySorted);
 
   return (
     filterArraySorted.some(contains) && (

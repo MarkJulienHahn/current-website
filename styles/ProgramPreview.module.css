@@ -68,5 +68,8 @@
   .programPreviewLink {
     display: none
   }
+  .infoInner h1 {
+    line-height: 22px
+  }
 
 }

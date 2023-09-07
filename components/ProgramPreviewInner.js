@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 
 import styles from "../styles/ProgramPreview.module.css";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 import Image from "next/image";
 
 const ProgramPreviewInner = ({ event, english, programLength }) => {
   const [dateConverted, setDateConverted] = useState("");
   const [dateConvertedEN, setDateConvertedEN] = useState("");
+
+  const { width } = useWindowDimensions();
 
   const convertDate = async (input) => {
     const dayNames = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
@@ -30,17 +33,19 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
     convertDate(event.dates[0].date);
   }, []);
 
+  console.log(width)
+
   return (
     <div
       className={styles.programPreviewInner}
       style={{
-        width: programLength > 1 ? "50vw" : "100vw",
+        width: programLength > 1 && width > 700 ? "50vw" : "100vw",
         background: "var(--pink)",
       }}
     >
       <div
         className={styles.infoBox}
-        style={{ width: programLength > 1 ? "66.666%" : "100%" }}
+        style={{ width: programLength > 1 && width > 700 ? "66.666%" : "100%" }}
       >
         <div className={styles.infoInner}>
           {event.dates[0].time?.start}

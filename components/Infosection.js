@@ -17,7 +17,6 @@ const Infosection = ({
 }) => {
   const [background, setBackground] = useState(true);
   const [background2, setBackground2] = useState(true);
-  const [background3, setBackground3] = useState(true);
 
   const [mobileText1, setMobileText1] = useState(false);
   const [mobileText2, setMobileText2] = useState(false);

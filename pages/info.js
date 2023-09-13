@@ -20,8 +20,8 @@ export default info;
 export async function getServerSideProps() {
   const info = await client.fetch(`
   * [_type == "info"]{...}`);
-  const logos = await client.fetch(
-    `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
+  const logos = await client.fetch(`
+  * [_type == "logosNeu"]{"logosFoerderer": logosFoerderer[].logo.asset->{...}}`
   );
   const impressum = await client.fetch(`
   * [_type == "impressum"]{...}`);

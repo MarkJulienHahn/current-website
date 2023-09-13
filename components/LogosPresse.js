@@ -10,25 +10,21 @@ const LogosPresse = ({ english, logos }) => {
     <div
       className={styles.logosWrapper}
       style={{
-        background:
-          width > 700
-            ? "var(--blue)"
-            : "var(--pink)"
+        background: "var(--blue)",
       }}
     >
       <div className={styles.logoHeader}>
         <h2> {english ? "Supported by" : "Gefördert von"}</h2>
       </div>
-
       <div className={styles.logoInner}>
         {logos?.map((logo, i) => (
           <div>
             <Image
-              src={logo.logo.url}
+              src={logo.url}
               layout="responsive"
               objectFit="contain"
-              width={logo.logo.width}
-              height={logo.logo.height}
+              width={logo.metadata.dimensions.width}
+              height={logo.metadata.dimensions.height}
               alt="current website logos"
             />
           </div>

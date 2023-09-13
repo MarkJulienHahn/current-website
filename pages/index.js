@@ -327,7 +327,7 @@ const Index = ({
             team={team}
             presse={presse}
             downloads={downloads}
-            logos={logos}
+            logos={logos[0]}
             marquee={marquee[0]}
             programm={programm}
             beteiligte={beteiligte}
@@ -360,8 +360,8 @@ export async function getServerSideProps() {
   const impressum = await client.fetch(`
   * [_type == "impressum"]{...}`);
 
-  const logos = await client.fetch(
-    `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
+  const logos = await client.fetch(`
+  * [_type == "logosNeu"]{"logosFoerderer": logosFoerderer[].logo.asset->{...},"logosSponsoren": logosSponsoren[].logo.asset->{...}, "logosMedia": logosMedia[].logo.asset->{...}, "logosCoop": logosCoop[].logo.asset->{...}, ...}`
   );
 
   const marquee = await client.fetch(`* [_type == "marquee"]{...}`);
@@ -389,7 +389,7 @@ export async function getServerSideProps() {
       marquee,
       programm,
       beteiligte,
-      currently
+      currently,
     },
   };
 }

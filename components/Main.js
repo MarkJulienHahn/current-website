@@ -1,13 +1,11 @@
 import React from "react";
 
 import Infosection from "../components/Infosection";
-import Marquee from "react-fast-marquee";
 import Team from "../components/Team";
-import Downloads from "../components/Downloads";
-import Logos from "../components/Logos";
-
-import styles from "../styles/Main.module.css";
-import Presse from "./Presse";
+import LogosFoerderer from "../components/LogosFoerderer";
+import LogosSponsoren from "../components/LogosSponsoren";
+import LogosMedia from "../components/LogosMedia";
+import LogosCoop from "../components/LogosCoop";
 
 const Main = ({
   english,
@@ -18,7 +16,6 @@ const Main = ({
   downloads,
   currently,
   logos,
-  marquee,
   beteiligte,
 }) => {
   return (
@@ -32,8 +29,28 @@ const Main = ({
         currently={currently}
       />
 
-      <Team english={english} team={team} downloads={downloads}/>
-      <Logos english={english} logos={logos} />
+      <Team english={english} team={team} downloads={downloads} />
+
+      <LogosFoerderer
+        english={english}
+        published={logos.publishedFoerderer}
+        logos={logos.logosFoerderer}
+      />
+      <LogosSponsoren
+        english={english}
+        published={logos.publishedSponsoren}
+        logos={logos.logosSponsoren}
+      />
+      <LogosMedia
+        english={english}
+        published={logos.publishedMedia}
+        logos={logos.logosMedia}
+      />
+      <LogosCoop
+        english={english}
+        published={logos.publishedCoop}
+        logos={logos.logosCoop}
+      />
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import Marquee from "react-fast-marquee";
 
+import Link from "next/link";
+
 import LogosPresse from "./LogosPresse";
 import Footer from "./Footer";
 
@@ -10,6 +12,8 @@ import { PortableText } from "@portabletext/react";
 
 const Info = ({ info, english, logos, impressum }) => {
   const { width } = useWindowDimensions();
+
+  console.log(info)
 
   return (
     <div className={styles.infoPageWrapper}>
@@ -66,7 +70,24 @@ const Info = ({ info, english, logos, impressum }) => {
         <div className={styles.teamList}>
           {info.team.map((entry, i) => (
             <div className={styles.teamEntry}>
-              <h2>{entry.name}</h2>
+              {entry.link ? (
+
+                <Link
+                  href={{
+                    pathname: "/beteiligte",
+                    query: { active: entry.slug.current },
+                  }}
+                  as={`beteiligte/${entry.slug.current}`}
+                >
+                  <h2 className={styles.teamLink}>{entry.name}</h2>
+                </Link>
+
+              ) : (
+
+                <h2>{entry.name}</h2>
+
+              )}
+
               <p>{english ? entry.positionEN : entry.positionDE}</p>
             </div>
           ))}
@@ -111,7 +132,7 @@ const Info = ({ info, english, logos, impressum }) => {
         </Marquee>
       </a>
       <div className={styles.infopageLogosWrapper}>
-        <LogosPresse english={english} logos={logos} />
+        <LogosPresse english={english} logos={logos[0].logosFoerderer} />
       </div>
       <Footer english={english} impressum={impressum} />
     </div>

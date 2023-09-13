@@ -33,8 +33,6 @@ const ProgramPreviewInner = ({ event, english, programLength }) => {
     convertDate(event.dates[0].date);
   }, []);
 
-  console.log(width)
-
   return (
     <div
       className={styles.programPreviewInner}

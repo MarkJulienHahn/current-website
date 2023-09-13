@@ -163,6 +163,10 @@
   padding-bottom: var(--spaceTiny);
 }
 
+.teamLink:hover {
+  text-decoration: underline;
+}
+
 /* PRESSE */
 
 .pressPageWrapper {

@@ -89,9 +89,11 @@ const Infosection = ({
         </div>
       </div>
 
-      <h2 className={styles.infoTextHeadline}>
+
+      {/* <h2 className={styles.infoTextHeadline}>
         {english ? "Program Preview" : "Programmvorschau"}
-      </h2>
+      </h2> */}
+
 
       <ProgramPreview programm={programm} english={english} />
       <BeteiligteList beteiligte={beteiligte} english={english} />

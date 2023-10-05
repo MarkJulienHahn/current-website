@@ -33,7 +33,7 @@ const ProgramPreview = ({ programm, english }) => {
   return (
     programm.length > 0 && (
       <>
-        {programm.find((element) => element.dates[0].date >= today) && (
+        {programm.find((element) => element.dates[0]?.date >= today) && (
           <>
             <div className={styles.programPreviewWrapper}>
               <Swiper

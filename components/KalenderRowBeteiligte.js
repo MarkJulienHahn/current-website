@@ -122,8 +122,8 @@ const KalenderRow = ({
               <div className={styles.infoSegment} lang="de">
                 <div>
                   {english
-                    ? convertDateEN(entry.dates[0].date)
-                    : convertDateDE(entry.dates[0].date)}
+                    ? convertDateEN(entry.dates[0]?.date)
+                    : convertDateDE(entry.dates[0]?.date)}
                   {entry.dates.length > 1 && " —"}
                 </div>
                 <div>

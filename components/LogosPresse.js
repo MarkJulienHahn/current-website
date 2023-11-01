@@ -1,11 +1,7 @@
 import styles from "../styles/Main.module.css";
 import Image from "next/image";
 
-import useWindowDimensions from "../hooks/useWindowDimensions";
-
 const LogosPresse = ({ english, logos }) => {
-  const { width } = useWindowDimensions();
-
   return (
     <div
       className={styles.logosWrapper}
@@ -17,14 +13,16 @@ const LogosPresse = ({ english, logos }) => {
         <h2> {english ? "Supported by" : "Gefördert von"}</h2>
       </div>
       <div className={styles.logoInner}>
-        {logos?.map((logo, i) => (
-          <div>
+        {logos.map((logo, i) => (
+          <div
+            key={i}
+            style={{ width: "25%", height: "60px", position: "relative" }}
+          >
+            {console.log(logo)}
             <Image
-              src={logo.url}
-              layout="responsive"
-              objectFit="contain"
-              width={logo.metadata.dimensions.width}
-              height={logo.metadata.dimensions.height}
+              src={logo.logo.url}
+              fill
+              style={{ objectFit: "contain" }}
               alt="current website logos"
             />
           </div>

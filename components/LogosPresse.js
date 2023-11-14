@@ -18,7 +18,6 @@ const LogosPresse = ({ english, logos }) => {
             key={i}
             style={{ width: "25%", height: "60px", position: "relative" }}
           >
-            {console.log(logo)}
             <Image
               src={logo.logo.url}
               fill

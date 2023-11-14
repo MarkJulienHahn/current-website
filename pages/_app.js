@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/globals.css";
 
 import Nav from "../components/Nav";

@@ -4,7 +4,7 @@ import styles from "../styles/Beteiligte.module.css";
 import { useRouter } from "next/router";
 
 import Entry from "./Entry";
-import BeteiligteRow from "./BeteiligteRow";
+import BeteiligteRow from "./BeteiligteRow"
 
 const Beteiligte = ({ english, beteiligte, programm }) => {
   const [index, setIndex] = useState(null);

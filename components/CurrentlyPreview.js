@@ -170,16 +170,16 @@ const CurrentlyPreview = ({ currently, english }) => {
         <Link href={{ pathname: "/currently", query: { active: secondIndex } }}>
           <div className={styles.previewQuarter}>
             <div className={styles.previewImage}>
-              {secondPost.txtbeitrag && secondPost.textbeitrag[0].images && (
+              {secondPost.txtbeitrag && secondPost.textbeitrag[0]?.images && (
                 <Image
-                  src={secondPost.textbeitrag[0].images[0].image.url}
+                  src={secondPost.textbeitrag[0]?.images[0]?.image.url}
                   fill
                   style={{ objectFit: "cover" }}
                 />
               )}
-              {secondPost.bldbeitrag && secondPost.bildbeitrag[0].images && (
+              {secondPost.bldbeitrag && secondPost.bildbeitrag[0]?.images && (
                 <Image
-                  src={secondPost.bildbeitrag[0].images[0].image.url}
+                  src={secondPost.bildbeitrag[0]?.images[0]?.image.url}
                   fill
                   style={{ objectFit: "cover" }}
                 />

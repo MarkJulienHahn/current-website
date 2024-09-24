@@ -133,7 +133,6 @@ const CurrentlyPreview = ({ currently, english }) => {
               </p>
             </div>
           </div>
-
         </div>
       </Link>
 
@@ -141,11 +140,13 @@ const CurrentlyPreview = ({ currently, english }) => {
         <Link href={{ pathname: "/currently", query: { active: newsIndex } }}>
           <div className={styles.previewQuarterTop}>
             <div className={styles.previewImage}>
-              <Image
-                src={firstNews.newsbeitrag.images[0].image.url}
-                fill
-                style={{ objectFit: "cover" }}
-              />
+              {firstNews.newsbeitrag.images && (
+                <Image
+                  src={firstNews.newsbeitrag.images[0].image.url}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              )}
             </div>
             <div className={styles.previewText}>
               <div className={styles.previewTextTop}>

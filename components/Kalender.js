@@ -37,8 +37,6 @@ const Kalender = ({
     query && standortFilter;
   }, []);
 
-  console.log(data);
-
   return (
     <div className={styles.wrapper} ref={bodyRef}>
       <div

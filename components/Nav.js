@@ -68,7 +68,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                   Current — Kunst und Urbaner Raum
                 </span>
                 <span>
-                  <br /> 14.–24.09.2023 / Stuttgart
+                  <br /> 27.06. – 27.07.2025 / Stuttgart
                 </span>
               </h2>
             </Link>
@@ -96,9 +96,12 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             <div
               className={styles.menuSegment}
               onMouseEnter={() => setBottomRow("Programm")}
-              onMouseLeave={() => setBottomRow("")}
+              // onMouseLeave={() => setBottomRow("")}
             >
-              <Link href="./kalender">
+              <Link href="./open-call">
+                <h2>Open Call</h2>
+              </Link>
+              {/* <Link href="./kalender">
                 <h2>{english ? "Program" : "Programm"}</h2>
               </Link>
               {bottomRow == "Programm" && (
@@ -111,7 +114,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                     <h2>{english ? "Participants" : "Beteiligte"}</h2>
                   </Link>
                 </div>
-              )}
+              )} */}
             </div>
 
             <div
@@ -218,13 +221,6 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             }
             onClick={() => setShowNav(false)}
           >
-            <Link href="./kalender">{english ? "Program" : "Programm"}</Link>
-            <Link className={styles.eingerueckt} href="./kalender">
-              {english ? "Calendar" : "Kalender"}
-            </Link>
-            <Link className={styles.eingerueckt} href="./beteiligte">
-              {english ? "Participants" : "Beteiligte"}
-            </Link>
             <Link href="./info">Info</Link>
             <Link className={styles.eingerueckt} href="./info">
               {english ? "About" : "Über"}

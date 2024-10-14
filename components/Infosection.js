@@ -34,14 +34,31 @@ const Infosection = ({
           )}
         </h1>
       </div>
+
+      <div className={styles.infoTextWrapper}>
+        <h2 className={styles.infoTextHeadline}>
+          {english ? "About the Festival" : "Über das Festival"}
+        </h2>
+        <div className={styles.infoText}>
+          <div>
+            {english ? (
+              <PortableText value={about.textEnglish} />
+            ) : (
+              <PortableText value={about.textGerman} />
+            )}
+          </div>
+        </div>
+      </div>
+
       <div className={"anchorNewsletter"} id="newsletter"></div>
       <NewsletterMarquee english={english} />
 
       <div className={styles.infoTextWrapper}>
         <span className={styles.infoTextHeadlineSection}>
-          <h2>Editorial</h2>
+          <h2>Open Call</h2>
           <h1>
-            {english ? editorial.textTitleEnglish : editorial.textTitleGerman}
+            Open Call
+            {/* {english ? editorial.textTitleEnglish : editorial.textTitleGerman} */}
           </h1>
         </span>
 
@@ -51,6 +68,10 @@ const Infosection = ({
           ) : (
             <PortableText value={editorial.textGerman} />
           )}
+        </div>
+
+        <div className={styles.openCall__button}>
+          <button>{english ? "submit now" : "jetzt einreichen"}</button>
         </div>
       </div>
 
@@ -89,14 +110,12 @@ const Infosection = ({
         </div>
       </div>
 
-
       {/* <h2 className={styles.infoTextHeadline}>
         {english ? "Program Preview" : "Programmvorschau"}
       </h2> */}
 
-
-      <ProgramPreview programm={programm} english={english} />
-      <BeteiligteList beteiligte={beteiligte} english={english} />
+      {/* <ProgramPreview programm={programm} english={english} /> */}
+      {/* <BeteiligteList beteiligte={beteiligte} english={english} /> */}
 
       <h2 className={styles.infoTextHeadline}>
         {english ? "Currently Preview" : "Currently-Vorschau  "}
@@ -105,21 +124,6 @@ const Infosection = ({
       <CurrentlyPreview currently={currently} english={english} />
 
       <div className={"anchor"} id="about"></div>
-
-      <div className={styles.infoTextWrapper}>
-        <h2 className={styles.infoTextHeadline}>
-          {english ? "About the Festival" : "Über das Festival"}
-        </h2>
-        <div className={styles.infoText}>
-          <div>
-            {english ? (
-              <PortableText value={about.textEnglish} />
-            ) : (
-              <PortableText value={about.textGerman} />
-            )}
-          </div>
-        </div>
-      </div>
 
       <div className={styles.mobileInfoText}>
         <div

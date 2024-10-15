@@ -8,7 +8,6 @@
   display: flex;
 } */
 
-
 .markerSingle {
   width: 20px;
   height: 20px;
@@ -64,6 +63,90 @@
   z-index: 100;
   height: 80vh;
   width: 100vw;
+}
+
+.timeInfo {
+  position: fixed;
+  width: 60vw;
+  bottom: 0;
+  z-index: 1;
+  margin: 10px;
+  text-shadow: 0px 0px 5px black;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px;
+}
+
+.button {
+  cursor: pointer;
+  width: auto;
+  padding: 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  text-align: center;
+  color: white;
+  background: #3174ff;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.variableName {
+  z-index: 1;
+  position: fixed;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 5px 0px 0px 10px;
+  color: white;
+  text-shadow: 0px 0px 10px #0007;
+}
+
+.pointerData {
+  z-index: 1;
+  position: fixed;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 27px 0px 0px 10px;
+  color: white;
+  text-shadow: 0px 0px 10px #0007;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#wind-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1000;
+  background-color: rgba(24, 24, 24, 1);
+}
+
+#background-text {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Rubik One', sans-serif;
+  font-size: 15vw;
+  color: rgb(0, 26, 255, 1);
+  z-index: 999;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 700px) {

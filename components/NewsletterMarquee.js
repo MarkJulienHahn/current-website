@@ -30,50 +30,6 @@ const NewsletterMarquee = ({ english }) => {
           )}
         />
       </div>
-      {/* <Marquee gradient={false} direction={"right"}>
-        <div style={{ display: "flex", overflow: "hidden" }}>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter →  "}
-          </h1>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter →  "}
-          </h1>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter →  "}
-          </h1>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter →  "}
-          </h1>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter →  "}
-          </h1>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter →  "}
-          </h1>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter →  "}
-          </h1>
-          <h1>
-            {english
-              ? " Stay Up to Date → newsletter →"
-              : " Haltet Euch auf dem Laufenden → newsletter "}
-          </h1>
-        </div>
-      </Marquee> */}
     </div>
   );
 };

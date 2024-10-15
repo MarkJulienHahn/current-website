@@ -5,7 +5,7 @@ const BeteiligteRow = ({ beteiligter, i, index, setIndex }) => {
   const ref = useRef();
 
   const scroll = () => {
-    ref.current?.scrollIntoView(), console.log("scroll");
+    ref.current?.scrollIntoView();
   };
 
   const open = () => {

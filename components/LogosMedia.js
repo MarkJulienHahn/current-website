@@ -6,8 +6,6 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 const Logos = ({ english, logos, published }) => {
   const { width } = useWindowDimensions();
 
-  console.log(published)
-
   return published ? (
     <div
       className={styles.logosWrapper}

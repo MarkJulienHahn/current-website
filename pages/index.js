@@ -1,6 +1,3 @@
-import { useState, useEffect, useRef } from "react";
-
-import Div100vh from "react-div-100vh";
 import { use100vh } from "react-div-100vh";
 
 import Layout from "../components/Layout";
@@ -8,6 +5,8 @@ import Main from "../components/Main";
 import Footer from "../components/Footer";
 import styles from "../styles/Landing.module.css";
 import client from "../client";
+import WeatherMap from "../components/WeatherMap";
+import GradientCanvas from "../components/GradientCanvas";
 
 const Index = ({
   editorial,
@@ -22,36 +21,36 @@ const Index = ({
   logos,
   marquee,
   english,
-  colorArray,
 }) => {
-  const [index, setIndexA] = useState(null);
-  const [autoChange, setAutoChange] = useState(true);
-
   const height = use100vh();
 
   return (
     <>
       <Layout>
+        <div className={"particlesWrapper"}>
+          <GradientCanvas />
+          <WeatherMap />
+        </div>
+        <div
+          style={{
+            height: "80vh",
+            width: "100vw",
+            display: "flex",
+            flexWrap: "wrap",
+            overflow: "hidden",
+            cursor: "pointer",
+            background: "white",
+            // position: "fixed",
+          }}
+          id="main"
+        >
           <div
-            style={{
-              height: "80vh",
-              width: "100vw",
-              display: "flex",
-              flexWrap: "wrap",
-              overflow: "hidden",
-              cursor: "pointer",
-              background: "white",
-              // position: "fixed",
-            }}
-            id="main"
+            className={styles.mainTitle}
+            style={{ height: `calc(${height} + 30px)` }}
           >
-            <div
-              className={styles.mainTitle}
-              style={{ height: `calc(${height} + 30px)` }}
-            >
-              <h1>CURRENT</h1>
-            </div>
+            <h1>CURRENT</h1>
           </div>
+        </div>
 
         <div className="wrapper">
           <Main
@@ -79,10 +78,10 @@ export default Index;
 
 export async function getServerSideProps() {
   const editorial = await client.fetch(`
-  * [_type == "editorial"]{...}`);
+  * [_type == "editorial25"]{...}`);
 
   const about = await client.fetch(`
-  * [_type == "about"]{...}`);
+  * [_type == "about25"]{...}`);
 
   const team = await client.fetch(`
   * [_type == "team"]|order(orderRank){teamEntry}`);

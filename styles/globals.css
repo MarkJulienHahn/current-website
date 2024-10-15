@@ -11,6 +11,7 @@ body {
   overflow-y: scroll;
   overscroll-behavior: none;
   scroll-behavior: smooth !important;
+  color: rgb(0,2,28)
 }
 
 ::-webkit-scrollbar {
@@ -43,22 +44,22 @@ a {
 }
 
 :root {
-  --green: #005800;
-  --red: #ff3d00;
-  --pink: #ffa0ff;
-  --blue: #00beff;
-  --grey: #f2f2f2;
+  --green: rgba(255, 255, 255, 0.9);
+  --red: rgba(255, 255, 255, 0.9);
+  --pink: rgba(255, 255, 255, 0.9);
+  --blue: rgba(255, 255, 255, 0.9);
+  --grey: rgba(255, 255, 255, 0.9);
   --space: 65px;
   --spaceLarge: 130px;
   --spaceMedium: 48px;
-  --spaceSmall: 12px;
+  --spaceSmall: 20px;
   --spaceTiny: 5px;
   --swiper-navigation-color: var(--red);
   --swiper-navigation-sides-offset: 12px;
 }
 
 ::selection {
-  background: black;
+  background: rgb(0,2,28);
   color: white;
 }
 
@@ -118,8 +119,6 @@ ul {
 
 .wrapper {
   position: relative;
-  background: white;
-  /* margin-top: 130vh; */
 }
 
 input {
@@ -140,6 +139,19 @@ input {
 .swiper-button-prev {
   padding: 60px 60px 60px 40px;
   left: 0 !important;
+}
+
+.maplibregl-ctrl-top-right {
+  display: none;
+}
+
+.particlesWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh;
+  z-index: 0;
 }
 
 

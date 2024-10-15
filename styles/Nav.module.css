@@ -7,11 +7,26 @@
   justify-content: space-between;
   font-family: "Activist";
   z-index: 10000;
+  color: white;
+  -webkit-text-stroke-color: white;
+}
+
+.navWrapperInv {
+  position: fixed;
+  top: 0;
+  height: var(--space);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Activist";
+  z-index: 10000;
+  color: rgb(0, 2, 28);
+  -webkit-text-stroke-color: rgb(0, 2, 28);
 }
 
 .navWrapper::selection {
   background: transparent;
-  color: black;
+  color: rgb(0, 2, 28);
 }
 
 .navWrapper h2 {
@@ -36,7 +51,6 @@
 
 .outline {
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
   color: transparent;
   /* letter-spacing: 0.5px; */
 }
@@ -99,7 +113,7 @@
   width: 12.5%;
   right: 0;
   top: 32px;
-  padding-left: 12px;
+  padding-left: 20px;
   cursor: pointer;
   z-index: 1000;
 }

@@ -1,9 +1,35 @@
+.mainTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.mainTitle h1 {
+  font-size: 28vw;
+  line-height: 0;
+  letter-spacing: -2.8vw;
+  transform: translateX(-1.5vw);
+  color: rgba(255, 255, 255, 0.9);
+  /* mix-blend-mode: difference; */
+  top: 0;
+  height: 45vw;
+  padding-top: 28vh;
+  z-index: 1001;
+}
+
 .infoPageWrapper {
   scroll-behavior: smooth;
+  position: relative;
 }
 
 .infoHeadline {
-  text-align: center;
+  padding-left: var(--spaceSmall);
+  padding-bottom: var(--spaceMedium);
 }
 
 .infoTextHeadlineSection {
@@ -21,17 +47,43 @@
 
 .infoTextWrapper,
 .infoTextHeadlineWrapper {
-  padding: var(--spaceSmall) 0 var(--spaceLarge) 0;
+  /* background: black; */
+  color: white;
 }
 
 .infoTextHeadline {
-  padding: 0 0 calc(2 * var(--spaceSmall)) var(--spaceSmall);
+  padding: 0 0 calc(2 * var(--spaceSmall));
 }
 
 .infoText {
-  padding: 0 var(--spaceSmall);
+  padding: var(--spaceMedium) var(--spaceSmall) var(--spaceMedium);
+  display: flex;
+  justify-content: space-between;
+  background: var(--red);
+}
+
+.infoTextInfo {
+  padding: var(--spaceMedium) var(--spaceSmall) var(--spaceMedium);
+  background: var(--red);
+  color: rgb(0,2,28);
+  padding-top: var(--spaceLarge);
+}
+
+.twoColumn {
   column-count: 2;
-  column-gap: calc(2 * var(--spaceSmall));
+  column-gap: var(--spaceSmall);
+}
+
+.infoTextTwoColumn {
+  padding: 0 var(--spaceSmall) var(--spaceMedium);
+  column-count: 2;
+  column-gap: var(--spaceSmall);
+}
+
+.infoTextColumn {
+  width: calc(50% - (var(--spaceSmall) / 2));
+  display: flex;
+  flex-direction: column;
 }
 
 .infoText p {
@@ -46,6 +98,13 @@
 .infoSubHeadlineDownloads {
   padding: var(--space) var(--spaceSmall);
   width: 100%;
+}
+
+.callButton {
+  text-decoration: underline;
+  width: 100%;
+  text-align: center;
+  padding: 0 var(--spaceLarge);
 }
 
 .space {
@@ -75,12 +134,10 @@
 .newsletterMarquee {
   display: flex;
   align-items: center;
-
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
+  color: white;
   height: 120px;
   padding-bottom: var(--spaceSmall);
-  background: var(--blue);
+  /* background: black; */
   cursor: default;
 }
 
@@ -101,21 +158,17 @@
   padding-right: var(--spaceSmall);
 }
 
-.newsletterMarquee:hover {
-  background: var(--pink);
-}
-
 .newsletterMarquee input,
 .newsletterMarquee input::placeholder,
 .newsletterMarquee input:focus {
   border: 0;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   outline: 0;
   background: none;
   margin: var(--spaceSmall);
   font-family: "Rubik", sans-serif;
   font-size: 22.5px;
-  color: black;
+  color: white;
   opacity: 1;
   width: 50vw;
 }
@@ -128,10 +181,11 @@
   background: none;
   text-transform: uppercase;
   cursor: pointer;
+  color: white;
 }
 
 .newsletterMarquee button:hover {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgb(0,2,28);
 }
 
 .formStatus {
@@ -281,7 +335,7 @@
 /* INFOPAGE */
 
 .infoTeamWrapper {
-  padding: var(--spaceLarge) 0;
+  padding: var(--spaceMedium) 0;
   background: #f2f2f2;
   width: 100vw;
 }
@@ -330,18 +384,17 @@
 .pastFestivalLink {
   width: 50%;
   padding: var(--spaceMedium);
-  border: 2px solid;
-  font-size: 48px;
+  font-size: 48px;  
   line-height: 54px;
   font-family: "Activist";
   font-weight: 100;
   letter-spacing: -2px;
   text-align: center;
+  background: var(--pink);
 }
 
-.openCallPageWrapper {
-  margin-top: var(--spaceLarge);
-  padding: var(--spaceSmall);
+.openCallText {
+  margin-bottom: var(--spaceMedium);
 }
 
 .openCallTextWrapper {
@@ -349,8 +402,35 @@
   width: 100vw;
 }
 
-.openCallText {
+.openCallTextsWrapper {
+  width: 100%;
+  display: flex;
+  position: relative
+}
+
+.openCallColumnWrapper {
   width: 50%;
+  padding: var(--spaceMedium) var(--spaceSmall);
+}
+
+.openCallTextHeadline {
+  margin-bottom: var(--spaceMedium);
+}
+
+.textSmall p {
+  font-size: 12pt;
+  line-height: 15pt;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+  .openCallTextsWrapper {
+    display: block;
+  }
+  .openCallColumnWrapper {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -447,7 +527,7 @@
     position: absolute;
     right: 0;
     padding-top: 12px;
-    color: black;
+    color: rgb(0,2,28);
     font-weight: 100;
     margin: 0;
   }

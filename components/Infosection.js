@@ -3,9 +3,9 @@ import styles from "../styles/Main.module.css";
 
 import { PortableText } from "@portabletext/react";
 import NewsletterMarquee from "./NewsletterMarquee";
-import ProgramPreview from "./ProgramPreview";
-import BeteiligteList from "./BeteiligteList";
 import CurrentlyPreview from "./CurrentlyPreview";
+
+import Link from "next/link";
 
 const Infosection = ({
   english,
@@ -28,51 +28,64 @@ const Infosection = ({
       <div className={styles.infoTextHeadlineWrapper}>
         <h1 className={styles.infoHeadline}>
           {english ? (
-            <PortableText value={editorial.titleEnglish} />
+            <PortableText value={editorial?.titleEnglish} />
           ) : (
-            <PortableText value={editorial.titleGerman} />
+            <PortableText value={editorial?.titleGerman} />
           )}
         </h1>
       </div>
 
       <div className={styles.infoTextWrapper}>
-        <h2 className={styles.infoTextHeadline}>
+        <h2
+          className={styles.infoTextHeadline}
+          style={{ paddingLeft: "var(--spaceSmall)" }}
+        >
           {english ? "About the Festival" : "Über das Festival"}
         </h2>
-        <div className={styles.infoText}>
+        <div className={styles.infoTextTwoColumn}>
           <div>
             {english ? (
-              <PortableText value={about.textEnglish} />
+              <PortableText value={about?.textEnglish} />
             ) : (
-              <PortableText value={about.textGerman} />
+              <PortableText value={about?.textGerman} />
             )}
           </div>
         </div>
       </div>
 
-      <div className={"anchorNewsletter"} id="newsletter"></div>
-      <NewsletterMarquee english={english} />
-
-      <div className={styles.infoTextWrapper}>
-        <span className={styles.infoTextHeadlineSection}>
-          <h2>Open Call</h2>
-          <h1>
-            Open Call
-            {/* {english ? editorial.textTitleEnglish : editorial.textTitleGerman} */}
-          </h1>
-        </span>
-
+      <div className={styles.infoTextWrapper} style={{ color: "rgb(0,2,28)" }}>
         <div className={styles.infoText}>
-          {english ? (
-            <PortableText value={editorial.textEnglish} />
-          ) : (
-            <PortableText value={editorial.textGerman} />
-          )}
+          <div className={styles.infoTextColumn}>
+            <h1 className={styles.infoTextHeadline}>Open Call</h1>
+            {english ? (
+              <PortableText value={editorial?.textEnglish} />
+            ) : (
+              <PortableText value={editorial?.textGerman} />
+            )}
+          </div>
+          <div className={styles.infoTextColumn}>
+            <h1 className={styles.infoTextHeadline}>
+              {english
+                ? editorial?.callTitleEnglish
+                : editorial?.callTitleGerman}
+            </h1>
+            {english ? (
+              <PortableText value={editorial?.callForEntriesEnglish} />
+            ) : (
+              <PortableText value={editorial?.callForEntriesGerman} />
+            )}
+            <h1 className={styles.callButton}>
+              <Link href="/open-call">Zum Open Call</Link>
+            </h1>
+          </div>
         </div>
 
-        <div className={styles.openCall__button}>
+        <div className={"anchorNewsletter"} id="newsletter"></div>
+        <NewsletterMarquee english={english} />
+
+        {/* <div className={styles.openCall__button}>
           <button>{english ? "submit now" : "jetzt einreichen"}</button>
-        </div>
+        </div> */}
       </div>
 
       <div className={styles.mobileInfoText}>
@@ -87,13 +100,15 @@ const Infosection = ({
           <span className={styles.infoTextHeadlineSection}>
             <h2>Editorial</h2>
             <h1>
-              {english ? editorial.textTitleEnglish : editorial.textTitleGerman}
+              {english
+                ? editorial?.textTitleEnglish
+                : editorial?.textTitleGerman}
             </h1>
           </span>
           {english ? (
-            <PortableText value={editorial.textEnglish} />
+            <PortableText value={editorial?.textEnglish} />
           ) : (
-            <PortableText value={editorial.textGerman} />
+            <PortableText value={editorial?.textGerman} />
           )}
         </div>
         <div
@@ -109,17 +124,6 @@ const Infosection = ({
             : "Weniger lesen.."}
         </div>
       </div>
-
-      {/* <h2 className={styles.infoTextHeadline}>
-        {english ? "Program Preview" : "Programmvorschau"}
-      </h2> */}
-
-      {/* <ProgramPreview programm={programm} english={english} /> */}
-      {/* <BeteiligteList beteiligte={beteiligte} english={english} /> */}
-
-      <h2 className={styles.infoTextHeadline}>
-        {english ? "Currently Preview" : "Currently-Vorschau  "}
-      </h2>
 
       <CurrentlyPreview currently={currently} english={english} />
 
@@ -138,9 +142,9 @@ const Infosection = ({
             {english ? "About the Festival" : "Über das Festival"}
           </p>
           {english ? (
-            <PortableText value={about.textEnglish} />
+            <PortableText value={about?.textEnglish} />
           ) : (
-            <PortableText value={about.textGerman} />
+            <PortableText value={about?.textGerman} />
           )}
         </div>
         <div

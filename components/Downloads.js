@@ -1,7 +1,6 @@
 import styles from "../styles/Main.module.css";
 
 const Downloads = ({ english, downloads }) => {
-  console.log(downloads);
 
   return (
     <div style={{ background: "var(--red)" }}>

@@ -56,15 +56,27 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
 
   return (
     <>
-      <div className={styles.navWrapper}>
-        <div
-          className={styles.navLeft}
-          style={{ background: colorArray[index] }}
-        >
+      <div
+        className={
+          router.route.includes("currently") || router.route.includes("press")
+            ? styles.navWrapperInv
+            : styles.navWrapper
+        }
+      >
+        <div className={styles.navLeft}>
           <div className={styles.navLogoWide}>
             <Link href="./">
               <h2>
-                <span className={styles.outline}>
+                <span
+                  className={styles.outline}
+                  style={{
+                    WebkitTextStroke: `1px ${
+                      router.route.includes("currently") || router.route.includes("press")
+                        ? "black"
+                        : "white"
+                    }`,
+                  }}
+                >
                   Current — Kunst und Urbaner Raum
                 </span>
                 <span>
@@ -73,7 +85,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               </h2>
             </Link>
           </div>
-          <div className={styles.navLogoSmall}>
+          <div style={{ color: "red" }} className={styles.navLogoSmall}>
             <Link href="./">
               <h2>
                 <span className={styles.outline}>
@@ -86,12 +98,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
           </div>
         </div>
 
-        <div
-          className={styles.navRight}
-          style={{
-            background: index < 4 ? colorArray[index + 1] : colorArray[0],
-          }}
-        >
+        <div className={styles.navRight}>
           <div className={styles.menuSub}>
             <div
               className={styles.menuSegment}

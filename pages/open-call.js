@@ -47,7 +47,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
 
         <div className={styles.openCallTextsWrapper}>
           <div
-            style={{ background: "var(--red)" }}
+            style={{ color: "white" }}
             className={`${styles.openCallColumnWrapper}`}
           >
             <h1 className={styles.openCallTextHeadline}>Open Call</h1>

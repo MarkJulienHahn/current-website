@@ -84,7 +84,7 @@ const Info = ({ info, english, logos, impressum }) => {
         </div>
 
         <div className={styles.pastFestivalLinksWrapper}>
-          <div className={styles.pastFestivalLink} style={{ color: "white" }}>
+          <div className={styles.pastFestivalLink} style={{ background: "transparent", color: "white" }}>
             <a
               href="http://2021.current-stuttgart.de/de"
               target="_blank"

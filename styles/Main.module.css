@@ -59,7 +59,7 @@
   padding: var(--spaceMedium) var(--spaceSmall) var(--spaceMedium);
   display: flex;
   justify-content: space-between;
-  background: var(--red);
+  color: white;
 }
 
 .infoTextInfo {

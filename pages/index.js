@@ -27,7 +27,7 @@ const Index = ({
   return (
     <>
       <Layout>
-        <div className={"particlesWrapper"}>
+        <div className={"particlesWrapper"}> 
           <GradientCanvas />
           <WeatherMap />
         </div>

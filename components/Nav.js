@@ -85,7 +85,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               </h2>
             </Link>
           </div>
-          <div style={{ color: "red" }} className={styles.navLogoSmall}>
+          <div style={{ color: "white" }} className={styles.navLogoSmall}>
             <Link href="./">
               <h2>
                 <span className={styles.outline}>

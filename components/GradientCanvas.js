@@ -1,18 +1,24 @@
-// components/GradientCanvas.js
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const GradientCanvas = () => {
   const canvasRef = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false); // Track when the canvas is ready
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    const color1 = { r: 0, g: 2, b: 28 }; // Red
+    const color1 = { r: 0, g: 2, b: 28 }; // Dark Blue
     const color2 = { r: 0, g: 0, b: 255 }; // Blue
 
     function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const scaleFactor = 0.5; // Adjust this value to control canvas resolution
+        canvas.width = window.innerWidth * scaleFactor;
+        canvas.height = window.innerHeight * scaleFactor;
+        draw(); // Redraw after resizing to ensure it scales correctly
+        setIsLoaded(true); // Once the drawing is done, show the canvas
+      }, 200); // Debounce the resizing
     }
 
     function lerp(a, b, t) {
@@ -52,7 +58,8 @@ const GradientCanvas = () => {
       p[i] = p[i + 256] = Math.floor(Math.random() * 256);
 
     function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const imageData = ctx.createImageData(canvas.width, canvas.height);
+      const data = imageData.data;
 
       const scale = 5; // Adjust this value to change the turbulence scale
       const randomOffset = Math.random() * 1000; // Random offset for variety
@@ -69,20 +76,26 @@ const GradientCanvas = () => {
           const g = Math.floor(lerp(color1.g, color2.g, n));
           const b = Math.floor(lerp(color1.b, color2.b, n));
 
-          ctx.fillStyle = `rgb(${r},${g},${b})`;
-          ctx.fillRect(x, y, 1, 1);
+          const index = (y * canvas.width + x) * 4;
+          data[index] = r; // Red
+          data[index + 1] = g; // Green
+          data[index + 2] = b; // Blue
+          data[index + 3] = 255; // Alpha
         }
       }
+
+      ctx.putImageData(imageData, 0, 0);
     }
 
+    let resizeTimeout;
     window.addEventListener("resize", resizeCanvas);
 
     resizeCanvas();
-    draw();
 
     // Cleanup on component unmount
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      clearTimeout(resizeTimeout);
     };
   }, []);
 
@@ -95,6 +108,9 @@ const GradientCanvas = () => {
         width: "100%",
         height: "100%",
         zIndex: -1,
+        background: "black",
+        opacity: isLoaded ? 1 : 0, // Set opacity to 1 after it's loaded
+        transition: "opacity 0.5s ease-in-out", // Smooth fade-in
       }}
     >
       <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />

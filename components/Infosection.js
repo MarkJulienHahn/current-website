@@ -74,9 +74,9 @@ const Infosection = ({
             ) : (
               <PortableText value={editorial?.callForEntriesGerman} />
             )}
-            <h1 className={styles.callButton}>
+            {/* <h1 className={styles.callButton}>
               <Link href="/open-call">Zum Open Call</Link>
-            </h1>
+            </h1> */}
           </div>
         </div>
 

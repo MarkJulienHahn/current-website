@@ -59,7 +59,7 @@ const Blogpost = ({
       <div ref={ref2} className="anchor"></div>
       <div
         className={styles.postWrapper}
-        style={i % 2 == 0 ? { background: "white" } : { background: "#F2F2F2" }}
+        style={i % 2 == 0 ? { background: "#ddd" } : { background: "#F2F2F2" }}
         onClick={openIndex == i ? () => setOpenIndex(null) : open}
       >
         <div className={styles.postLeft} ref={headerRef}>

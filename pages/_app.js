@@ -8,7 +8,7 @@ const colorArray = [
   "var(--red)",
   "var(--green)",
   "var(--pink)",
-  "white",
+  "#ddd",
 ];
 
 function MyApp({ Component, pageProps }) {

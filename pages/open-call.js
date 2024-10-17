@@ -25,29 +25,10 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
           <GradientCanvas />
           <WeatherMap />
         </div>
-        <div
-          style={{
-            height: "54vh",
-            width: "100vw",
-            display: "flex",
-            flexWrap: "wrap",
-            overflow: "hidden",
-            cursor: "pointer",
-            background: "white",
-          }}
-          id="main"
-        >
-          <div
-            className={styles.mainTitle}
-            style={{ height: `calc(${height} + 30px)` }}
-          >
-            <h1>CURRENT</h1>
-          </div>
-        </div>
 
         <div className={styles.openCallTextsWrapper}>
           <div
-            style={{ color: "white" }}
+            style={{ color: "#ddd" }}
             className={`${styles.openCallColumnWrapper}`}
           >
             <h1 className={styles.openCallTextHeadline}>Open Call</h1>
@@ -90,7 +71,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
           </div>
           <div
             className={`${styles.openCallColumnWrapper}`}
-            style={{ color: "white" }}
+            style={{ color: "#ddd" }}
           >
             <h1 className={styles.openCallTextHeadline}>
               {english
@@ -116,7 +97,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
                 )}
               </div>
             </div>
-
+{/* 
             <h1
               className={styles.callButton}
               style={{ marginTop: "var(--spaceLarge)" }}
@@ -136,7 +117,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
               {english
                 ? "You will be redirected to an external page. You do not need a Google account for this."
                 : "Sie werden auf eine externe Seite umgeleitet.Sie benötigen dafür keinen Google Account."}
-            </p>
+            </p> */}
           </div>
         </div>
       </>

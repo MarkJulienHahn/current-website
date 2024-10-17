@@ -42,7 +42,7 @@ const Kalender = ({
       <div
         className={styles.header}
         style={
-          filterActive ? { background: "var(--pink)" } : { background: "white" }
+          filterActive ? { background: "var(--pink)" } : { background: "#ddd" }
         }
         onClick={() => setActiveIndex(null)}
       >

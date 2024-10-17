@@ -25,7 +25,7 @@ const Info = ({ info, english, logos, impressum }) => {
         <div className={styles.infoTextWrapper} id="about">
           <div
             className={styles.infoTextInfo}
-            style={{ background: "transparent", color: "white" }}
+            style={{ background: "transparent", color: "#ddd" }}
           >
             <h2 className={styles.infoTextHeadline}>
               {english ? info.subtitleEnglish : info.subtitleGerman}
@@ -84,7 +84,7 @@ const Info = ({ info, english, logos, impressum }) => {
         </div>
 
         <div className={styles.pastFestivalLinksWrapper}>
-          <div className={styles.pastFestivalLink} style={{ background: "transparent", color: "white" }}>
+          <div className={styles.pastFestivalLink} style={{ background: "transparent", color: "#ddd" }}>
             <a
               href="http://2021.current-stuttgart.de/de"
               target="_blank"

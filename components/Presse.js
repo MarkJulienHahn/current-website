@@ -11,7 +11,7 @@ const Presse = ({ english, presse, logos, impressum }) => {
       {presse.length != 100 ? (
         <>
           <div className={"anchor"} id="presse"></div>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", color: "#ddd" }}>
             <div className={styles.infoSubHeadlineDownloads}>
               <h1>{english ? "Press" : "Presse"}</h1>
               <h2 className={styles.presseSubheadline}>

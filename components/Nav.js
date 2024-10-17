@@ -58,9 +58,10 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
     <>
       <div
         className={
-          router.route.includes("currently") || router.route.includes("press")
-            ? styles.navWrapperInv
-            : styles.navWrapper
+          // router.route.includes("currently") || router.route.includes("press")
+          //   ? styles.navWrapperInv
+          //   : styles.navWrapper
+          styles.navWrapper
         }
       >
         <div className={styles.navLeft}>
@@ -69,13 +70,15 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               <h2>
                 <span
                   className={styles.outline}
-                  style={{
-                    WebkitTextStroke: `1px ${
-                      router.route.includes("currently") || router.route.includes("press")
-                        ? "black"
-                        : "white"
-                    }`,
-                  }}
+                  style={{ WebkitTextStroke: "1px #ddd" }}
+                  // style={{
+                  //   WebkitTextStroke: `1px ${
+                  //     router.route.includes("currently") ||
+                  //     router.route.includes("press")
+                  //       ? "black"
+                  //       : "#ddd"
+                  //   }`,
+                  // }}
                 >
                   Current — Kunst und Urbaner Raum
                 </span>
@@ -85,7 +88,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               </h2>
             </Link>
           </div>
-          <div style={{ color: "white" }} className={styles.navLogoSmall}>
+          <div style={{ color: "#ddd" }} className={styles.navLogoSmall}>
             <Link href="./">
               <h2>
                 <span className={styles.outline}>

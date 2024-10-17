@@ -48,7 +48,7 @@
 .infoTextWrapper,
 .infoTextHeadlineWrapper {
   /* background: black; */
-  color: white;
+  color: #ddd;
 }
 
 .infoTextHeadline {
@@ -59,7 +59,7 @@
   padding: var(--spaceMedium) var(--spaceSmall) var(--spaceMedium);
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: #ddd;
 }
 
 .infoTextInfo {
@@ -134,7 +134,7 @@
 .newsletterMarquee {
   display: flex;
   align-items: center;
-  color: white;
+  color: #ddd;
   height: 120px;
   padding-bottom: var(--spaceSmall);
   /* background: black; */
@@ -162,13 +162,13 @@
 .newsletterMarquee input::placeholder,
 .newsletterMarquee input:focus {
   border: 0;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #ddd;
   outline: 0;
   background: none;
   margin: var(--spaceSmall);
   font-family: "Rubik", sans-serif;
   font-size: 22.5px;
-  color: white;
+  color: #ddd;
   opacity: 1;
   width: 50vw;
 }
@@ -181,7 +181,7 @@
   background: none;
   text-transform: uppercase;
   cursor: pointer;
-  color: white;
+  color: #ddd;
 }
 
 .newsletterMarquee button:hover {
@@ -233,6 +233,7 @@
 
 .presseContent {
   padding: 0 var(--spaceSmall) var(--space);
+  color: #ddd
 }
 
 .presseText {
@@ -405,7 +406,8 @@
 .openCallTextsWrapper {
   width: 100%;
   display: flex;
-  position: relative
+  position: relative;
+  margin-top: var(--spaceLarge);
 }
 
 .openCallColumnWrapper {
@@ -442,6 +444,7 @@
     padding: 0px 5px 0 15px;
     column-count: 1;
     font-size: 16px;
+    color: #ddd;
   }
 
   .infoTextWrapper,

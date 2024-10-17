@@ -1,14 +1,14 @@
 .navWrapper {
   position: fixed;
-  top: 0;
+  top: 15px;
   height: var(--space);
   width: 100vw;
   display: flex;
   justify-content: space-between;
   font-family: "Activist";
   z-index: 10000;
-  color: white;
-  -webkit-text-stroke-color: white;
+  color: #ddd;
+  -webkit-text-stroke-color: #ddd;
 }
 
 .navWrapperInv {
@@ -41,7 +41,7 @@
 }
 
 .navLeft {
-  padding-left: 12px;
+  padding-left: var(--spaceSmall);
 }
 
 .navRightTop {
@@ -71,14 +71,14 @@
 .menuSegment {
   width: 25%;
   cursor: pointer;
-  padding: 5px var(--spaceSmall) 0px;
+  padding: 5px 12px 0px;
   height: 100%;
 }
 
 .bottomRow {
   position: absolute;
   left: 50vw;
-  padding-left: var(--spaceSmall);
+  padding-left: 12px;
   transform: translateX(-12px);
   width: 50vw;
   display: flex;
@@ -113,7 +113,7 @@
   width: 12.5%;
   right: 0;
   top: 32px;
-  padding-left: 20px;
+  padding-left: 12px;
   cursor: pointer;
   z-index: 1000;
 }
@@ -128,7 +128,7 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
   .navWrapper {
     display: none;
   }

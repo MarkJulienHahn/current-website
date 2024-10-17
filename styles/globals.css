@@ -3,7 +3,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Rubik", sans-serif;
-  font-size: 22.5px;
+  font-size: 24px;
+  line-height: 1.4em;
   font-weight: 100;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -11,7 +12,8 @@ body {
   overflow-y: scroll;
   overscroll-behavior: none;
   scroll-behavior: smooth !important;
-  color: rgb(0,2,28)
+  color: rgb(0, 2, 28);
+  background: rgb(0, 0, 150);
 }
 
 ::-webkit-scrollbar {
@@ -36,6 +38,10 @@ a {
   cursor: pointer;
 }
 
+p a {
+  text-decoration: underline;
+}
+
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -52,15 +58,15 @@ a {
   --space: 65px;
   --spaceLarge: 130px;
   --spaceMedium: 48px;
-  --spaceSmall: 20px;
+  --spaceSmall: 30px;
   --spaceTiny: 5px;
   --swiper-navigation-color: var(--red);
   --swiper-navigation-sides-offset: 12px;
 }
 
 ::selection {
-  background: rgb(0,2,28);
-  color: white;
+  background: rgb(0, 2, 28);
+  color: #ddd;
 }
 
 h1 {
@@ -154,16 +160,7 @@ input {
   z-index: 0;
 }
 
-
-@media screen and (max-width: 1500px) {
-  body {
-    font-size: 14pt;
-    line-height: 16pt;
-  }
-}
-
-
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
   :root {
     --space: 42px;
     --spaceSmall: 12px;
@@ -172,7 +169,7 @@ input {
   }
   body {
     font-size: 10pt;
-    line-height: 12pt;
+    line-height: 16pt;
   }
   main {
     overflow: hidden;
@@ -196,5 +193,4 @@ input {
     height: 200px;
     pointer-events: none;
   }
-
 }

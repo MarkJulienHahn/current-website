@@ -135,7 +135,7 @@
 
   .names {
     z-index: 1;
-    background: white;
+    background: #ddd;
     overflow: unset;
     max-height: unset;
   }

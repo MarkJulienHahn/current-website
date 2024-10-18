@@ -30,7 +30,6 @@ const Index = ({
 
         <div
           style={{
-            height: "80vh",
             width: "100vw",
             display: "flex",
             flexWrap: "wrap",

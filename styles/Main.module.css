@@ -29,6 +29,7 @@
 
 .infoHeadline {
   padding-left: var(--spaceSmall);
+  padding-right: var(--spaceSmall);
   padding-bottom: var(--spaceMedium);
 }
 
@@ -65,7 +66,7 @@
 .infoTextInfo {
   padding: var(--spaceMedium) var(--spaceSmall) var(--spaceMedium);
   background: var(--red);
-  color: rgb(0,2,28);
+  color: rgb(0, 2, 28);
   padding-top: var(--spaceLarge);
 }
 
@@ -185,7 +186,7 @@
 }
 
 .newsletterMarquee button:hover {
-  border-bottom: 2px solid rgb(0,2,28);
+  border-bottom: 2px solid rgb(0, 2, 28);
 }
 
 .formStatus {
@@ -234,7 +235,7 @@
 
 .presseContent {
   padding: 0 var(--spaceSmall) var(--space);
-  color: #ddd
+  color: #ddd;
 }
 
 .presseText {
@@ -386,7 +387,7 @@
 .pastFestivalLink {
   width: 50%;
   padding: var(--spaceMedium);
-  font-size: 48px;  
+  font-size: 48px;
   line-height: 54px;
   font-family: "Activist";
   font-weight: 100;
@@ -425,14 +426,20 @@
   line-height: 15pt;
 }
 
-
-
 @media screen and (max-width: 1000px) {
   .openCallTextsWrapper {
     display: block;
   }
   .openCallColumnWrapper {
     width: 100%;
+  }
+  .pastFestivalLinksWrapper {
+    flex-direction: column;
+  }
+  .pastFestivalLink {
+    width: 100%;
+    font-size: 35px;
+    line-height: 38px
   }
 }
 
@@ -444,7 +451,6 @@
     display: block;
     padding: 0px 5px 0 15px;
     column-count: 1;
-    font-size: 16px;
     color: #ddd;
   }
 
@@ -455,6 +461,14 @@
 
   .mobileInfoText p {
     padding-bottom: 20px;
+  }
+
+  .mobileAccordionClosed p {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .mehrLesen {
     padding: 20px 0 var(--space) 0;
@@ -531,9 +545,10 @@
     position: absolute;
     right: 0;
     padding-top: 12px;
-    color: rgb(0,2,28);
     font-weight: 100;
     margin: 0;
+    padding-right: var(--spaceSmall);
+    
   }
 
   .newsletterMarqueeHalf h2 {

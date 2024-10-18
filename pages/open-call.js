@@ -16,8 +16,6 @@ import Layout from "../components/Layout";
 const openCall = ({ currently, openCall, logos, impressum, english }) => {
   const height = use100vh();
 
-  console.log(openCall?.pdf);
-
   return (
     <>
       <>
@@ -97,7 +95,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
                 )}
               </div>
             </div>
-{/* 
+            {/* 
             <h1
               className={styles.callButton}
               style={{ marginTop: "var(--spaceLarge)" }}
@@ -174,7 +172,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
         <CurrentlyPreview currently={currently} english={english} />
 
         <div className={styles.infopageLogosWrapper}>
-          <LogosPresse english={english} logos={logos[0].logosFoerderer} />
+          <LogosPresse english={english} logos={logos} />
         </div>
         <Footer english={english} impressum={impressum} />
       </div>
@@ -187,8 +185,9 @@ export default openCall;
 export async function getServerSideProps() {
   const openCall = await client.fetch(`
   * [_type == "openCall"][0]{"pdf": pdf.asset->{url}, ...}`);
-  const logos = await client.fetch(`
-  * [_type == "logosNeu"]{"logosFoerderer": logosFoerderer[].logo.asset->{...}}`);
+  const logos = await client.fetch(
+    `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
+  );
   const impressum = await client.fetch(`
   * [_type == "impressum"]{...}`);
   const currently = await client.fetch(

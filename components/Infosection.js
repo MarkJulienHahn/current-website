@@ -36,12 +36,6 @@ const Infosection = ({
       </div>
 
       <div className={styles.infoTextWrapper}>
-        <h2
-          className={styles.infoTextHeadline}
-          style={{ paddingLeft: "var(--spaceSmall)" }}
-        >
-          {english ? "About the Festival" : "Über das Festival"}
-        </h2>
         <div className={styles.infoTextTwoColumn}>
           <div>
             {english ? (
@@ -91,6 +85,35 @@ const Infosection = ({
       <div className={styles.mobileInfoText}>
         <div
           className={
+            !mobileText2
+              ? styles.mobileAccordionClosed
+              : styles.mobileAccordionOpen
+          }
+          onClick={() => setBackground2(!background2)}
+        >
+          {english ? (
+            <PortableText value={about?.textEnglish} />
+          ) : (
+            <PortableText value={about?.textGerman} />
+          )}
+        </div>
+        <div
+          className={styles.mehrLesen}
+          onClick={() => setMobileText2(!mobileText2)}
+        >
+          {!mobileText2
+            ? english
+              ? "Read more..."
+              : "Mehr lesen.."
+            : english
+            ? "Show less..."
+            : "Weniger lesen.."}
+        </div>
+      </div>
+
+      <div className={styles.mobileInfoText}>
+        <div
+          className={
             !mobileText1
               ? styles.mobileAccordionClosed
               : styles.mobileAccordionOpen
@@ -98,7 +121,6 @@ const Infosection = ({
           onClick={() => setBackground(!background)}
         >
           <span className={styles.infoTextHeadlineSection}>
-            <h2>Editorial</h2>
             <h1>
               {english
                 ? editorial?.textTitleEnglish
@@ -125,41 +147,22 @@ const Infosection = ({
         </div>
       </div>
 
+      <div className={styles.mobileInfoText}>
+        <div className={styles.mobileAccordionOpen}>
+          <span className={styles.infoTextHeadlineSection}>
+            <h1>Call for Entries</h1>
+          </span>
+          {english ? (
+            <PortableText value={editorial?.callForEntriesEnglish} />
+          ) : (
+            <PortableText value={editorial?.callForEntriesGerman} />
+          )}
+        </div>
+      </div>
+
       <CurrentlyPreview currently={currently} english={english} />
 
       <div className={"anchor"} id="about"></div>
-
-      <div className={styles.mobileInfoText}>
-        <div
-          className={
-            !mobileText2
-              ? styles.mobileAccordionClosed
-              : styles.mobileAccordionOpen
-          }
-          onClick={() => setBackground2(!background2)}
-        >
-          <p className={styles.mobileInfoHeading}>
-            {english ? "About the Festival" : "Über das Festival"}
-          </p>
-          {english ? (
-            <PortableText value={about?.textEnglish} />
-          ) : (
-            <PortableText value={about?.textGerman} />
-          )}
-        </div>
-        <div
-          className={styles.mehrLesen}
-          onClick={() => setMobileText2(!mobileText2)}
-        >
-          {!mobileText2
-            ? english
-              ? "Read more..."
-              : "Mehr lesen.."
-            : english
-            ? "Show less..."
-            : "Weniger lesen.."}
-        </div>
-      </div>
     </div>
   );
 };

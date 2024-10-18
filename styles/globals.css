@@ -160,6 +160,16 @@ input {
   z-index: 0;
 }
 
+.maplibregl-canvas {
+  pointer-events: none;
+}
+
+#main {
+  height: 80vh;
+  cursor: pointer;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 1000px) {
   :root {
     --space: 42px;
@@ -168,17 +178,21 @@ input {
     --spaceLarge: 42px;
   }
   body {
-    font-size: 10pt;
-    line-height: 16pt;
+    font-size: 14pt;
+    line-height: 20pt;
+  }
+  #main {
+    height: 40vh;
   }
   main {
     overflow: hidden;
   }
+
   h1,
   h2 {
-    font-size: 22px;
+    font-size: 32px;
     letter-spacing: -1px;
-    line-height: 24px;
+    line-height: 32px;
   }
 
   .anchor {

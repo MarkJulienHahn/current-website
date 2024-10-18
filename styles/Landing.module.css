@@ -22,4 +22,7 @@
   /* .A {
     height: 50%;
   } */
+  .mainTitle h1 {
+    padding-top: 6vh;
+  }
 }

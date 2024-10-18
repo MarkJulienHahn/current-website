@@ -2,7 +2,7 @@ import styles from "../styles/Main.module.css";
 import Image from "next/image";
 
 const LogosPresse = ({ english, logos }) => {
-
+console.log(logos)
   return (
     <div
       className={styles.logosWrapper}
@@ -20,7 +20,7 @@ const LogosPresse = ({ english, logos }) => {
             style={{ width: "25%", height: "60px", position: "relative" }}
           >
             <Image
-              src={logo?.url}
+              src={logo?.logo?.url}
               fill
               style={{ objectFit: "contain" }}
               alt="current website logos"

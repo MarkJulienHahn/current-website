@@ -27,10 +27,7 @@ const Index = ({
   return (
     <>
       <Layout>
-        <div className={"particlesWrapper"}>
-          <GradientCanvas />
-          <WeatherMap />
-        </div>
+
         <div
           style={{
             height: "80vh",

@@ -5,7 +5,8 @@ import styles from "../styles/Karte.module.css";
 
 export default function WeatherMap() {
   const mapContainerRef = useRef(null);
-  const [isSDKLoaded, setIsSDKLoaded] = useState(false);
+  const [isMapTilerSDKLoaded, setIsMapTilerSDKLoaded] = useState(false);
+  const [isWeatherSDKLoaded, setIsWeatherSDKLoaded] = useState(false);
 
   const initializeMap = () => {
     if (
@@ -69,17 +70,11 @@ export default function WeatherMap() {
   };
 
   useEffect(() => {
-    // Check if SDK is already loaded in the window object
-    if (window.maptilersdk && window.maptilerweather) {
-      setIsSDKLoaded(true); // SDK is already loaded, no need to wait for onLoad
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isSDKLoaded) {
+    // Initialize map only when both SDKs are loaded
+    if (isMapTilerSDKLoaded && isWeatherSDKLoaded) {
       initializeMap();
     }
-  }, [isSDKLoaded]);
+  }, [isMapTilerSDKLoaded, isWeatherSDKLoaded]);
 
   return (
     <>
@@ -93,11 +88,11 @@ export default function WeatherMap() {
       {/* Load the MapTiler and Weather SDKs */}
       <Script
         src="https://cdn.maptiler.com/maptiler-sdk-js/v2.3.0/maptiler-sdk.umd.min.js"
-        onLoad={() => setIsSDKLoaded(true)}
+        onLoad={() => setIsMapTilerSDKLoaded(true)}
       />
       <Script
         src="https://cdn.maptiler.com/maptiler-weather/v2.0.0/maptiler-weather.umd.min.js"
-        onLoad={() => setIsSDKLoaded(true)}
+        onLoad={() => setIsWeatherSDKLoaded(true)}
       />
 
       <div id="map" ref={mapContainerRef} className={styles.map}></div>

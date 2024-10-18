@@ -1,5 +1,6 @@
 .postsOuter {
   margin-top: 95px;
+  position: relative;
 }
 
 .postWrapper {

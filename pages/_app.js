@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "../styles/globals.css";
 
+import GradientCanvas from "../components/GradientCanvas";
+import WeatherMap from "../components/WeatherMap";
+
 import Nav from "../components/Nav";
 
 const colorArray = [
@@ -24,6 +27,10 @@ function MyApp({ Component, pageProps }) {
         showNav={showNav}
         setShowNav={setShowNav}
       />
+      <div className={"particlesWrapper"}>
+        <GradientCanvas />
+        <WeatherMap />
+      </div>
       <Component
         {...pageProps}
         setShowNav={setShowNav}

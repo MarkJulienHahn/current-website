@@ -17,10 +17,10 @@ const Info = ({ info, english, logos, impressum }) => {
 
   return (
     <>
-      <div className={"particlesWrapper"}>
+      {/* <div className={"particlesWrapper"}>
         <GradientCanvas />
         <WeatherMap />
-      </div>
+      </div> */}
       <div className={styles.infoPageWrapper}>
         <div className={styles.infoTextWrapper} id="about">
           <div

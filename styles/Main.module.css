@@ -225,6 +225,7 @@
 
 .pressPageWrapper {
   padding-top: var(--space);
+  position: relative;
 }
 
 .presseSubheadline {

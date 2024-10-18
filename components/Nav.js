@@ -91,11 +91,14 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
           <div style={{ color: "#ddd" }} className={styles.navLogoSmall}>
             <Link href="./">
               <h2>
-                <span className={styles.outline}>
+                <span
+                  className={styles.outline}
+                  style={{ WebkitTextStroke: "1px #ddd" }}
+                >
                   Current — Kunst und Urbaner Raum
                   <br />
                 </span>
-                14.–24.09.2023 / Stuttgart
+                27.06. – 27.07.2025 / Stuttgart
               </h2>
             </Link>
           </div>
@@ -189,12 +192,17 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
         >
           <Link href="./">
             <h2>
-              <span className={styles.outline}>
+              <span
+                className={styles.outline}
+                style={{ WebkitTextStroke: "1px black" }}
+              >
                 Current
+              </span>
+              <span>
                 <br />
                 <span style={{ display: menuExtended ? "" : "none" }}>
                   Kunst und Urbaner Raum
-                  <br /> 14.–24.09.2023 / Stuttgart
+                  <br /> 27.06. – 27.07.2025 / Stuttgart
                 </span>
               </span>
             </h2>

@@ -154,6 +154,7 @@
     top: 0;
     z-index: 101;
     padding: 6px 0 0 8px;
+    color: black
   }
 
   .mobileLogoWrapper h2 {

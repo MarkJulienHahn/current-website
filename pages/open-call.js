@@ -21,10 +21,10 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
   return (
     <>
       <>
-        <div className={"particlesWrapper"}>
+        {/* <div className={"particlesWrapper"}>
           <GradientCanvas />
           <WeatherMap />
-        </div>
+        </div> */}
 
         <div className={styles.openCallTextsWrapper}>
           <div

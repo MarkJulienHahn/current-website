@@ -58,19 +58,24 @@ const Infosection = ({
             )}
           </div>
           <div className={styles.infoTextColumn}>
-            <h1 className={styles.infoTextHeadline}>
-              {english
+            <h1
+              className={styles.infoTextHeadline}
+              style={{ paddingTop: "55px" }}
+            >
+              {/* {english
                 ? editorial?.callTitleEnglish
-                : editorial?.callTitleGerman}
+                : editorial.callTitleGerman || <p></p>} */}
             </h1>
             {english ? (
               <PortableText value={editorial?.callForEntriesEnglish} />
             ) : (
               <PortableText value={editorial?.callForEntriesGerman} />
             )}
-            {/* <h1 className={styles.callButton}>
-              <Link href="/open-call">Zum Open Call</Link>
-            </h1> */}
+            <h1 className={styles.callButton}>
+              <Link href="/open-call">
+                {english ? "More information here" : "Weitere Infos hier"}
+              </Link>
+            </h1>
           </div>
         </div>
 
@@ -149,9 +154,6 @@ const Infosection = ({
 
       <div className={styles.mobileInfoText}>
         <div className={styles.mobileAccordionOpen}>
-          <span className={styles.infoTextHeadlineSection}>
-            <h1>Call for Entries</h1>
-          </span>
           {english ? (
             <PortableText value={editorial?.callForEntriesEnglish} />
           ) : (

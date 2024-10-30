@@ -83,7 +83,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                   Current — Kunst und Urbaner Raum
                 </span>
                 <span>
-                  <br /> 27.06. – 27.07.2025 / Stuttgart
+                  <br /> 26.06. – 27.07.2025 / Stuttgart
                 </span>
               </h2>
             </Link>
@@ -98,7 +98,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                   Current — Kunst und Urbaner Raum
                   <br />
                 </span>
-                27.06. – 27.07.2025 / Stuttgart
+                26.06. – 27.07.2025 / Stuttgart
               </h2>
             </Link>
           </div>
@@ -202,7 +202,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                 <br />
                 <span style={{ display: menuExtended ? "" : "none" }}>
                   Kunst und Urbaner Raum
-                  <br /> 27.06. – 27.07.2025 / Stuttgart
+                  <br /> 26.06. – 27.07.2025 / Stuttgart
                 </span>
               </span>
             </h2>

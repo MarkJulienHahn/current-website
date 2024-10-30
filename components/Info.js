@@ -17,10 +17,6 @@ const Info = ({ info, english, logos, impressum }) => {
 
   return (
     <>
-      {/* <div className={"particlesWrapper"}>
-        <GradientCanvas />
-        <WeatherMap />
-      </div> */}
       <div className={styles.infoPageWrapper}>
         <div className={styles.infoTextWrapper} id="about">
           <div
@@ -110,7 +106,7 @@ const Info = ({ info, english, logos, impressum }) => {
           </div>
         </div>
         <div className={styles.infopageLogosWrapper}>
-          <LogosPresse english={english} logos={logos[0].logosFoerderer} />
+          <LogosPresse english={english} logos={logos} />
         </div>
         <Footer english={english} impressum={impressum} />
       </div>

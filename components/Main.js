@@ -29,18 +29,18 @@ const Main = ({
         currently={currently}
       />
 
-      <Team english={english} team={team} downloads={downloads} />
+      {/* <Team english={english} team={team} downloads={downloads} /> */}
 
       <LogosFoerderer
         english={english}
         published={logos.publishedFoerderer}
         logos={logos.logosFoerderer}
       />
-      <LogosSponsoren
+      {/* <LogosSponsoren
         english={english}
         published={logos.publishedSponsoren}
         logos={logos.logosSponsoren}
-      />
+      /> */}
       <LogosMedia
         english={english}
         published={logos.publishedMedia}

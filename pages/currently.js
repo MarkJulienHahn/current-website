@@ -48,7 +48,7 @@ export async function getServerSideProps() {
     `* [_type == "currently"] {..., "textbeitrag": textbeitrag[]{..., "images": images[]{..., "image": image.asset->{...}}}, "bildbeitrag": bildbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}, "newsbeitrag": newsbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}} | order(header.date desc)`
   );
   const impressum = await client.fetch(`
-  * [_type == "impressum"]{...}`);
+  * [_type == "impressum25"]{...}`);
   return {
     props: {
       currently,

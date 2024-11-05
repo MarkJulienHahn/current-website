@@ -186,10 +186,10 @@ export async function getServerSideProps() {
   const openCall = await client.fetch(`
   * [_type == "openCall"][0]{"pdf": pdf.asset->{url}, ...}`);
   const logos = await client.fetch(
-    `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
+    `* [_type == "logos25"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );
   const impressum = await client.fetch(`
-  * [_type == "impressum"]{...}`);
+  * [_type == "impressum25"]{...}`);
   const currently = await client.fetch(
     `* [_type == "currently"] {..., "textbeitrag": textbeitrag[]{..., "images": images[]{..., "image": image.asset->{...}}}, "bildbeitrag": bildbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}, "newsbeitrag": newsbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}} | order(header.date desc)`
   );

@@ -18,13 +18,13 @@ export default presse;
 
 export async function getServerSideProps() {
   const presse = await client.fetch(
-    `* [_type == "presse"]{..., "downloads": downloads[]{..., "download":download[]{..., "file": file.asset->{...}}}}`
+    `* [_type == "presse25"]{..., "downloads": downloads[]{..., "download":download[]{..., "file": file.asset->{...}}}}`
   );
   const logos = await client.fetch(
-    `* [_type == "logos"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
+    `* [_type == "logos25"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );
   const impressum = await client.fetch(`
-  * [_type == "impressum"]{...}`);
+  * [_type == "impressum25"]{...}`);
 
   return {
     props: {

@@ -124,7 +124,7 @@ ul {
 }
 
 .wrapper {
-  position: relative;
+  position: absolute;
 }
 
 input {

@@ -11,8 +11,6 @@ const Infosection = ({
   english,
   editorial,
   about,
-  programm,
-  beteiligte,
   currently,
 }) => {
   const [background, setBackground] = useState(true);

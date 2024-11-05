@@ -33,7 +33,9 @@ const Presse = ({ english, presse, logos, impressum }) => {
       ) : (
         ""
       )}
-      <Downloads english={english} downloads={presse[1].downloads} />
+      {presse[1] && (
+        <Downloads english={english} downloads={presse[1].downloads} />
+      )}
       <LogosPresse english={english} logos={logos} />
       <Footer english={english} impressum={impressum} />
     </div>

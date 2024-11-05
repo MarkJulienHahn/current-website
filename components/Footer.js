@@ -95,8 +95,8 @@ const Footer = ({ english, impressum }) => {
           style={{ background: width > 700 ? "var(--pink)" : "var(--green)" }}
         >
           <h2>
-            <PortableText value={impressum[0].contact} />
-            <a href={`mailto:${impressum[0].email}`}>{impressum[0].email}</a>
+            <PortableText value={impressum[0]?.contact} />
+            <a href={`mailto:${impressum[0]?.email}`}>{impressum[0]?.email}</a>
           </h2>
         </div>
       </div>

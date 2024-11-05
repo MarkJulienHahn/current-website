@@ -72,7 +72,7 @@ const Info = ({ info, english, logos, impressum }) => {
 
                 <p>{english ? entry.positionEN : entry.positionDE}</p>
                 {entry.email && (
-                  <a href={`mailto:${entry.email}`}> {entry.email}</a>
+                  <a href={`mailto:${entry.email}`}>→ Email</a>
                 )}
               </div>
             ))}

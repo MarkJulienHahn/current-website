@@ -7,12 +7,7 @@ import CurrentlyPreview from "./CurrentlyPreview";
 
 import Link from "next/link";
 
-const Infosection = ({
-  english,
-  editorial,
-  about,
-  currently,
-}) => {
+const Infosection = ({ english, editorial, about, currently }) => {
   const [background, setBackground] = useState(true);
   const [background2, setBackground2] = useState(true);
 
@@ -46,7 +41,7 @@ const Infosection = ({
       </div>
 
       <div className={styles.infoTextWrapper} style={{ color: "rgb(0,2,28)" }}>
-        <div className={styles.infoText}>
+        {/* <div className={styles.infoText}>
           <div className={styles.infoTextColumn}>
             <h1 className={styles.infoTextHeadline}>Open Call</h1>
             {english ? (
@@ -63,7 +58,7 @@ const Infosection = ({
               {/* {english
                 ? editorial?.callTitleEnglish
                 : editorial.callTitleGerman || <p></p>} */}
-            </h1>
+        {/*    </h1>
             {english ? (
               <PortableText value={editorial?.callForEntriesEnglish} />
             ) : (
@@ -75,7 +70,7 @@ const Infosection = ({
               </Link>
             </h1>
           </div>
-        </div>
+        </div> */}
 
         <div className={"anchorNewsletter"} id="newsletter"></div>
         <NewsletterMarquee english={english} />

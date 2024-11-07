@@ -111,9 +111,9 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               onMouseEnter={() => setBottomRow("Programm")}
               // onMouseLeave={() => setBottomRow("")}
             >
-              <Link href="./open-call">
+              {/* <Link href="./open-call">
                 <h2>Open Call</h2>
-              </Link>
+              </Link> */}
               {/* <Link href="./kalender">
                 <h2>{english ? "Program" : "Programm"}</h2>
               </Link>
@@ -239,7 +239,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             }
             onClick={() => setShowNav(false)}
           >
-            <Link href="./open-call">Open Call</Link>
+            {/* <Link href="./open-call">Open Call</Link> */}
             <Link href="./info">Info</Link>
             <Link className={styles.eingerueckt} href="./info">
               {english ? "About" : "Über"}

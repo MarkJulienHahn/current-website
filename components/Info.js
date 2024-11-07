@@ -59,6 +59,7 @@ const Info = ({ info, english, logos, impressum }) => {
         </div>
 
         <div className={styles.infoTeamWrapper} id="team">
+          
           <h1
             className={styles.infoTextHeadline}
             style={{ padding: "0 0 5px var(--spaceSmall)" }}

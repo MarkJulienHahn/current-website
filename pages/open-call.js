@@ -95,7 +95,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
                 )}
               </div>
             </div>
-
+{/* 
             <h1
               className={styles.callButton}
               style={{ marginTop: "var(--spaceLarge)" }}
@@ -115,7 +115,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
               {english
                 ? "You will be redirected to an external page. You do not need a Google account for this."
                 : "Sie werden auf eine externe Seite umgeleitet.Sie benötigen dafür keinen Google Account."}
-            </p>
+            </p> */}
           </div>
         </div>
       </>

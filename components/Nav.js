@@ -8,7 +8,7 @@ import styles from "../styles/Nav.module.css";
 
 const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
   const [index, setIndex] = useState(null);
-  const [bottomRow, setBottomRow] = useState(null);
+  const [bottomRow, setBottomRow] = useState("Info");
 
   const [menuExtended, setMenuExtended] = useState(true);
 
@@ -146,9 +146,22 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
                   <Link href="./info/#team">
                     <h2>{english ? "Team" : "Team"}</h2>
                   </Link>
-                  <Link href="info/#current21">
-                    <h2>Current 23</h2>
-                  </Link>
+                  <div className={styles.bottomBacklinks}>
+                    <a
+                      href="https://2023.current-stuttgart.de"
+                      target="blank"
+                      rel="noreferrer"
+                    >
+                      <h2>Current 23</h2>
+                    </a>
+                    <a
+                      href="http://2021.current-stuttgart.de"
+                      target="blank"
+                      rel="noreferrer"
+                    >
+                      <h2>Current 21</h2>
+                    </a>
+                  </div>
                 </div>
               )}
             </div>

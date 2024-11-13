@@ -83,7 +83,7 @@ const Info = ({ info, english, logos, impressum }) => {
         <div className={styles.pastFestivalLinksWrapper}>
           <div className={styles.pastFestivalLink} style={{ background: "transparent", color: "#ddd" }}>
             <a
-              href="http://2021.current-stuttgart.de/de"
+              href="http://2021.current-stuttgart.de"
               target="_blank"
               rel="noreferrer"
               id="current21"
@@ -95,7 +95,7 @@ const Info = ({ info, english, logos, impressum }) => {
           </div>
           <div className={styles.pastFestivalLink}>
             <a
-              href="http://2023.current-stuttgart.de/de"
+              href="http://2023.current-stuttgart.de"
               target="_blank"
               rel="noreferrer"
               id="current21"

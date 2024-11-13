@@ -16,6 +16,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
+    
     <>
       {showPopup && (
         <ConfirmationPopup

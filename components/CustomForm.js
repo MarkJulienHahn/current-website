@@ -19,7 +19,7 @@ const CustomForm = ({ english, status, message, onValidated }) => {
       {!status && (
         <>
           <input
-            placeholder={english ? "E-Mail Adress" : "E-Mail Adresse"}
+            placeholder={english ? "E-Mail Address" : "E-Mail Adresse"}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             value={email}

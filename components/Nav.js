@@ -8,7 +8,7 @@ import styles from "../styles/Nav.module.css";
 
 const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
   const [index, setIndex] = useState(null);
-  const [bottomRow, setBottomRow] = useState("Info");
+  const [bottomRow, setBottomRow] = useState(null);
 
   const [menuExtended, setMenuExtended] = useState(true);
 
@@ -111,9 +111,9 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
               onMouseEnter={() => setBottomRow("Programm")}
               // onMouseLeave={() => setBottomRow("")}
             >
-              {/* <Link href="./open-call">
+              <Link href="./open-call">
                 <h2>Open Call</h2>
-              </Link> */}
+              </Link>
               {/* <Link href="./kalender">
                 <h2>{english ? "Program" : "Programm"}</h2>
               </Link>

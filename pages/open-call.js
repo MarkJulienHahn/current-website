@@ -1,6 +1,8 @@
 import client from "../client";
 
-import { use100vh } from "react-div-100vh";
+import { useState } from "react";
+
+import ConfirmationPopup from "../components/ConfirmationPopup";
 
 import LogosPresse from "../components/LogosPresse";
 import Footer from "../components/Footer";
@@ -9,22 +11,24 @@ import CurrentlyPreview from "../components/CurrentlyPreview";
 
 import styles from "../styles/Main.module.css";
 import { PortableText } from "@portabletext/react";
-import WeatherMap from "../components/WeatherMap";
-import GradientCanvas from "../components/GradientCanvas";
-import Layout from "../components/Layout";
 
 const openCall = ({ currently, openCall, logos, impressum, english }) => {
-  const height = use100vh();
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <>
+      {showPopup && (
+        <ConfirmationPopup
+          english={english}
+          openCall={openCall}
+          setShowPopup={setShowPopup}
+        />
+      )}
       <>
-        {/* <div className={"particlesWrapper"}>
-          <GradientCanvas />
-          <WeatherMap />
-        </div> */}
-
-        <div className={styles.openCallTextsWrapper}>
+        <div
+          className={styles.openCallTextsWrapper}
+          style={{ pointerEvents: showPopup ? "none" : "auto" }}
+        >
           <div
             style={{ color: "#ddd" }}
             className={`${styles.openCallColumnWrapper}`}
@@ -95,12 +99,13 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
                 )}
               </div>
             </div>
-{/* 
+
             <h1
               className={styles.callButton}
-              style={{ marginTop: "var(--spaceLarge)" }}
+              style={{ marginTop: "var(--spaceLarge)", cursor: "pointer" }}
+              onClick={() => setShowPopup(true)}
             >
-              <a
+              {/* <a
                 href="https://forms.gle/1DfYWpqGaLc4DXup7"
                 target="_blank"
                 rel="noreferrer"
@@ -108,14 +113,17 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
                 {english
                   ? "Submit now via our application portal"
                   : "Jetzt über unser Bewerbungsportal Einreichen"}
-              </a>
+              </a> */}
+              {english
+                ? "Submit now via our application portal"
+                : "Jetzt über unser Bewerbungsportal Einreichen"}
             </h1>
 
             <p style={{ padding: "var(--spaceMedium)", textAlign: "center" }}>
               {english
                 ? "You will be redirected to an external page. You do not need a Google account for this."
                 : "Sie werden auf eine externe Seite umgeleitet.Sie benötigen dafür keinen Google Account."}
-            </p> */}
+            </p>
           </div>
         </div>
       </>
@@ -139,33 +147,6 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
             )}
           </div>
         </div>
-
-        {/* <div className={styles.pastFestivalLinksWrapper}>
-          <div className={styles.pastFestivalLink}>
-            <a
-              href="http://2021.current-stuttgart.de/de"
-              target="_blank"
-              rel="noreferrer"
-              id="current21"
-            >
-              {english
-                ? "Click for Current 2021 →"
-                : "Klick hier für Current 2021 →"}
-            </a>
-          </div>
-          <div className={styles.pastFestivalLink}>
-            <a
-              href="http://2023.current-stuttgart.de/de"
-              target="_blank"
-              rel="noreferrer"
-              id="current21"
-            >
-              {english
-                ? "Click for Current 2023 →"
-                : "Klick hier für Current 2023 →"}
-            </a>
-          </div>
-        </div> */}
 
         <div className={"anchorNewsletter"} id="newsletter"></div>
         <NewsletterMarquee english={english} />

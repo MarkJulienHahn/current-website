@@ -17,6 +17,7 @@
     "hamburger-react": "^2.5.0",
     "mapbox-gl": "^2.15.0",
     "next": "13.0.6",
+    "nodemailer": "^6.9.16",
     "paper": "^0.12.17",
     "react": "18.2.0",
     "react-div-100vh": "^0.7.0",
@@ -27,6 +28,7 @@
     "react-map-gl": "^7.0.25",
     "react-paper-bindings": "^3.0.0-beta.13",
     "react-reconciler": "^0.29.0",
+    "resend": "^4.0.1-alpha.0",
     "swiper": "^9.1.1"
   }
 }

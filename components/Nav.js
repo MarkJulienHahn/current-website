@@ -8,7 +8,7 @@ import styles from "../styles/Nav.module.css";
 
 const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
   const [index, setIndex] = useState(null);
-  const [bottomRow, setBottomRow] = useState("Info");
+  const [bottomRow, setBottomRow] = useState(null);
 
   const [menuExtended, setMenuExtended] = useState(true);
 

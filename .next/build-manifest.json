@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/open-call": [
+    "/impressum": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/open-call.js"
+      "static/chunks/pages/impressum.js"
     ]
   },
   "ampFirstPages": []

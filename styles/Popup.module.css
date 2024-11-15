@@ -44,6 +44,18 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
+  background: none;
+  border: 0;
+  font-size: 48px;
+  line-height: 54px;
+  font-family: "Activist";
+  font-weight: 100;
+  letter-spacing: -2px;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: blue
 }
 
 .form {
@@ -85,20 +97,52 @@
   border: 0;
 }
 
-.inputField {
+.inputContainer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.inputField input {
-  width: 50%;
+.inputContainer input {
+  width: 25%;
 }
 
-@media screen and (max-width: 800px) {
-  .inputField {
+.inputContainer button {
+  background: none;
+  border: 0;
+  font-size: 48px;
+  line-height: 54px;
+  font-family: "Activist";
+  font-weight: 100;
+  letter-spacing: -2px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  color: blue
+}
+
+.inputField {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.inputField input {
+  width: 100%;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  .inputContainer {
     flex-direction: column;
   }
-  .inputField input,  .inputField input:focus {
+  .inputContainer input,
+  .inputContainer input:focus {
     margin: var(--spaceMedium) 0 var(--spaceMedium);
     width: calc(100% - var(--spaceSmall));
   }

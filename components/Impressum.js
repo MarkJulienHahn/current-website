@@ -9,7 +9,7 @@ const Impressum = ({ impr, english, impressum }) => {
   return (
     <div
       className={styles.impressumOuter}
-      style={impr ? { height: ref.current.clientHeight } : { height: "0px" }}
+      style={impr ? { height: ref?.current?.clientHeight } : { height: "0px" }}
     >
       <div
         className={styles.impressumWrapper}

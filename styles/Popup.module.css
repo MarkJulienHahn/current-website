@@ -1,3 +1,5 @@
+
+
 .wrapper {
   position: fixed;
   width: 100vw;
@@ -22,6 +24,15 @@
   padding: var(--spaceSmall);
   overflow: scroll;
   overscroll-behavior: none;
+}
+
+.popup ul {
+  margin-top: var(--spaceSmall);
+}
+
+.popup li {
+  list-style: disc;
+  list-style-position: inside;
 }
 
 .popup h1 {
@@ -55,7 +66,7 @@
 }
 
 .closeButton:hover {
-  color: blue
+  color: blue;
 }
 
 .form {
@@ -90,11 +101,12 @@
   color: blue;
 }
 
-.disabledLink {
-  opacity: 0.3;
+.submitButton {
+  cursor: pointer
+}
+
+.submitButtonDisabled {
   cursor: not-allowed;
-  background: none;
-  border: 0;
 }
 
 .inputContainer {
@@ -104,7 +116,7 @@
 }
 
 .inputContainer input {
-  width: 25%;
+  width: 22%;
 }
 
 .inputContainer button {
@@ -115,11 +127,11 @@
   font-family: "Activist";
   font-weight: 100;
   letter-spacing: -2px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .submitButton:hover {
-  color: blue
+  color: blue;
 }
 
 .inputField {
@@ -137,7 +149,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1320px) {
   .inputContainer {
     flex-direction: column;
   }

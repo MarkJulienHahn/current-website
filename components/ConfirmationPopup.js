@@ -65,6 +65,16 @@ export default function ConfirmationPopup({ openCall, english, setShowPopup }) {
         ) : (
           ""
         )}
+
+        {!isSubmitted && (
+          <>
+            {error && <p className={styles.error}>{error}</p>}
+            <PortableText
+              value={english ? openCall.disclaimer2EN : openCall.disclaimer2DE}
+            />
+          </>
+        )}
+
         {!isSubmitted ? (
           <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.checkboxContainer}>
@@ -114,8 +124,8 @@ export default function ConfirmationPopup({ openCall, english, setShowPopup }) {
                     ? "Sending..."
                     : "Wird gesendet..."
                   : english
-                  ? "Submit Now"
-                  : "Jetzt Einreichen"}
+                  ? "Submit Consent"
+                  : "Einwilligung Absenden"}
               </button>{" "}
             </div>
           </form>
@@ -123,20 +133,12 @@ export default function ConfirmationPopup({ openCall, english, setShowPopup }) {
           <div className={styles.thankYouMessage}>
             <h1>
               {english
-                ? "Thank you for your submission. The link to the form has been sent to your email address."
-                : "Vielen Dank für Ihre Einreichung. Der Link zum Formular wurde an Ihre E-Mail-Adresse gesendet."}
+                ? "Thank you for your consent. The link to the form has been sent to the email address you have provided."
+                : "Vielen Dank für Ihre Einwilligung. Der Link zum Formular wurde an Ihre angegebene E-Mail-Adresse gesendet."}
             </h1>
           </div>
         )}
 
-        {!isSubmitted && (
-          <>
-            {error && <p className={styles.error}>{error}</p>}
-            <PortableText
-              value={english ? openCall.disclaimer2EN : openCall.disclaimer2DE}
-            />
-          </>
-        )}
         <button
           onClick={() => setShowPopup(false)}
           className={styles.closeButton}

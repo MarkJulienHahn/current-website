@@ -400,6 +400,15 @@
   margin-bottom: var(--spaceMedium);
 }
 
+.openCallText ul li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.openCallText ol li {
+  list-style: decimal;
+}
+
 .openCallTextWrapper {
   display: flex;
   width: 100vw;

@@ -165,7 +165,7 @@ export default openCall;
 
 export async function getServerSideProps() {
   const openCall = await client.fetch(`
-  * [_type == "openCall"][0]{"pdf": pdf.asset->{url}, ...}`);
+  * [_type == "openCall"][0]{"pdf": pdf.asset->{url}, "datenschutzhinweis": datenschutzhinweis.asset->{url}, ...}`);
   const logos = await client.fetch(
     `* [_type == "logos25"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );

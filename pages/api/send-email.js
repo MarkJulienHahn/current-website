@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       from: "submission2025@artpublicspace.de",
       to: "submission2025@artpublicspace.de",
       subject: "New Form Submission",
-      html: `<p>Name entered: ${name}<br>Email: ${email}</p>`,
+      html: `<p>Hiermit wurde die Einwilligung gegeben<br><br>Name entered: ${name}<br>Email: ${email}</p>`,
     });
 
     // Second email - to the email provided in the form

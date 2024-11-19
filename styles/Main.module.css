@@ -421,6 +421,10 @@
   margin-top: var(--spaceLarge);
 }
 
+.openCallTextsWrapper a {
+  text-decoration: underline;
+}
+
 .openCallColumnWrapper {
   width: 50%;
   padding: var(--spaceMedium) var(--spaceSmall);
@@ -448,7 +452,7 @@
   .pastFestivalLink {
     width: 100%;
     font-size: 35px;
-    line-height: 38px
+    line-height: 38px;
   }
 }
 
@@ -557,7 +561,6 @@
     font-weight: 100;
     margin: 0;
     padding-right: var(--spaceSmall);
-    
   }
 
   .newsletterMarqueeHalf h2 {

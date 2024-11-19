@@ -124,8 +124,8 @@ export default function ConfirmationPopup({ openCall, english, setShowPopup }) {
                     ? "Sending..."
                     : "Wird gesendet..."
                   : english
-                  ? "Submit Consent"
-                  : "Einwilligung Absenden"}
+                  ? " I hereby agree"
+                  : "Hiermit einwilligen"}
               </button>{" "}
             </div>
           </form>

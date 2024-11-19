@@ -12,8 +12,24 @@ import CurrentlyPreview from "../components/CurrentlyPreview";
 import styles from "../styles/Main.module.css";
 import { PortableText } from "@portabletext/react";
 
+const LinkRenderer = ({ children, value }) => {
+  const { href } = value;
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  );
+};
+
 const openCall = ({ currently, openCall, logos, impressum, english }) => {
   const [showPopup, setShowPopup] = useState(false);
+
+  const portableTextComponents = {
+    types: {},
+    marks: {
+      link: LinkRenderer,
+    },
+  };
 
   return (
     <>
@@ -38,9 +54,15 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
             <div className={styles.openCallText}>
               <div>
                 {english ? (
-                  <PortableText value={openCall.textEN} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.textEN}
+                  />
                 ) : (
-                  <PortableText value={openCall.textDE} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.textDE}
+                  />
                 )}
               </div>
             </div>
@@ -53,9 +75,15 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
               </h1>
               <div>
                 {english ? (
-                  <PortableText value={openCall.hardFactsEN} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.hardFactsEN}
+                  />
                 ) : (
-                  <PortableText value={openCall.hardFactsDE} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.hardFactsDE}
+                  />
                 )}
               </div>
             </div>
@@ -77,15 +105,21 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
           >
             <h1 className={styles.openCallTextHeadline}>
               {english
-                ? "Documents to be submitted"
+                ? "Required Documents"
                 : "Einzureichende Unterlagen"}
             </h1>
             <div className={styles.openCallText}>
               <div>
                 {english ? (
-                  <PortableText value={openCall.checklisteEN} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.checklisteEN}
+                  />
                 ) : (
-                  <PortableText value={openCall.checklisteDE} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.checklisteDE}
+                  />
                 )}
               </div>
             </div>
@@ -93,9 +127,15 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
             <div className={styles.openCallText}>
               <div className={styles.textSmall}>
                 {english ? (
-                  <PortableText value={openCall.teilnahmebedingungenEN} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.teilnahmebedingungenEN}
+                  />
                 ) : (
-                  <PortableText value={openCall.teilnahmebedingungenDE} />
+                  <PortableText
+                    components={portableTextComponents}
+                    value={openCall.teilnahmebedingungenDE}
+                  />
                 )}
               </div>
             </div>
@@ -105,24 +145,15 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
               style={{ marginTop: "var(--spaceLarge)", cursor: "pointer" }}
               onClick={() => setShowPopup(true)}
             >
-              {/* <a
-                href="https://forms.gle/1DfYWpqGaLc4DXup7"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {english
-                  ? "Submit now via our application portal"
-                  : "Jetzt über unser Bewerbungsportal Einreichen"}
-              </a> */}
               {english
-                ? "Submit now via our application portal"
-                : "Jetzt über unser Bewerbungsportal Einreichen"}
+                ? "Submit Application Here"
+                : "Hier Bewerbung einreichen"}
             </h1>
 
             <p style={{ padding: "var(--spaceMedium)", textAlign: "center" }}>
               {english
-                ? "You will be redirected to an external page. You do not need a Google account for this."
-                : "Sie werden auf eine externe Seite umgeleitet.Sie benötigen dafür keinen Google Account."}
+                ? "Once you have consented to the processing of your personal data, you will receive an e-mail with a link to the application form."
+                : "Nach Einwilligung in die Verarbeitung personenbezogener Daten erhalten Sie eine E-Mail mit dem Link zum Bewerbungsformular."}
             </p>
           </div>
         </div>
@@ -141,9 +172,15 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
           </h2>
           <div style={{ paddingBottom: "var(--space)" }}>
             {english ? (
-              <PortableText value={openCall.textEnglish} />
+              <PortableText
+                components={portableTextComponents}
+                value={openCall.textEnglish}
+              />
             ) : (
-              <PortableText value={openCall.textGerman} />
+              <PortableText
+                components={portableTextComponents}
+                value={openCall.textGerman}
+              />
             )}
           </div>
         </div>
@@ -165,12 +202,12 @@ export default openCall;
 
 export async function getServerSideProps() {
   const openCall = await client.fetch(`
-  * [_type == "openCall"][0]{"pdf": pdf.asset->{url}, "datenschutzhinweis": datenschutzhinweis.asset->{url}, ...}`);
+    * [_type == "openCall"][0]{"pdf": pdf.asset->{url}, "datenschutzhinweis": datenschutzhinweis.asset->{url}, ...}`);
   const logos = await client.fetch(
     `* [_type == "logos25"]|order(orderRank){"logo": logo.logo.asset->{"url": url, "height": metadata.dimensions.height, "width": metadata.dimensions.width}}`
   );
   const impressum = await client.fetch(`
-  * [_type == "impressum25"]{...}`);
+    * [_type == "impressum25"]{...}`);
   const currently = await client.fetch(
     `* [_type == "currently"] {..., "textbeitrag": textbeitrag[]{..., "images": images[]{..., "image": image.asset->{...}}}, "bildbeitrag": bildbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}, "newsbeitrag": newsbeitrag{..., "images": images[]{..., "image": image.asset->{...}}}} | order(header.date desc)`
   );

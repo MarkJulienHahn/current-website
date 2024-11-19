@@ -2,7 +2,6 @@ import styles from "../styles/Main.module.css";
 import Image from "next/image";
 
 const LogosPresse = ({ english, logos }) => {
-console.log(logos)
   return (
     <div
       className={styles.logosWrapper}

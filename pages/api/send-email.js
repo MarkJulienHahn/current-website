@@ -18,8 +18,15 @@ export default async function handler(req, res) {
     const data1 = await resend.emails.send({
       from: "submission2025@artpublicspace.de",
       to: "submission2025@artpublicspace.de",
-      subject: "New Form Submission",
-      html: `<p>Hiermit wurde die Einwilligung gegeben<br><br>Name entered: ${name}<br>Email: ${email}</p>`,
+      subject: `Neue Einreichung von ${name}`,
+      html: `<p>Die Person mit dem Namen ${name} und der e-mail  ${email} hat zu folgender Verarbeitung personenbezogener Daten ihre Einwilligung gegeben:<br><br><strong>Rechtsgrundlage für diese Datenübermittlung:</strong> Ihre Einwilligung nach Art. 6 (1) a DSGVO<br><br><strong>Datenübermittlung in Drittländer:</strong> Soweit bei dieser Übermittlung personenbezogene Daten auch außerhalb des Europäischen Wirtschaftsraums (EWR) in die USA übermittelt werden, erfolgt diese Übermittlung aufgrund Art. 45 DSGVO iVm Durchführungsbeschluss (EU) 2023/1795 der Kommission vom 10.7.2023 gemäß der Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates über die Angemessenheit des Schutzniveaus für personenbezogene Daten nach dem Datenschutzrahmen EU-USA (Bekannt gegeben unter Aktenzeichen C(2023) 4745) (Text von Bedeutung für den EWR) C/2023/4745ABl. L 231 vom 20.9.2023, p. 118–229)<br><br>Einwilligung in die Verarbeitung personenbezogener Daten<br><br>Ich willige ein, dass die Art Public Space – Culture Matters gemeinnützige UG (haftungsbeschränkt) Reitzensteinstraße 31 | D-70190 Stuttgart („APS-CM“) meine personenbezogenen Daten, bestehend aus <br><br>
+      — Vorname <br>
+      — Nachname <br>
+      — Postanschrift <br>
+      — E-Mailadresse <br>
+      — technischen Verbindungsdaten des Serverzugriffs (IP-Adresse, Datum, Uhrzeit, abgefragte Seite, Referrer-URL, die Beschreibung des Typs des verwendeten Webbrowsers) <br>
+      — Daten zur Erstellung von Nutzungsstatistiken und Daten über die Nutzung der Website <br>
+      — Protokollierungsdaten von Klicks auf einzelne Elemente  <br><br>zur Durchführung des Open Call mittels Google Form an Google übermittelt. Dies umfasst die Speicherung in den Verarbeitungssystemen von APS-CM und Google. <br><br>Die auf dieser Webseite abrufbaren Datenschutzhinweise habe ich zur Kenntnis genommen.</p>`,
     });
 
     // Second email - to the email provided in the form
@@ -27,7 +34,11 @@ export default async function handler(req, res) {
       from: "submission2025@artpublicspace.de",
       to: email,
       subject: "Thank you for your submission",
-      html: `<p>Dear ${name},<br><br>Thank you for your submission. We have received your information. Please click here for the <a href="https://forms.gle/1DfYWpqGaLc4DXup7">Submission Form</a>.<br><br>Best regards,<br>Your Team</p>`,
+      html: `<p>Hallo / Hello  ${name}<br>Vielen Dank für Ihre Einwilligung zur Verarbeitung personenbezogener Daten. Für die weitere Bearbeitung der Bewerbung nutzen Sie bitte den folgenden Link.<br><br>
+      Thank you for your permission to process your personal data. For further processing of your application, please use the following link.<br><br>
+      <a href="https://forms.gle/1DfYWpqGaLc4DXup7">Application Form</a><br><br>
+      Freundliche Grüße / Best regards,<br>
+      Team CURRENT</p>`,
     });
 
     return res

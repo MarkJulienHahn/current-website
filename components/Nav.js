@@ -252,7 +252,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             }
             onClick={() => setShowNav(false)}
           >
-            {/* <Link href="./open-call">Open Call</Link> */}
+            <Link href="./open-call">Open Call</Link>
             <Link href="./info">Info</Link>
             <Link className={styles.eingerueckt} href="./info">
               {english ? "About" : "Über"}

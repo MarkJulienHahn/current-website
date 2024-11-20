@@ -30,16 +30,21 @@ export default async function handler(req, res) {
     });
 
     // Second email - to the email provided in the form
+    // Second email - to the email provided in the form
     const data2 = await resend.emails.send({
       from: "submission2025@artpublicspace.de",
       to: email,
       subject: "Thank you for your submission",
-      html: `<p>Hallo / Hello  ${name}<br>Vielen Dank für Ihre Einwilligung zur Verarbeitung personenbezogener Daten. Für die weitere Bearbeitung der Bewerbung nutzen Sie bitte den folgenden Link.<br><br>
-      Thank you for your permission to process your personal data. For further processing of your application, please use the following link.<br><br>
+      html: `<p>Hallo / Hello ${name},<br><br>
+      Für die weitere Bearbeitung der Bewerbung nutzen Sie bitte den folgenden Link.<br>
+      For further processing of your application, please use the following link.<br><br>
       <a href="https://forms.gle/1DfYWpqGaLc4DXup7">Application Form</a><br><br>
+      Diese E-Mail wurde automatisch erstellt. Bitte antworten Sie nicht auf diese E-Mail, bei Rückfragen melden Sie sich bitte an <a href="mailto:program@artpublicspace.de">program@artpublicspace.de</a>.<br>
+      This email was created automatically. Please do not reply to this e-mail, if you have any questions please contact <a href="mailto:program@artpublicspace.de">program@artpublicspace.de</a>.<br><br>
       Freundliche Grüße / Best regards,<br>
       Team CURRENT</p>`,
     });
+
 
     return res
       .status(200)

@@ -4,8 +4,9 @@ import Infosection from "../components/Infosection";
 import LogosFoerderer from "../components/LogosFoerderer";
 import LogosMedia from "../components/LogosMedia";
 import LogosCoop from "../components/LogosCoop";
+import Team from "./Team";
 
-const Main = ({ english, editorial, about, currently, logos }) => {
+const Main = ({ english, editorial, about, currently, logos, downloads }) => {
   return (
     <div>
       <Infosection
@@ -20,6 +21,8 @@ const Main = ({ english, editorial, about, currently, logos }) => {
         published={logos?.publishedFoerderer}
         logos={logos?.logosFoerderer}
       />
+
+      <Team downloads={downloads} />
 
       <LogosMedia
         english={english}

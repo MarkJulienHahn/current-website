@@ -92,7 +92,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
               className={styles.callButton}
               style={{ marginTop: "var(--spaceLarge)" }}
             >
-              <a href={openCall?.pdf.url} download>
+              <a href={openCall?.pdf?.url} download>
                 {english
                   ? "Download the call for proposals as a PDF"
                   : "Ausschreibung als PDF herunterladen"}

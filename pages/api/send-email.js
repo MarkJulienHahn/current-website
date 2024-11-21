@@ -43,6 +43,7 @@ export default async function handler(req, res) {
       This email was created automatically. Please do not reply to this e-mail, if you have any questions please contact <a href="mailto:program@artpublicspace.de">program@artpublicspace.de</a>.<br><br>
       Freundliche Grüße / Best regards,<br>
       Team CURRENT</p>`,
+      
     });
 
 

@@ -454,23 +454,35 @@
     font-size: 35px;
     line-height: 38px;
   }
+  .infoText {
+    display: block;
+  }
+  .infoTextColumn {
+    width: 100%
+  }
+  .infoTextTwoColumn {
+    column-count: 1;
+  }
+  .callButton {
+    margin: 50px 0;
+  }
 }
 
 @media screen and (max-width: 700px) {
   .infoHeadline {
     padding: 0 10px 40px;
   }
-  .mobileInfoText {
+  /* .mobileInfoText {
     display: block;
     padding: 0px 5px 0 15px;
     column-count: 1;
     color: #ddd;
-  }
+  } */
 
-  .infoTextWrapper,
+  /* .infoTextWrapper,
   .infoText {
     display: none;
-  }
+  } */
 
   .mobileInfoText p {
     padding-bottom: 20px;

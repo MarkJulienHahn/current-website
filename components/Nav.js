@@ -108,30 +108,6 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
           <div className={styles.menuSub}>
             <div
               className={styles.menuSegment}
-              onMouseEnter={() => setBottomRow("Programm")}
-              // onMouseLeave={() => setBottomRow("")}
-            >
-              <Link href="./open-call">
-                <h2>Open Call</h2>
-              </Link>
-              {/* <Link href="./kalender">
-                <h2>{english ? "Program" : "Programm"}</h2>
-              </Link>
-              {bottomRow == "Programm" && (
-                <div className={styles.bottomRow}>
-                  <Link href="./kalender">
-                    <h2>{english ? "Calendar" : "Kalender"}</h2>
-                  </Link>
-
-                  <Link href="./beteiligte">
-                    <h2>{english ? "Participants" : "Beteiligte"}</h2>
-                  </Link>
-                </div>
-              )} */}
-            </div>
-
-            <div
-              className={styles.menuSegment}
               onMouseEnter={() => setBottomRow("Info")}
               onMouseLeave={() => setBottomRow("")}
             >
@@ -252,7 +228,7 @@ const Nav = ({ english, setEnglish, colorArray, showNav, setShowNav }) => {
             }
             onClick={() => setShowNav(false)}
           >
-            <Link href="./open-call">Open Call</Link>
+            {/* <Link href="./open-call">Open Call</Link> */}
             <Link href="./info">Info</Link>
             <Link className={styles.eingerueckt} href="./info">
               {english ? "About" : "Über"}

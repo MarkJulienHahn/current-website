@@ -41,7 +41,7 @@ const Infosection = ({ english, editorial, about, currently }) => {
       </div>
 
       <div className={styles.infoTextWrapper} style={{ color: "rgb(0,2,28)" }}>
-        <div className={styles.infoText}>
+        {/* <div className={styles.infoText}>
           <div className={styles.infoTextColumn}>
             <h1 className={styles.infoTextHeadline}>Open Call</h1>
             {english ? (
@@ -70,7 +70,7 @@ const Infosection = ({ english, editorial, about, currently }) => {
               </Link>
             </h1>
           </div>
-        </div>
+        </div> */}
 
         <div className={"anchorNewsletter"} id="newsletter"></div>
         <NewsletterMarquee english={english} />

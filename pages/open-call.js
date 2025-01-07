@@ -41,7 +41,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
         />
       )}
       <>
-        <div
+        {/* <div
           className={styles.openCallTextsWrapper}
           style={{ pointerEvents: showPopup ? "none" : "auto" }}
         >
@@ -156,7 +156,7 @@ const openCall = ({ currently, openCall, logos, impressum, english }) => {
                 : "Nach Einwilligung in die Verarbeitung personenbezogener Daten erhalten Sie eine E-Mail mit dem Link zum Bewerbungsformular."}
             </p>
           </div>
-        </div>
+        </div> */}
       </>
 
       <div style={{ position: "relative" }}>
